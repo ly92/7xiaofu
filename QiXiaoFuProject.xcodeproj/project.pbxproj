@@ -779,6 +779,8 @@
 		04F3FC111D8F7CCD000487C4 /* SyetemMessageRemindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC0F1D8F7CCD000487C4 /* SyetemMessageRemindCell.xib */; };
 		04F3FC151D8F8125000487C4 /* SyetemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3FC131D8F8125000487C4 /* SyetemMessageCell.m */; };
 		04F3FC161D8F8125000487C4 /* SyetemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */; };
+		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
+		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2271,6 +2273,9 @@
 		04F3FC121D8F8125000487C4 /* SyetemMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyetemMessageCell.h; sourceTree = "<group>"; };
 		04F3FC131D8F8125000487C4 /* SyetemMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyetemMessageCell.m; sourceTree = "<group>"; };
 		04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyetemMessageCell.xib; sourceTree = "<group>"; };
+		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
+		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
+		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -3982,6 +3987,9 @@
 				04A587A91D8D3A9800FA3E46 /* WalletDetaileCell.h */,
 				04A587AA1D8D3A9800FA3E46 /* WalletDetaileCell.m */,
 				04A587AB1D8D3A9800FA3E46 /* WalletDetaileCell.xib */,
+				0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */,
+				0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */,
+				0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -7829,6 +7837,7 @@
 				0457C49D1DB0694000F9C133 /* ShopFilterView.xib in Resources */,
 				04891A671DD6E9D50099E24F /* OrderSendDetaileCancleCell.xib in Resources */,
 				04891A461DD5CF8C0099E24F /* 归档.zip in Resources */,
+				0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */,
 				04F3FBFD1D8EC3D0000487C4 /* ReplacementOrderViewController.xib in Resources */,
 				048FF2871D7668CF00268A78 /* ChooseSeviceDomainViewController.xib in Resources */,
 				04A587D91D8E1B8100FA3E46 /* ShopCarCell.xib in Resources */,
@@ -8261,6 +8270,7 @@
 				0439B1101DD9906B00135F90 /* EBMuteDetector.m in Sources */,
 				048FF1291D72CE9F00268A78 /* ReceivingOrderCell.m in Sources */,
 				049266CF1D5EE3C90098A3A6 /* UIViewController+Addition.m in Sources */,
+				0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */,
 				041B31C91D7D319300A8EBA2 /* RegisterViewController.m in Sources */,
 				040D5DB41DE3DE5700F810CE /* TPKeyboardAvoidingScrollView.m in Sources */,
 				048FF2C41D77B86F00268A78 /* FilterView.m in Sources */,

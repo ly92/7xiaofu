@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletDetaileViewController">
             <connections>
+                <outlet property="collectionView" destination="l17-f8-CMP" id="UJY-Yz-r3o"/>
                 <outlet property="tableView" destination="0fk-wu-srF" id="8vO-R0-0A7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -73,23 +74,33 @@
                         <constraint firstItem="kmA-er-qrt" firstAttribute="leading" secondItem="39a-JV-0eT" secondAttribute="leading" id="xsd-6N-j3u"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU5-nZ-MhC">
-                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l17-f8-CMP">
+                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GKX-y2-r6Q">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Qec-uc-OAY"/>
+                        <outlet property="delegate" destination="-1" id="lVH-s8-iy4"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="aU5-nZ-MhC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4mB-TL-4hd"/>
+                <constraint firstItem="l17-f8-CMP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6hk-Bl-0rF"/>
                 <constraint firstItem="0fk-wu-srF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="871-X6-W14"/>
                 <constraint firstAttribute="bottom" secondItem="0fk-wu-srF" secondAttribute="bottom" id="A7p-Ms-hfl"/>
-                <constraint firstItem="aU5-nZ-MhC" firstAttribute="top" secondItem="39a-JV-0eT" secondAttribute="bottom" constant="1" id="MfF-fD-lAu"/>
                 <constraint firstItem="39a-JV-0eT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NuX-xb-McZ"/>
                 <constraint firstItem="39a-JV-0eT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZaR-KP-xdv"/>
                 <constraint firstAttribute="trailing" secondItem="39a-JV-0eT" secondAttribute="trailing" id="Zx6-PD-vcl"/>
-                <constraint firstAttribute="bottom" secondItem="aU5-nZ-MhC" secondAttribute="bottom" id="cFY-fe-sID"/>
-                <constraint firstAttribute="trailing" secondItem="aU5-nZ-MhC" secondAttribute="trailing" id="cqd-35-Oxs"/>
+                <constraint firstAttribute="trailing" secondItem="l17-f8-CMP" secondAttribute="trailing" id="bJj-h8-OtK"/>
+                <constraint firstAttribute="bottom" secondItem="l17-f8-CMP" secondAttribute="bottom" id="mtH-oY-IwT"/>
                 <constraint firstItem="0fk-wu-srF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="qbl-Ie-9nq"/>
+                <constraint firstItem="l17-f8-CMP" firstAttribute="top" secondItem="39a-JV-0eT" secondAttribute="bottom" constant="10" id="uT7-lo-Rmh"/>
                 <constraint firstAttribute="trailing" secondItem="0fk-wu-srF" secondAttribute="trailing" id="zcE-Jr-27g"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="116.5"/>

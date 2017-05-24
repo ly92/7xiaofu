@@ -11,22 +11,31 @@
 #import "WalletDetaileModel.h"
 #import "ShouyiJiluViewController.h"
 #import "STPickerDate.h"
+#import "WalletDetailCollectionCell.h"
 
-@interface WalletDetaileViewController ()
+
+@interface WalletDetaileViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) NSArray *collecData;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end
 
 @implementation WalletDetaileViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"账户余额明细";
+    self.collecData = @[@"发单",@"置顶",@"接单",@"取消订单",@"发单撤消",@"购买备件",@"退货",@"充值",@"提现"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"WalletDetailCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"WalletDetailCollectionCell"];
     
+    self.navigationItem.title = @"账户余额明细";
     
     self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"收益明细" target:self action:@selector(shouyiItemAction:)];
 
@@ -175,20 +184,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - 筛选
 
 
 - (IBAction)timeAction {
+    if (!self.collectionView.hidden){
+        self.collectionView.hidden = YES;
+    }
     STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
     pickerDate.pickerDate3EndBlock = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
         NSString *timeStr =[NSString stringWithFormat:@"%ld年%ld月%ld日",year,month,day];
@@ -202,7 +205,41 @@
 
 
 - (IBAction)typeAction {
+    self.collectionView.hidden = !self.collectionView.hidden;
     
+    [self.collectionView reloadData];
 }
 
+#pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.collecData.count;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellID = @"WalletDetailCollectionCell";
+    WalletDetailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    cell.nameLbl.text = self.collecData[indexPath.row];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGFloat W = 0;
+    if(kScreenWidth < 375){
+        W = (kScreenWidth - 20)/3;
+    }else if (kScreenWidth > 375){
+        W = (kScreenWidth - 30)/5;
+    }else{
+        W = (kScreenWidth - 25)/4;
+    }
+    CGSize size = CGSizeMake(W, 30);
+    
+    return size;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DeLog(@"%@",self.collecData[indexPath.row]);
+    
+    self.collectionView.hidden = YES;
+}
 @end
