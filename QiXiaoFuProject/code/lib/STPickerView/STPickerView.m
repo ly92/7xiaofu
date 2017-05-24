@@ -46,6 +46,7 @@
     [self.contentView addSubview:self.buttonRight];
     [self.contentView addSubview:self.labelTitle];
     [self.contentView addSubview:self.lineViewDown];
+    [self addSubview:self.btnView];
 }
 
 - (void)setupUI
@@ -107,6 +108,48 @@
         }];
     }
 }
+
+- (void)showWithBtnArray:(NSArray *)btnArr
+{
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [self setCenter:[UIApplication sharedApplication].keyWindow.center];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
+    
+    CGFloat btnW = (kScreenWidth - btnArr.count - 1)/btnArr.count;
+    for (int i = 0; i < btnArr.count; i++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(btnW * i + 1, 0, btnW, 34);
+        [btn setTitle:btnArr[i] forState:UIControlStateNormal];
+        [btn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+        btn.tag = i;
+        [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.btnView addSubview:btn];
+    }
+    if (self.contentMode == STPickerContentModeBottom) {
+        CGRect frameContent =  self.contentView.frame;
+        frameContent.origin.y -= self.contentView.height;
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [self.layer setOpacity:1.0];
+            self.contentView.frame = frameContent;
+        } completion:^(BOOL finished) {
+        }];
+    }else {
+        CGRect frameContent =  self.contentView.frame;
+        frameContent.origin.y -= (kScreenHeight+self.contentView.height)/2;
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [self.layer setOpacity:1.0];
+            self.contentView.frame = frameContent;
+        } completion:^(BOOL finished) {
+        }];
+    }
+}
+
+- (void)btnAction:(UIButton *)btn{
+    _rows = btn.tag + 1;
+    [self setupUI];
+}
+
 
 - (void)remove
 {
@@ -187,6 +230,17 @@
         [_contentView setBackgroundColor:[UIColor whiteColor]];
     }
     return _contentView;
+}
+
+- (UIView *)btnView{
+    if (!_btnView){
+        _btnView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight - self.heightPicker - 35, self.contentView.width, 35)];
+        _btnView.backgroundColor = [UIColor whiteColor];
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 34, kScreenWidth, 1)];
+        line.backgroundColor = rgb(240, 240, 240);
+        [_btnView addSubview:line];
+    }
+    return _btnView;
 }
 
 - (UIView *)lineView
@@ -277,5 +331,6 @@
     }
     return _lineViewDown;
 }
+
 @end
 

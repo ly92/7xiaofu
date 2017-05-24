@@ -178,7 +178,9 @@
             }
             break;
             case 1:
-            [pickerView reloadComponent:2];
+            if (self.rows > 2){
+                [pickerView reloadComponent:2];
+            }
         default:
             break;
     }

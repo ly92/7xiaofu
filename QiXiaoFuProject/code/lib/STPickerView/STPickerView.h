@@ -35,6 +35,9 @@ typedef NS_ENUM(NSInteger, STPickerContentMode) {
 @property (nonatomic, strong)UILabel *labelTitle;
 /** 7.下边线,在显示模式是STPickerContentModeCenter的时候显示 */
 @property (nonatomic, strong)UIView *lineViewDown;
+/** 8.上方按钮 */
+@property (nonatomic, strong) UIView *btnView;
+
 
 /** 1.标题，default is nil */
 @property(nullable, nonatomic,copy) NSString          *title;
@@ -68,6 +71,7 @@ typedef NS_ENUM(NSInteger, STPickerContentMode) {
  */
 - (void)show;
 
+- (void)showWithBtnArray:(NSArray *)btnArr;
 /**
  *  8.移除
  */

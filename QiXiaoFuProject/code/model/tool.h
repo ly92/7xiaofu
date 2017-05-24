@@ -7,7 +7,7 @@
  
  */
 
-#define kNetWorkEnvironment  2
+#define kNetWorkEnvironment  1
 
 
 // 常量

@@ -10,12 +10,14 @@
 #import "WalletDetaileCell.h"
 #import "WalletDetaileModel.h"
 #import "ShouyiJiluViewController.h"
+#import "STPickerDate.h"
 
 @interface WalletDetaileViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation WalletDetaileViewController
@@ -182,5 +184,25 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - 筛选
+
+
+- (IBAction)timeAction {
+    STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
+    pickerDate.pickerDate3EndBlock = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
+        NSString *timeStr =[NSString stringWithFormat:@"%ld年%ld月%ld日",year,month,day];
+        
+        DeLog(@"%@",timeStr);
+    };
+    [pickerDate showWithBtnArray:@[@"年",@"月",@"日"]];
+//    [pickerDate show];
+}
+
+
+
+- (IBAction)typeAction {
+    
+}
 
 @end
