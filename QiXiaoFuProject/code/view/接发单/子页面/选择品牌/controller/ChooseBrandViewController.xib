@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseBrandViewController">
+            <connections>
+                <outlet property="textView" destination="LlK-qw-m1k" id="sJr-Mr-Cd5"/>
+                <outlet property="vgView" destination="aS9-Tw-VMz" id="kWs-eD-9Bk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS9-Tw-VMz">
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LlK-qw-m1k" customClass="MCTextView">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="LlK-qw-m1k" secondAttribute="bottom" constant="10" id="4Uj-U1-mQh"/>
+                        <constraint firstAttribute="height" constant="151" id="73U-VJ-W0b"/>
+                        <constraint firstAttribute="trailing" secondItem="LlK-qw-m1k" secondAttribute="trailing" constant="10" id="GNi-Rr-tHk"/>
+                        <constraint firstItem="LlK-qw-m1k" firstAttribute="top" secondItem="aS9-Tw-VMz" secondAttribute="top" constant="10" id="Z9I-5d-qZa"/>
+                        <constraint firstItem="LlK-qw-m1k" firstAttribute="leading" secondItem="aS9-Tw-VMz" secondAttribute="leading" constant="10" id="sHy-zt-eMs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aS9-Tw-VMz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="UAz-2E-axU"/>
+                <constraint firstItem="aS9-Tw-VMz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fNv-Ez-d04"/>
+                <constraint firstAttribute="trailing" secondItem="aS9-Tw-VMz" secondAttribute="trailing" id="i4r-gJ-woU"/>
+            </constraints>
+            <point key="canvasLocation" x="-104" y="61"/>
+        </view>
+    </objects>
+</document>

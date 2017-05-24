@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayViewController">
+            <connections>
+                <outlet property="payBtn" destination="cR3-Gc-HQE" id="xrI-og-f8U"/>
+                <outlet property="priceLab" destination="aHb-d2-WFF" id="Ins-Y8-wbY"/>
+                <outlet property="tableView" destination="hd5-em-drt" id="nbS-dy-Amb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hd5-em-drt" customClass="TPKeyboardAvoidingTableView">
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="tOs-Ui-Ita"/>
+                        <outlet property="delegate" destination="-1" id="4vg-Mb-yPh"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gR-YS-hPh">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-Gc-HQE">
+                            <color key="backgroundColor" red="0.83529411764705885" green="0.23137254901960785" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="去支付"/>
+                            <connections>
+                                <action selector="payBtnAction:" destination="-1" eventType="touchUpInside" id="0h3-Wd-3eS"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共支付:¥1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHb-d2-WFF">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="aHb-d2-WFF" secondAttribute="bottom" id="Bjl-07-FRj"/>
+                        <constraint firstItem="cR3-Gc-HQE" firstAttribute="width" secondItem="8gR-YS-hPh" secondAttribute="width" multiplier="1:2" id="PXs-fD-PLS"/>
+                        <constraint firstItem="aHb-d2-WFF" firstAttribute="leading" secondItem="8gR-YS-hPh" secondAttribute="leading" id="bdn-cl-NGX"/>
+                        <constraint firstAttribute="height" constant="49" id="f4V-YB-F9N"/>
+                        <constraint firstItem="aHb-d2-WFF" firstAttribute="top" secondItem="8gR-YS-hPh" secondAttribute="top" id="fkY-FG-R3G"/>
+                        <constraint firstAttribute="bottom" secondItem="cR3-Gc-HQE" secondAttribute="bottom" id="jjb-JX-5sh"/>
+                        <constraint firstAttribute="trailing" secondItem="cR3-Gc-HQE" secondAttribute="trailing" id="phP-Tr-dhI"/>
+                        <constraint firstItem="cR3-Gc-HQE" firstAttribute="leading" secondItem="aHb-d2-WFF" secondAttribute="trailing" id="xle-1O-7vz"/>
+                        <constraint firstItem="cR3-Gc-HQE" firstAttribute="top" secondItem="8gR-YS-hPh" secondAttribute="top" id="zXj-1R-7XY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8gR-YS-hPh" firstAttribute="top" secondItem="hd5-em-drt" secondAttribute="bottom" id="IC7-lb-pTU"/>
+                <constraint firstAttribute="trailing" secondItem="8gR-YS-hPh" secondAttribute="trailing" id="PUM-XI-dE5"/>
+                <constraint firstAttribute="trailing" secondItem="hd5-em-drt" secondAttribute="trailing" id="X4S-CY-YcL"/>
+                <constraint firstItem="hd5-em-drt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gqW-Bw-wkE"/>
+                <constraint firstItem="8gR-YS-hPh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="odI-iz-Wzx"/>
+                <constraint firstItem="hd5-em-drt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pSs-Gw-Kht"/>
+                <constraint firstAttribute="bottom" secondItem="8gR-YS-hPh" secondAttribute="bottom" id="qKj-Vb-deD"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

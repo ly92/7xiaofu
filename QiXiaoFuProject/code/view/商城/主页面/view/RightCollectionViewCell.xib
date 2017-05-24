@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dga-U4-WZd" customClass="RightCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LAv-6o-AZl">
+                        <rect key="frame" x="8" y="5" width="84" height="84"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="LAv-6o-AZl" secondAttribute="height" multiplier="1:1" id="mzS-OG-43N"/>
+                            <constraint firstAttribute="width" constant="84" id="rge-Qj-rJ2"/>
+                            <constraint firstAttribute="height" constant="84" id="z8z-QO-3rG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWP-IQ-kKl">
+                        <rect key="frame" x="8" y="92" width="84" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mWP-IQ-kKl" firstAttribute="top" secondItem="LAv-6o-AZl" secondAttribute="bottom" constant="3" id="2P4-vE-Pg3"/>
+                <constraint firstItem="LAv-6o-AZl" firstAttribute="leading" secondItem="dga-U4-WZd" secondAttribute="leadingMargin" id="HKB-I1-EgT"/>
+                <constraint firstItem="LAv-6o-AZl" firstAttribute="leading" secondItem="mWP-IQ-kKl" secondAttribute="leading" id="Qxp-MC-fAb"/>
+                <constraint firstItem="LAv-6o-AZl" firstAttribute="centerX" secondItem="dga-U4-WZd" secondAttribute="centerX" id="ZTq-Iu-DtH"/>
+                <constraint firstItem="LAv-6o-AZl" firstAttribute="top" secondItem="dga-U4-WZd" secondAttribute="top" constant="5" id="daK-NO-BP2"/>
+                <constraint firstItem="LAv-6o-AZl" firstAttribute="trailing" secondItem="mWP-IQ-kKl" secondAttribute="trailing" id="xD1-nC-qi6"/>
+            </constraints>
+            <size key="customSize" width="106" height="118"/>
+            <connections>
+                <outlet property="collectionView_Label" destination="mWP-IQ-kKl" id="0FU-Go-w2b"/>
+                <outlet property="collectionView_imageview" destination="LAv-6o-AZl" id="LCC-WQ-ISO"/>
+            </connections>
+            <point key="canvasLocation" x="361" y="507"/>
+        </collectionViewCell>
+    </objects>
+</document>

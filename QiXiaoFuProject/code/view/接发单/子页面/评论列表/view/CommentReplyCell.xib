@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentReplyCell" rowHeight="90" id="KGk-i7-Jjw" customClass="CommentReplyCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-q4-c31">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="HEm-Te-6x2"/>
+                            <constraint firstAttribute="width" constant="28" id="yx7-ba-fBB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="林毅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sv-Gz-McJ">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="按时发大厦大法师法大师法第三方阿萨德法师打发撒打发斯蒂芬阿萨德法师打发" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgk-cb-E5T">
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.09.01 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ph-2d-26m">
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7nu-q4-c31" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="08u-Md-DnO"/>
+                    <constraint firstItem="mgk-cb-E5T" firstAttribute="top" secondItem="7nu-q4-c31" secondAttribute="bottom" constant="10" id="1M7-h7-zLE"/>
+                    <constraint firstAttribute="bottom" secondItem="mgk-cb-E5T" secondAttribute="bottom" constant="10" id="8UO-a2-hmd"/>
+                    <constraint firstItem="mgk-cb-E5T" firstAttribute="trailing" secondItem="8ph-2d-26m" secondAttribute="trailing" id="DtV-x8-2gc"/>
+                    <constraint firstAttribute="trailing" secondItem="8ph-2d-26m" secondAttribute="trailing" constant="10" id="OAW-pH-Bib"/>
+                    <constraint firstItem="8ph-2d-26m" firstAttribute="top" secondItem="7nu-q4-c31" secondAttribute="top" id="QZc-YK-a0f"/>
+                    <constraint firstItem="6Sv-Gz-McJ" firstAttribute="leading" secondItem="7nu-q4-c31" secondAttribute="trailing" constant="10" id="SsL-9n-zV2"/>
+                    <constraint firstItem="mgk-cb-E5T" firstAttribute="leading" secondItem="6Sv-Gz-McJ" secondAttribute="leading" id="jWj-xu-KF1"/>
+                    <constraint firstItem="6Sv-Gz-McJ" firstAttribute="centerY" secondItem="7nu-q4-c31" secondAttribute="centerY" id="l3V-1e-JbG"/>
+                    <constraint firstItem="7nu-q4-c31" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="48" id="zhp-6D-Ywe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLab" destination="mgk-cb-E5T" id="xm7-aY-zsP"/>
+                <outlet property="iconImageView" destination="7nu-q4-c31" id="e5N-rR-yy7"/>
+                <outlet property="nameLab" destination="6Sv-Gz-McJ" id="JwA-zv-uQr"/>
+                <outlet property="timelAb" destination="8ph-2d-26m" id="2MQ-ls-iHU"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="134.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderPayViewController">
+            <connections>
+                <outlet property="payBtn" destination="n7d-8t-N8h" id="BPK-7u-PE6"/>
+                <outlet property="priceLab" destination="mGZ-PD-qsZ" id="e4N-ss-HnM"/>
+                <outlet property="tableView" destination="kyf-zp-Q75" id="Zea-hW-xmd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="kyf-zp-Q75" customClass="TPKeyboardAvoidingTableView">
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="09j-pS-QGO"/>
+                        <outlet property="delegate" destination="-1" id="F8E-2p-eN2"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rx3-6X-Onz">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7d-8t-N8h">
+                            <color key="backgroundColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="去支付"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共支付:¥0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGZ-PD-qsZ">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="4I5-UD-iwA"/>
+                        <constraint firstItem="n7d-8t-N8h" firstAttribute="width" secondItem="Rx3-6X-Onz" secondAttribute="width" multiplier="1:2" id="9sR-d3-ZED"/>
+                        <constraint firstItem="n7d-8t-N8h" firstAttribute="leading" secondItem="mGZ-PD-qsZ" secondAttribute="trailing" id="FIJ-uU-2pa"/>
+                        <constraint firstItem="mGZ-PD-qsZ" firstAttribute="top" secondItem="Rx3-6X-Onz" secondAttribute="top" id="FR5-M3-y3s"/>
+                        <constraint firstItem="n7d-8t-N8h" firstAttribute="top" secondItem="Rx3-6X-Onz" secondAttribute="top" id="Oa7-IL-tga"/>
+                        <constraint firstAttribute="bottom" secondItem="n7d-8t-N8h" secondAttribute="bottom" id="Q6X-Ic-v5B"/>
+                        <constraint firstAttribute="trailing" secondItem="n7d-8t-N8h" secondAttribute="trailing" id="Z8M-n3-OfF"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="49" id="awv-ic-zYR"/>
+                        <constraint firstAttribute="height" constant="49" id="ebk-f1-Ihd"/>
+                        <constraint firstAttribute="bottom" secondItem="mGZ-PD-qsZ" secondAttribute="bottom" id="yII-zG-UFb"/>
+                        <constraint firstItem="mGZ-PD-qsZ" firstAttribute="leading" secondItem="Rx3-6X-Onz" secondAttribute="leading" id="zk8-Ku-8MM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Rx3-6X-Onz" firstAttribute="top" secondItem="kyf-zp-Q75" secondAttribute="bottom" id="D64-2d-CbH"/>
+                <constraint firstItem="kyf-zp-Q75" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DFe-lJ-ToY"/>
+                <constraint firstItem="kyf-zp-Q75" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NoE-vY-GhN"/>
+                <constraint firstAttribute="trailing" secondItem="Rx3-6X-Onz" secondAttribute="trailing" id="X9p-mp-O6X"/>
+                <constraint firstAttribute="trailing" secondItem="kyf-zp-Q75" secondAttribute="trailing" id="gCb-Gf-wvt"/>
+                <constraint firstAttribute="bottom" secondItem="Rx3-6X-Onz" secondAttribute="bottom" id="unX-3r-6Eg"/>
+                <constraint firstItem="Rx3-6X-Onz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yzU-cv-S8p"/>
+            </constraints>
+            <point key="canvasLocation" x="-103.5" y="17.5"/>
+        </view>
+    </objects>
+</document>

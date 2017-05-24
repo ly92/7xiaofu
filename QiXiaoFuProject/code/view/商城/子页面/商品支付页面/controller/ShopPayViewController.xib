@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopPayViewController">
+            <connections>
+                <outlet property="payBtn" destination="pv6-Al-kE6" id="LJS-cN-9Ic"/>
+                <outlet property="priceLab" destination="mDv-UG-uqI" id="JG5-co-nSJ"/>
+                <outlet property="tabelView" destination="Lsh-b8-Akc" id="neV-7l-96r"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lsh-b8-Akc" customClass="TPKeyboardAvoidingTableView">
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bi9-hM-sKF"/>
+                        <outlet property="delegate" destination="-1" id="7SP-wv-b9f"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU6-UG-Men">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pv6-Al-kE6">
+                            <color key="backgroundColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="去支付"/>
+                            <connections>
+                                <action selector="payBtnAction:" destination="-1" eventType="touchUpInside" id="Q0B-6J-dHv"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共支付:¥0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDv-UG-uqI">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="mDv-UG-uqI" firstAttribute="top" secondItem="HU6-UG-Men" secondAttribute="top" id="688-tr-iVg"/>
+                        <constraint firstAttribute="trailing" secondItem="pv6-Al-kE6" secondAttribute="trailing" id="8zg-fY-h5Y"/>
+                        <constraint firstAttribute="bottom" secondItem="pv6-Al-kE6" secondAttribute="bottom" id="Dfv-Rq-TlV"/>
+                        <constraint firstAttribute="height" constant="49" id="Ekz-x2-bX1"/>
+                        <constraint firstAttribute="bottom" secondItem="mDv-UG-uqI" secondAttribute="bottom" id="Mbb-XE-xgf"/>
+                        <constraint firstItem="mDv-UG-uqI" firstAttribute="leading" secondItem="HU6-UG-Men" secondAttribute="leading" id="NzT-kF-5Hl"/>
+                        <constraint firstItem="pv6-Al-kE6" firstAttribute="width" secondItem="HU6-UG-Men" secondAttribute="width" multiplier="1:2" id="SoA-Lm-Drn"/>
+                        <constraint firstItem="pv6-Al-kE6" firstAttribute="top" secondItem="HU6-UG-Men" secondAttribute="top" id="Tgd-v1-o1u"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="ac9-UJ-bjU"/>
+                        <constraint firstItem="pv6-Al-kE6" firstAttribute="leading" secondItem="mDv-UG-uqI" secondAttribute="trailing" id="vxW-Dt-k7D"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HU6-UG-Men" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WO8-Yx-D7v"/>
+                <constraint firstItem="Lsh-b8-Akc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XUs-yR-eAF"/>
+                <constraint firstAttribute="bottom" secondItem="HU6-UG-Men" secondAttribute="bottom" id="XlC-y6-hzC"/>
+                <constraint firstAttribute="trailing" secondItem="Lsh-b8-Akc" secondAttribute="trailing" id="hA1-zY-PUp"/>
+                <constraint firstItem="HU6-UG-Men" firstAttribute="top" secondItem="Lsh-b8-Akc" secondAttribute="bottom" id="oe5-3y-WYH"/>
+                <constraint firstItem="Lsh-b8-Akc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rO5-oK-HeZ"/>
+                <constraint firstAttribute="trailing" secondItem="HU6-UG-Men" secondAttribute="trailing" id="vlr-Xx-rxx"/>
+            </constraints>
+            <point key="canvasLocation" x="488" y="390"/>
+        </view>
+    </objects>
+</document>

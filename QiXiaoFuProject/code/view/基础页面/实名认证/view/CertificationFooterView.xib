@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CertificationFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9F-t6-sos">
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGz-VV-lC8">
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv0-Rw-68e">
+                                    <state key="normal" backgroundImage="btn_uploadcamera"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击上传正面照片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx2-dd-CeM">
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Bv0-Rw-68e" secondAttribute="trailing" constant="10" id="OwF-4D-Dpr"/>
+                                <constraint firstItem="hx2-dd-CeM" firstAttribute="bottom" secondItem="Bv0-Rw-68e" secondAttribute="bottom" constant="-5" id="bdk-o8-2mM"/>
+                                <constraint firstItem="hx2-dd-CeM" firstAttribute="trailing" secondItem="Bv0-Rw-68e" secondAttribute="trailing" id="cJF-Uj-5LE"/>
+                                <constraint firstItem="Bv0-Rw-68e" firstAttribute="top" secondItem="YGz-VV-lC8" secondAttribute="top" id="j96-mR-LT3"/>
+                                <constraint firstItem="Bv0-Rw-68e" firstAttribute="leading" secondItem="YGz-VV-lC8" secondAttribute="leading" constant="45" id="xm2-5R-dSk"/>
+                                <constraint firstAttribute="bottom" secondItem="Bv0-Rw-68e" secondAttribute="bottom" id="ylF-Zh-uJK"/>
+                                <constraint firstItem="hx2-dd-CeM" firstAttribute="leading" secondItem="Bv0-Rw-68e" secondAttribute="leading" id="z1O-ns-w2z"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uwg-3Q-7lS">
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-nA-NiP">
+                                    <state key="normal" backgroundImage="btn_uploadcamera"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击上传反面照片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpu-Pe-foV">
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="lfi-nA-NiP" secondAttribute="bottom" id="L05-o2-64v"/>
+                                <constraint firstItem="lfi-nA-NiP" firstAttribute="top" secondItem="Uwg-3Q-7lS" secondAttribute="top" id="L56-Mw-oOc"/>
+                                <constraint firstItem="vpu-Pe-foV" firstAttribute="bottom" secondItem="lfi-nA-NiP" secondAttribute="bottom" constant="-5" id="eva-0l-SHC"/>
+                                <constraint firstItem="vpu-Pe-foV" firstAttribute="trailing" secondItem="lfi-nA-NiP" secondAttribute="trailing" id="t1V-eW-Y3v"/>
+                                <constraint firstItem="lfi-nA-NiP" firstAttribute="leading" secondItem="Uwg-3Q-7lS" secondAttribute="leading" id="vqd-Jp-fvQ"/>
+                                <constraint firstAttribute="trailing" secondItem="lfi-nA-NiP" secondAttribute="trailing" constant="45" id="xe8-h0-nXy"/>
+                                <constraint firstItem="vpu-Pe-foV" firstAttribute="leading" secondItem="lfi-nA-NiP" secondAttribute="leading" id="zfd-Fy-R8i"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Uwg-3Q-7lS" firstAttribute="top" secondItem="h9F-t6-sos" secondAttribute="top" id="23L-Zo-bXQ"/>
+                        <constraint firstAttribute="bottom" secondItem="Uwg-3Q-7lS" secondAttribute="bottom" id="FMD-De-34C"/>
+                        <constraint firstItem="YGz-VV-lC8" firstAttribute="top" secondItem="h9F-t6-sos" secondAttribute="top" id="GZ0-uE-NVh"/>
+                        <constraint firstAttribute="height" constant="90" id="Jqe-4E-sSV"/>
+                        <constraint firstItem="YGz-VV-lC8" firstAttribute="leading" secondItem="h9F-t6-sos" secondAttribute="leading" id="L63-Mf-u14"/>
+                        <constraint firstItem="Uwg-3Q-7lS" firstAttribute="leading" secondItem="YGz-VV-lC8" secondAttribute="trailing" id="O4h-p5-bdU"/>
+                        <constraint firstItem="YGz-VV-lC8" firstAttribute="width" secondItem="h9F-t6-sos" secondAttribute="width" multiplier="1:2" id="pvS-w6-Naw"/>
+                        <constraint firstAttribute="bottom" secondItem="YGz-VV-lC8" secondAttribute="bottom" id="r8J-Tl-Okm"/>
+                        <constraint firstAttribute="trailing" secondItem="Uwg-3Q-7lS" secondAttribute="trailing" id="uva-u1-4If"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传身份证照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-Wc-hrZ">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-Vm-R8g">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="ouE-cf-ES0"/>
+                        <constraint firstAttribute="height" constant="45" id="tUR-1x-f6B"/>
+                    </constraints>
+                    <state key="normal" title="提交" backgroundImage="login_btn_red"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h9F-t6-sos" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="F8a-T1-QfG"/>
+                <constraint firstItem="ecl-Wc-hrZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="VZa-cD-HGF"/>
+                <constraint firstItem="rBs-Vm-R8g" firstAttribute="centerX" secondItem="h9F-t6-sos" secondAttribute="centerX" id="dkg-Sy-ZTQ"/>
+                <constraint firstItem="h9F-t6-sos" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jWH-yx-Nmy"/>
+                <constraint firstAttribute="bottom" secondItem="rBs-Vm-R8g" secondAttribute="bottom" constant="10" id="mnr-LY-ja3"/>
+                <constraint firstItem="ecl-Wc-hrZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="tbk-Zs-HkE"/>
+                <constraint firstAttribute="trailing" secondItem="h9F-t6-sos" secondAttribute="trailing" id="uhf-LW-xtx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="frontBtn" destination="Bv0-Rw-68e" id="2eT-9d-Bi7"/>
+                <outlet property="submitBtn" destination="rBs-Vm-R8g" id="6B6-Se-ZNK"/>
+                <outlet property="tailBtn" destination="lfi-nA-NiP" id="5WC-cJ-Ul8"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="354"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_uploadcamera" width="136" height="90"/>
+        <image name="login_btn_red" width="160" height="45"/>
+    </resources>
+</document>

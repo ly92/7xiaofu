@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EngineerHeaderReusableView" id="U6b-Vx-4bR" customClass="EngineerHeaderReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8j-V6-4fU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="1Sj-Dh-b3v"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4GS-jT-LmQ">
+                    <rect key="frame" x="0.0" y="160" width="320" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Xq3-2S-izH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="O8j-V6-4fU" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="Es8-9K-01F"/>
+                <constraint firstAttribute="bottom" secondItem="4GS-jT-LmQ" secondAttribute="bottom" id="Pek-ix-FI3"/>
+                <constraint firstItem="4GS-jT-LmQ" firstAttribute="top" secondItem="O8j-V6-4fU" secondAttribute="bottom" id="Q1E-tc-yNa"/>
+                <constraint firstAttribute="trailing" secondItem="4GS-jT-LmQ" secondAttribute="trailing" id="bRq-oK-xY0"/>
+                <constraint firstItem="4GS-jT-LmQ" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="oEO-jR-rxl"/>
+                <constraint firstItem="O8j-V6-4fU" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="qJh-62-Oqn"/>
+                <constraint firstAttribute="trailing" secondItem="O8j-V6-4fU" secondAttribute="trailing" id="z8O-Y0-2nl"/>
+            </constraints>
+            <connections>
+                <outlet property="adView" destination="4GS-jT-LmQ" id="65b-AB-dcz"/>
+                <outlet property="bannerView" destination="O8j-V6-4fU" id="nqw-an-uBR"/>
+            </connections>
+            <point key="canvasLocation" x="-54" y="23"/>
+        </collectionReusableView>
+    </objects>
+</document>

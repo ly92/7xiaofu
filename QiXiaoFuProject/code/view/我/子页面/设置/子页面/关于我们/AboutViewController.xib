@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController">
+            <connections>
+                <outlet property="descLab" destination="orV-9x-Z4k" id="94s-Ee-6Ut"/>
+                <outlet property="versonLab" destination="PAa-dE-owh" id="n2f-c5-2CE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Acw-4a-NYK">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Q68-7k-NaK"/>
+                        <constraint firstAttribute="width" constant="100" id="tGw-3q-qCj"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright©2016北京天宇各路宝智能科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orV-9x-Z4k">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咪哒_v1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAa-dE-owh">
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="orV-9x-Z4k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="R6I-Ja-Gda"/>
+                <constraint firstItem="PAa-dE-owh" firstAttribute="centerX" secondItem="Acw-4a-NYK" secondAttribute="centerX" id="UlQ-zf-3ZJ"/>
+                <constraint firstAttribute="bottom" secondItem="orV-9x-Z4k" secondAttribute="bottom" constant="20" id="cMC-Fb-CVG"/>
+                <constraint firstItem="Acw-4a-NYK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="fZv-nw-9Vu"/>
+                <constraint firstItem="Acw-4a-NYK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kNr-z4-i4y"/>
+                <constraint firstItem="PAa-dE-owh" firstAttribute="top" secondItem="Acw-4a-NYK" secondAttribute="bottom" constant="10" id="ny1-i9-Mgf"/>
+            </constraints>
+            <point key="canvasLocation" x="-76" y="72"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon.png" width="57" height="57"/>
+    </resources>
+</document>

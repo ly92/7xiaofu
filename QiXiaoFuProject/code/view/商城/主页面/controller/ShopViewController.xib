@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopViewController">
+            <connections>
+                <outlet property="bannerVire" destination="N90-FQ-8bp" id="dN1-CT-pol"/>
+                <outlet property="bottomView" destination="Kgo-qk-EMA" id="RJ2-5s-XCx"/>
+                <outlet property="searchBtn" destination="jXl-PD-D5z" id="WjZ-m3-9bz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOi-2q-BAX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xda-1I-tNx">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N90-FQ-8bp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="160" id="ct6-z8-M0x"/>
+                                    </constraints>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sb5-rp-01E">
+                                    <rect key="frame" x="18" y="20" width="339" height="36"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchbox" translatesAutoresizingMaskIntoConstraints="NO" id="Vqf-Bs-9Vy">
+                                            <rect key="frame" x="0.0" y="0.0" width="339" height="36"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXl-PD-D5z">
+                                            <rect key="frame" x="0.0" y="0.0" width="339" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="输入商品品牌、名称、类别进行搜索" image="icon_search">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Vqf-Bs-9Vy" secondAttribute="bottom" id="5rR-Jc-QtG"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vqf-Bs-9Vy" secondAttribute="trailing" id="Tse-7K-jX7"/>
+                                        <constraint firstAttribute="bottom" secondItem="jXl-PD-D5z" secondAttribute="bottom" id="Va1-7j-T2v"/>
+                                        <constraint firstAttribute="height" constant="36" id="Vk8-pe-jSu"/>
+                                        <constraint firstItem="Vqf-Bs-9Vy" firstAttribute="top" secondItem="Sb5-rp-01E" secondAttribute="top" id="bsm-fQ-xFf"/>
+                                        <constraint firstItem="Vqf-Bs-9Vy" firstAttribute="leading" secondItem="Sb5-rp-01E" secondAttribute="leading" id="jEO-op-Bak"/>
+                                        <constraint firstItem="jXl-PD-D5z" firstAttribute="leading" secondItem="Sb5-rp-01E" secondAttribute="leading" id="mS8-tg-ZT3"/>
+                                        <constraint firstItem="jXl-PD-D5z" firstAttribute="top" secondItem="Sb5-rp-01E" secondAttribute="top" id="vfG-ud-CyW"/>
+                                        <constraint firstAttribute="trailing" secondItem="jXl-PD-D5z" secondAttribute="trailing" id="zg2-B4-4q7"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="0.32578125000000002" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="170" id="AfU-Bt-pCm"/>
+                                <constraint firstAttribute="trailing" secondItem="Sb5-rp-01E" secondAttribute="trailing" constant="18" id="CNX-Jw-p3q"/>
+                                <constraint firstItem="Sb5-rp-01E" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="top" constant="20" id="DXY-XR-qYg"/>
+                                <constraint firstItem="Sb5-rp-01E" firstAttribute="leading" secondItem="xda-1I-tNx" secondAttribute="leading" constant="18" id="Vch-Ul-d4F"/>
+                                <constraint firstAttribute="trailing" secondItem="N90-FQ-8bp" secondAttribute="trailing" id="W1z-0d-cPq"/>
+                                <constraint firstItem="N90-FQ-8bp" firstAttribute="leading" secondItem="xda-1I-tNx" secondAttribute="leading" id="Zt3-Fc-GcS"/>
+                                <constraint firstItem="N90-FQ-8bp" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="top" id="u6P-cd-amp"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-qk-EMA">
+                            <rect key="frame" x="0.0" y="170" width="375" height="430"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="430" id="5c3-5j-eKZ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xda-1I-tNx" secondAttribute="trailing" id="6hW-dj-0hg"/>
+                        <constraint firstItem="xda-1I-tNx" firstAttribute="leading" secondItem="VOi-2q-BAX" secondAttribute="leading" id="LsL-VJ-ZKy"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="bottom" id="YmM-bo-gtc"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="centerX" secondItem="VOi-2q-BAX" secondAttribute="centerX" id="dgD-pQ-N99"/>
+                        <constraint firstAttribute="bottom" secondItem="Kgo-qk-EMA" secondAttribute="bottom" id="dkD-nz-ndo"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="leading" secondItem="VOi-2q-BAX" secondAttribute="leading" id="hTa-jO-OfD"/>
+                        <constraint firstAttribute="trailing" secondItem="Kgo-qk-EMA" secondAttribute="trailing" id="hqY-fA-ABO"/>
+                        <constraint firstItem="xda-1I-tNx" firstAttribute="top" secondItem="VOi-2q-BAX" secondAttribute="top" id="tQh-bT-e1S"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VOi-2q-BAX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0Zl-zM-bl8"/>
+                <constraint firstAttribute="trailing" secondItem="VOi-2q-BAX" secondAttribute="trailing" id="ARF-WK-W8Z"/>
+                <constraint firstAttribute="bottom" secondItem="VOi-2q-BAX" secondAttribute="bottom" id="sPh-Iv-FOJ"/>
+                <constraint firstItem="VOi-2q-BAX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x2S-Lo-tHD"/>
+            </constraints>
+            <point key="canvasLocation" x="-2" y="80"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_search" width="21" height="21"/>
+        <image name="searchbox" width="35" height="36"/>
+    </resources>
+</document>

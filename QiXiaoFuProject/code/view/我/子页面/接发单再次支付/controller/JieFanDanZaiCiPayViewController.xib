@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JieFanDanZaiCiPayViewController">
+            <connections>
+                <outlet property="payBtn" destination="yOI-8L-Fg8" id="X1l-3D-Bv4"/>
+                <outlet property="priceLab" destination="mp8-3x-Sqa" id="yj3-rl-ybY"/>
+                <outlet property="tableView" destination="gic-Zz-iOO" id="UAG-z4-x09"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gic-Zz-iOO" customClass="TPKeyboardAvoidingTableView">
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="FSB-jk-9bK"/>
+                        <outlet property="delegate" destination="-1" id="zdx-tD-onT"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IME-CA-7MF">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOI-8L-Fg8">
+                            <color key="backgroundColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="去支付"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共支付:¥0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp8-3x-Sqa">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.83529411760000005" green="0.23137254900000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="yOI-8L-Fg8" secondAttribute="bottom" id="2PD-nI-U9f"/>
+                        <constraint firstItem="yOI-8L-Fg8" firstAttribute="top" secondItem="IME-CA-7MF" secondAttribute="top" id="H3P-Kd-vut"/>
+                        <constraint firstItem="yOI-8L-Fg8" firstAttribute="leading" secondItem="mp8-3x-Sqa" secondAttribute="trailing" id="Ib5-vj-fuy"/>
+                        <constraint firstAttribute="trailing" secondItem="yOI-8L-Fg8" secondAttribute="trailing" id="KG4-8s-m16"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="ThZ-Uy-in8"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="49" id="eM1-Y5-Hx0"/>
+                        <constraint firstItem="mp8-3x-Sqa" firstAttribute="top" secondItem="IME-CA-7MF" secondAttribute="top" id="kYe-cH-c7v"/>
+                        <constraint firstAttribute="height" constant="49" id="pio-op-zlU"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="49" id="q4k-xg-gDv"/>
+                        <constraint firstItem="mp8-3x-Sqa" firstAttribute="leading" secondItem="IME-CA-7MF" secondAttribute="leading" id="qUA-bI-iYr"/>
+                        <constraint firstItem="yOI-8L-Fg8" firstAttribute="width" secondItem="IME-CA-7MF" secondAttribute="width" multiplier="1:2" id="w8A-cN-Xg0"/>
+                        <constraint firstAttribute="bottom" secondItem="mp8-3x-Sqa" secondAttribute="bottom" id="xYU-6v-7NQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IME-CA-7MF" secondAttribute="bottom" id="1dX-o3-zlH"/>
+                <constraint firstItem="gic-Zz-iOO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BKN-Bg-RyH"/>
+                <constraint firstAttribute="trailing" secondItem="gic-Zz-iOO" secondAttribute="trailing" id="Hpt-30-BsN"/>
+                <constraint firstItem="IME-CA-7MF" firstAttribute="top" secondItem="gic-Zz-iOO" secondAttribute="bottom" id="d2u-1K-t0m"/>
+                <constraint firstAttribute="trailing" secondItem="IME-CA-7MF" secondAttribute="trailing" id="eUn-Z6-atr"/>
+                <constraint firstItem="IME-CA-7MF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="feM-cK-OfL"/>
+                <constraint firstItem="gic-Zz-iOO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xPg-MO-EyW"/>
+            </constraints>
+            <point key="canvasLocation" x="116.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

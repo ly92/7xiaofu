@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyStockCell" rowHeight="132" id="KGk-i7-Jjw" customClass="MyStockCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2c-QI-TkR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-16-THS">
+                                <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5Dx-nS-5Hr"/>
+                                    <constraint firstAttribute="width" constant="60" id="9Is-mE-ynL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名称asdfadsf sdafasdf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCR-am-1TM">
+                                <rect key="frame" x="80" y="10" width="173" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7d-Qo-ow2">
+                                <rect key="frame" x="271" y="53" width="39" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="序列号 1234567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFa-mD-CL9">
+                                <rect key="frame" x="80" y="53" width="104" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nkF-16-THS" firstAttribute="centerY" secondItem="d2c-QI-TkR" secondAttribute="centerY" id="16C-y3-60q"/>
+                            <constraint firstItem="bCR-am-1TM" firstAttribute="leading" secondItem="nkF-16-THS" secondAttribute="trailing" constant="10" id="JBK-uF-kWW"/>
+                            <constraint firstItem="nkF-16-THS" firstAttribute="leading" secondItem="d2c-QI-TkR" secondAttribute="leading" constant="10" id="JTw-Vh-gec"/>
+                            <constraint firstItem="rFa-mD-CL9" firstAttribute="leading" secondItem="bCR-am-1TM" secondAttribute="leading" id="KXz-Ph-JTa"/>
+                            <constraint firstItem="bCR-am-1TM" firstAttribute="top" secondItem="nkF-16-THS" secondAttribute="top" id="ODQ-fu-F9J"/>
+                            <constraint firstAttribute="height" constant="79.5" id="aFp-Q0-efZ"/>
+                            <constraint firstItem="rFa-mD-CL9" firstAttribute="bottom" secondItem="nkF-16-THS" secondAttribute="bottom" id="cT1-C7-AF2"/>
+                            <constraint firstItem="r7d-Qo-ow2" firstAttribute="centerY" secondItem="rFa-mD-CL9" secondAttribute="centerY" id="iF7-h3-ThR"/>
+                            <constraint firstAttribute="trailing" secondItem="r7d-Qo-ow2" secondAttribute="trailing" constant="10" id="pol-qL-vHM"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5l-BW-d8b">
+                        <rect key="frame" x="0.0" y="80" width="320" height="50"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEN-hc-WWG">
+                                <rect key="frame" x="180" y="10" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="PNZ-7j-Vaj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="更换地址" backgroundImage="news_btn_red">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPk-lw-LJd">
+                                <rect key="frame" x="250" y="10" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="geB-Mg-GJ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="销库存" backgroundImage="news_btn_red">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMT-0C-Zib">
+                                <rect key="frame" x="10" y="0.0" width="300" height="0.0"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.54477370689655169" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="mYG-Py-5tj"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoM-w8-wNm">
+                                <rect key="frame" x="10" y="18" width="165" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title=" 北京北京" image="img_location">
+                                    <color key="titleColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qoM-w8-wNm" firstAttribute="leading" secondItem="F5l-BW-d8b" secondAttribute="leading" constant="10" id="GWR-BR-Kje"/>
+                            <constraint firstItem="VPk-lw-LJd" firstAttribute="leading" secondItem="rEN-hc-WWG" secondAttribute="trailing" constant="10" id="SQO-MG-5qH"/>
+                            <constraint firstItem="qoM-w8-wNm" firstAttribute="centerY" secondItem="F5l-BW-d8b" secondAttribute="centerY" id="SVm-XI-bdR"/>
+                            <constraint firstAttribute="height" constant="50" id="V9Y-02-hrI"/>
+                            <constraint firstItem="rEN-hc-WWG" firstAttribute="leading" secondItem="qoM-w8-wNm" secondAttribute="trailing" constant="5" id="Z92-vb-vTn"/>
+                            <constraint firstAttribute="trailing" secondItem="lMT-0C-Zib" secondAttribute="trailing" constant="10" id="ZaO-Do-TAZ"/>
+                            <constraint firstItem="lMT-0C-Zib" firstAttribute="leading" secondItem="F5l-BW-d8b" secondAttribute="leading" constant="10" id="brM-gG-t6B"/>
+                            <constraint firstItem="lMT-0C-Zib" firstAttribute="top" secondItem="F5l-BW-d8b" secondAttribute="top" id="dls-y3-1sg"/>
+                            <constraint firstItem="rEN-hc-WWG" firstAttribute="centerY" secondItem="VPk-lw-LJd" secondAttribute="centerY" id="jKg-vN-CJY"/>
+                            <constraint firstAttribute="trailing" secondItem="VPk-lw-LJd" secondAttribute="trailing" constant="10" id="kA4-pI-ggd"/>
+                            <constraint firstItem="rEN-hc-WWG" firstAttribute="height" secondItem="VPk-lw-LJd" secondAttribute="height" id="naR-TR-U8B"/>
+                            <constraint firstItem="VPk-lw-LJd" firstAttribute="centerY" secondItem="F5l-BW-d8b" secondAttribute="centerY" id="ykJ-Sr-E9x"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="d2c-QI-TkR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="61r-1Q-bNX"/>
+                    <constraint firstAttribute="trailing" secondItem="F5l-BW-d8b" secondAttribute="trailing" id="6TM-nU-2w0"/>
+                    <constraint firstItem="F5l-BW-d8b" firstAttribute="top" secondItem="d2c-QI-TkR" secondAttribute="bottom" id="Eyl-Km-mNh"/>
+                    <constraint firstItem="d2c-QI-TkR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QMF-JF-TJY"/>
+                    <constraint firstAttribute="trailing" secondItem="d2c-QI-TkR" secondAttribute="trailing" id="kQN-hf-k6i"/>
+                    <constraint firstItem="F5l-BW-d8b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rdF-Ob-1M8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="adressBtn" destination="qoM-w8-wNm" id="dY1-Nm-z6p"/>
+                <outlet property="cancelBtn" destination="VPk-lw-LJd" id="rqd-Gy-IAt"/>
+                <outlet property="changeAdressBtn" destination="rEN-hc-WWG" id="A0w-ry-SmH"/>
+                <outlet property="iconimageView" destination="nkF-16-THS" id="dOc-23-hel"/>
+                <outlet property="nameLab" destination="bCR-am-1TM" id="6j9-Mz-TDJ"/>
+                <outlet property="numLab" destination="r7d-Qo-ow2" id="sEW-Ju-vNf"/>
+                <outlet property="serialLab" destination="rFa-mD-CL9" id="0Ou-0S-k9g"/>
+            </connections>
+            <point key="canvasLocation" x="23" y="70"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_location" width="12" height="13"/>
+        <image name="news_btn_red" width="60" height="28"/>
+    </resources>
+</document>

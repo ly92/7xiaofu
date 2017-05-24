@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecommendEngineerAllChooseFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPm-u1-xGA">
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="提醒去接单" backgroundImage="tag_red"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VPm-u1-xGA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KnC-kp-6IF"/>
+                <constraint firstItem="VPm-u1-xGA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OSw-MF-Cdg"/>
+                <constraint firstAttribute="bottom" secondItem="VPm-u1-xGA" secondAttribute="bottom" id="fhd-4z-XK0"/>
+                <constraint firstAttribute="trailing" secondItem="VPm-u1-xGA" secondAttribute="trailing" id="gXC-B5-4WM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="remindToOrderBtn" destination="VPm-u1-xGA" id="wWX-Tl-48U"/>
+            </connections>
+            <point key="canvasLocation" x="388" y="500"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tag_red" width="58" height="20"/>
+    </resources>
+</document>

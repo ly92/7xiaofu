@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CertificationSuccViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_successful" translatesAutoresizingMaskIntoConstraints="NO" id="sse-oQ-lO5">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="ANT-WJ-1JW"/>
+                        <constraint firstAttribute="height" constant="45" id="gDq-aB-sSt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你的申请已经提交成功, 1-2天内给你回复" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-TZ-FcX">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="ddr-dg-ORI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0B-js-SzH">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="dOz-OL-BIa"/>
+                        <constraint firstAttribute="height" constant="42" id="yva-bU-acY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="返回首页" backgroundImage="btn_btnbox_red">
+                        <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backMainBtnAction:" destination="-1" eventType="touchUpInside" id="4Tv-tc-o1g"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="t0B-js-SzH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hxu-7Y-rMs"/>
+                <constraint firstItem="sse-oQ-lO5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QJw-Mu-Uiu"/>
+                <constraint firstItem="VLC-TZ-FcX" firstAttribute="top" secondItem="sse-oQ-lO5" secondAttribute="bottom" constant="10" id="lZZ-Jb-gYt"/>
+                <constraint firstItem="t0B-js-SzH" firstAttribute="top" secondItem="VLC-TZ-FcX" secondAttribute="bottom" constant="24" id="nVQ-ek-FHg"/>
+                <constraint firstItem="VLC-TZ-FcX" firstAttribute="centerX" secondItem="sse-oQ-lO5" secondAttribute="centerX" id="neb-a9-Nlf"/>
+                <constraint firstItem="sse-oQ-lO5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="yr1-54-3W6"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="257.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_btnbox_red" width="6" height="6"/>
+        <image name="img_successful" width="45" height="45"/>
+    </resources>
+</document>

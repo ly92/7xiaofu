@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedbackViewController">
+            <connections>
+                <outlet property="submintBtn" destination="QDE-kP-NTs" id="NzV-mO-ara"/>
+                <outlet property="textView" destination="Eyo-lo-ijy" id="4Sn-mF-dFW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQa-v4-bFG" customClass="TPKeyboardAvoidingScrollView">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgJ-bO-YA4">
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="   反馈有礼" image="img_gift">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的意见一经采纳,就会有好礼相送噢" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39N-Z1-QjT">
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.50980392156862742" green="0.51372549019607838" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eyo-lo-ijy" customClass="MCTextView">
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="150" id="5tI-3h-h2D"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="bf7-fI-FYk"/>
+                            </connections>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDE-kP-NTs">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Jr6-sy-GTM"/>
+                                <constraint firstAttribute="width" constant="130" id="RnF-uK-YoU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="提交" backgroundImage="feedback"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="RnF-uK-YoU"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="submintBtnAction:" destination="-1" eventType="touchUpInside" id="elB-Y9-NHk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Eyo-lo-ijy" secondAttribute="trailing" constant="15" id="12a-Pc-le3"/>
+                        <constraint firstItem="QDE-kP-NTs" firstAttribute="centerX" secondItem="eQa-v4-bFG" secondAttribute="centerX" id="2mg-g3-hh2"/>
+                        <constraint firstItem="39N-Z1-QjT" firstAttribute="top" secondItem="kgJ-bO-YA4" secondAttribute="bottom" constant="20" id="5C6-Pl-VZF"/>
+                        <constraint firstItem="kgJ-bO-YA4" firstAttribute="centerX" secondItem="39N-Z1-QjT" secondAttribute="centerX" id="CdX-4d-W36"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="centerX" secondItem="eQa-v4-bFG" secondAttribute="centerX" id="HB1-Gm-Ozt"/>
+                        <constraint firstAttribute="trailing" secondItem="QDE-kP-NTs" secondAttribute="trailing" constant="90" id="MYO-85-9xr"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="leading" secondItem="eQa-v4-bFG" secondAttribute="leading" constant="10" id="QD3-6m-Mj7"/>
+                        <constraint firstItem="kgJ-bO-YA4" firstAttribute="centerX" secondItem="eQa-v4-bFG" secondAttribute="centerX" id="Usv-o5-XKu"/>
+                        <constraint firstAttribute="bottom" secondItem="QDE-kP-NTs" secondAttribute="bottom" constant="268" id="Yyn-Dp-hAu"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="leading" secondItem="eQa-v4-bFG" secondAttribute="leading" constant="10" id="gga-4N-ngg"/>
+                        <constraint firstItem="39N-Z1-QjT" firstAttribute="centerX" secondItem="QDE-kP-NTs" secondAttribute="centerX" id="hBh-eQ-2jV"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="top" secondItem="39N-Z1-QjT" secondAttribute="bottom" constant="13" id="ihe-wa-h36"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="centerX" secondItem="39N-Z1-QjT" secondAttribute="centerX" id="mQY-5L-3lM"/>
+                        <constraint firstAttribute="trailing" secondItem="39N-Z1-QjT" secondAttribute="trailing" constant="62" id="nUm-Vu-NcE"/>
+                        <constraint firstItem="39N-Z1-QjT" firstAttribute="centerX" secondItem="kgJ-bO-YA4" secondAttribute="centerX" id="omD-cB-yCw"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="width" secondItem="eQa-v4-bFG" secondAttribute="width" multiplier="290:320" id="pYB-mh-aTn"/>
+                        <constraint firstAttribute="trailing" secondItem="Eyo-lo-ijy" secondAttribute="trailing" constant="10" id="qzJ-YC-znE"/>
+                        <constraint firstItem="QDE-kP-NTs" firstAttribute="top" secondItem="Eyo-lo-ijy" secondAttribute="bottom" constant="30" id="s9I-u5-rIs"/>
+                        <constraint firstItem="kgJ-bO-YA4" firstAttribute="centerX" secondItem="eQa-v4-bFG" secondAttribute="centerX" id="tvb-jF-4rM"/>
+                        <constraint firstItem="kgJ-bO-YA4" firstAttribute="top" secondItem="eQa-v4-bFG" secondAttribute="top" constant="20" id="uNu-Mm-E5n"/>
+                        <constraint firstItem="QDE-kP-NTs" firstAttribute="centerX" secondItem="39N-Z1-QjT" secondAttribute="centerX" id="yaP-dQ-WpD"/>
+                        <constraint firstItem="Eyo-lo-ijy" firstAttribute="leading" secondItem="eQa-v4-bFG" secondAttribute="leading" constant="10" id="zD5-tm-cNl"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="omD-cB-yCw"/>
+                            <exclude reference="12a-Pc-le3"/>
+                            <exclude reference="QD3-6m-Mj7"/>
+                            <exclude reference="gga-4N-ngg"/>
+                            <exclude reference="mQY-5L-3lM"/>
+                            <exclude reference="qzJ-YC-znE"/>
+                            <exclude reference="zD5-tm-cNl"/>
+                            <exclude reference="Usv-o5-XKu"/>
+                            <exclude reference="MYO-85-9xr"/>
+                            <exclude reference="yaP-dQ-WpD"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="FlD-Bn-WJ6"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eQa-v4-bFG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5vh-h0-b3y"/>
+                <constraint firstItem="eQa-v4-bFG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7cC-hv-jLz"/>
+                <constraint firstAttribute="bottom" secondItem="eQa-v4-bFG" secondAttribute="bottom" id="GHY-W6-pr7"/>
+                <constraint firstAttribute="trailing" secondItem="eQa-v4-bFG" secondAttribute="trailing" id="eDP-pE-DdG"/>
+                <constraint firstAttribute="trailing" secondItem="eQa-v4-bFG" secondAttribute="trailing" id="gUC-dm-Fj7"/>
+                <constraint firstItem="eQa-v4-bFG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h1m-Dm-D84"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="gUC-dm-Fj7"/>
+                    <exclude reference="h1m-Dm-D84"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="12" y="246"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="feedback" width="150" height="40"/>
+        <image name="img_gift" width="20" height="22"/>
+    </resources>
+</document>

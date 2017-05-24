@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopViewController">
+            <connections>
+                <outlet property="bannerVire" destination="N90-FQ-8bp" id="dN1-CT-pol"/>
+                <outlet property="bottomView" destination="Kgo-qk-EMA" id="RJ2-5s-XCx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOi-2q-BAX">
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xda-1I-tNx">
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N90-FQ-8bp">
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="160" id="ct6-z8-M0x"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.47058823529999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="170" id="AfU-Bt-pCm"/>
+                                <constraint firstAttribute="trailing" secondItem="N90-FQ-8bp" secondAttribute="trailing" id="W1z-0d-cPq"/>
+                                <constraint firstItem="N90-FQ-8bp" firstAttribute="leading" secondItem="xda-1I-tNx" secondAttribute="leading" id="Zt3-Fc-GcS"/>
+                                <constraint firstItem="N90-FQ-8bp" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="top" id="u6P-cd-amp"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-qk-EMA">
+                            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="430" id="5c3-5j-eKZ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xda-1I-tNx" secondAttribute="trailing" id="6hW-dj-0hg"/>
+                        <constraint firstItem="xda-1I-tNx" firstAttribute="leading" secondItem="VOi-2q-BAX" secondAttribute="leading" id="LsL-VJ-ZKy"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="bottom" id="YmM-bo-gtc"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="centerX" secondItem="VOi-2q-BAX" secondAttribute="centerX" id="dgD-pQ-N99"/>
+                        <constraint firstAttribute="bottom" secondItem="Kgo-qk-EMA" secondAttribute="bottom" id="dkD-nz-ndo"/>
+                        <constraint firstItem="Kgo-qk-EMA" firstAttribute="leading" secondItem="VOi-2q-BAX" secondAttribute="leading" id="hTa-jO-OfD"/>
+                        <constraint firstAttribute="trailing" secondItem="Kgo-qk-EMA" secondAttribute="trailing" id="hqY-fA-ABO"/>
+                        <constraint firstItem="xda-1I-tNx" firstAttribute="top" secondItem="VOi-2q-BAX" secondAttribute="top" id="tQh-bT-e1S"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VOi-2q-BAX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0Zl-zM-bl8"/>
+                <constraint firstAttribute="trailing" secondItem="VOi-2q-BAX" secondAttribute="trailing" id="ARF-WK-W8Z"/>
+                <constraint firstAttribute="bottom" secondItem="VOi-2q-BAX" secondAttribute="bottom" id="sPh-Iv-FOJ"/>
+                <constraint firstItem="VOi-2q-BAX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x2S-Lo-tHD"/>
+            </constraints>
+            <point key="canvasLocation" x="539" y="361"/>
+        </view>
+    </objects>
+</document>

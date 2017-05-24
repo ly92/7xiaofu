@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdressCell" rowHeight="136" id="KGk-i7-Jjw" customClass="AdressCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDq-g3-J0T">
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9p-Jv-30X">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="林毅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PA-99-LvL">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="hSp-uh-Ba6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.29695305228233337" green="0.29696083068847656" blue="0.29695665836334229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13023459876" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOw-Cs-10q">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.29695305228233337" green="0.29696083068847656" blue="0.29695665836334229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京海淀区中关村软件园二期中兴通大厦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whP-pl-mTM">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.29695305228233337" green="0.29696083068847656" blue="0.29695665836334229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HOw-Cs-10q" secondAttribute="trailing" constant="10" id="45h-Rf-Xab"/>
+                                    <constraint firstItem="whP-pl-mTM" firstAttribute="top" secondItem="9PA-99-LvL" secondAttribute="bottom" constant="10" id="5Fw-oZ-Ta9"/>
+                                    <constraint firstItem="9PA-99-LvL" firstAttribute="leading" secondItem="G9p-Jv-30X" secondAttribute="leading" constant="10" id="8zN-O2-WOQ"/>
+                                    <constraint firstItem="whP-pl-mTM" firstAttribute="leading" secondItem="9PA-99-LvL" secondAttribute="leading" id="JGm-10-ffK"/>
+                                    <constraint firstAttribute="bottom" secondItem="whP-pl-mTM" secondAttribute="bottom" constant="10" id="Tj8-Hu-Y5k"/>
+                                    <constraint firstItem="9PA-99-LvL" firstAttribute="top" secondItem="G9p-Jv-30X" secondAttribute="top" constant="10" id="ftv-c9-9oU"/>
+                                    <constraint firstItem="HOw-Cs-10q" firstAttribute="centerY" secondItem="9PA-99-LvL" secondAttribute="centerY" id="mho-JF-1Wf"/>
+                                    <constraint firstAttribute="trailing" secondItem="whP-pl-mTM" secondAttribute="trailing" constant="10" id="xce-Ee-GAd"/>
+                                    <constraint firstItem="HOw-Cs-10q" firstAttribute="height" secondItem="9PA-99-LvL" secondAttribute="height" id="y1V-LI-f3t"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPn-xa-UgT">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JA2-GQ-fpO">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="  设为默认地址" image="btn_checkbox_n">
+                                            <color key="titleColor" red="0.64652317762374878" green="0.64653867483139038" blue="0.64653033018112183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected" title="  默认地址" image="btn_checkbox_s"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oeg-eR-Khr">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="lvt-GC-nD8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title=" 删除" image="shdz_btn_delete">
+                                            <color key="titleColor" red="0.64652317762374878" green="0.64653867483139038" blue="0.64653033018112183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch9-T3-Sff">
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title=" 编辑" image="shdz_btn_edit">
+                                            <color key="titleColor" red="0.64652317762374878" green="0.64653867483139038" blue="0.64653033018112183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="JA2-GQ-fpO" firstAttribute="centerY" secondItem="MPn-xa-UgT" secondAttribute="centerY" id="8iD-Ya-RQ5"/>
+                                    <constraint firstItem="ch9-T3-Sff" firstAttribute="width" secondItem="Oeg-eR-Khr" secondAttribute="width" id="9zg-8l-Jwx"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ugl-dc-dPp"/>
+                                    <constraint firstItem="JA2-GQ-fpO" firstAttribute="leading" secondItem="MPn-xa-UgT" secondAttribute="leading" constant="10" id="chx-8p-tnG"/>
+                                    <constraint firstItem="ch9-T3-Sff" firstAttribute="centerY" secondItem="Oeg-eR-Khr" secondAttribute="centerY" id="fHC-qp-QOy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oeg-eR-Khr" secondAttribute="trailing" constant="10" id="gIK-QQ-Woy"/>
+                                    <constraint firstItem="Oeg-eR-Khr" firstAttribute="leading" secondItem="ch9-T3-Sff" secondAttribute="trailing" constant="10" id="iVI-0V-hxs"/>
+                                    <constraint firstItem="Oeg-eR-Khr" firstAttribute="centerY" secondItem="MPn-xa-UgT" secondAttribute="centerY" id="sPZ-gM-ITY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79215686269999996" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G9p-Jv-30X" firstAttribute="top" secondItem="gDq-g3-J0T" secondAttribute="top" id="FzN-aB-xiZ"/>
+                            <constraint firstItem="MPn-xa-UgT" firstAttribute="leading" secondItem="gDq-g3-J0T" secondAttribute="leading" id="KmD-Zr-cd3"/>
+                            <constraint firstItem="G9p-Jv-30X" firstAttribute="leading" secondItem="gDq-g3-J0T" secondAttribute="leading" id="Xkj-Qw-Bcc"/>
+                            <constraint firstAttribute="trailing" secondItem="G9p-Jv-30X" secondAttribute="trailing" id="aEb-As-wSN"/>
+                            <constraint firstItem="MPn-xa-UgT" firstAttribute="top" secondItem="G9p-Jv-30X" secondAttribute="bottom" constant="1" id="n7f-hX-ZSX"/>
+                            <constraint firstAttribute="trailing" secondItem="MPn-xa-UgT" secondAttribute="trailing" id="ori-5q-a9y"/>
+                            <constraint firstAttribute="bottom" secondItem="MPn-xa-UgT" secondAttribute="bottom" id="tHL-CZ-dXa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gDq-g3-J0T" secondAttribute="bottom" id="8DP-Pg-ulY"/>
+                    <constraint firstItem="gDq-g3-J0T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BTy-Uc-0hD"/>
+                    <constraint firstAttribute="trailing" secondItem="gDq-g3-J0T" secondAttribute="trailing" id="GEH-Gd-Id8"/>
+                    <constraint firstItem="gDq-g3-J0T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WX6-Bc-JCa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="adressLab" destination="whP-pl-mTM" id="95l-Hk-EwM"/>
+                <outlet property="defaultAdressBtn" destination="JA2-GQ-fpO" id="NMB-BZ-JqQ"/>
+                <outlet property="deleteBtn" destination="Oeg-eR-Khr" id="BNQ-MM-cCA"/>
+                <outlet property="editBtn" destination="ch9-T3-Sff" id="P6B-cO-ueQ"/>
+                <outlet property="nameLab" destination="9PA-99-LvL" id="fJB-fS-UNg"/>
+                <outlet property="phonelab" destination="HOw-Cs-10q" id="WiU-8G-uRf"/>
+            </connections>
+            <point key="canvasLocation" x="-46" y="-79"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btn_checkbox_n" width="21" height="21"/>
+        <image name="btn_checkbox_s" width="21" height="21"/>
+        <image name="shdz_btn_delete" width="19" height="19"/>
+        <image name="shdz_btn_edit" width="19" height="19"/>
+    </resources>
+</document>

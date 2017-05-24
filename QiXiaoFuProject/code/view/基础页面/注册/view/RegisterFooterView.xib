@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RegisterFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-hE-Y4b">
+                    <rect key="frame" x="20" y="80" width="280" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="eGm-Bu-PUp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="注册" backgroundImage="pub_btn_n"/>
+                    <state key="selected" backgroundImage="pub_btn_p"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuJ-o0-Eu6">
+                    <rect key="frame" x="52" y="12.5" width="29" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.58039215686274515" green="0.58039215686274515" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHy-NN-KfQ">
+                    <rect key="frame" x="81" y="6.5" width="129" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="《七小服用户协议》">
+                        <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rY-PJ-zor">
+                    <rect key="frame" x="20" y="10" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="M3i-er-FTD"/>
+                        <constraint firstAttribute="width" constant="22" id="etK-OQ-DjP"/>
+                    </constraints>
+                    <state key="normal" image="btn_checkbox_n"/>
+                    <state key="selected" image="btn_checkbox_s"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="b6l-hE-Y4b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="46x-vH-D8o"/>
+                <constraint firstItem="1rY-PJ-zor" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="5vf-a5-0xG"/>
+                <constraint firstItem="OuJ-o0-Eu6" firstAttribute="centerY" secondItem="1rY-PJ-zor" secondAttribute="centerY" id="Oeb-N4-AwP"/>
+                <constraint firstAttribute="trailing" secondItem="b6l-hE-Y4b" secondAttribute="trailing" constant="20" id="Ovf-7S-JbM"/>
+                <constraint firstItem="b6l-hE-Y4b" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Sxl-Dn-ITv"/>
+                <constraint firstItem="BHy-NN-KfQ" firstAttribute="leading" secondItem="OuJ-o0-Eu6" secondAttribute="trailing" id="VOD-UN-lcz"/>
+                <constraint firstItem="OuJ-o0-Eu6" firstAttribute="leading" secondItem="1rY-PJ-zor" secondAttribute="trailing" constant="10" id="YKu-6j-QeG"/>
+                <constraint firstItem="1rY-PJ-zor" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="cbp-Xb-5Du"/>
+                <constraint firstItem="BHy-NN-KfQ" firstAttribute="centerY" secondItem="OuJ-o0-Eu6" secondAttribute="centerY" id="dj8-TO-fMi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkBtn" destination="1rY-PJ-zor" id="q2o-Xf-5tQ"/>
+                <outlet property="protocolBtn" destination="BHy-NN-KfQ" id="UgR-hf-17U"/>
+                <outlet property="protocolLab" destination="OuJ-o0-Eu6" id="TcI-r9-DiS"/>
+                <outlet property="registerBtn" destination="b6l-hE-Y4b" id="cMA-st-Upk"/>
+            </connections>
+            <point key="canvasLocation" x="6" y="104.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_checkbox_n" width="21" height="21"/>
+        <image name="btn_checkbox_s" width="21" height="21"/>
+        <image name="pub_btn_n" width="45" height="45"/>
+        <image name="pub_btn_p" width="45" height="45"/>
+    </resources>
+</document>

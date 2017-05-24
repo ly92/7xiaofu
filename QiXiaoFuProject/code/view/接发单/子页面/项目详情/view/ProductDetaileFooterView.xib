@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProductDetaileFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-z4-NC9">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJS-in-PBj">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="qTd-DC-bMq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="接单" backgroundImage="pub_btn_n"/>
+                    <state key="disabled" backgroundImage="pub_btn_p"/>
+                    <state key="highlighted" backgroundImage="pub_btn_p"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="F3a-z4-NC9" secondAttribute="bottom" id="0P7-Z0-KJk"/>
+                <constraint firstItem="lJS-in-PBj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="16p-7w-YuR"/>
+                <constraint firstItem="F3a-z4-NC9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="7Bo-IY-Z4S"/>
+                <constraint firstItem="F3a-z4-NC9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HXD-tQ-SHh"/>
+                <constraint firstItem="lJS-in-PBj" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1:2" id="Lvm-js-JI9"/>
+                <constraint firstAttribute="trailing" secondItem="F3a-z4-NC9" secondAttribute="trailing" constant="10" id="pmy-TD-fjr"/>
+                <constraint firstItem="lJS-in-PBj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zhn-7c-WBV"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="recevingOrderBtn" destination="lJS-in-PBj" id="E0h-29-88T"/>
+            </connections>
+            <point key="canvasLocation" x="208" y="76"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pub_btn_n" width="45" height="45"/>
+        <image name="pub_btn_p" width="45" height="45"/>
+    </resources>
+</document>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShopOrderFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Uh-6q-ipx">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-3S-HTq">
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yuS-ZJ-oLU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="   提醒发货   " backgroundImage="btn_btnbox_red">
+                                <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOn-cj-lNs">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="zqK-9q-Tnj"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="删除" backgroundImage="btn_btnbox_gray">
+                                <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="LOn-cj-lNs" firstAttribute="centerY" secondItem="YHN-3S-HTq" secondAttribute="centerY" id="Boj-2y-ocd"/>
+                        <constraint firstAttribute="bottom" secondItem="YHN-3S-HTq" secondAttribute="bottom" constant="5" id="gJK-TV-mTY"/>
+                        <constraint firstAttribute="trailing" secondItem="YHN-3S-HTq" secondAttribute="trailing" constant="10" id="spK-AK-TIG"/>
+                        <constraint firstItem="YHN-3S-HTq" firstAttribute="top" secondItem="2Uh-6q-ipx" secondAttribute="top" constant="5" id="vIJ-DW-LRm"/>
+                        <constraint firstItem="YHN-3S-HTq" firstAttribute="leading" secondItem="LOn-cj-lNs" secondAttribute="trailing" constant="10" id="vLF-CI-Kyh"/>
+                        <constraint firstItem="LOn-cj-lNs" firstAttribute="height" secondItem="YHN-3S-HTq" secondAttribute="height" id="x5s-Mz-l4G"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Uh-6q-ipx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ayh-BM-Pcj"/>
+                <constraint firstAttribute="bottom" secondItem="2Uh-6q-ipx" secondAttribute="bottom" id="KQD-gK-x1O"/>
+                <constraint firstItem="2Uh-6q-ipx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d45-WG-w21"/>
+                <constraint firstAttribute="trailing" secondItem="2Uh-6q-ipx" secondAttribute="trailing" id="dhn-m9-qw5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftBtn" destination="LOn-cj-lNs" id="RbX-7o-KjJ"/>
+                <outlet property="rightBtn" destination="YHN-3S-HTq" id="lI3-Ua-6Hz"/>
+            </connections>
+            <point key="canvasLocation" x="-245" y="-22"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_btnbox_gray" width="6" height="6"/>
+        <image name="btn_btnbox_red" width="6" height="6"/>
+    </resources>
+</document>

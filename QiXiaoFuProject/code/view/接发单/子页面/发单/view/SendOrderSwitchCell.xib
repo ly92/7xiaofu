@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SendOrderSwitchCell" rowHeight="51" id="KGk-i7-Jjw" customClass="SendOrderSwitchCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="50.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="置顶显示显示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A82-9h-kag">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="MP0-0o-X3i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oyx-ax-vJN"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入置顶天数" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5E-0k-aPe">
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Oyx-ax-vJN" firstAttribute="centerY" secondItem="A82-9h-kag" secondAttribute="centerY" id="0Tf-ER-BE5"/>
+                    <constraint firstAttribute="bottom" secondItem="f5E-0k-aPe" secondAttribute="bottom" id="8FN-Pc-bIp"/>
+                    <constraint firstItem="A82-9h-kag" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="K7Q-ky-Igb"/>
+                    <constraint firstAttribute="bottom" secondItem="A82-9h-kag" secondAttribute="bottom" id="Wdt-8i-dFu"/>
+                    <constraint firstItem="f5E-0k-aPe" firstAttribute="leading" secondItem="A82-9h-kag" secondAttribute="trailing" id="Xco-WG-r8X"/>
+                    <constraint firstItem="A82-9h-kag" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="XwM-mD-O1L"/>
+                    <constraint firstItem="f5E-0k-aPe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fiW-cs-h8h"/>
+                    <constraint firstAttribute="trailing" secondItem="f5E-0k-aPe" secondAttribute="trailing" constant="40" id="gSR-E7-XzB"/>
+                    <constraint firstAttribute="trailing" secondItem="Oyx-ax-vJN" secondAttribute="trailing" constant="10" id="i2a-oq-LhA"/>
+                    <constraint firstItem="A82-9h-kag" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rDQ-lX-grs"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="K7Q-ky-Igb"/>
+                        <exclude reference="Wdt-8i-dFu"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="f5E-0k-aPe" id="OBw-Ib-1jY"/>
+                <outlet property="titleLab" destination="A82-9h-kag" id="AVe-1o-kxr"/>
+                <outlet property="zhidingSwitch" destination="Oyx-ax-vJN" id="6XS-a7-RVd"/>
+            </connections>
+            <point key="canvasLocation" x="70" y="338"/>
+        </tableViewCell>
+    </objects>
+</document>

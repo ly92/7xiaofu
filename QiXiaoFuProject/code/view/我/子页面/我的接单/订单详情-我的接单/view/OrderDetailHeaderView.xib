@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderDetailHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9b-HU-vvL">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sN0-d3-vFF" userLabel="line">
+                    <color key="backgroundColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="0.47098599137931035" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="HSs-pO-c4R"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间 2016.08.07 14:25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-nF-IAH">
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="订单序号 201608091425" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-zX-Waz">
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Edf-nF-IAH" firstAttribute="leading" secondItem="1VA-zX-Waz" secondAttribute="trailing" id="0Ck-LO-YVS"/>
+                <constraint firstItem="1VA-zX-Waz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="0i7-O2-l7y"/>
+                <constraint firstAttribute="trailing" secondItem="sN0-d3-vFF" secondAttribute="trailing" constant="10" id="B4O-ik-0mu"/>
+                <constraint firstItem="sN0-d3-vFF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="J2f-MK-D3s"/>
+                <constraint firstItem="1VA-zX-Waz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="LKz-fb-Rvy"/>
+                <constraint firstItem="Edf-nF-IAH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="PMe-NB-xvb"/>
+                <constraint firstAttribute="trailing" secondItem="E9b-HU-vvL" secondAttribute="trailing" constant="10" id="U2x-AB-3eb"/>
+                <constraint firstAttribute="trailing" secondItem="Edf-nF-IAH" secondAttribute="trailing" constant="15" id="VaJ-n0-qye"/>
+                <constraint firstItem="E9b-HU-vvL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="X3n-tM-4CA"/>
+                <constraint firstAttribute="bottom" secondItem="Edf-nF-IAH" secondAttribute="bottom" id="eik-84-tKx"/>
+                <constraint firstAttribute="bottom" secondItem="1VA-zX-Waz" secondAttribute="bottom" id="fVN-un-LCF"/>
+                <constraint firstAttribute="bottom" secondItem="sN0-d3-vFF" secondAttribute="bottom" id="fpK-wn-b5W"/>
+                <constraint firstAttribute="bottom" secondItem="E9b-HU-vvL" secondAttribute="bottom" id="k6Z-oE-zhu"/>
+                <constraint firstItem="E9b-HU-vvL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="l6t-T3-HQK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="orderNumLab" destination="1VA-zX-Waz" id="4Za-bK-ekM"/>
+                <outlet property="orderTimeLab" destination="Edf-nF-IAH" id="6w2-OI-99f"/>
+            </connections>
+            <point key="canvasLocation" x="74" y="-1"/>
+        </view>
+    </objects>
+</document>
