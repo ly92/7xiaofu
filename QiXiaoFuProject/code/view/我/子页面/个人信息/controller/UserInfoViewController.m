@@ -21,6 +21,8 @@
 #import "ChooseBrandViewController.h"
 #import "UpZhiYeImageViewController.h"
 #import "CommentListViewController.h"
+#import "CertificationViewController.h"
+#import "BlockUIAlertView.h"
 
 
 @interface UserInfoViewController ()
@@ -55,7 +57,7 @@
     self.navigationItem.title = @"个人信息";
     
     
-    _titles = @[@"头像",@"昵称",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
+    _titles = @[@"头像",@"昵称",@"从业时间",@"实名认证",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
 
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SettingCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"MineInfoCell" bundle:nil] forCellReuseIdentifier:@"MineInfoCell"];
@@ -224,6 +226,13 @@
         return cell;
         
     }else if (indexPath.row == 3) {
+        MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
+        cell.titleLab.text =_titles[indexPath.row ];
+        cell.textFiled.enabled = NO;
+        cell.textFiled.placeholder = @"";
+        return cell;
+        
+    }else if (indexPath.row == 4) {
         UserInfoUpImageCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"UserInfoUpImageCell"];
         cell.userInfoModel1 = _userInfoModel1;
         cell.userInfoUpImageCell =^(NSInteger depth,NSString * imageUrl,NSString * zhengshuname,NSString * cer_id){
@@ -243,7 +252,7 @@
         
         return cell;
         
-    }else if(indexPath.row == 4){
+    }else if(indexPath.row == 5){
     
         MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
         cell.titleLab.text =_titles[indexPath.row ];
@@ -257,7 +266,7 @@
           return cell;
 
       
-    }else if(indexPath.row == 5){
+    }else if(indexPath.row == 6){
         
         MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
         cell.titleLab.text =_titles[indexPath.row ];
@@ -281,7 +290,7 @@
         cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text =_titles[indexPath.row ];
         
-        if(indexPath.row == 6){
+        if(indexPath.row == 7){
             cell.detailTextLabel.text = _userInfoModel1.iv_code;
         }else{
             cell.detailTextLabel.text = @"";
@@ -297,7 +306,7 @@
     if (indexPath.row == 0) {
         return  70;
     }
-    if (indexPath.row == 3) {
+    if (indexPath.row == 4) {
         return  (kScreenWidth - 0 - 60) / 5 + 20 + 43+ 20;
     }
     return  50;
@@ -329,7 +338,22 @@
 
     }
     
-    if (indexPath.row == 4) {
+    if(indexPath.row == 3){
+        [Utool verifyLoginAndCertification:self LogonBlock:^{
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n已实名认证\n" cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
+                
+                            } otherButtonTitles:nil];
+            [alert show];
+            
+        } CertificationBlock:^{
+            CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }];
+        
+    }
+    
+    if (indexPath.row == 5) {
         
         ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
         vc.domains = _classArray;
@@ -357,7 +381,7 @@
         
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (indexPath.row == 5) {
+    if (indexPath.row == 6) {
         
         ChooseBrandViewController * vc = [[ChooseBrandViewController alloc]initWithNibName:@"ChooseBrandViewController" bundle:nil];
         vc.service_brand = _userInfoModel1.service_brand;
@@ -372,7 +396,7 @@
 
     }
     
-    if(indexPath.row == 7){
+    if(indexPath.row == 8){
         CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
         vc.member_id = _userInfoModel1.member_id;
         vc.type = 2;

@@ -10,6 +10,7 @@
 #import "WalletHeaderView.h"
 #import "WalletDetaileViewController.h"
 #import "RechargeWithdrawViewController.h"
+#import "BlockUIAlertView.h"
 
 @interface WalletViewController (){
 
@@ -47,16 +48,23 @@
     }];
     
     [headerView.tixianBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+        //提现
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n确定提现\n" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                RechargeWithdrawViewController * vc = [[RechargeWithdrawViewController alloc]initWithNibName:@"RechargeWithdrawViewController" bundle:nil];
+                vc.vcType = 2;
+                vc.available_predeposit = _available_predeposit;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        } otherButtonTitles:@"确定"];
+        [alert show];
         
-        RechargeWithdrawViewController * vc = [[RechargeWithdrawViewController alloc]initWithNibName:@"RechargeWithdrawViewController" bundle:nil];
-        vc.vcType = 2;
-         vc.available_predeposit = _available_predeposit;
-        [self.navigationController pushViewController:vc animated:YES];
         
     }];
     
     [headerView.chongzhiBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-        
+        //充值
         RechargeWithdrawViewController * vc = [[RechargeWithdrawViewController alloc]initWithNibName:@"RechargeWithdrawViewController" bundle:nil];
         vc.vcType = 1;
           [self.navigationController pushViewController:vc animated:YES];

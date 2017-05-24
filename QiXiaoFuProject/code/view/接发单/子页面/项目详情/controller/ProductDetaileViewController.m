@@ -163,6 +163,16 @@ static NSString * const kSeverPrice = @"服务价格";
 #pragma mark - 接单请求
 - (void)receivingOrderRequest{
 
+    //询问是否确定接单
+    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n确定接单\n" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        
+        if(buttonIndex == 0){
+            return ;
+        }
+    } otherButtonTitles:@"确定"];
+    [alert show];
+    
+    
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"id"] = _p_id;

@@ -37,7 +37,7 @@
     
     self.navigationItem.title = @"账户余额明细";
     
-    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"收益明细" target:self action:@selector(shouyiItemAction:)];
+//    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"收益明细" target:self action:@selector(shouyiItemAction:)];
 
 
       [_tableView registerNib:[UINib nibWithNibName:@"WalletDetaileCell" bundle:nil] forCellReuseIdentifier:@"WalletDetaileCell"];
