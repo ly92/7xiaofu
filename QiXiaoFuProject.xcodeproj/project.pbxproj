@@ -783,6 +783,10 @@
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
 		0853FF1D1ED67B81005D0E94 /* SpaceTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF1B1ED67B81005D0E94 /* SpaceTimeViewController.xib */; };
+		0853FF211ED68D56005D0E94 /* SpaceTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1F1ED68D56005D0E94 /* SpaceTimeCell.m */; };
+		0853FF221ED68D56005D0E94 /* SpaceTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF201ED68D56005D0E94 /* SpaceTimeCell.xib */; };
+		0853FF251ED69D7E005D0E94 /* SpaceTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF241ED69D7E005D0E94 /* SpaceTimeModel.m */; };
+		0853FF281ED6B7DF005D0E94 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF271ED6B7DF005D0E94 /* LocalData.m */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2281,6 +2285,13 @@
 		0853FF191ED67B81005D0E94 /* SpaceTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceTimeViewController.h; sourceTree = "<group>"; };
 		0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTimeViewController.m; sourceTree = "<group>"; };
 		0853FF1B1ED67B81005D0E94 /* SpaceTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpaceTimeViewController.xib; sourceTree = "<group>"; };
+		0853FF1E1ED68D56005D0E94 /* SpaceTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceTimeCell.h; sourceTree = "<group>"; };
+		0853FF1F1ED68D56005D0E94 /* SpaceTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTimeCell.m; sourceTree = "<group>"; };
+		0853FF201ED68D56005D0E94 /* SpaceTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpaceTimeCell.xib; sourceTree = "<group>"; };
+		0853FF231ED69D7E005D0E94 /* SpaceTimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceTimeModel.h; sourceTree = "<group>"; };
+		0853FF241ED69D7E005D0E94 /* SpaceTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTimeModel.m; sourceTree = "<group>"; };
+		0853FF261ED6B7DF005D0E94 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalData.h; sourceTree = "<group>"; };
+		0853FF271ED6B7DF005D0E94 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -7380,6 +7391,8 @@
 				04E8BD431D587F6C003E4550 /* UserInfoModel.m */,
 				04E8BD441D587F6C003E4550 /* UserManager.h */,
 				04E8BD451D587F6C003E4550 /* UserManager.m */,
+				0853FF261ED6B7DF005D0E94 /* LocalData.h */,
+				0853FF271ED6B7DF005D0E94 /* LocalData.m */,
 			);
 			path = StaticConst;
 			sourceTree = "<group>";
@@ -7539,6 +7552,8 @@
 		0853FF171ED67B39005D0E94 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0853FF231ED69D7E005D0E94 /* SpaceTimeModel.h */,
+				0853FF241ED69D7E005D0E94 /* SpaceTimeModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -7546,6 +7561,9 @@
 		0853FF181ED67B39005D0E94 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0853FF1E1ED68D56005D0E94 /* SpaceTimeCell.h */,
+				0853FF1F1ED68D56005D0E94 /* SpaceTimeCell.m */,
+				0853FF201ED68D56005D0E94 /* SpaceTimeCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -7749,6 +7767,7 @@
 				04891A5D1DD5E3B00099E24F /* OrderDetaileKeHuContentCell.xib in Resources */,
 				048FF20B1D7528CC00268A78 /* 多组数据.plist in Resources */,
 				0422A6261D94C415001ADE98 /* ShopDetaileTagCell.xib in Resources */,
+				0853FF221ED68D56005D0E94 /* SpaceTimeCell.xib in Resources */,
 				041B31B31D7D1C1100A8EBA2 /* LoginFooterView.xib in Resources */,
 				041B31CA1D7D319300A8EBA2 /* RegisterViewController.xib in Resources */,
 				041B31EA1D7D9A2800A8EBA2 /* CertificationViewController.xib in Resources */,
@@ -8144,6 +8163,7 @@
 				049266B41D5EE3C90098A3A6 /* NSDate+Utils.m in Sources */,
 				049266C01D5EE3C90098A3A6 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				04002A811DAB3AAC00D726E6 /* ShowaddbillModel.m in Sources */,
+				0853FF281ED6B7DF005D0E94 /* LocalData.m in Sources */,
 				049266B01D5EE3C90098A3A6 /* UINavigationBar+Awesome.m in Sources */,
 				04A2587B1D9A0D7E0064C0CB /* WebCell.m in Sources */,
 				048FF0C71D70453600268A78 /* MeHeadReusableView.m in Sources */,
@@ -8154,6 +8174,7 @@
 				04A258A01D9A1CA20064C0CB /* NSString+Extension.m in Sources */,
 				04E157621DB0F1230066E1CE /* EngineerDistributedModel.m in Sources */,
 				04DAC7991DBDE2AE002235A7 /* SearchResultViewControler.m in Sources */,
+				0853FF251ED69D7E005D0E94 /* SpaceTimeModel.m in Sources */,
 				09DCD3201EC5953F00CDBE7D /* SCNavTabBar.m in Sources */,
 				0498E46C1DB7768D00262A9C /* UpZhiYeImageViewController.m in Sources */,
 				0457C4A71DB0699C00F9C133 /* SortTableView.m in Sources */,
@@ -8349,6 +8370,7 @@
 				04DAC5F01DB8BEA7002235A7 /* ChatroomDetailViewController.m in Sources */,
 				04A2589F1D9A1CA20064C0CB /* CommodityTagView.m in Sources */,
 				04CA75541D98D3340006EE2B /* ShopMainModel.m in Sources */,
+				0853FF211ED68D56005D0E94 /* SpaceTimeCell.m in Sources */,
 				049EE4AD1D8F99BC004F5AA8 /* SearchKeyModel.m in Sources */,
 				04E8BD671D58822D003E4550 /* Reachability.m in Sources */,
 				044603011D7A94CA00CC787C /* ShopPayAdressCell.m in Sources */,

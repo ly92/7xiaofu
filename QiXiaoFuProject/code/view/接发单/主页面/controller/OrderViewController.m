@@ -224,13 +224,10 @@
 
 - (void)rightJieItemAction:(UIBarButtonItem *)item{
 
-
-    
     [Utool verifyLoginAndCertification:self LogonBlock:^{
         
         ReceivingOrderListViewController * vc = [[ReceivingOrderListViewController alloc]initWithNibName:@"ReceivingOrderListViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
-        
         
     } CertificationBlock:^{
         

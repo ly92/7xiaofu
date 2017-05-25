@@ -23,7 +23,7 @@
 #import "CommentListViewController.h"
 #import "CertificationViewController.h"
 #import "BlockUIAlertView.h"
-
+#import "LocalData.h"
 
 @interface UserInfoViewController ()
 {
@@ -178,6 +178,9 @@
     }
     [MCNetTool postWithUrl:HttpMeUpdateMemberInfo params:params success:^(NSDictionary *requestDic, NSString *msg) {
         [self showSuccessText:@"保存成功"];
+        
+        //记录技术领域
+        [LocalData setUpService_sector:_service_sector];
         
         
         [self.view endEditing:YES];

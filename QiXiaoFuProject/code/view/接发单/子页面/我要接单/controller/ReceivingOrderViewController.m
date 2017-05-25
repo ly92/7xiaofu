@@ -15,6 +15,8 @@
 #import "NSArray+Utils.h"
 #import "STPickerDate.h"
 #import "ReceivingOrderShowModel.h"
+#import "LocalData.h"
+
 
 @interface ReceivingOrderViewController ()<UITableViewDelegate,UITableViewDataSource>{
 
@@ -30,7 +32,7 @@
 @property (nonatomic, copy) NSString  *service_etime;
 
 @property (nonatomic, strong) ShowaddbillModel * showaddbillModel;
-@property (nonatomic,copy)NSString * service_sectorStr;
+//@property (nonatomic,copy)NSString * service_sectorStr;
 
 
 @end
@@ -42,12 +44,14 @@
     
     self.navigationItem.title = @"我要接单";
     
+    [self setupData];
     
-    _titles = @[@"服务区域",@"服务领域",@"设置空闲开始时间",@"设置空闲结束时间"];
+//    _titles = @[@"服务区域",@"服务领域",@"设置空闲开始时间",@"设置空闲结束时间"];
+    _titles = @[@"服务区域",@"设置空闲开始时间",@"设置空闲结束时间"];
     
-     _quyuArray = [NSMutableArray new];
-
-    [_quyuArray addObject:@"   "];
+    if (self.quyuArray.count == 0){
+        [_quyuArray addObject:@"   "];
+    }
 
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SettingCell"];
     
@@ -56,9 +60,7 @@
     [footerView addSubview:receivingOrderEditFooterView];
     receivingOrderEditFooterView.frame = footerView.bounds;
     _tableView.tableFooterView = footerView;
-    
-    
-    
+
     [self showaddbillDataJ];
     
     [receivingOrderEditFooterView.fabuBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -71,6 +73,29 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (NSMutableArray *)quyuArray{
+    if (!_quyuArray){
+        _quyuArray = [NSMutableArray array];
+    }
+    return _quyuArray;
+}
+
+- (void)setupData{
+    if ([self.titleStr yw_notNull]){
+    self.navigationItem.title = self.titleStr;
+        if ([self.spaceTimeModel yw_notNull]){
+            
+            [self.quyuArray removeAllObjects];
+            [self.quyuArray addObjectsFromArray:self.spaceTimeModel.tack_arrays];
+            self.service_stime = [Utool comment_timeStamp2TimeFormatter:self.spaceTimeModel.service_stime];
+            self.service_etime = [Utool comment_timeStamp2TimeFormatter:self.spaceTimeModel.service_etime];
+            
+            [self.tableView reloadData];
+        }
+    }
+    
+}
+
 #pragma mark - 我要接单保存请求
 
 - (void)tackDataSave{
@@ -79,16 +104,24 @@
     LxDBAnyVar(_quyuArray);
 
     NSMutableArray * quyuArray = [NSMutableArray new];
-    [_quyuArray enumerateObjectsUsingBlock:^(AMapTip * selectPoi, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_quyuArray enumerateObjectsUsingBlock:^(id selectPoi, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([selectPoi isKindOfClass:[AMapTip class]]) {
+            AMapTip *obj = (AMapTip * )selectPoi;
             NSMutableDictionary * dict = [NSMutableDictionary new];
 //            dict[@"city"] = [selectPoi.city stringByReplacingOccurrencesOfString:@"市" withString:@""]  ;//服务区域城市名
-            dict[@"address"] = [NSString stringWithFormat:@"%@",selectPoi.name];
-            dict[@"lng"] = @(selectPoi.location.longitude);
-            dict[@"lat"] =  @(selectPoi.location.latitude);
+            dict[@"address"] = [NSString stringWithFormat:@"%@",obj.name];
+            dict[@"lng"] = @(obj.location.longitude);
+            dict[@"lat"] =  @(obj.location.latitude);
             [quyuArray addObject:dict];
-
+        }else if ([selectPoi isKindOfClass:[TackModel class]]){
+            TackModel *obj = (TackModel * )selectPoi;
+            NSMutableDictionary * dict = [NSMutableDictionary new];
+            //            dict[@"city"] = [selectPoi.city stringByReplacingOccurrencesOfString:@"市" withString:@""]  ;//服务区域城市名
+            dict[@"address"] = obj.address;
+            dict[@"lng"] = obj.lng;
+            dict[@"lat"] = obj.lat;
+            [quyuArray addObject:dict];
         }
     }];
     
@@ -96,11 +129,14 @@
         [self showErrorText:@"请选择服务区域"];
         return;
     }
-    if(_service_sectorStr.length == 0){
-        
-        [self showErrorText:@"请选择服务领域"];
-        return;
-    }
+    
+    NSString *service_sectorStr = [LocalData getService_sector];
+    
+//    if(_service_sectorStr.length == 0){
+//        
+//        [self showErrorText:@"请选择服务领域"];
+//        return;
+//    }
     if(_service_stime.length == 0){
         
         [self showErrorText:@"请选择开始时间"];
@@ -123,7 +159,7 @@
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
-    params[@"service_sector"] = _service_sectorStr;
+    params[@"service_sector"] = service_sectorStr;
     params[@"service_stime"] =service_stime;
     params[@"service_etime"] =service_etime;
     params[@"citys"] = [quyuArray JSONString_Ext];
@@ -181,7 +217,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -197,6 +233,19 @@
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text =_titles[indexPath.section];
+    
+    if ([self.spaceTimeModel yw_notNull]){
+        if (indexPath.section == 0){
+            if (self.quyuArray.count > indexPath.row){
+                TackModel *tackModel = self.quyuArray[indexPath.row];
+                cell.detailTextLabel.text = tackModel.address;
+            }
+        }else if (indexPath.section == 1){
+            cell.detailTextLabel.text = self.service_stime;
+        }else{
+            cell.detailTextLabel.text = self.service_etime;
+        }
+    }
     
 //    if (indexPath.section == 3) {
 //        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
@@ -226,7 +275,7 @@
          [self.navigationController pushViewController:vc animated:YES];
         
     }
-    
+    /*
     if(indexPath.section == 1){
         // 选择服务领域
         ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
@@ -256,8 +305,8 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }
-    
-    if(indexPath.section == 2){
+    */
+    if(indexPath.section == 1){
         STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
         pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
             
@@ -270,7 +319,7 @@
         [pickerDate show];
     }
     
-    if(indexPath.section == 3){
+    if(indexPath.section == 2){
         
         STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
         pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){

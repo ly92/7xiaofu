@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "SpaceTimeModel.h"
+
 
 @interface ReceivingOrderViewController : BaseViewController
+@property (nonatomic, copy) NSString *titleStr;
+@property (nonatomic, strong) SpaceTimeModel * spaceTimeModel;
 
 @end

@@ -51,7 +51,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"设置" target:self action:@selector(settingItemAction:)];
+//    icon_settings
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_settings" highImage:@"icon_settings" target:self action:@selector(settingItemAction:)];
 //    _titles =@[@"我的发单",@"我的接单",@"商城订单",@"小库存",@"联系客服",@"收货地址",@"关联用户",@"我要补单",@"推荐给好友"];
     _titles =@[@"我的发单",@"我的接单",@"空闲时间",@"商城订单",@"小库存",@"收货地址",@"关联用户",@"联系客服",@"我要补单"];
 //    _images =@[@"me_img_fadan",@"me_img_jiedan",@"me_img_order",@"me_img_stock",@"me_img_service",@"me_img_address",@"me_img_users",@"me_img_budan",@"me_img_share"];

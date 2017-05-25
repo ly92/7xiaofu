@@ -101,6 +101,9 @@
 
 
 + (NSString *)comment_timeStamp2TimeFormatter:(NSString *)timeSttamp{
+    if (timeSttamp.length > 10){
+        timeSttamp = [timeSttamp substringToIndex:10];
+    }
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy.MM.dd HH:mm"];
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timeSttamp doubleValue]];

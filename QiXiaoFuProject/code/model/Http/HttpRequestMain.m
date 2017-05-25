@@ -54,6 +54,9 @@ NSString  * const HttpMainTackDataSave = @"tp.php/Home/Member/tackDataSave/";
 /* 我要接单显示*/
 NSString  * const HttpMainTackDataShow =@"tp.php/Home/Member/tackDataShow/";
 
+/* 空闲时间列表*/
+NSString  * const HttpMainSpaceTimeShow =@"tp.php/Home/Member/showFreeTime/";
+
 /* 接单-工程师匹配项目列表*/
 NSString  * const HttpMainEngMatchBillList = @"tp.php/Home/Member/engMatchBillList/";
 

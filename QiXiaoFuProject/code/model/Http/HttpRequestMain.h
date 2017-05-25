@@ -57,6 +57,9 @@ UIKIT_EXTERN NSString  * const HttpMainTackDataSave;
 /* 我要接单显示*/
 UIKIT_EXTERN NSString  * const HttpMainTackDataShow;
 
+/* 空闲时间列表*/
+UIKIT_EXTERN NSString  * const HttpMainSpaceTimeShow;
+
 /* 接单-工程师匹配项目列表*/
 UIKIT_EXTERN NSString  * const HttpMainEngMatchBillList;
 
