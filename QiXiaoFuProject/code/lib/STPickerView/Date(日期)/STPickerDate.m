@@ -215,7 +215,10 @@
         selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2d:%.2d",self.year,self.month,self.day,23,00];
         _pickerDate3EndBlock(self.year,self.month,self.day,selectTime);
     }
-    
+    if (_pickerDateAndRowBlock){
+        selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1,self.minute -1];
+        _pickerDateAndRowBlock(self.year,self.month,self.day,self.rows,selectTime);
+    }
     
     
     

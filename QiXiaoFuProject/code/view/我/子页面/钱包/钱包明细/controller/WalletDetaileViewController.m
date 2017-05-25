@@ -24,6 +24,12 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic, strong) NSString *time;//时间区间
+@property (nonatomic, strong) NSString *time_type;//时间区间类别
+@property (nonatomic, strong) NSString *desc;//交易类别
+
+
+
 @end
 
 @implementation WalletDetaileViewController
@@ -31,8 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.collecData = @[@"发单",@"置顶",@"接单",@"取消订单",@"发单撤消",@"购买备件",@"退货",@"充值",@"提现"];
+    self.collecData = @[@"发单",@"完成订单",@"取消订单",@"撤消发单",@"购买备件",@"取消商城订单",@"退货",@"充值",@"提现",@"置顶",@"大家帮",@"补单"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"WalletDetailCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"WalletDetailCollectionCell"];
     
     self.navigationItem.title = @"账户余额明细";
@@ -49,7 +54,9 @@
     _page = 1;
     _dataArray = [NSMutableArray new];
     
- 
+    self.time = @"0";
+    self.time_type = @"0";
+    self.desc = @"0";
     [self loadShopOrderListWithPage:1 hud:YES];
     
     [self addRefreshView];
@@ -90,6 +97,14 @@
     params[@"userid"] = kUserId;
     params[@"type"] = @"1";//  	【1，钱包余额明细】【2，众筹余额明细】【不传为显示所有】
      params[@"curpage"] = @(page);
+    
+    //时间区间
+    params[@"time"] = self.time;
+    //时间区间类别
+    params[@"time_type"] = self.time_type;
+    //交易类别
+    params[@"desc"] = self.desc;
+    
     
     hud?[self showLoading]:@"";
     
@@ -193,18 +208,39 @@
         self.collectionView.hidden = YES;
     }
     STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
-    pickerDate.pickerDate3EndBlock = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
-        NSString *timeStr =[NSString stringWithFormat:@"%ld年%ld月%ld日",year,month,day];
+    pickerDate.pickerDateAndRowBlock = ^(NSInteger year,NSInteger month,NSInteger day,NSInteger row,NSString * time){
         
-        DeLog(@"%@",timeStr);
+        NSString *yearStr =[NSString stringWithFormat:@"%ld",year];
+        
+        NSString *monthStr =[NSString stringWithFormat:@"%ld.%ld",year,month];
+        
+        NSString *dayStr =[NSString stringWithFormat:@"%ld.%ld.%ld",year,month,day];
+        
+        NSString *timeStr = @"";
+        if (row == 1){
+            timeStr = [Utool timestampForDateFromString:yearStr withFormat:@"yyyy"];
+        }else if (row == 2){
+            timeStr = [Utool timestampForDateFromString:monthStr withFormat:@"yyyy.MM"];
+        }else if (row == 3){
+            timeStr = [Utool timestampForDateFromString:dayStr withFormat:@"yyyy.MM.dd"];
+        }
+        
+        self.time = timeStr;
+        self.time_type = [NSString stringWithFormat:@"%ld",(long)row];
+        
+        [self loadShopOrderListWithPage:1 hud:NO];
     };
     [pickerDate showWithBtnArray:@[@"年",@"月",@"日"]];
-//    [pickerDate show];
 }
 
 
 
 - (IBAction)typeAction {
+    if (!self.collectionView.hidden){
+        //取消交易筛选条件
+        self.desc = @"0";
+        [self loadShopOrderListWithPage:1 hud:NO];
+    }
     self.collectionView.hidden = !self.collectionView.hidden;
     
     [self.collectionView reloadData];
@@ -239,6 +275,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DeLog(@"%@",self.collecData[indexPath.row]);
+    DeLog(@"%ld",(long)indexPath.row);
+    
+    self.desc = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
+    [self loadShopOrderListWithPage:1 hud:NO];
     
     self.collectionView.hidden = YES;
 }

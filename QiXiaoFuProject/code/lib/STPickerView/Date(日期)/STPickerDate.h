@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) void (^pickerDate4Block)(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSString * time);
 @property(nonatomic, copy) void (^pickerDate3Block)(NSInteger year,NSInteger month,NSInteger day,NSString * time);
 @property(nonatomic, copy) void (^pickerDate3EndBlock)(NSInteger year,NSInteger month,NSInteger day,NSString * time);
-
+@property(nonatomic, copy) void (^pickerDateAndRowBlock)(NSInteger year,NSInteger month,NSInteger day,NSInteger row,NSString * time);
 @property(nonatomic, copy) void (^pickerDate1Block)(NSInteger year);
 
 
