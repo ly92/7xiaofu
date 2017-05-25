@@ -123,9 +123,9 @@ static NSString * const kItem5SelectedImageName = @"pub_icon_me_s";
     [self addOneChlildVc:shopViewController title:kTabbarTitle2 imageName:kItem2imageName selectedImageName:kItem2SelectedImageName];
     
     
-    // 3.大家帮
-    CrowdfundingViewController *crowdfundingViewController = [[CrowdfundingViewController alloc] initWithNibName:@"CrowdfundingViewController" bundle:nil];
-    [self addOneChlildVc:crowdfundingViewController title:kTabbarTitle3 imageName:kItem3imageName selectedImageName:kItem3SelectedImageName];
+//    // 3.大家帮
+//    CrowdfundingViewController *crowdfundingViewController = [[CrowdfundingViewController alloc] initWithNibName:@"CrowdfundingViewController" bundle:nil];
+//    [self addOneChlildVc:crowdfundingViewController title:kTabbarTitle3 imageName:kItem3imageName selectedImageName:kItem3SelectedImageName];
     // 4.消息
 //    MessageViewController *messageViewController = [[MessageViewController alloc]initWithNibName:@"MessageViewController" bundle:nil];
 //    [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];
