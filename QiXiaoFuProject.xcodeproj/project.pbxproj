@@ -781,6 +781,8 @@
 		04F3FC161D8F8125000487C4 /* SyetemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
+		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
+		0853FF1D1ED67B81005D0E94 /* SpaceTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF1B1ED67B81005D0E94 /* SpaceTimeViewController.xib */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2276,6 +2278,9 @@
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
+		0853FF191ED67B81005D0E94 /* SpaceTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceTimeViewController.h; sourceTree = "<group>"; };
+		0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTimeViewController.m; sourceTree = "<group>"; };
+		0853FF1B1ED67B81005D0E94 /* SpaceTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpaceTimeViewController.xib; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -4828,6 +4833,7 @@
 		049266E21D5EE8100098A3A6 /* 子页面 */ = {
 			isa = PBXGroup;
 			children = (
+				0853FF151ED67B39005D0E94 /* 空闲时间 */,
 				048919EA1DD5CF8C0099E24F /* 我的发单 */,
 				048919FB1DD5CF8C0099E24F /* 我的接单 */,
 				0498E4651DB7766B00262A9C /* 上传职业证书 */,
@@ -7510,6 +7516,40 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		0853FF151ED67B39005D0E94 /* 空闲时间 */ = {
+			isa = PBXGroup;
+			children = (
+				0853FF161ED67B39005D0E94 /* controller */,
+				0853FF171ED67B39005D0E94 /* model */,
+				0853FF181ED67B39005D0E94 /* view */,
+			);
+			path = "空闲时间";
+			sourceTree = "<group>";
+		};
+		0853FF161ED67B39005D0E94 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				0853FF191ED67B81005D0E94 /* SpaceTimeViewController.h */,
+				0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */,
+				0853FF1B1ED67B81005D0E94 /* SpaceTimeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		0853FF171ED67B39005D0E94 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0853FF181ED67B39005D0E94 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		099A94241EC2AAA8004EDD66 /* category */ = {
 			isa = PBXGroup;
 			children = (
@@ -7757,6 +7797,7 @@
 				04F3FBF41D8EBB96000487C4 /* CollectCell.xib in Resources */,
 				044603151D7AA22300CC787C /* increase_normal@2x.png in Resources */,
 				042C9B4D1D9663D70045FAE6 /* MineInfoNickCell.xib in Resources */,
+				0853FF1D1ED67B81005D0E94 /* SpaceTimeViewController.xib in Resources */,
 				044602F41D7A90F900CC787C /* SubjectNumberView.xib in Resources */,
 				041B31BD1D7D200B00A8EBA2 /* LoginPassCell.xib in Resources */,
 				048FF1461D72EA2500268A78 /* ProductDetaileCell.xib in Resources */,
@@ -8170,6 +8211,7 @@
 				0457C4921DB0684F00F9C133 /* ShopListModel.m in Sources */,
 				04B36A801D68497200D86C11 /* XieYiViewController.m in Sources */,
 				04891A661DD6E9D50099E24F /* OrderSendDetaileCancleCell.m in Sources */,
+				0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */,
 				048FF2421D756C1800268A78 /* PayViewController.m in Sources */,
 				04BB10601D8E70C000527749 /* OrderDetaileViewController.m in Sources */,
 				04891A5C1DD5E3B00099E24F /* OrderDetaileKeHuContentCell.m in Sources */,

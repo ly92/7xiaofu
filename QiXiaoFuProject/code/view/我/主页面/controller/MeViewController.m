@@ -34,6 +34,7 @@
 #import "UIButton+WebCache.h"
 #import "ChatViewController.h"
 #import "SCNavTabBarController.h"
+#import "SpaceTimeViewController.h"
 
 @interface MeViewController () <UICollectionViewDataSource, UICollectionViewDelegate,PDCollectionViewFlowLayoutDelegate>{
 
@@ -300,12 +301,9 @@
     cell.titleBtn.tag = indexPath.row;
     [cell.titleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
-        
         if(btn.tag == 8){
             
             [self viewcontrollerJump2VCWithindex:btn.tag];
-
-        
         }else{
             
             [Utool verifyLogin:self LogonBlock:^{
@@ -350,6 +348,8 @@
     }
     if (index == 2) {
         //空闲时间
+        SpaceTimeViewController *spaceTimeVC = [[SpaceTimeViewController alloc] init];
+        [self.navigationController pushViewController:spaceTimeVC animated:YES];
     }
     if (index == 3) {
         SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"全部",@"待付款",@"待发货",@"待收货",@"已完成",@"已取消"]  andClass:[ShopOrderViewController class]];
