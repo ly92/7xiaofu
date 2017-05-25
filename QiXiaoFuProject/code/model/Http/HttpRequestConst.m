@@ -24,7 +24,8 @@ NSString  * const HttpCommonURL = @"http://10.216.2.11/";
 /** 手机号注册 */
 NSString  * const HttpRegister = @"/api/index.php?act=login&op=register";
 /** 协议 */
-NSString  * const HttpXieyi = @"api/index.php?act=login&op=register_body";
+//NSString  * const HttpXieyi = @"api/index.php?act=login&op=register_body";
+NSString  * const HttpXieyi = @"download/xieyi/xieyi.html";
 
 /** 手机号登陆
  post:api.php/user/login/tel/18801097648/pass/123123

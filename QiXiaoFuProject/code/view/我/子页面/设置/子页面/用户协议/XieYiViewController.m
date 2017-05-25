@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//  type;// 1 注册协议 2 操作手册  3 加入我们
+//  type;// 1 注册协议 2 操作手册  3 加入我们  4查看物流信息 5 关于我们
 
         if (_type == 1) {
         _url = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpXieyi];
@@ -41,6 +41,10 @@
     
     if (_type == 4) {
         _url = [NSString stringWithFormat:@"%@%@%@",HttpCommonURL,HttpShopLogisticsInfo,_orderId];
+    }
+    
+    if (_type == 5) {
+        _url = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpMeAboutWe];
     }
     
 }

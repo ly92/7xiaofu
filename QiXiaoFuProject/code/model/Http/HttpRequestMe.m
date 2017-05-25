@@ -27,10 +27,12 @@ NSString  * const HttpMeUpdateMemberInfo = @"tp.php/Home/My/updateMemberInfo";
 NSString  * const HttpMeJoinWe =@"api/index.php?act=login&op=about_body";
 
 /**操作手册 */
-NSString  * const HttpMeHelp_body =@"api/index.php?act=login&op=help_body";
+//NSString  * const HttpMeHelp_body =@"api/index.php?act=login&op=help_body";
+NSString  * const HttpMeHelp_body =@"download/caozuoshouce/navi.html";
 
 /**关于我们 */
-NSString  * const HttpMeAboutWe = @"api/index.php?act=login&op=guanyu";
+//NSString  * const HttpMeAboutWe = @"api/index.php?act=login&op=guanyu";
+NSString  * const HttpMeAboutWe = @"7xfHtml/product.html";
 
 /*==========================功能==========================*/
 

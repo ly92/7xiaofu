@@ -51,8 +51,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"设置" target:self action:@selector(settingItemAction:)];
-    _titles =@[@"我的发单",@"我的接单",@"商城订单",@"小库存",@"联系客服",@"收货地址",@"关联用户",@"我要补单",@"推荐给好友"];
-    _images =@[@"me_img_fadan",@"me_img_jiedan",@"me_img_order",@"me_img_stock",@"me_img_service",@"me_img_address",@"me_img_users",@"me_img_budan",@"me_img_share"];
+//    _titles =@[@"我的发单",@"我的接单",@"商城订单",@"小库存",@"联系客服",@"收货地址",@"关联用户",@"我要补单",@"推荐给好友"];
+    _titles =@[@"我的发单",@"我的接单",@"空闲时间",@"商城订单",@"小库存",@"收货地址",@"关联用户",@"联系客服",@"我要补单"];
+//    _images =@[@"me_img_fadan",@"me_img_jiedan",@"me_img_order",@"me_img_stock",@"me_img_service",@"me_img_address",@"me_img_users",@"me_img_budan",@"me_img_share"];
+    _images =@[@"me_img_fadan",@"me_img_jiedan",@"me_img_order",@"me_img_order",@"me_img_stock",@"me_img_address",@"me_img_users",@"me_img_service",@"me_img_order"];
 
     [self.view addSubview:[self collectionView]];
 
@@ -330,6 +332,7 @@
 
     if (index == 0) {
         SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"待接单",@"已接单",@"已完成",@"已取消",@"调价中"]  andClass:[MySendOrderViewController class]];
+        vc.navigationItem.title = @"我的发单";
         //设置数据的key
         [vc setRequestDataKeyArr:@[@1,@2,@3,@5,@6]];
         
@@ -338,7 +341,7 @@
     }
     if (index == 1) {
         SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"已接单",@"已完成",@"已取消",@"调价中"]  andClass:[MyReceivingOrderViewController class]];
-        vc.navigationItem.title = @"我的发单";
+        vc.navigationItem.title = @"我的接单";
         //设置数据的key
         [vc setRequestDataKeyArr:@[@2,@3,@5,@6]];
         
@@ -346,6 +349,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (index == 2) {
+        //空闲时间
+    }
+    if (index == 3) {
         SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"全部",@"待付款",@"待发货",@"待收货",@"已完成",@"已取消"]  andClass:[ShopOrderViewController class]];
         vc.navigationItem.title = @"我的接单";
         
@@ -357,27 +363,11 @@
         
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (index == 3) {
+    if (index == 4) {
         MyStockViewController * vc = [[MyStockViewController alloc]initWithNibName:@"MyStockViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (index == 4) {
-//        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];
-//        [self.navigationController pushViewController:vc animated:YES];
-        
-        ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
-                                                friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
-                                                        user:kPhone
-                                                    userName:kUserName
-                                                    userIcon:kUserIcon];
-        
-        chatController.title = @"客服";
-        chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
-        chatController.userIcon = kUserIcon;
-        [self.navigationController pushViewController:chatController animated:YES];
-        
-        
-    }
+    
     if (index == 5) {
         AdressListController * vc = [[AdressListController alloc]initWithNibName:@"AdressListController" bundle:nil];
         vc.type = 1;
@@ -388,14 +378,31 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (index == 7) {
+        //        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];
+        //        [self.navigationController pushViewController:vc animated:YES];
+        
+        ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
+                                                                                       friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
+                                                                                                 user:kPhone
+                                                                                             userName:kUserName
+                                                                                             userIcon:kUserIcon];
+        
+        chatController.title = @"客服";
+        chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
+        chatController.userIcon = kUserIcon;
+        [self.navigationController pushViewController:chatController animated:YES];
+        
+        
+    }
+    if (index == 8) {
         ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (index == 8) {
-        [self shareWithUMengWithVC:self withImage:nil withID:nil
-                         withTitle:@"七小服"
-                          withDesc:@"7x24小时技能服务平台" withShareUrl:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpShare] withType:1];
-    }
+//    if (index == 8) {
+//        [self shareWithUMengWithVC:self withImage:nil withID:nil
+//                         withTitle:@"七小服"
+//                          withDesc:@"7x24小时技能服务平台" withShareUrl:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpShare] withType:1];
+//    }
 }
 
 

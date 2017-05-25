@@ -23,11 +23,13 @@
 #import "CertificationViewController.h"
 #import "JPUSHService.h"
 #import "EaseModHelper.h"
+#import "AppManager.h"
+
 
 static NSString * kCecheKey = @"清除缓存";
 static NSString * kShareKey = @"推荐给好友";
 static NSString * kSettingPayPassWordKey = @"设置支付密码";
-static NSString * kChengePayPassWordKey = @"修改平台支付密码";
+static NSString * kChengePayPassWordKey = @"修改支付密码";
 static NSString * kChengePassWordKey = @"修改登录密码";
 static NSString * kPushState = @"是否接收推送消息";
 
@@ -56,9 +58,11 @@ static NSString * kPushState = @"是否接收推送消息";
         sections0Array =@[_state==1?kChengePayPassWordKey:kSettingPayPassWordKey,kChengePassWordKey,kCecheKey,kShareKey/*,kPushState*/];
     }
 //    NSArray * sections1Array =@[@"软件版本",@"关于我们",@"给我五星评价"];
-    NSArray * sections1Array =@[@"关于我们",@"给我五星评价"];
+//    NSArray * sections1Array =@[@"关于我们",@"给我五星评价"];
+    NSArray * sections1Array =@[@"关于我们",@"版本",@"给我五星评价"];
 //    NSArray * sections2Array =@[@"意见反馈",@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
-    NSArray * sections2Array =@[@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
+//    NSArray * sections2Array =@[@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
+    NSArray * sections2Array =@[@"用户协议",@"操作手册"];
 
     _titles = @[sections0Array,sections1Array,sections2Array];
 
@@ -136,6 +140,13 @@ static NSString * kPushState = @"是否接收推送消息";
     cell.textLabel.text =_titles[indexPath.section][indexPath.row];
 
    
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+        cell.detailTextLabel.textColor = YIWANG_LIGHT_GRAY_COLOR;
+//        [[AppManager sharedManager] getCurrentVerison]
+        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[[AppManager sharedManager] getCurrentVerison]];
+    }
     
     if (indexPath.section == 0 && indexPath.row == 2) {
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
@@ -195,6 +206,76 @@ static NSString * kPushState = @"是否接收推送消息";
          static NSString * kChengePassWordKey = @"修改登录密码";
          */
         
+        if (kUserId.length == 0) {
+            if (indexPath.row == 0){
+                UITableViewCell * cell  = [tableView cellForRowAtIndexPath:indexPath];
+                
+                [self showText:@"清除缓存中"];
+                
+                [MCCacheTool deleateCache:^{
+                    [self showSuccessText:@"清除成功"];
+                    NSString * cacheSize = [MCCacheTool cacheSize];
+                    cell.detailTextLabel.text = cacheSize;
+                }];
+            }else if (indexPath.row == 1){
+                [self shareWithUMengWithVC:self withImage:nil withID:nil
+                                 withTitle:@"七小服"
+                                  withDesc:@"7x24小时技能服务平台" withShareUrl:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpShare] withType:1];
+            }
+        }else{
+            if (indexPath.row == 0){
+                if (_state == 1){
+                    SettingPayPassWordViewController * vc = [[SettingPayPassWordViewController alloc]initWithNibName:@"SettingPayPassWordViewController" bundle:nil];
+                    vc.title =kChengePayPassWordKey;
+                    vc.isSetNewPassWord = YES;
+                    
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else{
+                    SettingPayPassWordViewController * vc = [[SettingPayPassWordViewController alloc]initWithNibName:@"SettingPayPassWordViewController" bundle:nil];
+                    vc.title =kSettingPayPassWordKey;
+                    vc.isSetNewPassWord = NO;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+            }else if (indexPath.row == 1){
+                [Utool verifyLogin:self LogonBlock:^{
+                    
+                    if (_is_real == 0) {
+                        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"您尚未进行实名认证,认证之后才能接单,要立即去认证吗?" cancelButtonTitle:@"先等等" clickButton:^(NSInteger buttonIndex) {
+                            
+                            if(buttonIndex == 1){
+                                
+                                CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
+                                [self.navigationController pushViewController:vc animated:YES];
+                            }
+                            
+                        } otherButtonTitles:@"去认证"];
+                        [alert show];
+                        
+                    }else{
+                        
+                        ChangePassViewController * vc = [[ChangePassViewController alloc]initWithNibName:@"ChangePassViewController" bundle:nil ];
+                        [self.navigationController pushViewController:vc animated:YES];
+                    }
+                }];
+            
+            }else if (indexPath.row == 2){
+                UITableViewCell * cell  = [tableView cellForRowAtIndexPath:indexPath];
+                
+                [self showText:@"清除缓存中"];
+                
+                [MCCacheTool deleateCache:^{
+                    [self showSuccessText:@"清除成功"];
+                    NSString * cacheSize = [MCCacheTool cacheSize];
+                    cell.detailTextLabel.text = cacheSize;
+                }];
+            }else if (indexPath.row == 3){
+                [self shareWithUMengWithVC:self withImage:nil withID:nil
+                                 withTitle:@"七小服"
+                                  withDesc:@"7x24小时技能服务平台" withShareUrl:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpShare] withType:1];
+            }
+        }
+        
+        /*
         if ([key isEqualToString:kCecheKey]) {
             UITableViewCell * cell  = [tableView cellForRowAtIndexPath:indexPath];
             
@@ -254,15 +335,24 @@ static NSString * kPushState = @"是否接收推送消息";
                  }
               }];
           }
+        */
      }
     if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {
-            AboutViewController * aboutVC = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:nil ];
-            [self.navigationController pushViewController:aboutVC animated:YES];
+            XieYiViewController * vc =[[XieYiViewController alloc]init];
+            vc.title =key;
+            vc.type = 5;
+            [self.navigationController pushViewController:vc animated:YES];
+//            AboutViewController * aboutVC = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:nil ];
+//            [self.navigationController pushViewController:aboutVC animated:YES];
+        }
+        if (indexPath.row == 1){
+            // 版本号
+            
         }
         
-        if (indexPath.row == 1) {
+        if (indexPath.row == 2) {
             [self evaluate];
         }
     }
@@ -277,40 +367,40 @@ static NSString * kPushState = @"是否接收推送消息";
 //                [self.navigationController pushViewController:feedbackViewController animated:YES];
 //            }];
 //        }
+//        if (indexPath.row == 0) {
+//            
+//            
+//            [Utool verifyLogin:self LogonBlock:^{
+//                
+//            ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
+//            friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
+//            user:kPhone
+//            userName:kUserName
+//            userIcon:kUserIcon];
+//                chatController.title = @"客服";
+//                chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
+//                chatController.userIcon = kUserIcon;
+//                [self.navigationController pushViewController:chatController animated:YES];
+//                
+//                
+//            }];
+//
+//     
+//        }
+//        if (indexPath.row == 1) {
+//            XieYiViewController * vc =[[XieYiViewController alloc]init];
+//            vc.title =key;
+//            vc.type = 3;
+//            [self.navigationController pushViewController:vc animated:YES];
+//            
+//        }
         if (indexPath.row == 0) {
-            
-            
-            [Utool verifyLogin:self LogonBlock:^{
-                
-            ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
-            friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
-            user:kPhone
-            userName:kUserName
-            userIcon:kUserIcon];
-                chatController.title = @"客服";
-                chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
-                chatController.userIcon = kUserIcon;
-                [self.navigationController pushViewController:chatController animated:YES];
-                
-                
-            }];
-
-     
-        }
-        if (indexPath.row == 1) {
-            XieYiViewController * vc =[[XieYiViewController alloc]init];
-            vc.title =key;
-            vc.type = 3;
-            [self.navigationController pushViewController:vc animated:YES];
-            
-        }
-        if (indexPath.row == 2) {
             XieYiViewController * vc =[[XieYiViewController alloc]init];
             vc.title =key;
             vc.type = 1;
              [self.navigationController pushViewController:vc animated:YES];
         }
-        if (indexPath.row == 3) {
+        if (indexPath.row == 1) {
             XieYiViewController * vc =[[XieYiViewController alloc]init];
             vc.title =key;
             vc.type = 2;
