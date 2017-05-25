@@ -493,11 +493,14 @@
         
         _isAllGoods = YES;
 
-        _page ++;
+        
         
         ShopListModel * shopListModel = [ShopListModel mj_objectWithKeyValues:requestDic];
    
         page_total==1?[_class_listArray setArray:shopListModel.goods_list]:[_class_listArray addObjectsFromArray:shopListModel.goods_list];
+        
+        _page = page;
+        _page ++;
         
         [_rightCollectionView reloadData];
         
