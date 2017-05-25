@@ -114,7 +114,7 @@
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     [self setCenter:[UIApplication sharedApplication].keyWindow.center];
     [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
-    
+    _btnView.hidden = NO;
     CGFloat btnW = (kScreenWidth - btnArr.count - 1)/btnArr.count;
     for (int i = 0; i < btnArr.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -239,6 +239,7 @@
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 34, kScreenWidth, 1)];
         line.backgroundColor = rgb(240, 240, 240);
         [_btnView addSubview:line];
+        _btnView.hidden = YES;
     }
     return _btnView;
 }

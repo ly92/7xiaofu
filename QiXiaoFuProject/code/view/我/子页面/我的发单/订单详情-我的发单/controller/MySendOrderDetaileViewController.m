@@ -303,7 +303,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                 
                 if(_orderDetaileProModel.bill_statu == 2 || _orderDetaileProModel.bill_statu == 3 || _orderDetaileProModel.bill_statu == 6 || _orderDetaileProModel.bill_statu == 7 ){
                     
-                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
                         
                         if(buttonIndex == 1){
                             
@@ -326,7 +326,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                             
                         }
                         
-                    } otherButtonTitles:@"删除"];
+                    } otherButtonTitles:@"确定取消"];
                     [alert show];
                     
                 }else{
@@ -419,7 +419,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                 
                 if(_orderDetaileProModel.bill_statu == 2 || _orderDetaileProModel.bill_statu == 3 || _orderDetaileProModel.bill_statu == 6 || _orderDetaileProModel.bill_statu == 7 ){
                     
-                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
                         
                         if(buttonIndex == 1){
                             
@@ -442,7 +442,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                             
                         }
                         
-                    } otherButtonTitles:@"删除"];
+                    } otherButtonTitles:@"确定取消"];
                     [alert show];
                     
                 }else{

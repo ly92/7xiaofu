@@ -337,7 +337,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                 //kTipAlert(@"取消订单");
                 
                 
-                BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
                     
                     if(buttonIndex == 1){
                         
@@ -370,7 +370,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         }];
                     }
                     
-                } otherButtonTitles:@"确定"];
+                } otherButtonTitles:@"确定取消"];
                 [alert show];
                 
                 

@@ -134,7 +134,7 @@
         
         //kTipAlert(@"取消订单");
         
-        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
             
             if(buttonIndex == 1){
                 
@@ -168,7 +168,7 @@
                 }];
             }
             
-        } otherButtonTitles:@"确定"];
+        } otherButtonTitles:@"确定取消"];
         [alert show];
 
         
@@ -274,20 +274,24 @@
     // 取消
     cell.myReceivingOrderCellWithBtnState_cancle =^(MySendOrderModel * sendOrderModel){
         
-        
-        NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"userid"] = kUserId;
-        params[@"id"] = sendOrderModel.id;
-         [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
-            [self showSuccessText:msg];
-             
-             
-             [self deleateChatlistWithUserPhone:sendOrderModel.call_name];
-             
-        } fail:^(NSString *error) {
-            [self showErrorText:error];
-        }];
-        
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确认放弃本次操作吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"id"] = sendOrderModel.id;
+                [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    [self showSuccessText:msg];
+                    
+                    
+                    [self deleateChatlistWithUserPhone:sendOrderModel.call_name];
+                    
+                } fail:^(NSString *error) {
+                    [self showErrorText:error];
+                }];
+            }
+        } otherButtonTitles:@"确定"];
+        [alert show];
     };
     // 去支付
     cell.myReceivingOrderCellWithBtnState_GoPay =^(MySendOrderModel * sendOrderModel){

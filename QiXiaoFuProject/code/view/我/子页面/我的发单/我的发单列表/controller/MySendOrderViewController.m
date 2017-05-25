@@ -182,7 +182,7 @@
         if(sendOrderModel.bill_statu == 2 || sendOrderModel.bill_statu == 3 || sendOrderModel.bill_statu == 6 || sendOrderModel.bill_statu == 7 ){
         
             
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
                 
                 if(buttonIndex == 1){
                     
@@ -202,24 +202,27 @@
                     }];
                 }
                 
-            } otherButtonTitles:@"删除"];
+            } otherButtonTitles:@"确定取消"];
             [alert show];
         
         }else{
             
-            
-            NSMutableDictionary * params = [NSMutableDictionary new];
-            params[@"userid"] = kUserId;
-            params[@"id"] = sendOrderModel.id;
-            [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                [self showSuccessText:@"订单取消成功"];
-                [self myBillListDataPage:1 hud:YES];// 撤销成功刷新列表
-            } fail:^(NSString *error) {
-                [self showErrorText:error];
-            }];
-        
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
+                
+                if(buttonIndex == 1){
+                    NSMutableDictionary * params = [NSMutableDictionary new];
+                    params[@"userid"] = kUserId;
+                    params[@"id"] = sendOrderModel.id;
+                    [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                        [self showSuccessText:@"订单取消成功"];
+                        [self myBillListDataPage:1 hud:YES];// 撤销成功刷新列表
+                    } fail:^(NSString *error) {
+                        [self showErrorText:error];
+                    }];
+                }
+            } otherButtonTitles:@"确定取消"];
+            [alert show];
         }
-
     };
     // 确认完成
     cell.mySendOrderCellWithBtnState_QueRenWanCheng =^(MySendOrderModel * sendOrderModel){
