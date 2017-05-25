@@ -24,6 +24,7 @@
 #import "CertificationViewController.h"
 #import "BlockUIAlertView.h"
 #import "LocalData.h"
+#import "NSString+Utils.h"
 
 @interface UserInfoViewController ()
 {
@@ -142,6 +143,14 @@
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"store_id"] = @"1";
+    //获取时间戳
+    NSTimeInterval timeStamp =[[NSDate date] timeIntervalSince1970];
+    NSString *token_time = [NSString stringWithFormat:@"%.f",timeStamp*1000];
+    //拼接token
+    NSString *token =[[NSString stringWithFormat:@"qixiaofu0ab3b4n55nca%@",token_time] MD5];
+    params[@"token_time"] = token_time;
+    params[@"token"] = token;
+    
     [MCNetTool uploadDataWithURLStr:HttpMeChangeHeaderImage withDic:params imageKey:@"imgFile" withData:imageData uploadProgress:^(float progress) {
         [self showProgress:progress];
     } success:^(NSDictionary *requestDic, NSString *msg) {
@@ -153,7 +162,7 @@
     } failure:^(NSString *error) {
         [self showErrorText:error];
     }];
-}
+ }
 
 
 

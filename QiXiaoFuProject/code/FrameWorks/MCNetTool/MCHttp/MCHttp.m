@@ -175,6 +175,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
                  uploadProgress:(loadProgress)loadProgress
                         success:(success)success
                         failure:(failure)failure{
+    
   return  [[self alloc] requestWithUrl:urlStr parameters:pasameters requsetType:RequestTypeUpLoad isCache:NO imageKey:attach withData:data loadProgress:^(float progress) {
         loadProgress(progress);
   } success:^(NSDictionary *responseObject,NSString * msg,BOOL hasmore,NSInteger page_total) {
