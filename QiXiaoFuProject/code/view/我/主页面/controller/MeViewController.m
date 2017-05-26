@@ -223,7 +223,8 @@
         }];
         
          [engineerHeaderReusableView.aouthBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-             
+             //隐藏此功能
+             return ;
              [Utool verifyLogin:self LogonBlock:^{
                  CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
                  vc.is_real =_userInfoModel1.is_real;
