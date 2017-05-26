@@ -12,6 +12,9 @@
 
 @property (nonatomic, copy) NSString *id;//发单ID
 
+@property (nonatomic, copy) NSString *entry_name;//项目名称
+
+
 @property (nonatomic, assign) NSInteger pay_statu;//支付状态【0 未支付】【1 已支付】【2 取消支付】
 
 @property (nonatomic, copy) NSString *is_top;//是否置顶信息 【0 否】【1 是】

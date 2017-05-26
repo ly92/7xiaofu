@@ -11,6 +11,8 @@
 @class Payment_List23;
 @interface OrderDetaileProModel : NSObject
 
+@property (nonatomic, copy) NSString *entry_name;//项目名称
+
 @property (nonatomic, copy) NSString *bill_sn;//订单号
 
 @property (nonatomic, copy) NSString *bill_user_name;//发单人名称

@@ -25,6 +25,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *topBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 
 @property (weak, nonatomic) IBOutlet UILabel *severContentLab;
 @property (weak, nonatomic) IBOutlet UILabel *severTimeLab;
@@ -82,6 +83,7 @@
 - (void)setMySendOrderModel:(MySendOrderModel *)mySendOrderModel{
     _mySendOrderModel = mySendOrderModel;
     
+    _nameLbl.text = mySendOrderModel.entry_name;
     _titleLab.text = [NSString stringWithFormat:@"发布时间 %@",[Utool comment_timeStamp2TimeFormatter:mySendOrderModel.inputtime]];
     _severContentLab.text = mySendOrderModel.title;
     _severTimeLab.text = [NSString stringWithFormat:@"%@-%@",

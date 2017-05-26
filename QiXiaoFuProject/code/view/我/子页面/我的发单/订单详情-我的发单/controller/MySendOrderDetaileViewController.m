@@ -26,7 +26,7 @@
 #import "CommentViewController.h"
 #import "ChongSendOrderVC1.h"
 
-
+static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
 static NSString * const kSeverPPXH = @"品牌型号";
 static NSString * const kSeverNumber = @"数量/单位";
@@ -133,7 +133,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         
         
-        NSArray * titles = @[kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
         
         _titles = [NSMutableArray arrayWithArray:titles];
         
@@ -226,57 +226,60 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         NSString * title = _titles[indexPath.row];
         
-        if(indexPath.row == 5 || indexPath.row == 7 /*|| indexPath.row == 8*/){
+        if(indexPath.row == 6 || indexPath.row == 8 /*|| indexPath.row == 8*/){
             
             ProductDetail1TableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetail1TableViewCell"];
             cell.titleLab.text = _titles[indexPath.row];
             
-            if(indexPath.row == 5){
+            if(indexPath.row == 6){
                 //预约服务时间
                 cell.contentLab.text = [NSString stringWithFormat:@"%@-%@",
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_stime],
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_etime]];
                 
-            }else if (indexPath.row == 7){
+            }else if (indexPath.row == 8){
                 // 其他服务领域
                 cell.contentLab.text = _orderDetaileProModel.other_service_sector.length==0?@"     ":_orderDetaileProModel.other_service_sector;;
                 
             }
              return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
-                 indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 6 ||
-                 indexPath.row == 8 || indexPath.row == 9 ){
+                 indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
+                 indexPath.row == 9 || indexPath.row == 10 ){
             
             
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
             cell.titleLab.text = _titles[indexPath.row];
             
             if (indexPath.row == 0) {
+                //项目名称
+                cell.contentLab.text = _orderDetaileProModel.entry_name;
+            }else if (indexPath.row == 1) {
                 //服务领域
                 cell.contentLab.text = _orderDetaileProModel.service_sector;
-            }else if(indexPath.row == 1){
+            }else if(indexPath.row == 2){
                 //品牌型号
                 cell.contentLab.text = _orderDetaileProModel.service_brand;
                 
-            }else if(indexPath.row == 2){
+            }else if(indexPath.row == 3){
                 //数量单位
                 cell.contentLab.text =_orderDetaileProModel.number;
-            }else if(indexPath.row == 3){
+            }else if(indexPath.row == 4){
                 //服务形式
                 cell.contentLab.text = _orderDetaileProModel.service_form;
-            }else if(indexPath.row == 4){
+            }else if(indexPath.row == 5){
                 //服务类型
                 cell.contentLab.text = _orderDetaileProModel.service_type;
             }
-            else if(indexPath.row == 6){
+            else if(indexPath.row == 7){
                 //服务区域
                 cell.contentLab.text =   _orderDetaileProModel.service_address.length==0?@"     ":_orderDetaileProModel.service_address;
                 
-            }else if(indexPath.row == 8){
+            }else if(indexPath.row == 9){
                 // 备注
                 cell.contentLab.text = _orderDetaileProModel.bill_desc.length==0?@"   ":_orderDetaileProModel.bill_desc;
                 
-            }else if(indexPath.row == 9){
+            }else if(indexPath.row == 10){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
             }
