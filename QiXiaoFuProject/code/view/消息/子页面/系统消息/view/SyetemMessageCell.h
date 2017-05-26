@@ -12,5 +12,6 @@
 @interface SyetemMessageCell : UITableViewCell
 
 @property (strong, nonatomic) SysTemMessageModel *messageModel;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedImgV;
 
 @end
