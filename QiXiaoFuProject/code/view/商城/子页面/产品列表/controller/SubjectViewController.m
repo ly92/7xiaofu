@@ -116,10 +116,14 @@
     _rightKey.length!=0?[sortArray addObject:_rightKey]:nil;
     
     if (sortArray.count != 0) {
-        params[@"a_id"] = [NSString stringWithFormat:@"[%@]",[sortArray string]];//筛选条件子ID数组
+        NSString *a_ids = [sortArray componentsJoinedByString:@","];
+        params[@"a_id"] = a_ids;//筛选条件子ID数组
+//         params[@"a_id"] = [NSString stringWithFormat:@"[%@]",[sortArray string]];//筛选条件子ID数组
     }
     if (_area_ListArray.count != 0) {
-        params[@"area_id"] = [_area_ListArray JSONString_Ext];//城市ID
+        NSString *area_id = [_area_ListArray componentsJoinedByString:@","];
+        params[@"area_id"] = area_id;
+//        params[@"area_id"] = [_area_ListArray JSONString_Ext];//城市ID
     }
     
     [MCNetTool postWithPageUrl:HttpShopList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
@@ -391,6 +395,7 @@
         _filterView.shopFilterViewBlock =^(NSArray * idArray){
         
             LxDBAnyVar(idArray);
+            [weakSelf.area_ListArray removeLastObject];
             [idArray enumerateObjectsUsingBlock:^(Area_List * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [weakSelf.area_ListArray addObject:obj.area_id];
             }];

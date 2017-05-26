@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_checkbox_n" translatesAutoresizingMaskIntoConstraints="NO" id="UZ4-u7-xOL">
-                                <rect key="frame" x="285" y="5" width="15" height="15"/>
+                                <rect key="frame" x="285" y="0.0" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="JTv-vD-xIP"/>
                                     <constraint firstAttribute="width" constant="15" id="Py6-qF-JBH"/>
@@ -57,7 +57,7 @@
                             <constraint firstAttribute="trailing" secondItem="UZ4-u7-xOL" secondAttribute="trailing" id="8WN-Dy-MHi"/>
                             <constraint firstItem="cpP-Hp-q4u" firstAttribute="top" secondItem="2EO-AM-STG" secondAttribute="bottom" constant="10" id="Egn-sp-tSJ"/>
                             <constraint firstItem="2EO-AM-STG" firstAttribute="leading" secondItem="R4O-WQ-E6G" secondAttribute="leading" constant="10" id="JR5-dL-G66"/>
-                            <constraint firstItem="UZ4-u7-xOL" firstAttribute="top" secondItem="R4O-WQ-E6G" secondAttribute="top" constant="5" id="MUH-8x-93D"/>
+                            <constraint firstItem="UZ4-u7-xOL" firstAttribute="top" secondItem="R4O-WQ-E6G" secondAttribute="top" id="MUH-8x-93D"/>
                             <constraint firstAttribute="trailing" secondItem="cpP-Hp-q4u" secondAttribute="trailing" constant="10" id="SOy-kQ-hZj"/>
                             <constraint firstItem="2EO-AM-STG" firstAttribute="top" secondItem="R4O-WQ-E6G" secondAttribute="top" constant="10" id="Sjm-YH-tgu"/>
                             <constraint firstItem="RaG-M5-3my" firstAttribute="bottom" secondItem="2EO-AM-STG" secondAttribute="bottom" id="aeu-Xs-3VU"/>

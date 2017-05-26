@@ -38,16 +38,16 @@
     [super viewDidLoad];
     
     
-//    _filtButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    _filtButton.titleLabel.font = [UIFont systemFontOfSize:15];
-//    [_filtButton setTitle:@"筛选" forState:UIControlStateNormal];
-//    [_filtButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-//    [_filtButton setTitleColor:RGB(248, 182, 182) forState:UIControlStateHighlighted];
-//    [_filtButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-//    [_filtButton sizeToFit];
-//    [_filtButton addTarget:self action:@selector(filterItemAction:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_filtButton];
+    _filtButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _filtButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [_filtButton setTitle:@"筛选" forState:UIControlStateNormal];
+    [_filtButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [_filtButton setTitleColor:RGB(248, 182, 182) forState:UIControlStateHighlighted];
+    [_filtButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [_filtButton sizeToFit];
+    [_filtButton addTarget:self action:@selector(filterItemAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_filtButton];
     
     
     _shopListArray = [NSMutableArray new];
@@ -100,9 +100,11 @@
         params[@"keyword"] = _keyword;//搜索商品名称
     }
 
-//    if (_area_ListArray.count != 0) {
+    if (_area_ListArray.count != 0) {
+        NSString *area_id = [_area_ListArray componentsJoinedByString:@","];
+        params[@"area_id"] = area_id;
 //        params[@"area_id"] = [_area_ListArray JSONString_Ext];//筛选条件子ID数组
-//    }
+    }
     
     
     [MCNetTool postWithCachePageUrl:HttpShopList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
@@ -236,6 +238,7 @@
         _filterView.shopFilterViewBlock =^(NSArray * idArray){
             
             LxDBAnyVar(idArray);
+            [weakSelf.area_ListArray removeAllObjects];
             [idArray enumerateObjectsUsingBlock:^(Area_List * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [weakSelf.area_ListArray addObject:obj.area_id];
             }];
