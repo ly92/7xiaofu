@@ -60,6 +60,7 @@
 @property (nonatomic, copy) NSString *service_type;//服务类型
 
 @property (nonatomic, copy) NSString *service_stime;//	预约开始时间
+@property (nonatomic, copy) NSString *entry_name;//项目名称
 
 @end
 

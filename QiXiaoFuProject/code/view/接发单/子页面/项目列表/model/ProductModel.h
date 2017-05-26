@@ -10,6 +10,8 @@
 
 @interface ProductModel : NSObject
 
+@property (nonatomic, copy) NSString *entry_name;
+
 @property (nonatomic, assign) NSInteger is_top;
 
 @property (nonatomic, copy) NSString *service_city;

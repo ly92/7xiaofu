@@ -17,6 +17,7 @@
 #import "CertificationViewController.h"
 #import "OrderDetailImageCell.h"
 
+static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
 static NSString * const kSeverPP = @"品牌型号";
 static NSString * const kSeverNumber = @"数量单位";
@@ -67,7 +68,7 @@ static NSString * const kSeverPrice = @"服务价格";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_share" highImage:@"icon_share" target:self action:@selector(shareItemAction:)];
 
     
-    _titles = @[kSeverLY,kSeverPP,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice];
+    _titles = @[kSeverName,kSeverLY,kSeverPP,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice];
 
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;  //  随便设个不那么离谱的值
@@ -327,6 +328,9 @@ static NSString * const kSeverPrice = @"服务价格";
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
             cell.titleLab.text = title;
             
+            if ([title isEqualToString:kSeverName]) {
+                cell.contentLab.text = _productDetaileModel.entry_name;
+            }
             if ([title isEqualToString:kSeverLY]) {
                 cell.contentLab.text = _productDetaileModel.service_sector;
             }

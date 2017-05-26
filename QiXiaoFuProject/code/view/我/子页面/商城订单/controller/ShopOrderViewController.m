@@ -53,6 +53,7 @@
         [self loadShopOrderListWithPage:1 hud:NO];
 
     }];
+    
     [_tableView footerAddMJRefresh:^{
         [self loadShopOrderListWithPage:_page hud:NO];
 

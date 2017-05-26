@@ -12,6 +12,7 @@
 
 
 @interface ProductCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -58,6 +59,7 @@
     
     [_iconImageView setImageWithUrl:productModel.bill_user_avatar placeholder:kDefaultImage_header];
     
+    _nameLbl.text = productModel.entry_name;
     _nameLab.text =productModel.bill_user_name;
     _timeLab.text = [Utool comment_timeStamp2TimeFormatter:productModel.inputtime];
     
