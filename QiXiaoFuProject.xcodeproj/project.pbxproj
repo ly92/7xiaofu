@@ -787,6 +787,8 @@
 		0853FF221ED68D56005D0E94 /* SpaceTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF201ED68D56005D0E94 /* SpaceTimeCell.xib */; };
 		0853FF251ED69D7E005D0E94 /* SpaceTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF241ED69D7E005D0E94 /* SpaceTimeModel.m */; };
 		0853FF281ED6B7DF005D0E94 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF271ED6B7DF005D0E94 /* LocalData.m */; };
+		0853FF2C1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF2A1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m */; };
+		0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2292,6 +2294,9 @@
 		0853FF241ED69D7E005D0E94 /* SpaceTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTimeModel.m; sourceTree = "<group>"; };
 		0853FF261ED6B7DF005D0E94 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalData.h; sourceTree = "<group>"; };
 		0853FF271ED6B7DF005D0E94 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
+		0853FF291ED7BBC4005D0E94 /* SearchEngGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEngGoodsViewController.h; sourceTree = "<group>"; };
+		0853FF2A1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEngGoodsViewController.m; sourceTree = "<group>"; };
+		0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchEngGoodsViewController.xib; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -3836,6 +3841,9 @@
 				048FF1A81D744DF100268A78 /* MyStockViewController.h */,
 				048FF1A91D744DF100268A78 /* MyStockViewController.m */,
 				048FF1AA1D744DF100268A78 /* MyStockViewController.xib */,
+				0853FF291ED7BBC4005D0E94 /* SearchEngGoodsViewController.h */,
+				0853FF2A1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m */,
+				0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -7871,6 +7879,7 @@
 				048FF1501D72FB7A00268A78 /* ProductDetaileFooterView.xib in Resources */,
 				04DAC62A1DB8BF2D002235A7 /* sr_refresh.png in Resources */,
 				042C9B761D9688370045FAE6 /* PurchaseShopViewController.xib in Resources */,
+				0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */,
 				04CE13E11E0A1F6100792B7F /* EngineerDetaileZhengShuCell.xib in Resources */,
 				0498E4381DB4CC5000262A9C /* OrderPayViewController.xib in Resources */,
 				048FF2B81D76A45300268A78 /* SendOrderFooterView.xib in Resources */,
@@ -8042,6 +8051,7 @@
 				04DAC5401DB8BC5A002235A7 /* EMSDWebImageDecoder.m in Sources */,
 				049267371D5EF0680098A3A6 /* LCNewFeatureVC.m in Sources */,
 				0416E9CB1D9B5C7500D59A0A /* RSADataSigner.m in Sources */,
+				0853FF2C1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m in Sources */,
 				04DAC5E31DB8BE1E002235A7 /* GroupSettingViewController.m in Sources */,
 				049266AA1D5EE3C90098A3A6 /* FORScrollViewEmptyAssistant.m in Sources */,
 				04DAC53B1DB8BC5A002235A7 /* MWTapDetectingView.m in Sources */,

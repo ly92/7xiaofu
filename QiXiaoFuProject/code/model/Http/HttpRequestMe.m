@@ -126,6 +126,9 @@ NSString  * const HttpMeClearEngGoodsSn = @"tp.php/Home/My/clearEngGoodsSn";
 /** 小库存-更换地址 */
 NSString  * const HttpMeSaveEngGoodsSnArea = @"tp.php/Home/My/saveEngGoodsSnArea";
 
+/** 小库存-筛选 */
+NSString  * const HttpMeSearchEngGoodsSn = @"tp.php/Home/My/searchEngGoodsSn";
+
 
 /** 工程师开始工作 */
 NSString  * const HttpMeEngStartWork = @"tp.php/Home/My/engStartWork";

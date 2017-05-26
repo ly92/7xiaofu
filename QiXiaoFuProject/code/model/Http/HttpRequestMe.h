@@ -129,6 +129,9 @@ UIKIT_EXTERN NSString  * const HttpMeClearEngGoodsSn;
 /** 小库存-更换地址 */
 UIKIT_EXTERN NSString  * const HttpMeSaveEngGoodsSnArea;
 
+/** 小库存-筛选 */
+UIKIT_EXTERN NSString  * const HttpMeSearchEngGoodsSn;
+
 /** 工程师开始工作 */
 UIKIT_EXTERN NSString  * const HttpMeEngStartWork;
 

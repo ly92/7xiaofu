@@ -1,53 +1,76 @@
 //
-//  MyStockViewController.m
+//  SearchEngGoodsViewController.m
 //  QiXiaoFuProject
 //
-//  Created by mac on 16/8/29.
-//  Copyright © 2016年 fhj. All rights reserved.
+//  Created by 李勇 on 2017/5/26.
+//  Copyright © 2017年 fhj. All rights reserved.
 //
 
-#import "MyStockViewController.h"
+#import "SearchEngGoodsViewController.h"
 #import "MyStockCell.h"
 #import "BlockUIAlertView.h"
 #import "MyStockModel.h"
 #import "ChooseAreViewController.h"
 #import "ChooseArea3ViewController.h"
 #import "MyStockChangeZreaViewController.h"
-#import "SearchEngGoodsViewController.h"
 
-@interface MyStockViewController ()
+@interface SearchEngGoodsViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray * dataArray;
-@property (assign, nonatomic) NSInteger page;
+@property (nonatomic, assign) NSInteger page;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) UISearchBar *searchBar;
+
+@property (nonatomic, copy) NSString *search_type;//搜索类型
+@property (nonatomic, copy) NSString *search_key;//搜索关键字
 @end
 
-@implementation MyStockViewController
+@implementation SearchEngGoodsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.search_key = @"";
+    self.search_type = @"0";
+    [self setupNavView];
     
-    self.navigationItem.title = @"我的小库存";
-    
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search" target:self action:@selector(searchEndGoods)];
-    _dataArray = [NSMutableArray new];
     _page = 1;
-    
+    _dataArray = [NSMutableArray new];
     
     [_tableView registerNib:[UINib nibWithNibName:@"MyStockCell" bundle:nil] forCellReuseIdentifier:@"MyStockCell"];
     _tableView.tableFooterView = [UIView new];
     
-    
-    [self loadMyStockDataWithPage:1 hud:YES];
-    
     [self addRefreshView];
-    // Do any additional setup after loading the view from its nib.
 }
 
-//搜索
-- (void)searchEndGoods{
-    SearchEngGoodsViewController *searchGoodsVC = [[SearchEngGoodsViewController alloc] init];
-    [self.navigationController pushViewController:searchGoodsVC animated:YES];
+//设置导航栏view
+- (void)setupNavView{
+    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(60, 0, kScreenWidth - 60, 30)];
+    
+    UIButton *searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    [searchBtn setTitle:@"筛选" forState:UIControlStateNormal];
+    [searchBtn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(filtAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(60, 0, kScreenWidth - 130, 30)];
+    searchBar.delegate = self;
+    [searchBar setImage:[UIImage imageNamed:@"icon_search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    [searchBar setBackgroundImage:[UIImage imageNamed:@"btn_btnbox_gray"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    searchBar.placeholder = @"请输入备件的SN码";
+    self.searchBar = searchBar;
+    [self.searchBar becomeFirstResponder];
+    
+    [navView addSubview:searchBtn];
+    [navView addSubview:searchBar];
+    
+    self.navigationItem.titleView = navView;
+    
+}
+//显示筛选条件
+- (void)filtAction{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"按照SN码",@"按照订单号",@"按照配件名称", nil];
+    [sheet showInView:[UIApplication sharedApplication].windows[0]];
 }
 
 - (void)addRefreshView{
@@ -57,18 +80,20 @@
     }];
     [_tableView footerAddMJRefresh:^{
         [self loadMyStockDataWithPage:_page hud:NO];
-
+        
     }];
     
 }
 
 - (void)loadMyStockDataWithPage:(NSInteger )page hud:(BOOL)hud{
-
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);
- 
-    [MCNetTool postWithCacheUrl:HttpMeGetEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    params[@"search_type"] = self.search_type;
+    params[@"search_key"] = self.search_key;
+    
+    
+    [MCNetTool postWithCacheUrl:HttpMeSearchEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _page ++;
         
@@ -84,7 +109,7 @@
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-
+        
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
@@ -92,10 +117,10 @@
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-
-
+        
+        
     }];
-
+    
 }
 
 
@@ -117,9 +142,9 @@
     
     
     [cell.cancelBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-       
         
-//        NSInteger  tag = btn.tag;
+        
+        //        NSInteger  tag = btn.tag;
         
         BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要销毁这个小库存吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
             
@@ -131,7 +156,7 @@
                 NSMutableDictionary * params = [NSMutableDictionary new];
                 params[@"userid"] = kUserId;
                 params[@"id"] = stockModel.id;
-   
+                
                 [MCNetTool postWithUrl:HttpMeClearEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
                     [_dataArray removeObjectAtIndex:btn.tag];//移除数据源的数据
@@ -143,88 +168,17 @@
                     [self showErrorText:error];
                 }];
                 
-
+                
             }
             
         } otherButtonTitles:@"确认"];
         [alert show];
-
+        
     }];
     
     [cell.changeAdressBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-       
         
         NSInteger  tag = btn.tag;
- 
-        
-//        ChooseAreViewController * vc = [[ChooseAreViewController alloc]initWithNibName:@"ChooseAreViewController" bundle:nil];
-//
-//        vc.chooseAreBlock = ^(NSString * area_name,NSString * area_id){
-//            
-//            
-//            
-//            NSIndexPath * cellIndexPath = [NSIndexPath indexPathForRow:0 inSection:tag];
-//            
-//            MyStockCell * cell = [tableView cellForRowAtIndexPath:cellIndexPath];
-// 
-//            [cell.adressBtn setTitle:[NSString stringWithFormat:@" %@",area_name] forState:UIControlStateNormal];
-//
-//        
-//            MyStockModel * stockModel = _dataArray [btn.tag];
-//
-//            NSMutableDictionary * params = [NSMutableDictionary new];
-//            params[@"userid"] = kUserId;
-//            params[@"id"] = stockModel.id;
-//            params[@"area_id"] = area_id;
-//            params[@"address_name"] = area_name;
-//
-//            [MCNetTool postWithUrl:HttpMeSaveEngGoodsSnArea params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//                [self showSuccessText:msg];
-//            } fail:^(NSString *error) {
-//                [self showErrorText:error];
-//            }];
-//
-//        };
-//        [self.navigationController pushViewController:vc animated:YES];
-
-        
-        
-//        ChooseArea3ViewController * vc = [[ChooseArea3ViewController alloc]initWithNibName:@"ChooseArea3ViewController" bundle:nil];
-//        
-//        vc.chooseArea3ViewBlock =^(AreasModel * areasModelProvince,AreasModel * areasModelCity,AreasModel * areasModelDis){
-//            
-//
-//            NSIndexPath * cellIndexPath = [NSIndexPath indexPathForRow:0 inSection:tag];
-//            MyStockCell * cell = [tableView cellForRowAtIndexPath:cellIndexPath];
-//            
-//            NSString * address_name = [NSString stringWithFormat:@"%@%@%@",areasModelProvince.area_name,areasModelCity.area_name,areasModelDis.area_name];
-//            
-//            
-//            [cell.adressBtn setTitle:[NSString stringWithFormat:@" %@",address_name] forState:UIControlStateNormal];
-//            
-//            MyStockModel * stockModel = _dataArray [btn.tag];
-//            
-//            NSMutableDictionary * params = [NSMutableDictionary new];
-//            params[@"userid"] = kUserId;
-//            params[@"id"] = stockModel.id;
-//            params[@"prov_id"] = areasModelDis.area_id;
-//            params[@"city_id"] = areasModelCity.area_id;
-//            params[@"area_id"] = areasModelProvince.area_id;
-//            params[@"address_name"] = address_name;
-//            
-//            
-//            NSDictionary * pra = @{@"1":@"2"};
-//            
-//            [MCNetTool postWithUrl:HttpMeSaveEngGoodsSnArea params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//                [self showSuccessText:msg];
-//            } fail:^(NSString *error) {
-//                [self showErrorText:error];
-//            }];
-//
-//        };
-//         [self.navigationController pushViewController:vc animated:YES];
-//        
-//        
         
         MyStockChangeZreaViewController * vc = [[MyStockChangeZreaViewController alloc]initWithNibName:@"MyStockChangeZreaViewController" bundle:nil];
         
@@ -246,7 +200,7 @@
             params[@"id"] = stockModel.id;
             params[@"prov_id"] = areasModelDis.area_id;
             params[@"city_id"] = areasModelCity.area_id;
-        
+            
             params[@"area_id"] = areasModelProvince.area_id;
             params[@"address_name"] = address_name;
             
@@ -258,15 +212,9 @@
             
         };
         [self.navigationController pushViewController:vc animated:YES];
-        
-        
-        
-        
 
     }];
-    
-    
-    
+
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -274,7 +222,6 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     
 }
 
@@ -290,14 +237,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        self.search_type = @"1";
+        self.searchBar.placeholder = @"请输入备件的SN码";
+    }
+    else if(buttonIndex==1){
+        self.search_type = @"2";
+        self.searchBar.placeholder = @"请输入备件的订单号";
+    }else if(buttonIndex==2){
+        self.search_type = @"3";
+        self.searchBar.placeholder = @"请输入备件的名称";
+    }else if(buttonIndex==3){
+        //取消
+        self.search_type = @"0";
+    }
+    [self loadMyStockDataWithPage:1 hud:NO];
 }
-*/
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    self.search_key = searchBar.text;
+    [searchBar resignFirstResponder];
+    [self loadMyStockDataWithPage:1 hud:NO];
+}
+
 
 @end
