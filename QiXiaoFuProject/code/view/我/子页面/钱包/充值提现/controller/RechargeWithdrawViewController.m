@@ -21,6 +21,7 @@
 #import "GalenPayPasswordView.h"
 #import "NSString+Utils.h"
 #import "ForgetPayPassViewController.h"
+#import "BlockUIAlertView.h"
 
 
 @interface RechargeWithdrawViewController ()<UITableViewDelegate,UITableViewDataSource>{
@@ -254,7 +255,7 @@
 
              }else{
             
-                cell.titleLab.text =@"银行卡账号";
+                cell.titleLab.text =@"微信绑定的银行卡号";
                 cell.moneyTextField.placeholder = @"请输入银行卡账号";
 
             }
@@ -391,20 +392,20 @@
 
 - (void)reCrash {
     
+    
+    
+
+    
+    
     if(_money.length == 0){
         [self showErrorText:@"请输入金额"];
         return;
     };
     
-    
-    
-    
-    
     if ([_money floatValue] > [_keTixianMoney floatValue]) {
         [self showErrorText:@"你的提现金额不足"];
         return;
     }
-    
     
     if(_bankName.length == 0 && _payType == 6){
         
@@ -419,6 +420,7 @@
         return;
         
     };
+    
     if(_accountName.length == 0 && _payType==6){
         
         [self showErrorText:@"请输入银行卡用户名"];
@@ -426,38 +428,44 @@
         
     };
     
-    // 使用钱包   ---去输入平台支付密码
-    if (_payPassState == 0 ) {
-        // 【0 未设置】  去设置 钱包支付密码
-        
-        SettingPayPassWordViewController * vc = [[SettingPayPassWordViewController alloc]initWithNibName:@"SettingPayPassWordViewController" bundle:nil];
-        vc.isSetNewPassWord = NO;
-        vc.navigationItem.title = @"设置支付密码";
-        
-        vc.settingPayPassWordSuccBlock=^(){
-            
-            
-            
-            
-            [self checkPayOrderPwdRequest];
-
-            
-            
-            [self inputPayPass];
-            
-        };
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }else if (_payPassState == 1 ){
-        //【1 已设置】
-        
-        [self inputPayPass];
-        
+    NSString *memo = @"";
+    if (_payType == 2){
+        memo = @"确定提现到支付宝：";
+    }else{
+        memo = @"确定提现到银行卡：";
     }
+    memo = [NSString stringWithFormat:@"\n%@%@\n",memo,_alpayAccount];
     
-    
- 
-}
+    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:memo cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        
+        if(buttonIndex == 1){
+            // 使用钱包   ---去输入平台支付密码
+            if (_payPassState == 0 ) {
+                // 【0 未设置】  去设置 钱包支付密码
+                
+                SettingPayPassWordViewController * vc = [[SettingPayPassWordViewController alloc]initWithNibName:@"SettingPayPassWordViewController" bundle:nil];
+                vc.isSetNewPassWord = NO;
+                vc.navigationItem.title = @"设置支付密码";
+                
+                vc.settingPayPassWordSuccBlock=^(){
+
+                    [self checkPayOrderPwdRequest];
+                    
+                    [self inputPayPass];
+                    
+                };
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else if (_payPassState == 1 ){
+                //【1 已设置】
+                
+                [self inputPayPass];
+                
+            }
+        }
+    } otherButtonTitles:@"确定"];
+    [alert show];
+ }
 
 #pragma mark - 输入平台支付密码
 

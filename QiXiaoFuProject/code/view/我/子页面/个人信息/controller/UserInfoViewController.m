@@ -58,7 +58,7 @@
     self.navigationItem.title = @"个人信息";
     
     
-    _titles = @[@"头像",@"昵称",@"从业时间",@"实名认证",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
+    _titles = @[@"头像",@"昵称",@"实名认证",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
 
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SettingCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"MineInfoCell" bundle:nil] forCellReuseIdentifier:@"MineInfoCell"];
@@ -230,18 +230,18 @@
     }else if (indexPath.row == 2) {
         MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
         cell.titleLab.text =_titles[indexPath.row ];
-        cell.textFiled.placeholder = @"请输入从业时间";
-        cell.textFiled.userInteractionEnabled = NO;
-        if (_userInfoModel1.working_time.length !=0 && ![_userInfoModel1.working_time isEqualToString:@"0"]) {
-            cell.textFiled.text = [Utool timeStamp4TimeFormatter:_userInfoModel1.working_time];
-        }
+        cell.textFiled.enabled = NO;
+        cell.textFiled.placeholder = @"";
         return cell;
         
     }else if (indexPath.row == 3) {
         MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
         cell.titleLab.text =_titles[indexPath.row ];
-        cell.textFiled.enabled = NO;
-        cell.textFiled.placeholder = @"";
+        cell.textFiled.placeholder = @"请输入从业时间";
+        cell.textFiled.userInteractionEnabled = NO;
+        if (_userInfoModel1.working_time.length !=0 && ![_userInfoModel1.working_time isEqualToString:@"0"]) {
+            cell.textFiled.text = [Utool timeStamp4TimeFormatter:_userInfoModel1.working_time];
+        }
         return cell;
         
     }else if (indexPath.row == 4) {
@@ -336,21 +336,6 @@
         }];
     }
     if(indexPath.row == 2){
-        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:1];
-
-        pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
-            _working_time =  [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];
-            MineInfoNickCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-             cell.textFiled.text =  [NSString stringWithFormat:@"%ld年",year];
-
-            [self changeUserInfo];
-        };
-        
-        [pickerDate show];
-
-    }
-    
-    if(indexPath.row == 3){
         [Utool verifyLoginAndCertification:self LogonBlock:^{
             BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n已实名认证\n" cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
                 
@@ -364,7 +349,20 @@
         }];
         
     }
-    
+    if(indexPath.row == 3){
+        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:1];
+        
+        pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
+            _working_time =  [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];
+            MineInfoNickCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.textFiled.text =  [NSString stringWithFormat:@"%ld年",year];
+            
+            [self changeUserInfo];
+        };
+        
+        [pickerDate show];
+        
+    }
     if (indexPath.row == 5) {
         
         ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];

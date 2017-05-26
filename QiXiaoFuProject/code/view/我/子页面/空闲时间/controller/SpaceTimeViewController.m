@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"空闲时间";
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"新增" target:self action:@selector(addSpaceTime)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"添加" target:self action:@selector(addSpaceTime)];
     
     _page = 1;
     _dataArray = [NSMutableArray new];

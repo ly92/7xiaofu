@@ -166,51 +166,50 @@ static NSString * const kSeverPrice = @"服务价格";
     //询问是否确定接单
     BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n确定接单\n" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
         
-        if(buttonIndex == 0){
-            return ;
+        if(buttonIndex == 1){
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"userid"] = kUserId;
+            params[@"id"] = _p_id;
+            
+            
+            [MCNetTool postWithUrl:HttpMainTakeBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                
+                NSInteger state = [requestDic[@"state"] integerValue];
+                
+                NSString * pro_id = requestDic[@"bill_id"];
+                
+                // 【1】 接单成功 【2 项目已被抢走】【3 不能接自己发布的项目】【4 没有进行实名认证】【5 订单生成失败，后台逻辑错误】
+                
+                if ( state == 1) {
+                    
+                    [self receivingOrderSucc:pro_id];
+                    _p_id = @"";
+                    
+                }else if (state ==2){
+                    
+                    [self receivingOrderFailure];
+                    
+                    
+                }else if (state ==3){
+                    
+                    [self showErrorText:@"不能接自己发布的项目"];
+                    
+                }else if (state ==4){
+                    
+                    [self goCertification];
+                    
+                }else if (state ==5){
+                    [self showErrorText:@"接单失败"];
+                }
+                
+            } fail:^(NSString *error) {
+                [self showErrorText:error];
+            }];
         }
     } otherButtonTitles:@"确定"];
     [alert show];
     
     
-    NSMutableDictionary * params = [NSMutableDictionary new];
-    params[@"userid"] = kUserId;
-    params[@"id"] = _p_id;
-  
-    
-    [MCNetTool postWithUrl:HttpMainTakeBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
-        
-        NSInteger state = [requestDic[@"state"] integerValue];
-         
-        NSString * pro_id = requestDic[@"bill_id"];
-
-        // 【1】 接单成功 【2 项目已被抢走】【3 不能接自己发布的项目】【4 没有进行实名认证】【5 订单生成失败，后台逻辑错误】
-        
-        if ( state == 1) {
-            
-            [self receivingOrderSucc:pro_id];
-            _p_id = @"";
-            
-        }else if (state ==2){
-        
-             [self receivingOrderFailure];
- 
-            
-        }else if (state ==3){
-            
-            [self showErrorText:@"不能接自己发布的项目"];
-            
-        }else if (state ==4){
-
-            [self goCertification];
-            
-        }else if (state ==5){
-            [self showErrorText:@"接单失败"];
-        }
-
-    } fail:^(NSString *error) {
-        [self showErrorText:error];
-    }];
     
     
 

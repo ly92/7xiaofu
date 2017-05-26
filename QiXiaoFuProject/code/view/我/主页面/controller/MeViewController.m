@@ -328,21 +328,21 @@
 
 - (void)viewcontrollerJump2VCWithindex:(NSInteger )index{
     
-
+//【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
     if (index == 0) {
-        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"待接单",@"已接单",@"已完成",@"已取消",@"调价中"]  andClass:[MySendOrderViewController class]];
+        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"待接单",@"已接单",@"已完成",@"已取消",@"调价中",@"已失效"]  andClass:[MySendOrderViewController class]];
         vc.navigationItem.title = @"我的发单";
         //设置数据的key
-        [vc setRequestDataKeyArr:@[@1,@2,@3,@5,@6]];
+        [vc setRequestDataKeyArr:@[@1,@2,@3,@5,@6,@4]];
         
 //        MySendOrderViewController * vc = [[MySendOrderViewController alloc]initWithNibName:@"MySendOrderViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (index == 1) {
-        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"已接单",@"已完成",@"已取消",@"调价中"]  andClass:[MyReceivingOrderViewController class]];
+        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"已接单",@"已完成",@"已取消",@"调价中",@"补单"]  andClass:[MyReceivingOrderViewController class]];
         vc.navigationItem.title = @"我的接单";
         //设置数据的key
-        [vc setRequestDataKeyArr:@[@2,@3,@5,@6]];
+        [vc setRequestDataKeyArr:@[@2,@3,@5,@6,@7]];
         
 //        MyReceivingOrderViewController * vc = [[MyReceivingOrderViewController alloc]initWithNibName:@"MyReceivingOrderViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
