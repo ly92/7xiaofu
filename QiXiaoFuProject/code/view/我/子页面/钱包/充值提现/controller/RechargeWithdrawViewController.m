@@ -255,7 +255,7 @@
 
              }else{
             
-                cell.titleLab.text =@"微信绑定的银行卡号";
+                cell.titleLab.text =@"绑定的银行卡号";
                 cell.moneyTextField.placeholder = @"请输入银行卡账号";
 
             }
