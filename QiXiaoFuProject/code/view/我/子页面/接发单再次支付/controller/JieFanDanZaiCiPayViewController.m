@@ -433,8 +433,8 @@
                     if (_jieFanDanZaiCiPayViewBlock) {
                         _jieFanDanZaiCiPayViewBlock();
                     }
-                    [self.navigationController popToRootViewControllerAnimated:YES];
-                    
+//                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    [self.navigationController popViewControllerAnimated:YES];
                     
                 } afterDelay:1.0f];    
             }
@@ -531,8 +531,8 @@
                 if (_jieFanDanZaiCiPayViewBlock) {
                     _jieFanDanZaiCiPayViewBlock();
                 }
-                [self.navigationController popToRootViewControllerAnimated:YES];
-
+//                [self.navigationController popToRootViewControllerAnimated:YES];
+                [self.navigationController popViewControllerAnimated:YES];
                 
             } afterDelay:1.0f];
             
@@ -578,8 +578,8 @@
             if (_jieFanDanZaiCiPayViewBlock) {
                 _jieFanDanZaiCiPayViewBlock();
             }
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
             
         } afterDelay:1.0f];
 
@@ -611,8 +611,8 @@
             if (_jieFanDanZaiCiPayViewBlock) {
                 _jieFanDanZaiCiPayViewBlock();
             }
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
             
         } afterDelay:1.0f];
 

@@ -488,9 +488,10 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             // 调价
             cell.orderSendDetaileCancle_Tiaojia =^(UIButton * btn){
                 
-                btn.selected =!btn.selected;
+//                btn.selected =!btn.selected;
                 
-                if(btn.selected){
+//                if(btn.selected){
+                    if(![_titles containsObject:kSeverKehuContent]){
                     
                     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_titles.count inSection:1];
@@ -578,9 +579,10 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             [cell.tureBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                 
                 if (_tiaoPrice == [_orderDetaileProModel.service_price floatValue]) {
-                    
                     [self showErrorText:@"调节的价格不能跟原价一样"];
                     
+                }else if (_tiaoPrice == 0){
+                    [self showErrorText:@"调节的价格不能为0"];
                 }else if (_tiaoPrice < [_orderDetaileProModel.service_price floatValue]) {
                     
                     [self showLoading];
