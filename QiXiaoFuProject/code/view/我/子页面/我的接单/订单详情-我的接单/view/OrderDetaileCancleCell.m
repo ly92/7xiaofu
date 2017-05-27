@@ -20,6 +20,7 @@
 
     _bill_statu = bill_statu;
 
+    _leftLeftBtn.hidden = YES;
     
     //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
     switch (bill_statu) {
@@ -223,6 +224,17 @@
             
             _leftBtn.hidden = NO;
             _cancleBtn.hidden = NO;
+            _leftLeftBtn.hidden = NO;
+            
+            
+            [_leftLeftBtn setTitle:@"  转移订单  " forState:UIControlStateNormal];
+            [_leftLeftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_orderDetaileTransfer_Btn) {
+                    _orderDetaileTransfer_Btn();
+                }
+            }];
+
             
             [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
             [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {

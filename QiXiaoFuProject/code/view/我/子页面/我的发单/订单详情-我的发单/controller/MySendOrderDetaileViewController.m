@@ -34,7 +34,7 @@ static NSString * const kSeverXS = @"服务形式";
 static NSString * const kSeverLX = @"服务类型";
 static NSString * const kSeverTime = @"预约服务时间";
 static NSString * const kSeverQY = @"服务区域";
-static NSString * const kSeverOtherQY = @"其他服务领域";
+//static NSString * const kSeverOtherQY = @"其他服务领域";
 static NSString * const kSeverMark = @"备注";
 static NSString * const kSeverPrice = @"服务价格";
 static NSString * const kSeverImage = @"图片121";
@@ -133,7 +133,8 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         
         
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
         
         _titles = [NSMutableArray arrayWithArray:titles];
         
@@ -226,7 +227,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         NSString * title = _titles[indexPath.row];
         
-        if(indexPath.row == 6 || indexPath.row == 8 /*|| indexPath.row == 8*/){
+        if(indexPath.row == 6 /*|| indexPath.row == 8*/){
             
             ProductDetail1TableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetail1TableViewCell"];
             cell.titleLab.text = _titles[indexPath.row];
@@ -237,15 +238,16 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_stime],
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_etime]];
                 
-            }else if (indexPath.row == 8){
-                // 其他服务领域
-                cell.contentLab.text = _orderDetaileProModel.other_service_sector.length==0?@"     ":_orderDetaileProModel.other_service_sector;;
-                
             }
+//            else if (indexPath.row == 8){
+//                // 其他服务领域
+//                cell.contentLab.text = _orderDetaileProModel.other_service_sector.length==0?@"     ":_orderDetaileProModel.other_service_sector;;
+//                
+//            }
              return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 9 || indexPath.row == 10 ){
+                 indexPath.row == 8 || indexPath.row == 9 ){
             
             
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -275,11 +277,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                 //服务区域
                 cell.contentLab.text =   _orderDetaileProModel.service_address.length==0?@"     ":_orderDetaileProModel.service_address;
                 
-            }else if(indexPath.row == 9){
+            }else if(indexPath.row == 8){
                 // 备注
                 cell.contentLab.text = _orderDetaileProModel.bill_desc.length==0?@"   ":_orderDetaileProModel.bill_desc;
                 
-            }else if(indexPath.row == 10){
+            }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
             }

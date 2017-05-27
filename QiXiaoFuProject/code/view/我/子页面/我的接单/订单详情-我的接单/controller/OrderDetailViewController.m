@@ -34,7 +34,7 @@ static NSString * const kSeverXS = @"服务形式";
 static NSString * const kSeverLX = @"服务类型";
 static NSString * const kSeverTime = @"预约服务时间";
 static NSString * const kSeverQY = @"服务区域";
-static NSString * const kSeverOtherQY = @"其他服务领域";
+//static NSString * const kSeverOtherQY = @"其他服务领域";
 //static NSString * const kSeverOtherXH = @"其他品牌型号";
 static NSString * const kSeverMark = @"备注";
 static NSString * const kSeverPrice = @"服务价格";
@@ -147,7 +147,9 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         [self dismissLoading];
         
         
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
+//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
+        
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
         _titles = [NSMutableArray arrayWithArray:titles];
 
 
@@ -254,22 +256,23 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
 
         NSString * title = _titles[indexPath.row];
         
-        if(indexPath.row == 6 || indexPath.row == 8 /*|| indexPath.row == 8*/){
+        if(indexPath.row == 6/*|| indexPath.row == 8*/){
         
             ProductDetail1TableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetail1TableViewCell"];
             cell.titleLab.text = _titles[indexPath.row];
 
-            if(indexPath.row == 5){
+            if(indexPath.row == 6){
                 //预约服务时间
                 cell.contentLab.text = [NSString stringWithFormat:@"%@-%@",
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_stime],
                                         [Utool timeStamp2TimeFormatter:_orderDetaileProModel.service_etime]];
 
-            }else if (indexPath.row == 8){
-                // 其他服务领域
-                cell.contentLab.text = _orderDetaileProModel.other_service_sector.length==0?@"     ":_orderDetaileProModel.other_service_sector;;
- 
             }
+//            else if (indexPath.row == 8){
+//                // 其他服务领域
+//                cell.contentLab.text = _orderDetaileProModel.other_service_sector.length==0?@"     ":_orderDetaileProModel.other_service_sector;;
+// 
+//            }
             /*
             else if (indexPath.row == 8){
                 //其他品牌型号
@@ -280,7 +283,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 9 || indexPath.row == 10 ){
+                 indexPath.row == 8 || indexPath.row == 9 ){
         
         
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -310,11 +313,11 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                 //服务区域
                 cell.contentLab.text =   _orderDetaileProModel.service_address.length==0?@"     ":_orderDetaileProModel.service_address;
 
-            }else if(indexPath.row == 9){
+            }else if(indexPath.row == 8){
                 // 备注
                 cell.contentLab.text = _orderDetaileProModel.bill_desc.length==0?@"   ":_orderDetaileProModel.bill_desc;
 
-            }else if(indexPath.row == 10){
+            }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
             }
@@ -333,6 +336,13 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             cell.t_state =_orderDetaileProModel.t_state;
             cell.pay_statu =_orderDetaileProModel.pay_statu;
             cell.bill_statu =_orderDetaileProModel.bill_statu;
+            
+            
+            //转移订单
+            cell.orderDetaileTransfer_Btn = ^(){
+                
+            };
+            
             
             // 取消订单
             cell.orderDetaileCancle_QuXiaoDingDan =^( ){
@@ -656,6 +666,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         return 100;
     }
     return UITableViewAutomaticDimension;
+    
 }
 
 

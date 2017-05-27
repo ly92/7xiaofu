@@ -11,6 +11,7 @@
 @interface OrderDetaileCancleCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *cancleBtn;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
+@property (weak, nonatomic) IBOutlet UIButton *leftLeftBtn;
  
 @property (nonatomic, assign) NSInteger t_state;
 @property (nonatomic, assign) NSInteger pay_statu;
@@ -41,7 +42,7 @@
 
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnKaishiGongzuo)();
 
-
+@property(nonatomic, copy) void (^orderDetaileTransfer_Btn)();//转移订单
 
 
 
