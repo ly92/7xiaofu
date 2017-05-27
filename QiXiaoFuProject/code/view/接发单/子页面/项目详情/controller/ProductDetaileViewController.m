@@ -16,6 +16,8 @@
 #import "ProductDetaileModel.h"
 #import "CertificationViewController.h"
 #import "OrderDetailImageCell.h"
+#import "CommentListViewController.h"
+
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -65,8 +67,8 @@ static NSString * const kSeverPrice = @"服务价格";
     _sectionNum = 0;
     
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_share" highImage:@"icon_share" target:self action:@selector(shareItemAction:)];
-
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_share" highImage:@"icon_share" target:self action:@selector(shareItemAction:)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"查看评价" target:self action:@selector(customerEvaluation)];
     
     _titles = @[kSeverName,kSeverLY,kSeverPP,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice];
 
@@ -113,6 +115,15 @@ static NSString * const kSeverPrice = @"服务价格";
 
 }
 
+//查看对客户的评价
+- (void)customerEvaluation{
+    //10.216.2.11/tp.php/Home/Index/clientCommentList?token_time=1495890416122&token=947cab2a352912d08485f2a7049fe4f9&curpage=1&member_id=990
+    CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
+    vc.member_id = _productDetaileModel.bill_user_id;
+    vc.type = 1;
+    vc.isCustomer = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 #pragma mark - 加载项目详情

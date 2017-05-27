@@ -61,9 +61,15 @@
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"curpage"] = @(page);//页数
     params[@"member_id"] = _member_id;//	工程师ID
-        
+    NSString *url = @"";
     
-    [MCNetTool postWithCacheUrl:HttpMainEngEvalList params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    if (self.isCustomer){
+        url = HttpMainclientCommentList;
+    }else{
+        url = HttpMainEngEvalList;
+    }
+    
+    [MCNetTool postWithCacheUrl:url params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _page = page;
         _page ++;

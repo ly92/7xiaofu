@@ -37,6 +37,9 @@ NSString  * const HttpMainProductDetalie = @"tp.php/Home/Index/BillDetail/";
 /* 更多工程师评价*/
 NSString  * const HttpMainEngEvalList =@"tp.php/Home/Index/engEvalList";
 
+/* 客户评价*/
+NSString  * const HttpMainclientCommentList =@"tp.php/Home/Index/clientCommentList";
+
 // =====================================工程师
 
 /* 工程师列表*/

@@ -83,7 +83,8 @@ UIKIT_EXTERN NSString  * const HttpMainBillMatchEngList;
 /* 更新用户在线状态*/
 UIKIT_EXTERN NSString  * const HttpMainMemberOs;
 
-
+/* 客户评价*/
+UIKIT_EXTERN NSString  * const HttpMainclientCommentList;
 
 
 

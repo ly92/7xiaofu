@@ -36,7 +36,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517583162.049287"
+                  timestampString = "517584347.8309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -51,7 +51,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517583162.051226"
+                  timestampString = "517584347.834278"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -228,7 +228,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/controller/OrderDetailViewController.m"
-                  timestampString = "517583170.764228"
+                  timestampString = "517584347.848952"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "342"
@@ -243,7 +243,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/controller/OrderDetailViewController.m"
-                  timestampString = "517583170.766194"
+                  timestampString = "517584347.850629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "344"
@@ -276,7 +276,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/controller/OrderDetailViewController.m"
-                  timestampString = "517583171.339365"
+                  timestampString = "517584347.854341"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "342"
@@ -291,7 +291,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E6%8E%A5%E5%8D%95/controller/OrderDetailViewController.m"
-                  timestampString = "517583171.343482"
+                  timestampString = "517584347.855995"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "344"
@@ -314,6 +314,22 @@
             startingLineNumber = "344"
             endingLineNumber = "344"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x9879;&#x76ee;&#x8be6;&#x60c5;/controller/ProductDetaileViewController.m"
+            timestampString = "517584307.970955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
