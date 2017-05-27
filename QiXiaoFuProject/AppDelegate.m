@@ -12,11 +12,11 @@
 #import "AppDelegate+AliPay.h"
 #import "AppDelegate+UMShare.h"
 
-
 #import "AppDelegate+JPush.h"
 #import "EaseModHelper.h"
 
 #import "AppDelegate+EaseMob.h"
+
 
 @interface AppDelegate ()
 
@@ -24,11 +24,9 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-        
     application.applicationIconBadgeNumber = 0;
     
     
@@ -79,7 +77,6 @@
     
     return YES;
 }
-
 
 
 #pragma mark -  注册环信

@@ -110,6 +110,7 @@
     
     [MCNetTool postWithCachePageUrl:HttpApi params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
         
+        _page = page;
         _page ++;
         
         NSMutableArray *mutableArr=[NSMutableArray array];

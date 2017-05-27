@@ -128,6 +128,7 @@
     
     [MCNetTool postWithPageUrl:HttpShopList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
         
+        _page = page;
         _page ++;
         ShopListModel * shopListModel = [ShopListModel mj_objectWithKeyValues:requestDic];
         _area_list =shopListModel.area_list;

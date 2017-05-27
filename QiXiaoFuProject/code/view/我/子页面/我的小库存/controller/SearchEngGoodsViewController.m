@@ -95,6 +95,7 @@
     
     [MCNetTool postWithCacheUrl:HttpMeSearchEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
+        _page = page;
         _page ++;
         
         NSArray * array = [MyStockModel mj_objectArrayWithKeyValuesArray:requestDic];

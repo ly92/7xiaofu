@@ -72,6 +72,7 @@
     
     [MCNetTool postWithUrl:HttpMeMyOtList params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
+        _page = page;
         _page ++;
         NSArray * array = [MySendOrderModel mj_objectArrayWithKeyValuesArray:requestDic];
         

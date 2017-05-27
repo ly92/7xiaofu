@@ -79,6 +79,7 @@
     
     [MCNetTool postWithCachePageUrl:HttpShopCollectList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
         
+        _page = page;
         _page ++;
         
         NSArray *   array = [CollectGoodModel mj_objectArrayWithKeyValuesArray:requestDic];

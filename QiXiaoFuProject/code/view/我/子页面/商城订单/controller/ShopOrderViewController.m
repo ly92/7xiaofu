@@ -86,6 +86,7 @@
 
     [MCNetTool postWithUrl:HttpShopOrderList params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
+        _page = page;
         _page ++;
         
         hud?[self dismissLoading]:@"";

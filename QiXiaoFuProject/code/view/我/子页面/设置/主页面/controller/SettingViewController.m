@@ -24,7 +24,8 @@
 #import "JPUSHService.h"
 #import "EaseModHelper.h"
 #import "AppManager.h"
-
+#import "LoginViewController.h"
+#import "BaseNavigationController.h"
 
 static NSString * kCecheKey = @"清除缓存";
 static NSString * kShareKey = @"推荐给好友";
@@ -101,7 +102,7 @@ static NSString * kPushState = @"是否接收推送消息";
         
         UserInfoModel * modle= [UserManager readModel];
         modle.userid =@"";
-        modle.phone =@"";
+//        modle.phone =@"";
         modle.store_id =@"";
         modle.store_name =@"";
         modle.password =@"";
@@ -118,7 +119,14 @@ static NSString * kPushState = @"是否接收推送消息";
             DeLog(@"退出成功");
         }
         
-        [self.navigationController popViewControllerAnimated:YES];
+        if(kUserId.length == 0){
+            //检查是否登录
+            LoginViewController * lvc = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+            BaseNavigationController * nvc = [[BaseNavigationController alloc]initWithRootViewController:lvc];
+            [self presentViewController:nvc animated:YES completion:^{
+            }];
+            
+        }
     }
 }
 

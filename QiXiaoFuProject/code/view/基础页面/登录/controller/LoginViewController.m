@@ -42,7 +42,7 @@
     
     _num = 0;
     
-    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"取消" target:self action:@selector(cancelAction:)];
+//    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"取消" target:self action:@selector(cancelAction:)];
 
     
     UIView * header = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 160)];

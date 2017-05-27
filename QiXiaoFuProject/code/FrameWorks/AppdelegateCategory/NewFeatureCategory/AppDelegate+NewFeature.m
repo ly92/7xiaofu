@@ -11,6 +11,8 @@
 
 #import "LCNewFeatureVC.h"
 
+
+
 @implementation AppDelegate (NewFeature)
 
 - (void)newFeatureFinishBlock:(finishBlock)finisshBlock{
@@ -84,15 +86,15 @@
 
 //  进入主界面
 - (void)enterMianCv{
-
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-//
+    //
+    //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    //
     MainTabBarViewController * mainTabbarVc = [[MainTabBarViewController alloc]init];
     self.window.rootViewController = mainTabbarVc;
-
+    
 }
 
 

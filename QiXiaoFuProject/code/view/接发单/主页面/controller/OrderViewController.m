@@ -122,6 +122,12 @@
 
     [super viewWillAppear:animated];
 
+    //
+    [Utool verifyLogin:self LogonBlock:^{
+        
+    }];
+
+    
     if (_orderMainModel == nil) {
         [self loadMainData];
     }
