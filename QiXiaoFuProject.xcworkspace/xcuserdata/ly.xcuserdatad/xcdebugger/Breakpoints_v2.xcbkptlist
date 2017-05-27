@@ -36,7 +36,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517545835.372684"
+                  timestampString = "517560885.636999"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -51,7 +51,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517545835.375487"
+                  timestampString = "517560885.63971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -96,27 +96,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x4e3b;&#x9875;&#x9762;/controller/ShopViewController.m"
-            timestampString = "517542284.690829"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x8bbe;&#x7f6e;/&#x4e3b;&#x9875;&#x9762;/controller/SettingViewController.m"
+            timestampString = "517545281.49732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478"
-            landmarkName = "-loadAllShopListWithGc_id:page:"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x4e3b;&#x9875;&#x9762;/controller/ShopViewController.m"
-            timestampString = "517542354.111528"
+            timestampString = "517547222.054071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "500"
@@ -131,13 +131,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x8bbe;&#x7f6e;/&#x4e3b;&#x9875;&#x9762;/controller/SettingViewController.m"
-            timestampString = "517545281.49732"
+            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x4e3b;&#x9875;&#x9762;/controller/ShopViewController.m"
+            timestampString = "517547225.271176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
+            landmarkName = "-loadAllShopListWithGc_id:page:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x5b50;&#x9875;&#x9762;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;/controller/OrderDetaileViewController.m"
+            timestampString = "517548868.638563"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,6 +12,7 @@
 
 // 登录情况下使用该view
 @property (weak, nonatomic) IBOutlet UIView *loginView;
+@property (weak, nonatomic) IBOutlet UILabel *invitationCodeLbl;
 
 @property (weak, nonatomic) IBOutlet UIButton *headerImageBtn;
 

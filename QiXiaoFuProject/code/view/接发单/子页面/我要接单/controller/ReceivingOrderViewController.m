@@ -130,7 +130,7 @@
         return;
     }
     
-    NSString *service_sectorStr = [LocalData getService_sector];
+//    NSString *service_sectorStr = [LocalData getService_sector];
     
 //    if(_service_sectorStr.length == 0){
 //        
@@ -159,7 +159,7 @@
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
-    params[@"service_sector"] = service_sectorStr;
+//    params[@"service_sector"] = service_sectorStr;
     params[@"service_stime"] =service_stime;
     params[@"service_etime"] =service_etime;
     params[@"citys"] = [quyuArray JSONString_Ext];

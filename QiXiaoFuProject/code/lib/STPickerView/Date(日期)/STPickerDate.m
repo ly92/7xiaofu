@@ -197,7 +197,7 @@
          [self.delegate pickerDate:self year:self.year month:self.month day:self.day hour:self.hour -1 minute:self.minute -1];
     }
     
-    NSString * selectTime =[NSString stringWithFormat:@"%ld:%.2ld:%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1 ,self.minute-1];
+    NSString * selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1 ,self.minute-1];
     
     if (_pickerDate5Block) {
         _pickerDate5Block(self.year,self.month,self.day,self.hour-1,self.minute-1,selectTime);

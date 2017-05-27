@@ -200,7 +200,7 @@
             
         }
         engineerHeaderReusableView.nameLab.hidden = NO;
-        
+        engineerHeaderReusableView.invitationCodeLbl.text = [NSString stringWithFormat:@"邀请码:%@",_userInfoModel1.iv_code];
         NSString * nick_name = _userInfoModel1.member_nik_name;
         LxDBAnyVar(nick_name);
 
@@ -354,11 +354,11 @@
         [self.navigationController pushViewController:spaceTimeVC animated:YES];
     }
     if (index == 3) {
-        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"全部",@"待付款",@"待发货",@"待收货",@"已完成",@"已取消"]  andClass:[ShopOrderViewController class]];
+        SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"全部",@"待付款",@"待发货",@"待收货",@"已完成",@"退换货",@"已取消"]  andClass:[ShopOrderViewController class]];
         vc.navigationItem.title = @"我的接单";
         
         //设置数据的key
-        [vc setRequestDataKeyArr:@[@100,@1,@2,@3,@4,@0]];
+        [vc setRequestDataKeyArr:@[@100,@1,@2,@3,@4,@6,@0]];
         
         
         vc.navigationItem.title=@"商城订单";

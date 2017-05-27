@@ -155,8 +155,10 @@
         Goods_Sn_Type * type = _orderDetaileModel.goods_sn_type[indexPath.row];
         OrderDetailSnCell * cell =[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSnCell"];
         cell.titleLab.text = [NSString stringWithFormat:@"sn码: %@",type.goods_sn];
-        if(type.goods_sn.length != 0){
+        if(type.goods_type_name.length != 0){
             cell.descLab.text = type.goods_type_name;
+        }else{
+            cell.descLab.text = @"";
         }
         return cell;
     }
