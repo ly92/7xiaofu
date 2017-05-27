@@ -61,7 +61,7 @@
     receivingOrderEditFooterView.frame = footerView.bounds;
     _tableView.tableFooterView = footerView;
 
-    [self showaddbillDataJ];
+//    [self showaddbillDataJ];
     
     [receivingOrderEditFooterView.fabuBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
        

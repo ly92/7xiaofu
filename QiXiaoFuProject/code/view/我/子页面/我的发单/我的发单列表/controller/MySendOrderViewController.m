@@ -15,8 +15,8 @@
 #import "JieFanDanZaiCiPayViewController.h"
 #import "CommentViewController.h"
 #import "ChatViewController.h"
-#import "SendOrderViewController.h"
-#import "CertificationViewController.h"
+//#import "SendOrderViewController.h"
+//#import "CertificationViewController.h"
 
 @interface MySendOrderViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,7 +31,7 @@
     
     self.navigationItem.title = @"我的发单";
     
-    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"发单" target:self action:@selector(rightFaItemAction:)];
+//    self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"发单" target:self action:@selector(rightFaItemAction:)];
 
     _page = 1;
     _dataArray = [NSMutableArray new];
@@ -48,23 +48,23 @@
 
 
 
-
-- (void)rightFaItemAction:(UIBarButtonItem *)item{
-    
-    [Utool verifyLoginAndCertification:self LogonBlock:^{
-        
-        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    } CertificationBlock:^{
-        
-        CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }];
-    
-}
-
+//
+//- (void)rightFaItemAction:(UIBarButtonItem *)item{
+//    
+//    [Utool verifyLoginAndCertification:self LogonBlock:^{
+//        
+//        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];
+//        [self.navigationController pushViewController:vc animated:YES];
+//        
+//    } CertificationBlock:^{
+//        
+//        CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
+//        [self.navigationController pushViewController:vc animated:YES];
+//        
+//    }];
+//    
+//}
+//
 
 - (void)addRefreshView{
     

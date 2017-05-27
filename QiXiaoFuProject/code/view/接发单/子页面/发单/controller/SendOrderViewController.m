@@ -64,7 +64,7 @@
     
     _titles = @[@[@"项目名称",@"服务形式",@"服务类型",@"服务区域",@"预约开始时间",@"预约结束时间"],
               @[@"服务领域",@"品牌型号",@"数量/单位"],
-              @[@"其他服务领域(选填)"],
+//              @[@"其他服务领域(选填)"],
               @[@"服务价格"]];
     
     
@@ -292,13 +292,13 @@
             return cell;
         }
     }
+//    if (indexPath.section ==2) {
+//        SendOrderDuoCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderDuoCell"];
+//        cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+//        return cell;
+//        
+//    }
     if (indexPath.section ==2) {
-        SendOrderDuoCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderDuoCell"];
-        cell.titleLab.text =_titles[indexPath.section][indexPath.row];
-        return cell;
-        
-    }
-    if (indexPath.section ==3) {
         SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
         cell.titleLab.text =_titles[indexPath.section][indexPath.row];
         cell.zhidingSwitch.hidden = YES;
@@ -322,7 +322,7 @@
          }
         return UITableViewAutomaticDimension;
     }
-    if(indexPath.section == 3){
+    if(indexPath.section == 2){
          return 44;
      }
      return UITableViewAutomaticDimension;
@@ -461,35 +461,35 @@
         }
         
     }
-    if (indexPath.section == 2) {
-        
-        //其他服务领域(选填)
-            ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
-            vc.allowsMultipleSelection = YES;
-            vc.domains =_showaddbillModel.service_sector;
-
-            //vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
-            
-            vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
-                
-                SendOrderDuoCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-                LxDBAnyVar(somains);
-                _selectedDomainsIds =somains;
-                
-                NSMutableArray * titles = [NSMutableArray new];
-                NSMutableArray * ids = [NSMutableArray new];
-
-                [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-                    [titles addObject:user.gc_name];
-                    [ids addObject:user.gc_id];
-                 }];
-                NSString * titleStr = [titles string];
-                cell.descLab.text = titleStr;
-                 _requestParams[@"other_service_sector"] = [ids string];//	其他服务领域ID
-                
-            };
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+//    if (indexPath.section == 2) {
+//        
+//        //其他服务领域(选填)
+//            ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
+//            vc.allowsMultipleSelection = YES;
+//            vc.domains =_showaddbillModel.service_sector;
+//
+//            //vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
+//            
+//            vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
+//                
+//                SendOrderDuoCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+//                LxDBAnyVar(somains);
+//                _selectedDomainsIds =somains;
+//                
+//                NSMutableArray * titles = [NSMutableArray new];
+//                NSMutableArray * ids = [NSMutableArray new];
+//
+//                [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
+//                    [titles addObject:user.gc_name];
+//                    [ids addObject:user.gc_id];
+//                 }];
+//                NSString * titleStr = [titles string];
+//                cell.descLab.text = titleStr;
+//                 _requestParams[@"other_service_sector"] = [ids string];//	其他服务领域ID
+//                
+//            };
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }
 }
 
 
@@ -534,7 +534,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if(section ==3){
+    if(section ==2){
         return 50;
     }
     return 0.001f;

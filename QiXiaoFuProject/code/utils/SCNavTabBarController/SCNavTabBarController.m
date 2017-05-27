@@ -7,6 +7,10 @@
 
 #import "SCNavTabBarController.h"
 #import "SCNavTabBar.h"
+#import "SendOrderViewController.h"
+#import "CertificationViewController.h"
+#import "ReplacementOrderViewController.h"
+
 
 #define SCREEN_WIDTH     ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT    ([UIScreen mainScreen].bounds.size.height)
@@ -58,16 +62,48 @@
 {
     [super viewDidLoad];
     
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }
+
+
+//导航栏右侧按钮  1我的发单  2我的接单
+- (void)customerItemActionType:(int)index{
+    if (index == 1){
+        self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"发单" target:self action:@selector(sendOrder)];
+    }else if (index == 2){
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"补单" target:self action:@selector(receiveOrder)];
+    }
+}
+
+- (void)receiveOrder{
+    ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)sendOrder{
+    [Utool verifyLoginAndCertification:self LogonBlock:^{
+        
+        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } CertificationBlock:^{
+        
+        CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }];
+
+}
+
+
 #pragma mark --用来区分子控制器里数据的数组
 -(void)setRequestDataKeyArr:(NSArray *)dataKeyArr{
 
     _mutableDataArr =[NSMutableArray arrayWithArray:dataKeyArr];
     if (_subViewControllers) {
         for (int i=0; i<_subViewControllers.count; i++) {
+            
             
             if ([_subViewControllers[i] isKindOfClass:[ShopOrderViewController class]]) {//商城订单
                 
@@ -77,12 +113,14 @@
                 
             }else if ([_subViewControllers[i] isKindOfClass:[MySendOrderViewController class]]){//我的发单
               
+                [self customerItemActionType:1];
+                
                 MySendOrderViewController *sendOrderVC=_subViewControllers[i];
                 
                 sendOrderVC.sendOrderStatus =((NSNumber *)_mutableDataArr[i]).integerValue;
             
             }else if ([_subViewControllers[i] isKindOfClass:[MyReceivingOrderViewController  class]]){//我的接单
-                
+                [self customerItemActionType:2];
                 MyReceivingOrderViewController *receiveOrderVC=_subViewControllers[i];
                 
                 receiveOrderVC.receiveOrderStatus =((NSNumber *)_mutableDataArr[i]).integerValue;

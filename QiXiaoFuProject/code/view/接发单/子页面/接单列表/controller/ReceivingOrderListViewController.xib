@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReceivingOrderListViewController">
             <connections>
+                <outlet property="ableOrderBtn" destination="cVT-cP-qbk" id="12w-UV-lQg"/>
+                <outlet property="historyOrderBtn" destination="8fk-hZ-MXo" id="iUU-jP-97w"/>
                 <outlet property="tableView" destination="eTa-74-2dv" id="kGg-JP-Lzh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,20 +23,70 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-74-2dv">
+                    <rect key="frame" x="0.0" y="51" width="375" height="616"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="H9a-OX-EZY"/>
                         <outlet property="delegate" destination="-1" id="2Ml-Lq-aCi"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZr-zY-CUL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVT-cP-qbk">
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="可接订单">
+                                <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.70980392160000005" green="0.2784313725" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="orderBtnAction:" destination="-1" eventType="touchUpInside" id="1Su-rS-iOL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fk-hZ-MXo">
+                            <rect key="frame" x="188" y="0.0" width="187" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="历史订单">
+                                <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.70980392160000005" green="0.2784313725" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="orderBtnAction:" destination="-1" eventType="touchUpInside" id="1vJ-12-UWJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cVT-cP-qbk" secondAttribute="bottom" id="0QH-bT-h3g"/>
+                        <constraint firstItem="8fk-hZ-MXo" firstAttribute="leading" secondItem="cVT-cP-qbk" secondAttribute="trailing" constant="1" id="N7x-JI-n38"/>
+                        <constraint firstItem="8fk-hZ-MXo" firstAttribute="top" secondItem="qZr-zY-CUL" secondAttribute="top" id="NhG-ft-d4F"/>
+                        <constraint firstItem="cVT-cP-qbk" firstAttribute="top" secondItem="qZr-zY-CUL" secondAttribute="top" id="YZb-91-7Aa"/>
+                        <constraint firstAttribute="height" constant="50" id="beH-Ig-W9b"/>
+                        <constraint firstAttribute="bottom" secondItem="8fk-hZ-MXo" secondAttribute="bottom" id="f13-ja-6TO"/>
+                        <constraint firstAttribute="trailing" secondItem="8fk-hZ-MXo" secondAttribute="trailing" id="hz2-OU-jPa"/>
+                        <constraint firstItem="cVT-cP-qbk" firstAttribute="leading" secondItem="qZr-zY-CUL" secondAttribute="leading" id="qX3-WI-fkc"/>
+                        <constraint firstItem="8fk-hZ-MXo" firstAttribute="width" secondItem="cVT-cP-qbk" secondAttribute="width" id="yuQ-vG-cDY"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="eTa-74-2dv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="74T-QS-uIl"/>
                 <constraint firstAttribute="trailing" secondItem="eTa-74-2dv" secondAttribute="trailing" id="NkG-b0-f6c"/>
+                <constraint firstItem="qZr-zY-CUL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ong-1k-vfO"/>
+                <constraint firstAttribute="trailing" secondItem="qZr-zY-CUL" secondAttribute="trailing" id="PQg-Em-tRN"/>
                 <constraint firstItem="eTa-74-2dv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZHD-L4-tT1"/>
                 <constraint firstAttribute="bottom" secondItem="eTa-74-2dv" secondAttribute="bottom" id="dhO-xb-jns"/>
+                <constraint firstItem="eTa-74-2dv" firstAttribute="top" secondItem="qZr-zY-CUL" secondAttribute="bottom" constant="1" id="qE4-P7-h64"/>
+                <constraint firstItem="qZr-zY-CUL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sCC-ht-NCb"/>
             </constraints>
+            <point key="canvasLocation" x="98.5" y="147.5"/>
         </view>
     </objects>
 </document>

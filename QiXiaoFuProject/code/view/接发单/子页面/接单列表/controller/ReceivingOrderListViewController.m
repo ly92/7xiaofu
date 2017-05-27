@@ -17,6 +17,10 @@
 
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (weak, nonatomic) IBOutlet UIButton *ableOrderBtn;
+@property (weak, nonatomic) IBOutlet UIButton *historyOrderBtn;
+
+@property (nonatomic, copy) NSString *bill_type;//1:可接订单 2:历史订单
 
 @end
 
@@ -35,8 +39,8 @@
     _tableView.tableFooterView = [UIView new];
     
     
-
     
+    self.bill_type = @"1";
     [self addRefreshView];
     // Do any additional setup after loading the view from its nib.
 }
@@ -50,17 +54,17 @@
     [_tableView footerAddMJRefresh:^{
         
         [self engMatchBillListWithPage:_page hud:NO];
-
+        
     }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:animated];
-
+    
     [self engMatchBillListWithPage:1 hud:YES];
-
-
+    
+    
 }
 
 
@@ -68,11 +72,11 @@
 
 
 - (void)engMatchBillListWithPage:(NSInteger )page hud:(BOOL )hud{
-
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);
- 
+    params[@"bill_type"] = self.bill_type;
+    
     
     hud?[self showLoading]:nil;
     
@@ -95,26 +99,26 @@
         } loadData:^{
             
         }];
-
+        
         
         [_tableView reloadData];
         if (array.count < 10) {
             [_tableView hidenFooter];
         }
-
+        
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
-    
+        
         
         [self receivingOrderItem];
         
         
-    
+        
         
     } fail:^(NSString *error) {
         
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
-
+        
         [self showErrorText:error];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray scrollView:_tableView receivingOrder:^{
@@ -125,33 +129,25 @@
             
         }];
         
-
+        
     }];
-
-
+    
+    
 }
 
 - (void)receivingOrderItem{
-
-    if(_dataArray.count != 0){
-        
-        
-        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"设置空闲时间" target:self action:@selector(rightJieItemAction:)];
-
-        
-    }
-
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"设置空闲时间" target:self action:@selector(rightJieItemAction:)];
 }
 
 
 - (void)rightJieItemAction:(UIBarButtonItem *)item{
-
-
+    
+    
     ReceivingOrderViewController * vc  = [[ReceivingOrderViewController alloc]initWithNibName:@"ReceivingOrderViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     //           kTipAlert(@"我要接单");
-
-
+    
+    
 }
 
 
@@ -183,7 +179,7 @@
     ProductModel * productModel = _dataArray[indexPath.section];
     vc.p_id =productModel.id;
     [self.navigationController pushViewController:vc animated:YES];
-
+    
 }
 
 
@@ -204,13 +200,35 @@
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -
+- (IBAction)orderBtnAction:(UIButton *)btn {
+    if (btn.selected){
+        return;
+    }
+    
+    if (btn == self.ableOrderBtn){
+        self.ableOrderBtn.selected = YES;
+        self.historyOrderBtn.selected = NO;
+        
+        self.bill_type = @"1";
+    }else{
+        self.ableOrderBtn.selected = NO;
+        self.historyOrderBtn.selected = YES;
+        
+        self.bill_type = @"2";
+    }
+    [self engMatchBillListWithPage:1 hud:NO];
 }
-*/
+
+
 
 @end

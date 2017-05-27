@@ -70,7 +70,7 @@
     
     _titles = @[@[@"服务形式",@"服务类型",@"服务区域",@"预约开始时间",@"预约结束时间"],
                 @[@"服务领域",@"品牌型号",@"数量/单位"],
-                @[@"其他服务领域(选填)"],
+//                @[@"其他服务领域(选填)"],
                 @[@"服务价格"]];
     
     
@@ -235,15 +235,15 @@
             return cell;
         }
     }
+//    if (indexPath.section ==2) {
+//        SendOrderDuoCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderDuoCell"];
+//        cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+//        cell.descLab.text = _chongSendOrderModel.other_service_mod;
+//
+//        return cell;
+//        
+//    }
     if (indexPath.section ==2) {
-        SendOrderDuoCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderDuoCell"];
-        cell.titleLab.text =_titles[indexPath.section][indexPath.row];
-        cell.descLab.text = _chongSendOrderModel.other_service_mod;
-
-        return cell;
-        
-    }
-    if (indexPath.section ==3) {
         SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
         cell.titleLab.text =_titles[indexPath.section][indexPath.row];
         cell.zhidingSwitch.hidden = YES;
@@ -268,7 +268,7 @@
         }
         return UITableViewAutomaticDimension;
     }
-    if(indexPath.section == 3){
+    if(indexPath.section == 2){
         return 44;
     }
     return UITableViewAutomaticDimension;
@@ -472,7 +472,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if(section ==3){
+    if(section ==2){
         return 30;
     }
     return 0.001f;

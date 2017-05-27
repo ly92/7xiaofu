@@ -9,7 +9,7 @@
 #import "MyReceivingOrderViewController.h"
 #import "MyReceivingOrderCell.h"
 #import "OrderDetailViewController.h"
-#import "ReplacementOrderViewController.h"
+//#import "ReplacementOrderViewController.h"
 #import "MySendOrderModel.h"
 #import "EngineerTureOrderFinishViewController.h"
 #import "BlockUIAlertView.h"
@@ -36,7 +36,7 @@
     _dataArray = [NSMutableArray new];
     
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"补单" target:self action:@selector(rightBuDanItemAction:)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"补单" target:self action:@selector(rightBuDanItemAction:)];
 
     [_tableView registerNib:[UINib nibWithNibName:@"MyReceivingOrderCell" bundle:nil] forCellReuseIdentifier:@"MyReceivingOrderCell"];
     _tableView.tableFooterView = [UIView new];
@@ -106,12 +106,12 @@
 }
 
 
-- (void)rightBuDanItemAction:(UIBarButtonItem *)item{
-
-    ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
+//- (void)rightBuDanItemAction:(UIBarButtonItem *)item{
+//
+//    ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+//
+//}
 
 
 #pragma mark - UITableViewDelegate UITableViewDataSource

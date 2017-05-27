@@ -327,6 +327,7 @@
     
 }
 
+
 - (void)viewcontrollerJump2VCWithindex:(NSInteger )index{
     
 //【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
@@ -355,11 +356,8 @@
     }
     if (index == 3) {
         SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"全部",@"待付款",@"待发货",@"待收货",@"已完成",@"退换货",@"已取消"]  andClass:[ShopOrderViewController class]];
-        vc.navigationItem.title = @"我的接单";
-        
         //设置数据的key
         [vc setRequestDataKeyArr:@[@100,@1,@2,@3,@4,@6,@0]];
-        
         
         vc.navigationItem.title=@"商城订单";
         
