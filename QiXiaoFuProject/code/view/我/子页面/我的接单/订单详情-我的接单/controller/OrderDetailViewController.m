@@ -25,6 +25,8 @@
 #import "TPKeyboardAvoidingTableView.h"
 #import "NSArray+Utils.h"
 #import "ChatViewController.h"
+#import "AssociationViewController.h"
+
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -340,7 +342,10 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){
-                
+                AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
+                vc.isFromTrans = YES;
+                vc.orderId = _orderDetaileProModel.id;
+                [self.navigationController pushViewController:vc animated:YES];
             };
             
             

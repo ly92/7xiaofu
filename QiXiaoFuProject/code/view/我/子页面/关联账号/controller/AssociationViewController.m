@@ -10,6 +10,8 @@
 #import "AssociationCell.h"
 #import "AssociationModel.h"
 #import "EngineerDetaileViewController.h"
+#import "BlockUIAlertView.h"
+
 
 @interface AssociationViewController ()
 
@@ -103,6 +105,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString * member_id;
+    NSString *move_to_eng_name;
     
     if (indexPath.section==0) {
         
@@ -110,12 +113,39 @@
     }else{
         Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
         member_id = me_to_user.member_id;
+        move_to_eng_name = me_to_user.member_name;
     }
-    // 工程师详情
-    EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
-    vc.member_id = member_id;
-    [self.navigationController pushViewController:vc animated:YES];
-
+    
+    ;
+    if (self.isFromTrans){
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"move_to_eng_id"] = member_id;//接受者的id
+                params[@"id"] = self.orderId;//订单id
+                params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
+                
+                [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                        [self showSuccessText:msg];
+                    
+                } fail:^(NSString *error) {
+                    [self showErrorText:error];
+                }];
+            }
+            
+        } otherButtonTitles:@"确定"];
+        [alert show];
+    }else{
+        
+        // 工程师详情
+        EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
+        vc.member_id = member_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

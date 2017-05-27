@@ -155,3 +155,13 @@ NSString  * const HttpMeShouyiJilu = @"tp.php/Home/My/shouyijilu";
 
 /** 删除证书*/
 NSString  * const HttpDelMemberInfoCer = @"tp.php/Home/My/delMemberInfoCer";
+
+/***********************   订单转移   ************************/
+
+/** 开始转移*/
+NSString  * const HttpTransferStartMove = @"tp.php/Home/My/startMove";
+/** 拒绝转移*/
+NSString  * const HttpTransferRefuseMove = @"tp.php/Home/My/refuseMove";
+/** 同意转移*/
+NSString  * const HttpTransferAgreeMove = @"tp.php/Home/My/billMove";
+

@@ -162,5 +162,12 @@ UIKIT_EXTERN NSString  * const HttpMeShouyiJilu;
 UIKIT_EXTERN NSString  * const HttpDelMemberInfoCer;
 
 
+/***********************   订单转移   ************************/
 
+/** 开始转移*/
+UIKIT_EXTERN NSString  * const HttpTransferStartMove;
+/** 拒绝转移*/
+UIKIT_EXTERN NSString  * const HttpTransferRefuseMove;
+/** 同意转移*/
+UIKIT_EXTERN NSString  * const HttpTransferAgreeMove;
 
