@@ -24,7 +24,6 @@
 
 #import "PayViewController.h"
 
-
 #define SHAddressPickerViewHeight 216
 
 
@@ -59,7 +58,7 @@
     
     //    @[@"服务形式",@"服务类型",@"服务区域",@"服务时间",@"服务领域",@"品牌型号",@"其他服务领域",@"其他品牌型号",@"备注",@"服务价格",@"置顶显示",@"置顶天数"];
     
-    _titles = @[@[@"服务形式",@"服务类型",@"服务区域",@"预约开始时间",@"预约结束时间"],
+    _titles = @[@[@"项目名称",@"服务形式",@"服务类型",@"服务区域",@"预约开始时间",@"预约结束时间"],
                 @[@"服务领域",@"品牌型号",@"数量/单位"],
                 @[@"服务价格"]];
     
@@ -142,7 +141,10 @@
 #pragma mark - 下一步
 - (void)nextItemBuDanAction{
     
-    
+    if (![_requestParams[@"project_name"] yw_notNull]){
+        [self showErrorText:@"请输入项目名称"];
+        return;
+    }
     if ([_requestParams[@"service_form"] length] == 0) {
         [self showErrorText:@"请选择服务形式"];
         return;
@@ -225,11 +227,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        SendOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderCell"];
-        cell.titleLab.text =_titles[indexPath.section][indexPath.row];
-//        cell.descLab.text =@"俺舍不得分哈哈是否家的饭还是骄傲的回复啥地方哈哈啥地方哈师大阿斯顿和发挥巨大师傅好骄傲是";
         
-        return cell;
+        if (indexPath.row == 0){
+         SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
+         cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+         cell.zhidingSwitch.hidden = YES;
+         cell.textField.placeholder = @"请输项目名称";
+         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
+         
+         cell.textFieldBlock =^(NSString * text){
+         
+         _requestParams[@"project_name"] = text;//项目名称
+         
+         };
+         return cell;
+        }else{
+            SendOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderCell"];
+            cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+            //        cell.descLab.text =@"俺舍不得分哈哈是否家的饭还是骄傲的回复啥地方哈哈啥地方哈师大阿斯顿和发挥巨大师傅好骄傲是";
+            
+            return cell;
+        }
     }
     if (indexPath.section ==1) {
         if (indexPath.row < 2 ) {
@@ -297,9 +315,9 @@
     
     if (indexPath.section == 0) {
         
-        SendOrderCell * cell = [tableView cellForRowAtIndexPath:indexPath];
         
-        if (indexPath.row == 0) {// 服务形式
+        SendOrderCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (indexPath.row == 1) {// 服务形式
             _pickview = [self pickview];;
             [self addBuDanPikerViewWithArray:_service_form withTag:1];
             _pickview.completionPickView=^(NSString *resultString,NSInteger row,NSInteger tag){
@@ -309,7 +327,7 @@
                 weakSelf.requestParams[@"service_form"] = service_form.field_value;//服务形式ID
             };
         }
-        if (indexPath.row ==1) {// 服务类型
+        if (indexPath.row == 2) {// 服务类型
             _pickview = [self pickview];;
             [self addBuDanPikerViewWithArray:_service_type withTag:2];
             _pickview.completionPickView=^(NSString *resultString,NSInteger row,NSInteger tag){
@@ -318,7 +336,7 @@
                 weakSelf.requestParams[@"service_type"] = service_type.field_value;//服务类型ID
             };
         }
-        if (indexPath.row ==2) {// 服务区域
+        if (indexPath.row == 3) {// 服务区域
             
             // 选择服务区域
             ChooseMapViewController * vc = [[ChooseMapViewController alloc]initWithNibName:@"ChooseMapViewController" bundle:nil];
@@ -338,7 +356,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         }
-        if (indexPath.row ==3) {// 预约开始时间
+        if (indexPath.row == 4) {// 预约开始时间
             
             STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
             pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
@@ -349,7 +367,7 @@
             };
             [pickerDate show];
         }
-        if (indexPath.row ==4) {// 预约结束时间
+        if (indexPath.row == 5) {// 预约结束时间
             
             STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
             pickerDate.pickerDate3EndBlock = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){

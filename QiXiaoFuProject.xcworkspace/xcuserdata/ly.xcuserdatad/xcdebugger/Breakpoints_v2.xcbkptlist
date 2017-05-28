@@ -36,12 +36,12 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517586213.86571"
+                  timestampString = "517661696.442924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
                   endingLineNumber = "111"
-                  offsetFromSymbolStart = "2168">
+                  offsetFromSymbolStart = "2179">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,12 +51,12 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%92%B1%E5%8C%85/%E9%92%B1%E5%8C%85%E6%98%8E%E7%BB%86/controller/WalletDetaileViewController.m"
-                  timestampString = "517586213.867624"
+                  timestampString = "517661696.446252"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
                   endingLineNumber = "111"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>
