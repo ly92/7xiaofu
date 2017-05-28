@@ -344,7 +344,58 @@
         
     };
     
+    //拒绝转移订单
+    cell.myReceivingOrderCellWithBtnRefuseTransfer = ^(MySendOrderModel *sendOrderModel){
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定拒绝接受转移的订单？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"move_to_eng_id"] = sendOrderModel.ot_user_id;//接受者的id
+                params[@"id"] = sendOrderModel.id;//订单id
+                params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
+                params[@"move_state"] = @"0";//表示被拒绝
+                
+                [MCNetTool postWithUrl:HttpTransferRefuseMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    
+                    [self myBillListDataPage:1 hud:YES];//  成功，重新刷新列表
+                    [self showSuccessText:msg];
+                    
+                } fail:^(NSString *error) {
+                    [self showErrorText:error];
+                }];
+            }
+            
+        } otherButtonTitles:@"确定"];
+        [alert show];
+    };
     
+    //接受转移订单
+    cell.myReceivingOrderCellWithBtnAgreeTransfer = ^(MySendOrderModel *sendOrderModel){
+        
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定接受转移的订单？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"move_to_eng_id"] = sendOrderModel.ot_user_id;//接受者的id
+                params[@"id"] = sendOrderModel.id;//订单id
+                params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
+                params[@"move_state"] = @"0";//表示被拒绝
+                
+                [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    
+                    [self myBillListDataPage:1 hud:YES];//  成功，重新刷新列表
+                    [self showSuccessText:msg];
+                    
+                } fail:^(NSString *error) {
+                    [self showErrorText:error];
+                }];
+            }
+            
+        } otherButtonTitles:@"确定"];
+        [alert show];
+    };
 
     return cell;
 }

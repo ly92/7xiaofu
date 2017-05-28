@@ -13,7 +13,7 @@
 
 @interface MyReceivingOrderCell()<WB_StopWatchDelegate>{
     
-
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -60,7 +60,7 @@
     
     _leftBtn.hidden = YES;
     _rightBtn.hidden = YES;
-
+    
     
     _stopWatchLabel = [[WB_Stopwatch alloc]initWithLabel:_timesLab andTimerType:WBTypeTimer];
     _stopWatchLabel.delegate = self;
@@ -105,229 +105,57 @@
 
 - (void)bottomViewState:(MySendOrderModel *)mySendOrderModel{
     
-      _chatBtn.selected = mySendOrderModel.os == 1?YES:NO;
+    _chatBtn.selected = mySendOrderModel.os == 1?YES:NO;
     
     if (mySendOrderModel.call_name.length ==0 ) {
         _chatBtn.hidden = YES;
     }else{
         _chatBtn.hidden = NO;
     }
-        //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
-        switch (mySendOrderModel.bill_statu) {
-            case 0:
-            {
-                [self topViewLabShowType:NO whihContent:@"  已撤销  "];
+    
+    
+    //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
+    switch (mySendOrderModel.bill_statu) {
+        case 0:
+        {
+            [self topViewLabShowType:NO whihContent:@"  已撤销  "];
+            
+            _rightBtn.hidden = NO;
+            _leftBtn.hidden = YES;
+            _rightBtn.selected = NO;
+            
+            [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                 
-                _rightBtn.hidden = NO;
-                _leftBtn.hidden = YES;
-                _rightBtn.selected = NO;
-
-                [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
-                        _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-                    }
-                }];
-                
-            }
-                break;
-            case 1:
-            {
-                _rightBtn.hidden = YES;
-                _leftBtn.hidden = YES;
-                
-                
-                //  【1 待接单】   我的接单不会出现这种状态
-                
-            }
-                break;
-            case 2:
-            {
-                
-                [self topViewLabShowType:NO whihContent:@"  已接单  "];
-                
-                if(mySendOrderModel.t_state == 0 || mySendOrderModel.t_state == 4){
-                
-                    
-                    _leftBtn.hidden = NO;
-                    _rightBtn.hidden = NO;
-                    _rightBtn.selected = NO;
-
-                    [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        
-                        if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
-                            _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-                        }
-                    }];
-
-                    [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        
-                        if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
-                            _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
-                        }
-                    }];
-                
-                }else {
-                    
-                    
-                    
-                    
-                    _leftBtn.hidden = YES;
-                    _rightBtn.hidden = NO;
-                    _rightBtn.selected = YES;
-                    [_rightBtn setTitle:@"  等待客户确认完成  " forState:UIControlStateSelected];
-                    _rightBtn.userInteractionEnabled = NO;
-                    
-                    
+                if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
+                    _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
                 }
-                
-            }
-                break;
-            case 3:
-            {
-                // 订单已完成
-                
-                [self topViewLabShowType:NO whihContent:@"已完成"];
-                
-                _chatBtn.hidden = YES;
-                [self deleateChatlistWithUserPhone:nil];
-                _leftBtn.hidden = YES;
-                _rightBtn.hidden = NO;
-                _rightBtn.selected = NO;
-                [_rightBtn setTitle:@"  删除  " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_Delete) {
-                        _myReceivingOrderCellWithBtnState_Delete(mySendOrderModel,_indexPath);
-                    }
-                }];
-                
-                
-            }
-                break;
-            case 4:
-            {
-                
-                [self topViewLabShowType:NO whihContent:@"已失效"];
-                
-                _leftBtn.hidden = YES;
-                _rightBtn.hidden = NO;
-                _rightBtn.selected = NO;
-
-                [_rightBtn setTitle:@"  取消  " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
-                        _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-                    }
-                }];
-                
-            }
-                break;
-            case 5:
-            {
-                [self topViewLabShowType:NO whihContent:@"已取消"];
-                
-                // 删除
-                _leftBtn.hidden = YES;
-                _rightBtn.hidden = NO;
-                _rightBtn.selected = NO;
-
-                [_rightBtn setTitle:@"  删除  " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_Delete) {
-                        _myReceivingOrderCellWithBtnState_Delete(mySendOrderModel,_indexPath);
-                    }
-                }];
-                
-            }
-                break;
-            case 6:
-            {
-                [self topViewLabShowType:NO whihContent:@"调价中"];
-                
-                
-                // 取消订单 --> 工程师取消发单
-                
-                _leftBtn.hidden = NO;
-                _rightBtn.hidden = NO;
-                _rightBtn.selected = NO;
-
-                [_leftBtn setTitle:@" 同意 " forState:UIControlStateNormal];
-                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_TongYi) {
-                        _myReceivingOrderCellWithBtnState_TongYi(mySendOrderModel);
-                    }
-                }];
-                
-                [_rightBtn setTitle:@" 不同意 " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_BuTongYi) {
-                        _myReceivingOrderCellWithBtnState_BuTongYi(mySendOrderModel);
-                    }
-                }];
-                
-            }
-                break;
-            case 7:// 补单
-            {
-                
-                if (mySendOrderModel.pay_statu == 0) {
-                    
-                    [self topViewLabShowType:YES whihContent:@"待支付"];
-                    
-                    _leftBtn.hidden = NO;
-                    _rightBtn.hidden = NO;
-                    _rightBtn.selected = NO;
-
-                    [_leftBtn setTitle:@"  取消  " forState:UIControlStateNormal];
-                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        if (_myReceivingOrderCellWithBtnState_cancle) {
-                            _myReceivingOrderCellWithBtnState_cancle(mySendOrderModel);
-                        }
-                    }];
-       
-                    [_rightBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        
-                        if (_myReceivingOrderCellWithBtnState_GoPay) {
-                            _myReceivingOrderCellWithBtnState_GoPay(mySendOrderModel);
-                        }
-                    }];
-                    
-                }else{
-                    
-                    [self topViewLabShowType:NO whihContent:@"补单"];
-                    
-                    _rightBtn.hidden = NO;
-                    _leftBtn.hidden = YES;
-                    _rightBtn.selected = NO;
-                    
-                    [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
-                            _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
-                        }
-                    }];
-          
-                }
-              }
-                break;
-            case 8:
-            {
-                
-                [self topViewLabShowType:NO whihContent:@"  已接单  "];
+            }];
+            
+        }
+            break;
+        case 1:
+        {
+            _rightBtn.hidden = YES;
+            _leftBtn.hidden = YES;
+            
+            
+            //  【1 待接单】   我的接单不会出现这种状态
+            
+        }
+            break;
+        case 2:
+        {
+            
+            [self topViewLabShowType:NO whihContent:@"  已接单  "];
+            
+            if(mySendOrderModel.t_state == 0 || mySendOrderModel.t_state == 4){
                 
                 
                 _leftBtn.hidden = NO;
                 _rightBtn.hidden = NO;
                 _rightBtn.selected = NO;
-
+                
                 [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
                 [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     
@@ -336,23 +164,223 @@
                     }
                 }];
                 
-                [_rightBtn setTitle:@"  开始工作  " forState:UIControlStateNormal];
+                [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
                 [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     
-                    if (_myReceivingOrderCellWithBtnKaishiGongzuo) {
-                        _myReceivingOrderCellWithBtnKaishiGongzuo(mySendOrderModel);
+                    if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
+                        _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
                     }
                 }];
                 
+            }else {
+                
+                
+                
+                
+                _leftBtn.hidden = YES;
+                _rightBtn.hidden = NO;
+                _rightBtn.selected = YES;
+                [_rightBtn setTitle:@"  等待客户确认完成  " forState:UIControlStateSelected];
+                _rightBtn.userInteractionEnabled = NO;
                 
                 
             }
-                break;
-
-            default:
-                break;
+            
         }
-
+            break;
+        case 3:
+        {
+            // 订单已完成
+            
+            [self topViewLabShowType:NO whihContent:@"已完成"];
+            
+            _chatBtn.hidden = YES;
+            [self deleateChatlistWithUserPhone:nil];
+            _leftBtn.hidden = YES;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            [_rightBtn setTitle:@"  删除  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnState_Delete) {
+                    _myReceivingOrderCellWithBtnState_Delete(mySendOrderModel,_indexPath);
+                }
+            }];
+            
+            
+        }
+            break;
+        case 4:
+        {
+            
+            [self topViewLabShowType:NO whihContent:@"已失效"];
+            
+            _leftBtn.hidden = YES;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            
+            [_rightBtn setTitle:@"  取消  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
+                    _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
+                }
+            }];
+            
+        }
+            break;
+        case 5:
+        {
+            [self topViewLabShowType:NO whihContent:@"已取消"];
+            
+            // 删除
+            _leftBtn.hidden = YES;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            
+            [_rightBtn setTitle:@"  删除  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnState_Delete) {
+                    _myReceivingOrderCellWithBtnState_Delete(mySendOrderModel,_indexPath);
+                }
+            }];
+            
+        }
+            break;
+        case 6:
+        {
+            [self topViewLabShowType:NO whihContent:@"调价中"];
+            
+            
+            // 取消订单 --> 工程师取消发单
+            
+            _leftBtn.hidden = NO;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            
+            [_leftBtn setTitle:@" 同意 " forState:UIControlStateNormal];
+            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnState_TongYi) {
+                    _myReceivingOrderCellWithBtnState_TongYi(mySendOrderModel);
+                }
+            }];
+            
+            [_rightBtn setTitle:@" 不同意 " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnState_BuTongYi) {
+                    _myReceivingOrderCellWithBtnState_BuTongYi(mySendOrderModel);
+                }
+            }];
+            
+        }
+            break;
+        case 7:// 补单
+        {
+            
+            if (mySendOrderModel.pay_statu == 0) {
+                
+                [self topViewLabShowType:YES whihContent:@"待支付"];
+                
+                _leftBtn.hidden = NO;
+                _rightBtn.hidden = NO;
+                _rightBtn.selected = NO;
+                
+                [_leftBtn setTitle:@"  取消  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_myReceivingOrderCellWithBtnState_cancle) {
+                        _myReceivingOrderCellWithBtnState_cancle(mySendOrderModel);
+                    }
+                }];
+                
+                [_rightBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
+                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_myReceivingOrderCellWithBtnState_GoPay) {
+                        _myReceivingOrderCellWithBtnState_GoPay(mySendOrderModel);
+                    }
+                }];
+                
+            }else{
+                
+                [self topViewLabShowType:NO whihContent:@"补单"];
+                
+                _rightBtn.hidden = NO;
+                _leftBtn.hidden = YES;
+                _rightBtn.selected = NO;
+                
+                [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
+                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
+                        _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
+                    }
+                }];
+                
+            }
+        }
+            break;
+        case 8:
+        {
+            
+            [self topViewLabShowType:NO whihContent:@"  已接单  "];
+            
+            
+            _leftBtn.hidden = NO;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            
+            [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnState_QuXiaoDingDan) {
+                    _myReceivingOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
+                }
+            }];
+            
+            [_rightBtn setTitle:@"  开始工作  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnKaishiGongzuo) {
+                    _myReceivingOrderCellWithBtnKaishiGongzuo(mySendOrderModel);
+                }
+            }];
+            
+            
+            
+        }
+            break;
+        case 9:
+        {
+            
+            [self topViewLabShowType:NO whihContent:@"  转移待确定  "];
+            
+            _leftBtn.hidden = NO;
+            _rightBtn.hidden = NO;
+            _rightBtn.selected = NO;
+            
+            [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnRefuseTransfer) {
+                    _myReceivingOrderCellWithBtnRefuseTransfer(mySendOrderModel);
+                }
+            }];
+            
+            [_rightBtn setTitle:@"  接受转移  " forState:UIControlStateNormal];
+            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_myReceivingOrderCellWithBtnAgreeTransfer) {
+                    _myReceivingOrderCellWithBtnAgreeTransfer(mySendOrderModel);
+                }
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 - (void)deleateChatlistWithUserPhone:(NSString *)userPhone{

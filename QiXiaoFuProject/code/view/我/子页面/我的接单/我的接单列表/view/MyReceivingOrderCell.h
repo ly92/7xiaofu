@@ -44,4 +44,8 @@
 
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnKaishiGongzuo)(MySendOrderModel * sendOrderModel);
 
+@property(nonatomic, copy) void (^myReceivingOrderCellWithBtnRefuseTransfer)(MySendOrderModel * sendOrderModel);//拒绝转移
+
+@property(nonatomic, copy) void (^myReceivingOrderCellWithBtnAgreeTransfer)(MySendOrderModel * sendOrderModel);//同意转移
+
 @end

@@ -7706,7 +7706,7 @@
 					04E8BD001D587C5B003E4550 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = KT5RL57GES;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -8781,8 +8781,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qixiaofu.7xf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f67367c8-ef4b-47a2-ac78-957d351e1819";
+				PROVISIONING_PROFILE_SPECIFIER = QixiaofuDev;
 			};
 			name = Debug;
 		};
@@ -8794,7 +8794,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = QiXiaoFuProject/QiXiaoFuProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: 7xiaofu (Beijing) Network Technology Co., Ltd. (KT5RL57GES)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = KT5RL57GES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -8842,8 +8842,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qixiaofu.7xf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "dd02bced-9b1c-4bd3-b958-39cb3111d56d";
+				PROVISIONING_PROFILE_SPECIFIER = QixiaofuDis;
 			};
 			name = Release;
 		};

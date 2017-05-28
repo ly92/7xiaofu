@@ -107,16 +107,19 @@
     NSString * member_id;
     NSString *move_to_eng_name;
     
+    
     if (indexPath.section==0) {
         
         member_id = _associationModel.user_to_me.member_id;
+        move_to_eng_name = _associationModel.user_to_me.member_name;
     }else{
-        Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
-        member_id = me_to_user.member_id;
-        move_to_eng_name = me_to_user.member_name;
+        if (_associationModel.me_to_user.count > indexPath.row){
+            Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
+            member_id = me_to_user.member_id;
+            move_to_eng_name = me_to_user.member_name;
+        }
     }
     
-    ;
     if (self.isFromTrans){
         BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
             
