@@ -349,6 +349,59 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             };
             
             
+            //拒绝转移订单
+            cell.orderDetaileTransfer_BtnRefuse = ^(){
+                BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定拒绝接受转移的订单？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                    
+                    if(buttonIndex == 1){
+                        NSMutableDictionary * params = [NSMutableDictionary new];
+                        params[@"userid"] = kUserId;
+                        params[@"move_to_eng_id"] = _orderDetaileProModel.ot_user_id;//接受者的id
+                        params[@"id"] = _orderDetaileProModel.id;//订单id
+                        params[@"move_to_eng_name"] = _orderDetaileProModel.call_nik_name;//接受者的昵称
+                        params[@"move_state"] = @"0";//表示被拒绝
+                        
+                        [MCNetTool postWithUrl:HttpTransferRefuseMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                            
+                            [self.navigationController popViewControllerAnimated:YES];//  成功，返回
+                            [self showSuccessText:msg];
+                            
+                        } fail:^(NSString *error) {
+                            [self showErrorText:error];
+                        }];
+                    }
+                    
+                } otherButtonTitles:@"确定"];
+                [alert show];
+            };
+            
+            //接受转移订单
+            cell.orderDetaileTransfer_BtnAgree = ^(){
+                
+                BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定接受转移的订单？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                    
+                    if(buttonIndex == 1){
+                        NSMutableDictionary * params = [NSMutableDictionary new];
+                        params[@"userid"] = kUserId;
+                        params[@"move_to_eng_id"] = _orderDetaileProModel.ot_user_id;//接受者的id
+                        params[@"id"] = _orderDetaileProModel.id;//订单id
+                        params[@"move_to_eng_name"] = _orderDetaileProModel.call_nik_name;//接受者的昵称
+                        params[@"move_state"] = @"1";//表示接受
+                        
+                        [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                            
+                            [self.navigationController popViewControllerAnimated:YES];//  成功，返回
+                            [self showSuccessText:msg];
+                            
+                        } fail:^(NSString *error) {
+                            [self showErrorText:error];
+                        }];
+                    }
+                    
+                } otherButtonTitles:@"确定"];
+                [alert show];
+            };
+            
             // 取消订单
             cell.orderDetaileCancle_QuXiaoDingDan =^( ){
                 

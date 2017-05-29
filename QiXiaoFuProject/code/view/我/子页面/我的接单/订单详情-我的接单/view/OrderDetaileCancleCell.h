@@ -43,8 +43,8 @@
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnKaishiGongzuo)();
 
 @property(nonatomic, copy) void (^orderDetaileTransfer_Btn)();//转移订单
-
-
+@property(nonatomic, copy) void (^orderDetaileTransfer_BtnRefuse)();//转移订单
+@property(nonatomic, copy) void (^orderDetaileTransfer_BtnAgree)();//转移订单
 
 
 @end

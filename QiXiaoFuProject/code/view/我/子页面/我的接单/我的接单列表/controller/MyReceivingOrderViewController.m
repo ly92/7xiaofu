@@ -381,7 +381,7 @@
                 params[@"move_to_eng_id"] = sendOrderModel.ot_user_id;//接受者的id
                 params[@"id"] = sendOrderModel.id;//订单id
                 params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
-                params[@"move_state"] = @"0";//表示被拒绝
+                params[@"move_state"] = @"1";//表示接受
                 
                 [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
