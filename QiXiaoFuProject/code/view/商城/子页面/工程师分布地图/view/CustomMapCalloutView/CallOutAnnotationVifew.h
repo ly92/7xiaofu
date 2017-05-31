@@ -7,7 +7,7 @@
 //
 #import <MapKit/MapKit.h>
 #import "EngineerDistributedModel.h"
-
+#import <MAMapKit/MAMapKit.h>
 
 @protocol CallOutAnnotationVifewDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 @end
 
 
-@interface CallOutAnnotationVifew : MKAnnotationView 
+@interface CallOutAnnotationVifew : MAAnnotationView
 @property (strong, nonatomic)EngineerDistributedModel * bdModel;
 - (void)loadDataWithModel:(EngineerDistributedModel *)model;
 @property (nonatomic,retain)UIView *contentView;

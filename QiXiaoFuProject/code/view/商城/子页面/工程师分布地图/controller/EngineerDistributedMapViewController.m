@@ -10,15 +10,16 @@
 
 #import "EngineerDistributedModel.h"
 
-#import <MapKit/MapKit.h>
+//#import <MapKit/MapKit.h>
 #import "CalloutMapAnnotation.h"
 #import "BasicMapAnnotation.h"
 #import "CallOutAnnotationVifew.h"
 #import "ChatViewController.h"
 
+#import <MAMapKit/MAMapKit.h>
 
 
-@interface EngineerDistributedMapViewController ()<MKMapViewDelegate,CallOutAnnotationVifewDelegate>{
+@interface EngineerDistributedMapViewController ()<MAMapViewDelegate,CallOutAnnotationVifewDelegate>{
     
     
     
@@ -26,7 +27,7 @@
 
     BOOL numFlag;
     
-    MKMapView *_mapView;
+    MAMapView *_mapView;
     CalloutMapAnnotation *_calloutAnnotation;
     CalloutMapAnnotation *_previousdAnnotation;
     
@@ -52,7 +53,7 @@
         mapbgView.backgroundColor = [UIColor redColor];
         [self.view addSubview:mapbgView];
         
-        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, mapbgView.width, mapbgView.height)];
+        _mapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, mapbgView.width, mapbgView.height)];
         _mapView.delegate = self;
         [mapbgView addSubview:_mapView];
         _mapView.showsUserLocation = YES;
@@ -182,7 +183,7 @@
     }
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
     
     LxDBAnyVar(annotation);
     
@@ -201,9 +202,9 @@
         return annotationView;
     } else if ([annotation isKindOfClass:[BasicMapAnnotation class]]) {
         
-        MKAnnotationView *annotationView =[_mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomAnnotation"];
+        MAAnnotationView *annotationView =[_mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomAnnotation"];
         if (!annotationView) {
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
+            annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
                                                           reuseIdentifier:@"CustomAnnotation"];
             annotationView.canShowCallout = NO;
             annotationView.image = [UIImage imageNamed:@"wateRedBlank"];
@@ -254,10 +255,11 @@
 - (void)setMapRegionWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     numFlag = NO;
-    MKCoordinateRegion region;
+    MACoordinateRegion region;
     //    region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.1, 0.1));
-    region=MKCoordinateRegionMakeWithDistance(coordinate,1609.344 ,1609.344 );
-    MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:region];
+    region = MACoordinateRegionMakeWithDistance(coordinate, 1609.344, 1609.344);
+//    region=MKCoordinateRegionMakeWithDistance(coordinate,1609.344 ,1609.344 );
+    MACoordinateRegion adjustedRegion = [_mapView regionThatFits:region];
     [_mapView setRegion:adjustedRegion animated:YES];
 }
 
