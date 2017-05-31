@@ -48,8 +48,13 @@
     
     [_iconImageView setImageWithUrl:engineerModel.member_avatar placeholder:kDefaultImage_header];
     _nameLab.text = engineerModel.member_truename;
-    _timeLab.text = [NSString stringWithFormat:@"%@-%@",[Utool timeStamp3TimeFormatter:engineerModel.service_stime],
-                     [Utool timeStamp3TimeFormatter:engineerModel.service_etime]];
+    NSString *spaceTimeStr = [NSString stringWithFormat:@"%@-%@",[Utool timeStamp3TimeFormatter:engineerModel.service_stime],
+                              [Utool timeStamp3TimeFormatter:engineerModel.service_etime]];
+    if ([spaceTimeStr hasPrefix:@"1970年01月01日"]){
+        _timeLab.text = @"未设置";
+    }else{
+        _timeLab.text = spaceTimeStr;
+    }
     _yearLab.text = [NSString stringWithFormat:@"%@年",engineerModel.working_year];
 
     _quyuLab.text = checkNull([engineerModel.tack_citys componentsJoinedByString:@"、"], @"   ");
