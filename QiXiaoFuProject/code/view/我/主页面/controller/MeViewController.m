@@ -35,6 +35,7 @@
 #import "ChatViewController.h"
 #import "SCNavTabBarController.h"
 #import "SpaceTimeViewController.h"
+#import "AssociationViewControllerA.h"
 
 @interface MeViewController () <UICollectionViewDataSource, UICollectionViewDelegate,PDCollectionViewFlowLayoutDelegate>{
 
@@ -376,8 +377,16 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (index == 6) {
-        AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        if ([_userInfoModel1.member_level isEqualToString:@"A"]){
+            AssociationViewControllerA * vc = [[AssociationViewControllerA alloc]initWithNibName:@"AssociationViewControllerA" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+       
+        
     }
     if (index == 7) {
         //        SendOrderViewController * vc = [[SendOrderViewController alloc]initWithNibName:@"SendOrderViewController" bundle:nil];

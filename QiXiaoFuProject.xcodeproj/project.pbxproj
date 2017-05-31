@@ -779,6 +779,8 @@
 		04F3FC111D8F7CCD000487C4 /* SyetemMessageRemindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC0F1D8F7CCD000487C4 /* SyetemMessageRemindCell.xib */; };
 		04F3FC151D8F8125000487C4 /* SyetemMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F3FC131D8F8125000487C4 /* SyetemMessageCell.m */; };
 		04F3FC161D8F8125000487C4 /* SyetemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */; };
+		08052D9F1EDEF392004AF3B2 /* AssociationViewControllerA.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052D9D1EDEF392004AF3B2 /* AssociationViewControllerA.m */; };
+		08052DA01EDEF392004AF3B2 /* AssociationViewControllerA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052D9E1EDEF392004AF3B2 /* AssociationViewControllerA.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2281,6 +2283,9 @@
 		04F3FC121D8F8125000487C4 /* SyetemMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyetemMessageCell.h; sourceTree = "<group>"; };
 		04F3FC131D8F8125000487C4 /* SyetemMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyetemMessageCell.m; sourceTree = "<group>"; };
 		04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyetemMessageCell.xib; sourceTree = "<group>"; };
+		08052D9C1EDEF392004AF3B2 /* AssociationViewControllerA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssociationViewControllerA.h; sourceTree = "<group>"; };
+		08052D9D1EDEF392004AF3B2 /* AssociationViewControllerA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssociationViewControllerA.m; sourceTree = "<group>"; };
+		08052D9E1EDEF392004AF3B2 /* AssociationViewControllerA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssociationViewControllerA.xib; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -2829,6 +2834,9 @@
 				041B332F1D7EEF9C00A8EBA2 /* AssociationViewController.h */,
 				041B33301D7EEF9C00A8EBA2 /* AssociationViewController.m */,
 				041B33311D7EEF9C00A8EBA2 /* AssociationViewController.xib */,
+				08052D9C1EDEF392004AF3B2 /* AssociationViewControllerA.h */,
+				08052D9D1EDEF392004AF3B2 /* AssociationViewControllerA.m */,
+				08052D9E1EDEF392004AF3B2 /* AssociationViewControllerA.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -7796,6 +7804,7 @@
 				0498E4641DB747D800262A9C /* JieFanDanZaiCiPayHeaderView.xib in Resources */,
 				04891A351DD5CF8C0099E24F /* controller-我的接发单.zip in Resources */,
 				04796ADD1D96CA5E00A22456 /* LPLevelView.bundle in Resources */,
+				08052DA01EDEF392004AF3B2 /* AssociationViewControllerA.xib in Resources */,
 				048FF1BF1D7458E500268A78 /* MineInfoCell.xib in Resources */,
 				04C45DF71DFD21CF001D9415 /* MatchingEngineerListMapVC.xib in Resources */,
 				04B36A6B1D68464200D86C11 /* SettingFooterView.xib in Resources */,
@@ -8323,6 +8332,7 @@
 				048FF0AE1D702A8400268A78 /* MeViewController.m in Sources */,
 				04796AE61D96D16900A22456 /* HCSStarRatingView.m in Sources */,
 				04A5879E1D8D2BDC00FA3E46 /* UIButton+ImageTitleSpacing.m in Sources */,
+				08052D9F1EDEF392004AF3B2 /* AssociationViewControllerA.m in Sources */,
 				04DAC5A31DB8BD84002235A7 /* RobotChatViewController.m in Sources */,
 				048FF1241D72CE0F00268A78 /* ReceivingOrderListViewController.m in Sources */,
 				04E8BD6A1D58822D003E4550 /* MCNetTool.m in Sources */,

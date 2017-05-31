@@ -10,6 +10,7 @@
 #import "AssociationModel.h"
 
 @interface AssociationCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *iconLeftDis;
 
 @property (nonatomic, strong) User_To_Me *user_to_me;
 

@@ -1,62 +1,80 @@
 //
-//  AssociationViewController.m
+//  AssociationViewControllerA.m
 //  QiXiaoFuProject
 //
-//  Created by mac on 16/9/6.
-//  Copyright © 2016年 fhj. All rights reserved.
+//  Created by 李勇 on 2017/5/31.
+//  Copyright © 2017年 fhj. All rights reserved.
 //
 
-#import "AssociationViewController.h"
+#import "AssociationViewControllerA.h"
 #import "AssociationCell.h"
 #import "AssociationModel.h"
 #import "EngineerDetaileViewController.h"
 #import "BlockUIAlertView.h"
 
-
-@interface AssociationViewController ()
-
+@interface AssociationViewControllerA ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (nonatomic, strong) AssociationModel * associationModel;
+
+@property (nonatomic, strong) NSMutableArray *bDataArray;
+@property (nonatomic, strong) NSMutableArray *cDataArray;
+
+@property (nonatomic, assign) NSInteger selectedSection;
 
 
 @end
 
-@implementation AssociationViewController
+@implementation AssociationViewControllerA
+
+- (NSMutableArray *)bDataArray{
+    if (!_bDataArray){
+        _bDataArray = [NSMutableArray array];
+    }
+    return _bDataArray;
+}
+- (NSMutableArray *)cDataArray{
+    if (!_cDataArray){
+        _cDataArray = [NSMutableArray array];
+    }
+    return _cDataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.title = @"关联用户";
     [_tableView registerNib:[UINib nibWithNibName:@"AssociationCell" bundle:nil] forCellReuseIdentifier:@"AssociationCell"];
-    
+
+    self.selectedSection = -1;
     
     [self loadZhanghaoList];
-    
-    
     
     [_tableView headerAddMJRefresh:^{
         
         [self loadZhanghaoList];
     }];
     
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 
 - (void)loadZhanghaoList{
-    
-    
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     [MCNetTool postWithUrl:HttpMeMyUniAcc params:params success:^(NSDictionary *requestDic, NSString *msg) {
-        
         _associationModel = [AssociationModel mj_objectWithKeyValues:requestDic];
+        
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (Me_To_User *model in _associationModel.me_to_user) {
+            if ([model.jibie isEqualToString:@"B"]){
+                [self.bDataArray addObject:model];
+            }else{
+                [tempArray addObject:model];
+            }
+        }
+        [self.cDataArray addObject:tempArray];
+        
         [_tableView reloadData];
         
         [_tableView headerEndRefresh];
-        
         
     } fail:^(NSString *error) {
         
@@ -74,23 +92,30 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.bDataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section ==0)return _associationModel.user_to_me?1:0;
-    return _associationModel.me_to_user.count;
+    if (section == self.selectedSection){
+        NSArray *cDatas = self.cDataArray[section];
+        return cDatas.count + 1;
+    }else{
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     AssociationCell *cell =[tableView dequeueReusableCellWithIdentifier:@"AssociationCell"];
     
-    if (indexPath.section==0) {
-        cell.user_to_me= _associationModel.user_to_me;
+    if (indexPath.row == 0){
+        Me_To_User *me_touser = self.bDataArray[indexPath.section];
+        cell.me_to_user = me_touser;
     }else{
-        Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
-        cell.me_to_user= me_to_user;
+        NSArray *cDatas = self.cDataArray[indexPath.section];
+        Me_To_User *me_touser = cDatas[indexPath.row - 1];
+        cell.me_to_user = me_touser;
+        cell.iconLeftDis.constant = 30;
     }
     
     return cell;
@@ -103,6 +128,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    self.selectedSection = indexPath.section;
+    [self.tableView reloadData];
+    
+    return;
     
     NSString * member_id;
     NSString *move_to_eng_name;
@@ -154,11 +184,6 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UILabel * lab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,40)];
     if(section == 0){
-        if (_associationModel.user_to_me) {
-            lab.text =  @"    邀请我的";
-        }
-    }
-    if(section == 1){
         lab.text =  @"    我邀请的";
     }
     return lab;
@@ -166,9 +191,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return _associationModel.user_to_me?40.0f:0.001f;
+        return 40.0;
     }
-    return 40;
+    return 0.001f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001f;
@@ -178,15 +203,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
