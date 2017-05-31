@@ -285,6 +285,10 @@
                 _orderDetaileTransfer_BtnAgree();
             }
         }];
+    }else if (move_state == 2){
+        _leftBtn.hidden = YES;
+        _cancleBtn.hidden = YES;
+        _leftLeftBtn.hidden = YES;
     }
 }
 

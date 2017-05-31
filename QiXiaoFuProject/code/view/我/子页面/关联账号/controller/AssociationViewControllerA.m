@@ -111,6 +111,7 @@
     if (indexPath.row == 0){
         Me_To_User *me_touser = self.bDataArray[indexPath.section];
         cell.me_to_user = me_touser;
+        cell.iconLeftDis.constant = 10;
     }else{
         NSArray *cDatas = self.cDataArray[indexPath.section];
         Me_To_User *me_touser = cDatas[indexPath.row - 1];

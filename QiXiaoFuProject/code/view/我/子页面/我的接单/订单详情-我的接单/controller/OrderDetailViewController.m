@@ -252,9 +252,12 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         }else if (_orderDetaileProModel.bill_statu ==8) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
         }
+        
         //转移状态
         if ([_orderDetaileProModel.move_state intValue] == 1){
             [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
+        }else if ([_orderDetaileProModel.move_state intValue] == 2){
+            [cell.stateBtn setTitle:@"已转移转移" forState:UIControlStateNormal];
         }
         
         return cell;
@@ -397,7 +400,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         params[@"move_to_eng_name"] = _orderDetaileProModel.call_nik_name;//接受者的昵称
                         params[@"move_state"] = @"1";//表示接受
                         
-                        [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                        [MCNetTool postWithUrl:HttpTransferAgreeMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                             
                             [self.navigationController popViewControllerAnimated:YES];//  成功，返回
                             [self showSuccessText:msg];

@@ -383,7 +383,7 @@
                 params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
                 params[@"move_state"] = @"1";//表示接受
                 
-                [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [MCNetTool postWithUrl:HttpTransferAgreeMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
                     [self myBillListDataPage:1 hud:YES];//  成功，重新刷新列表
                     [self showSuccessText:msg];
