@@ -181,7 +181,7 @@
                         
                     }else{
                         
-                        _messageHeaderView2.contentLab.hidden = YES;
+                        _messageHeaderView2.countLab.hidden = YES;
                         
                         _messageHeaderView2.contentLab.hidden = YES;
                         
@@ -206,7 +206,7 @@
                         
                     }else{
                         
-                        _messageHeaderView3.contentLab.hidden = YES;
+                        _messageHeaderView3.countLab.hidden = YES;
                         
                         _messageHeaderView3.contentLab.hidden = YES;
                         

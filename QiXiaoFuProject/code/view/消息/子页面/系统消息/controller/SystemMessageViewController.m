@@ -21,7 +21,7 @@
 #import "OrderDetaileViewController.h"
 
 
-@interface SystemMessageViewController ()
+@interface SystemMessageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)  NSMutableArray *dataArray;
 @property (nonatomic, strong) NSMutableArray *dealArray;
@@ -29,6 +29,8 @@
 @property (assign, nonatomic)  NSInteger page;
 @property (weak, nonatomic) IBOutlet UIView *dealBtnView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dealBtnViewH;
+
+@property (nonatomic, assign) BOOL isSelectedAll;
 
 @end
 
@@ -88,6 +90,7 @@
         self.dealBtnView.hidden = YES;
     }
     [self.dealArray removeAllObjects];
+    self.isSelectedAll = NO;
     
     [self.tableView reloadData];
     if (self.dataArray.count < 10) {
@@ -338,6 +341,10 @@
             [self.dealArray addObject:@(indexPath.section)];
         }
         
+        if (self.dealArray.count != self.dataArray.count){
+            self.isSelectedAll = NO;
+        }
+        
         [self.tableView reloadData];
         if (self.dataArray.count < 10) {
             [_tableView hidenFooter];
@@ -345,15 +352,61 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0){
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        view.backgroundColor = rgb(240, 240, 240);
+        UIButton *allSelBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 100, 10, 80, 25)];
+        [allSelBtn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+        if (self.isSelectedAll){
+            [allSelBtn setTitle:@"取消全选" forState:UIControlStateNormal];
+        }else{
+            [allSelBtn setTitle:@"全选" forState:UIControlStateNormal];
+        }
+        
+        [allSelBtn addTarget:self action:@selector(selectedAllAction) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:allSelBtn];
+        
+        view.hidden = self.dealBtnView.hidden;
+        
+        return view;
+        
+    }else{
+        return nil;
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10.0;
+    if (section == 0){
+        if (self.dealBtnView.hidden){
+            return 10.0;
+        }else{
+            return 40.0;
+        }
+    }else{
+        return 10.0;
+    }
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001f;
 }
 
+- (void)selectedAllAction{
+    [self.dealArray removeAllObjects];
 
+    if (!self.isSelectedAll){
+        for (NSInteger i = 0; i < self.dataArray.count; i ++) {
+            [self.dealArray addObject:@(i)];
+        }
+    }
+    [self.tableView reloadData];
+    if (self.dataArray.count < 10) {
+        [_tableView hidenFooter];
+    }
+    
+    self.isSelectedAll = !self.isSelectedAll;
+}
 
 
 #pragma mark - 接单成功
