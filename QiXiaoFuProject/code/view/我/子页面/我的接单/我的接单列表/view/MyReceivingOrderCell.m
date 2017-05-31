@@ -113,6 +113,31 @@
         _chatBtn.hidden = NO;
     }
     
+    //转移状态 1转移中 2已接受 0已拒绝
+    if ([mySendOrderModel.move_state intValue] == 1){
+        [self topViewLabShowType:NO whihContent:@"  转移待确定  "];
+        
+        _leftBtn.hidden = NO;
+        _rightBtn.hidden = NO;
+        _rightBtn.selected = NO;
+        
+        [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+            if (_myReceivingOrderCellWithBtnRefuseTransfer) {
+                _myReceivingOrderCellWithBtnRefuseTransfer(mySendOrderModel);
+            }
+        }];
+        
+        [_rightBtn setTitle:@"  接受转移  " forState:UIControlStateNormal];
+        [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+            if (_myReceivingOrderCellWithBtnAgreeTransfer) {
+                _myReceivingOrderCellWithBtnAgreeTransfer(mySendOrderModel);
+            }
+        }];
+        return;
+    }
     
     //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
     switch (mySendOrderModel.bill_statu) {
@@ -348,32 +373,6 @@
             
             
             
-        }
-            break;
-        case 9:
-        {
-            
-            [self topViewLabShowType:NO whihContent:@"  转移待确定  "];
-            
-            _leftBtn.hidden = NO;
-            _rightBtn.hidden = NO;
-            _rightBtn.selected = NO;
-            
-            [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
-            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_myReceivingOrderCellWithBtnRefuseTransfer) {
-                    _myReceivingOrderCellWithBtnRefuseTransfer(mySendOrderModel);
-                }
-            }];
-            
-            [_rightBtn setTitle:@"  接受转移  " forState:UIControlStateNormal];
-            [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_myReceivingOrderCellWithBtnAgreeTransfer) {
-                    _myReceivingOrderCellWithBtnAgreeTransfer(mySendOrderModel);
-                }
-            }];
         }
             break;
             

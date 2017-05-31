@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,13 +75,13 @@
                     </constraints>
                 </view>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="l17-f8-CMP">
-                    <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                    <rect key="frame" x="0.0" y="49" width="375" height="618"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GKX-y2-r6Q">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Qec-uc-OAY"/>
@@ -100,7 +100,7 @@
                 <constraint firstAttribute="trailing" secondItem="l17-f8-CMP" secondAttribute="trailing" id="bJj-h8-OtK"/>
                 <constraint firstAttribute="bottom" secondItem="l17-f8-CMP" secondAttribute="bottom" id="mtH-oY-IwT"/>
                 <constraint firstItem="0fk-wu-srF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="qbl-Ie-9nq"/>
-                <constraint firstItem="l17-f8-CMP" firstAttribute="top" secondItem="39a-JV-0eT" secondAttribute="bottom" constant="10" id="uT7-lo-Rmh"/>
+                <constraint firstItem="l17-f8-CMP" firstAttribute="top" secondItem="39a-JV-0eT" secondAttribute="bottom" id="uT7-lo-Rmh"/>
                 <constraint firstAttribute="trailing" secondItem="0fk-wu-srF" secondAttribute="trailing" id="zcE-Jr-27g"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="116.5"/>

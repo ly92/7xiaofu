@@ -16,6 +16,8 @@
 @property (nonatomic, assign) NSInteger t_state;
 @property (nonatomic, assign) NSInteger pay_statu;
 @property (nonatomic, assign) NSInteger bill_statu;
+@property (nonatomic, assign) NSInteger move_state;
+
 
 
 @property(nonatomic, copy) void (^orderDetaileCancle_cancle)();

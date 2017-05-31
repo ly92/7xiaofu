@@ -256,38 +256,40 @@
             
         }
             break;
-        case 9:
-        {
-            
-            _leftBtn.hidden = NO;
-            _cancleBtn.hidden = NO;
-            _leftLeftBtn.hidden = YES;
-            
-            [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
-            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_orderDetaileTransfer_BtnRefuse) {
-                    _orderDetaileTransfer_BtnRefuse();
-                }
-            }];
-            
-            [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
-            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_orderDetaileTransfer_BtnAgree) {
-                    _orderDetaileTransfer_BtnAgree();
-                }
-            }];
-            
-            
-            
-        }
-            break;
+        
         default:
             break;
     }
     
 }
+
+- (void)setMove_state:(NSInteger)move_state{
+    _move_state = move_state;
+    if (move_state == 1){
+        _leftBtn.hidden = NO;
+        _cancleBtn.hidden = NO;
+        _leftLeftBtn.hidden = YES;
+        
+        [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+            if (_orderDetaileTransfer_BtnRefuse) {
+                _orderDetaileTransfer_BtnRefuse();
+            }
+        }];
+        
+        [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
+        [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+            if (_orderDetaileTransfer_BtnAgree) {
+                _orderDetaileTransfer_BtnAgree();
+            }
+        }];
+    }
+}
+
+
+
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

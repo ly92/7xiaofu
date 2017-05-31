@@ -193,12 +193,18 @@
     }
 }
 
+//减少内存占用
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    [_mapView removeFromSuperview];
+    [mapbgView addSubview:mapView];
+}
+
 - (void)setMapRegionWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     numFlag = NO;
     MKCoordinateRegion region;
     //    region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.1, 0.1));
-    region=MKCoordinateRegionMakeWithDistance(coordinate,14000 ,14000 );
+    region=MKCoordinateRegionMakeWithDistance(coordinate,1609.344 ,1609.344 );
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:region];
     [_mapView setRegion:adjustedRegion animated:YES];
 }

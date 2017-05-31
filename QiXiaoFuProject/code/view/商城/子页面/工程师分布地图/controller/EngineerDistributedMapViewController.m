@@ -214,6 +214,11 @@
     }
     return nil;
 }
+//减少内存占用
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    [_mapView removeFromSuperview];
+    [mapbgView addSubview:mapView];
+}
 
 - (void)toNavigationMapwithModel:(EngineerDistributedModel *)engineerDistributedModel{
     
@@ -251,7 +256,7 @@
     numFlag = NO;
     MKCoordinateRegion region;
     //    region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.1, 0.1));
-    region=MKCoordinateRegionMakeWithDistance(coordinate,140000 ,140000 );
+    region=MKCoordinateRegionMakeWithDistance(coordinate,1609.344 ,1609.344 );
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:region];
     [_mapView setRegion:adjustedRegion animated:YES];
 }

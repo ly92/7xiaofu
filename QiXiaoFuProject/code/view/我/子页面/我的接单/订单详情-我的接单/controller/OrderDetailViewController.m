@@ -251,6 +251,11 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         }else if (_orderDetaileProModel.bill_statu ==8) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
         }
+        //转移状态
+        if ([_orderDetaileProModel.move_state intValue] == 1){
+            [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
+        }
+        
         return cell;
     }
     
@@ -338,7 +343,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             cell.t_state =_orderDetaileProModel.t_state;
             cell.pay_statu =_orderDetaileProModel.pay_statu;
             cell.bill_statu =_orderDetaileProModel.bill_statu;
-            
+            cell.move_state = [_orderDetaileProModel.move_state integerValue];
             
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){

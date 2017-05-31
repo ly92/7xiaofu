@@ -90,6 +90,11 @@
 @property (nonatomic, assign) NSInteger is_eval;//
 
 
+//转移
+@property (nonatomic, copy) NSString *move_to_eng_name;//接收者name
+@property (nonatomic, copy) NSString *move_state;//转移状态1在转移  2已接受  0已拒绝
+@property (nonatomic, copy) NSString *move_count;//剩余转移次数
+@property (nonatomic, copy) NSString *move_to_eng_id;//接受者ID
 
 @end
 
