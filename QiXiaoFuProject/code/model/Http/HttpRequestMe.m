@@ -32,7 +32,7 @@ NSString  * const HttpMeHelp_body =@"download/caozuoshouce/navi.html";
 
 /**关于我们 */
 //NSString  * const HttpMeAboutWe = @"api/index.php?act=login&op=guanyu";
-NSString  * const HttpMeAboutWe = @"7xfHtml/product.html";
+NSString  * const HttpMeAboutWe = @"download/about/about.html";
 
 /*==========================功能==========================*/
 

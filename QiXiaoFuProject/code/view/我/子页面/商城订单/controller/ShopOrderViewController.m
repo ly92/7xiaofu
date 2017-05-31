@@ -267,20 +267,28 @@
     // 确认收货
     shopOrderFooterView.shopOrderCellQueRenShouHuoBlock = ^(NSString * order_id,NSIndexPath * cellIndexPath){
         
-        NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"userid"] = kUserId;
-        params[@"store_id"] = @"1";
-        params[@"order_id"] = order_id;
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定收货" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"store_id"] = @"1";
+                params[@"order_id"] = order_id;
+                
+                [MCNetTool postWithUrl:HttpShopOrderFinish params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    [self showSuccessText:msg];
+                    
+                    [self loadShopOrderListWithPage:1 hud:YES];
+                    
+                    
+                } fail:^(NSString *error) {
+                    [self showErrorText:error];
+                }];
+                
+            }
+        } otherButtonTitles:@"确认"];
+        [alert show];
         
-        [MCNetTool postWithUrl:HttpShopOrderFinish params:params success:^(NSDictionary *requestDic, NSString *msg) {
-            [self showSuccessText:msg];
-            
-            [self loadShopOrderListWithPage:1 hud:YES];
-
-            
-        } fail:^(NSString *error) {
-            [self showErrorText:error];
-        }];
     };
     return footerView;
 }
