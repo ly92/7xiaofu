@@ -37,6 +37,7 @@ static NSString * const kSeverQY = @"服务区域";
 //static NSString * const kSeverOtherQY = @"其他服务领域";
 static NSString * const kSeverMark = @"备注";
 static NSString * const kSeverPrice = @"服务价格";
+static NSString * const kSeverSparePart = @"使用备件";
 static NSString * const kSeverImage = @"图片121";
 static NSString * const kSeverCancle = @"取消订单121";
 
@@ -134,7 +135,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         
 //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle];
         
         _titles = [NSMutableArray arrayWithArray:titles];
         
@@ -247,7 +248,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
              return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 8 || indexPath.row == 9 ){
+                 indexPath.row == 8 || indexPath.row == 9 || indexPath.row == 10 ){
             
             
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -284,6 +285,9 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
+            }else if(indexPath.row == 10){
+                // 使用备件
+                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
             }
             return cell;
             

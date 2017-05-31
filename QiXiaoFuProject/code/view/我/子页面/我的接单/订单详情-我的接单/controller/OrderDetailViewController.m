@@ -40,6 +40,7 @@ static NSString * const kSeverQY = @"服务区域";
 //static NSString * const kSeverOtherXH = @"其他品牌型号";
 static NSString * const kSeverMark = @"备注";
 static NSString * const kSeverPrice = @"服务价格";
+static NSString * const kSeverSparePart = @"使用备件";
 static NSString * const kSeverImage = @"图片121";
 static NSString * const kSeverCancle = @"取消订单121";
 static NSString * const kSeverTiaoJiaImage = @"调价有图片123";
@@ -151,7 +152,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         
 //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
         
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
         _titles = [NSMutableArray arrayWithArray:titles];
 
 
@@ -290,7 +291,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 8 || indexPath.row == 9 ){
+                 indexPath.row == 8 || indexPath.row == 9 || indexPath.row == 10 ){
         
         
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -327,6 +328,9 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
+            }else if(indexPath.row == 10){
+                // 使用备件
+                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
             }
             return cell;
         
