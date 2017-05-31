@@ -124,16 +124,27 @@
     
     LxDBAnyVar(string);
     
+//    if(!_selectTip && !_selectPoi){
+//        [self showErrorText:@"请选择区域"];
+//        return;
+//    }
+    
     if(!_selectTip && !_selectPoi){
-        [self showErrorText:@"请选择区域"];
-        return;
+        _selectTip = [[AMapTip alloc] init];
+        _selectTip.location = _location;
+        _selectTip.name = string;
     }
-    if(!_selectTip){
+    
+    if(!_selectTip && _selectPoi){
         _selectTip = [[AMapTip alloc] init];
         _selectTip.location = _selectPoi.location;
         _selectTip.name = _selectPoi.name;
     }
-
+    
+    //如果未搜索到输入的位置则直接返回输入的位置名称
+    if (![string isEqualToString:_selectTip.name]){
+        _selectTip.name = string;
+    }
     
     if (_chooseSeviceAreaBlock) {
         _chooseSeviceAreaBlock(_selectTip);
