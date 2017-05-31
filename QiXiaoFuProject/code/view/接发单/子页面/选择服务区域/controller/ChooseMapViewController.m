@@ -339,12 +339,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    AMapTip *poi = [_searchResultArray objectAtIndex:indexPath.row];
-    _selectTip = poi;
+    AMapPOI *poi = [_searchResultArray objectAtIndex:indexPath.row];
+    _selectPoi = poi;
     [_mapBGView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude)];
     _adressTextfield.text =poi.name;
     [self.view endEditing:YES];
-    
     
     [_mapBGView removeOverlays:_mapBGView.overlays];
     [_mapBGView removeAnnotations:_mapBGView.annotations];
@@ -401,53 +400,77 @@
 - (void)searchPoiByAMapGeoPoint:(AMapGeoPoint *)location withSearchDtring:(NSString *)searchString
 {
     
-    if (_isFirstSearch) {
+//    if (_isFirstSearch) {
         AMapPOIAroundSearchRequest *requestPoi = [[AMapPOIAroundSearchRequest alloc] init];
+    requestPoi.keywords = searchString;
         requestPoi.location = location;
         // 搜索半径
-        requestPoi.radius = 50000;
+        requestPoi.radius = 25000;
         // 搜索结果排序
         requestPoi.sortrule = 1;
         // 当前页数
         requestPoi.page = searchPage;
         [_searchAPI AMapPOIAroundSearch:requestPoi];
         
-        _isFirstSearch = NO;
-
-    }
-    AMapInputTipsSearchRequest *request = [[AMapInputTipsSearchRequest alloc] init];
-    request.keywords = searchString;
-    [_searchAPI AMapInputTipsSearch:request];
+//        _isFirstSearch = NO;
+//
+//    }
+//    
+//    
+//    AMapInputTipsSearchRequest *request = [[AMapInputTipsSearchRequest alloc] init];
+//    
+//    request.keywords = searchString;
+//    [_searchAPI AMapInputTipsSearch:request];
     
 }
 
 #pragma mark -  AMapInputTipsSearchRequest AMapSearchDelegate
 
-- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response{
-    
-    [_searchResultArray removeAllObjects];
-    // 添加数据并刷新TableView
-    [response.tips enumerateObjectsUsingBlock:^(AMapTip *obj, NSUInteger idx, BOOL *stop) {
-         DeLog(@"-------  %@--- %@-----%@----%f---%f ",obj.name,obj.district,obj.address,obj.location.latitude,obj.location.longitude)
-        
-        if (obj.location.latitude == 0) {
-            if (idx + 1 < response.tips.count) {
-                AMapTip * tempObj = response.tips[idx + 1];
-                 obj.location =tempObj.location;
-                 [_searchResultArray addObject:obj];
-             }
-         }else{
-             [_searchResultArray addObject:obj];
-         }
-    }];
-    [_tableView reloadData];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
-
-}
+//- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response{
+//    
+//    [_searchResultArray removeAllObjects];
+//    // 添加数据并刷新TableView
+//    [response.tips enumerateObjectsUsingBlock:^(AMapTip *obj, NSUInteger idx, BOOL *stop) {
+//         DeLog(@"-------  %@--- %@-----%@----%f---%f ",obj.name,obj.district,obj.address,obj.location.latitude,obj.location.longitude)
+//        
+//        if (obj.location.latitude == 0) {
+//            if (idx + 1 < response.tips.count) {
+//                AMapTip * tempObj = response.tips[idx + 1];
+//                 obj.location =tempObj.location;
+//                 [_searchResultArray addObject:obj];
+//             }
+//         }else{
+//             [_searchResultArray addObject:obj];
+//         }
+//    }];
+//    [_tableView reloadData];
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
+//
+//}
 
 #pragma mark -  AMapPOIAroundSearchRequest AMapSearchDelegate
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response{
     
+    [_searchResultArray removeAllObjects];
+    // 添加数据并刷新TableView
+    [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
+        DeLog(@"-------  %@--- %@-----%@----%f---%f ",obj.name,obj.district,obj.address,obj.location.latitude,obj.location.longitude)
+        
+        if (obj.location.latitude == 0) {
+            if (idx + 1 < response.pois.count) {
+                AMapPOI * tempObj = response.pois[idx + 1];
+                obj.location =tempObj.location;
+                [_searchResultArray addObject:obj];
+            }
+        }else{
+            [_searchResultArray addObject:obj];
+        }
+    }];
+    [_tableView reloadData];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
+    
+
+    /*
      // 添加数据并刷新TableView
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
         LxDBAnyVar(obj.city);
@@ -480,7 +503,7 @@
     [_tableView reloadData];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
-
+*/
 }
 
 
