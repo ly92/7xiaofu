@@ -25,6 +25,7 @@
 
 @property (nonatomic, assign) NSInteger unreadSystemMessageNumber;//未读的自己系统的消息数量
 
+@property (nonatomic, copy) NSString *member_level;//级别
 
 @end
 

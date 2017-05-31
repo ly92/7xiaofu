@@ -80,6 +80,8 @@
         user.userIcon = _userInfoModel1.member_avatar;
         user.userName = _userInfoModel1.member_nik_name;
         user.is_real =_userInfoModel1.is_real;
+        user.member_level = _userInfoModel1.member_level;
+        
         [UserManager archiverModel:user];
         
         [_collectionView reloadData];
@@ -395,6 +397,11 @@
         
     }
     if (index == 8) {
+        UserInfoModel * user = [UserManager readModel];
+        if ([user.member_level isEqualToString:@"A"]){
+            [self showErrorText:@"当前用户为A用户，不可补单！"];
+            return;
+        }
         ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }

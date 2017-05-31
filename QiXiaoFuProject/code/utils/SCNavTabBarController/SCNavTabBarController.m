@@ -77,6 +77,11 @@
 }
 
 - (void)receiveOrder{
+     UserInfoModel * user = [UserManager readModel];
+    if ([user.member_level isEqualToString:@"A"]){
+        [self showErrorText:@"当前用户为A用户，不可补单！"];
+        return;
+    }
     ReplacementOrderViewController * vc  = [[ReplacementOrderViewController alloc]initWithNibName:@"ReplacementOrderViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
