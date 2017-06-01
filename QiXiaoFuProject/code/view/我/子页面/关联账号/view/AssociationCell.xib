@@ -64,13 +64,23 @@
                             <action selector="openAction" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ABj-T3-Z40"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrq-ZS-tcy">
+                        <rect key="frame" x="0.0" y="69" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YQb-c8-pn3"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QN8-A3-DV6" firstAttribute="top" secondItem="saD-nk-k0y" secondAttribute="top" id="71R-TE-UV0"/>
                     <constraint firstItem="n3J-SF-1Du" firstAttribute="trailing" secondItem="EWE-c0-zZC" secondAttribute="trailing" id="Lh8-hw-zqZ"/>
                     <constraint firstAttribute="trailing" secondItem="uai-RT-1kG" secondAttribute="trailing" id="MZ0-YM-lGV"/>
+                    <constraint firstAttribute="trailing" secondItem="Yrq-ZS-tcy" secondAttribute="trailing" id="OAp-pL-3KT"/>
+                    <constraint firstItem="Yrq-ZS-tcy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R71-he-hwp"/>
                     <constraint firstItem="QN8-A3-DV6" firstAttribute="leading" secondItem="saD-nk-k0y" secondAttribute="trailing" constant="10" id="Tfv-fN-ubq"/>
                     <constraint firstItem="n3J-SF-1Du" firstAttribute="centerY" secondItem="xZN-tT-Efo" secondAttribute="centerY" id="VH8-iw-Ga7"/>
+                    <constraint firstAttribute="bottom" secondItem="Yrq-ZS-tcy" secondAttribute="bottom" id="Veb-N6-mb1"/>
                     <constraint firstItem="EWE-c0-zZC" firstAttribute="centerY" secondItem="QN8-A3-DV6" secondAttribute="centerY" id="bK5-81-lhQ"/>
                     <constraint firstItem="xZN-tT-Efo" firstAttribute="bottom" secondItem="saD-nk-k0y" secondAttribute="bottom" id="gxN-4f-9TB"/>
                     <constraint firstItem="uai-RT-1kG" firstAttribute="leading" secondItem="EWE-c0-zZC" secondAttribute="trailing" constant="10" id="hQE-Ir-tsQ"/>

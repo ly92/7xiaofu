@@ -195,7 +195,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="kCU-nM-SFA" firstAttribute="centerY" secondItem="nEt-vY-ruv" secondAttribute="centerY" id="12Z-UI-0ra"/>
                         <constraint firstItem="ee6-l9-aAG" firstAttribute="centerY" secondItem="nEt-vY-ruv" secondAttribute="centerY" id="3Rt-b4-Cl2"/>
@@ -229,7 +229,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xqo-hI-8Ht">
                     <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-18-YHD">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-18-YHD">
                             <rect key="frame" x="10" y="27" width="355" height="163"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
