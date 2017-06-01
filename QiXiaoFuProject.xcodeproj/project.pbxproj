@@ -781,6 +781,12 @@
 		04F3FC161D8F8125000487C4 /* SyetemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F3FC141D8F8125000487C4 /* SyetemMessageCell.xib */; };
 		08052D9F1EDEF392004AF3B2 /* AssociationViewControllerA.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052D9D1EDEF392004AF3B2 /* AssociationViewControllerA.m */; };
 		08052DA01EDEF392004AF3B2 /* AssociationViewControllerA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052D9E1EDEF392004AF3B2 /* AssociationViewControllerA.xib */; };
+		08052DAA1EDFF029004AF3B2 /* CouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DA81EDFF029004AF3B2 /* CouponViewController.m */; };
+		08052DAB1EDFF029004AF3B2 /* CouponViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DA91EDFF029004AF3B2 /* CouponViewController.xib */; };
+		08052DAF1EDFF037004AF3B2 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DAD1EDFF037004AF3B2 /* CreditsViewController.m */; };
+		08052DB01EDFF037004AF3B2 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */; };
+		08052DB41EDFF045004AF3B2 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB21EDFF045004AF3B2 /* SignInViewController.m */; };
+		08052DB51EDFF045004AF3B2 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB31EDFF045004AF3B2 /* SignInViewController.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2286,6 +2292,15 @@
 		08052D9C1EDEF392004AF3B2 /* AssociationViewControllerA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssociationViewControllerA.h; sourceTree = "<group>"; };
 		08052D9D1EDEF392004AF3B2 /* AssociationViewControllerA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssociationViewControllerA.m; sourceTree = "<group>"; };
 		08052D9E1EDEF392004AF3B2 /* AssociationViewControllerA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssociationViewControllerA.xib; sourceTree = "<group>"; };
+		08052DA71EDFF029004AF3B2 /* CouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewController.h; sourceTree = "<group>"; };
+		08052DA81EDFF029004AF3B2 /* CouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewController.m; sourceTree = "<group>"; };
+		08052DA91EDFF029004AF3B2 /* CouponViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponViewController.xib; sourceTree = "<group>"; };
+		08052DAC1EDFF037004AF3B2 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		08052DAD1EDFF037004AF3B2 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
+		08052DB11EDFF045004AF3B2 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		08052DB21EDFF045004AF3B2 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		08052DB31EDFF045004AF3B2 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -4860,6 +4875,9 @@
 		049266E21D5EE8100098A3A6 /* 子页面 */ = {
 			isa = PBXGroup;
 			children = (
+				08052DA11EDFEFC0004AF3B2 /* 服券 */,
+				08052DA21EDFEFC0004AF3B2 /* 积分 */,
+				08052DA31EDFEFC0004AF3B2 /* 签到 */,
 				0853FF151ED67B39005D0E94 /* 空闲时间 */,
 				048919EA1DD5CF8C0099E24F /* 我的发单 */,
 				048919FB1DD5CF8C0099E24F /* 我的接单 */,
@@ -7545,6 +7563,60 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		08052DA11EDFEFC0004AF3B2 /* 服券 */ = {
+			isa = PBXGroup;
+			children = (
+				08052DA51EDFF001004AF3B2 /* controller */,
+			);
+			path = "服券";
+			sourceTree = "<group>";
+		};
+		08052DA21EDFEFC0004AF3B2 /* 积分 */ = {
+			isa = PBXGroup;
+			children = (
+				08052DA61EDFF00F004AF3B2 /* controller */,
+			);
+			path = "积分";
+			sourceTree = "<group>";
+		};
+		08052DA31EDFEFC0004AF3B2 /* 签到 */ = {
+			isa = PBXGroup;
+			children = (
+				08052DA41EDFEFF1004AF3B2 /* controller */,
+			);
+			path = "签到";
+			sourceTree = "<group>";
+		};
+		08052DA41EDFEFF1004AF3B2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				08052DB11EDFF045004AF3B2 /* SignInViewController.h */,
+				08052DB21EDFF045004AF3B2 /* SignInViewController.m */,
+				08052DB31EDFF045004AF3B2 /* SignInViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		08052DA51EDFF001004AF3B2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				08052DA71EDFF029004AF3B2 /* CouponViewController.h */,
+				08052DA81EDFF029004AF3B2 /* CouponViewController.m */,
+				08052DA91EDFF029004AF3B2 /* CouponViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		08052DA61EDFF00F004AF3B2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				08052DAC1EDFF037004AF3B2 /* CreditsViewController.h */,
+				08052DAD1EDFF037004AF3B2 /* CreditsViewController.m */,
+				08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		0853FF151ED67B39005D0E94 /* 空闲时间 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7815,6 +7887,7 @@
 				048FF1C81D7460F300268A78 /* UserInfoFooterView.xib in Resources */,
 				0422C5C31DC44590002F7B11 /* ShopOrderStateCell.xib in Resources */,
 				048FF1AC1D744DF100268A78 /* MyStockViewController.xib in Resources */,
+				08052DB51EDFF045004AF3B2 /* SignInViewController.xib in Resources */,
 				048FF22C1D7560AC00268A78 /* EngineerDetaileWordCell.xib in Resources */,
 				048FF2141D7553A500268A78 /* EngineerListViewController.xib in Resources */,
 				042C9B6D1D967E700045FAE6 /* ChooseSNNumCell.xib in Resources */,
@@ -7825,6 +7898,7 @@
 				04C45DE71DFD0991001D9415 /* pin.png in Resources */,
 				04B36A761D68491F00D86C11 /* FeedbackViewController.xib in Resources */,
 				048FF1A31D7435C400268A78 /* ShopOrderCell.xib in Resources */,
+				08052DAB1EDFF029004AF3B2 /* CouponViewController.xib in Resources */,
 				0422A5EE1D924F7A001ADE98 /* FilterViewRangeCell.xib in Resources */,
 				04B36A701D68464F00D86C11 /* SettingViewController.xib in Resources */,
 				048FF2791D75B2E800268A78 /* ReceivingOrderEditFooterView.xib in Resources */,
@@ -7880,6 +7954,7 @@
 				048FF1331D72E54B00268A78 /* ReceivingOrderViewController.xib in Resources */,
 				041B33331D7EEF9C00A8EBA2 /* AssociationViewController.xib in Resources */,
 				04DAC62B1DB8BF2D002235A7 /* sr_refresh@2X.png in Resources */,
+				08052DB01EDFF037004AF3B2 /* CreditsViewController.xib in Resources */,
 				04E8BD111D587C5B003E4550 /* Assets.xcassets in Resources */,
 				044602C91D7A7E5F00CC787C /* ShopDetaileViewController.xib in Resources */,
 				04CE13DA1E09217100792B7F /* addImage@2x.jpg in Resources */,
@@ -8059,6 +8134,7 @@
 				049266BE1D5EE3C90098A3A6 /* UIImageView+Load.m in Sources */,
 				04DAC5401DB8BC5A002235A7 /* EMSDWebImageDecoder.m in Sources */,
 				049267371D5EF0680098A3A6 /* LCNewFeatureVC.m in Sources */,
+				08052DAF1EDFF037004AF3B2 /* CreditsViewController.m in Sources */,
 				0416E9CB1D9B5C7500D59A0A /* RSADataSigner.m in Sources */,
 				0853FF2C1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m in Sources */,
 				04DAC5E31DB8BE1E002235A7 /* GroupSettingViewController.m in Sources */,
@@ -8423,6 +8499,7 @@
 				044602F31D7A90F900CC787C /* SubjectNumberView.m in Sources */,
 				04DAC5201DB8BC5A002235A7 /* MBProgressHUD+Add.m in Sources */,
 				041B31CD1D7D865F00A8EBA2 /* RegisterFooterView.m in Sources */,
+				08052DB41EDFF045004AF3B2 /* SignInViewController.m in Sources */,
 				0498E43C1DB6373100262A9C /* ChongSendOrderVC2.m in Sources */,
 				04DAC5711DB8BC5B002235A7 /* EaseUsersListViewController.m in Sources */,
 				04DAC6371DB8BF5E002235A7 /* UIImageView+HeadImage.m in Sources */,
@@ -8556,6 +8633,7 @@
 				04891A311DD5CF8C0099E24F /* MyReceivingOrderCell.m in Sources */,
 				04DAC5A21DB8BD84002235A7 /* EMRotbotChatViewCell.m in Sources */,
 				04DAC5371DB8BC5A002235A7 /* MWGridViewController.m in Sources */,
+				08052DAA1EDFF029004AF3B2 /* CouponViewController.m in Sources */,
 				048FF0E41D719EF100268A78 /* DownMenuTopView.m in Sources */,
 				04A258941D9A16060064C0CB /* YWWebScrollView.m in Sources */,
 				09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */,

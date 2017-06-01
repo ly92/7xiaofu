@@ -37,6 +37,11 @@
 #import "SpaceTimeViewController.h"
 #import "AssociationViewControllerA.h"
 
+#import "SignInViewController.h"
+#import "CouponViewController.h"
+#import "CreditsViewController.h"
+
+
 @interface MeViewController () <UICollectionViewDataSource, UICollectionViewDelegate,PDCollectionViewFlowLayoutDelegate>{
 
     
@@ -164,7 +169,7 @@
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(kScreenWidth,156);
+    return CGSizeMake(kScreenWidth,195);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -172,7 +177,7 @@
     if ([kind isEqualToString:CZCollectionElementKindSectionHeader])
     {
         MeHeadReusableView * engineerHeaderReusableView =[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"MeHeadReusableView" forIndexPath:indexPath];
-        engineerHeaderReusableView.backgroundColor = [UIColor whiteColor];
+//        engineerHeaderReusableView.backgroundColor = [UIColor whiteColor];
         
         
         if (kUserId.length == 0) {
@@ -185,7 +190,7 @@
         if (_userInfoModel1.is_real  == 1) {
 
             engineerHeaderReusableView.aouthBtn.selected = NO;
-            engineerHeaderReusableView.aouthBtn.backgroundColor = [UIColor whiteColor];
+//            engineerHeaderReusableView.aouthBtn.backgroundColor = [UIColor whiteColor];
             [engineerHeaderReusableView.aouthBtn setTitleColor:kThemeColor forState:UIControlStateNormal];
             [engineerHeaderReusableView.aouthBtn setBackgroundImage:[UIImage imageNamed:@"me_btn_nameidf"]  forState:UIControlStateNormal];
             [engineerHeaderReusableView.aouthBtn setTitle:@"已实名认证" forState:UIControlStateNormal];
@@ -196,7 +201,7 @@
          
             engineerHeaderReusableView.aouthBtn.selected = YES;
             
-            engineerHeaderReusableView.aouthBtn.backgroundColor = kThemeColor;
+//            engineerHeaderReusableView.aouthBtn.backgroundColor = kThemeColor;
             [engineerHeaderReusableView.aouthBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [engineerHeaderReusableView.aouthBtn setBackgroundImage:[UIImage imageNamed:@"tag_red"]  forState:UIControlStateSelected];
             [engineerHeaderReusableView.aouthBtn setTitle:@"去实名认证" forState:UIControlStateSelected];
@@ -257,7 +262,6 @@
             [Utool verifyLogin:self LogonBlock:^{
                 WalletViewController * vc = [[WalletViewController alloc]initWithNibName:@"WalletViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
-
             }];
           }];
         // 进入购物车
@@ -267,9 +271,6 @@
                 ShopCarViewController * vc = [[ShopCarViewController alloc]initWithNibName:@"ShopCarViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
             }];
-
-           
-            
         }];
         // 进入收藏
         [engineerHeaderReusableView.collectBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -278,10 +279,26 @@
                 CollectViewController * vc = [[CollectViewController alloc]initWithNibName:@"CollectViewController" bundle:nil];
                 [self.navigationController pushViewController:vc animated:YES];
             }];
-
-      
+        }];
+        // 进入签到
+        [engineerHeaderReusableView.signInBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            SignInViewController *signinVC = [[SignInViewController alloc] init];
+            [self.navigationController pushViewController:signinVC animated:YES];
             
         }];
+        // 进入积分
+        [engineerHeaderReusableView.creditsBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+           
+            CreditsViewController *creditsVC = [[CreditsViewController alloc] init];
+            [self.navigationController pushViewController:creditsVC animated:YES];
+        }];
+        // 进入服券
+        [engineerHeaderReusableView.couponBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            CouponViewController *couponVC = [[CouponViewController alloc] init];
+            [self.navigationController pushViewController:couponVC animated:YES];
+            
+        }];
+
         
         return engineerHeaderReusableView;
     }

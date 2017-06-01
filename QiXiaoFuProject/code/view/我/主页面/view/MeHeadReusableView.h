@@ -37,7 +37,19 @@
  *  购物车
  */
 @property (weak, nonatomic) IBOutlet UIButton *shoppingCarBtn;
+/**
+ *  签到
+ */
+@property (weak, nonatomic) IBOutlet UIButton *signInBtn;
 
+/**
+ *  积分
+ */
+@property (weak, nonatomic) IBOutlet UIButton *creditsBtn;
+/**
+ *  服券
+ */
+@property (weak, nonatomic) IBOutlet UIButton *couponBtn;
 
 
 // 没有登录情况下  使用该view
