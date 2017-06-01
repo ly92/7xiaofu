@@ -146,6 +146,7 @@
         _leftBtn.hidden = YES;
         _rightBtn.hidden = YES;
         _rightBtn.selected = YES;
+        _chatBtn.hidden = YES;
         
         return;
     }
