@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -198,7 +198,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="AHf-lw-E5e"/>
                                         </constraints>
-                                        <state key="normal" image="icon_chat_n"/>
+                                        <state key="normal" image="icon_chat_red"/>
                                         <state key="selected" image="icon_chat_red"/>
                                     </button>
                                 </subviews>
@@ -258,7 +258,6 @@
     <resources>
         <image name="btn_btnbox_gray" width="6" height="6"/>
         <image name="btn_btnbox_red" width="6" height="6"/>
-        <image name="icon_chat_n" width="23" height="21"/>
         <image name="icon_chat_red" width="23" height="21"/>
     </resources>
 </document>

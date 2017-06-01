@@ -85,9 +85,9 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
     _tiaoPrice = 0;
     
     _chatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateNormal];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateHighlighted];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateSelected];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateNormal];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateHighlighted];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateSelected];
     _chatBtn.size = _chatBtn.currentBackgroundImage.size;
     [_chatBtn addTarget:self action:@selector(chatItemAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc]initWithCustomView:_chatBtn];
@@ -356,8 +356,10 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             OrderDetaileCancleCell *cell =[tableView dequeueReusableCellWithIdentifier:@"OrderDetaileCancleCell"];
             cell.t_state =_orderDetaileProModel.t_state;
             cell.pay_statu =_orderDetaileProModel.pay_statu;
+            //下面三行顺序不可变
             cell.bill_statu =_orderDetaileProModel.bill_statu;
             cell.move_state = [_orderDetaileProModel.move_state integerValue];
+            cell.move_count = [_orderDetaileProModel.move_count integerValue];
             
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){

@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
-            timestampString = "517991362.628082"
+            timestampString = "518003383.489824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
+            startingLineNumber = "687"
+            endingLineNumber = "687"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -324,7 +324,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%80%80%E6%8D%A2%E8%B4%A7/controller/PurchaseShopViewController.m"
-                  timestampString = "517999443.761445"
+                  timestampString = "518003757.303486"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "147"
@@ -339,7 +339,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%80%80%E6%8D%A2%E8%B4%A7/controller/PurchaseShopViewController.m"
-                  timestampString = "517999443.763193"
+                  timestampString = "518003757.305176"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "147"
@@ -347,22 +347,6 @@
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
-            timestampString = "517989568.266836"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

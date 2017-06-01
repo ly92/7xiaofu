@@ -76,9 +76,9 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
     _tiaoPrice = 0;
     
     _chatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateNormal];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateHighlighted];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateSelected];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateNormal];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateHighlighted];
+    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateSelected];
     _chatBtn.size = _chatBtn.currentBackgroundImage.size;
     [_chatBtn addTarget:self action:@selector(chatItemAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc]initWithCustomView:_chatBtn];

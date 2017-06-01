@@ -270,6 +270,7 @@
                     }];
 
                 }else{
+//                    _leftBtn.hidden = YES;
                     _leftBtn.selected = YES;
                     [_leftBtn setTitle:@"  已评价  " forState:UIControlStateSelected];
                     _leftBtn.userInteractionEnabled = NO;
@@ -296,7 +297,7 @@
                 // 撤回   重新发布
                  _rightBtn.hidden = NO;
                 _leftBtn.hidden = NO;
-                [_leftBtn setTitle:@"  撤回  " forState:UIControlStateNormal];
+                [_leftBtn setTitle:@"  撤销  " forState:UIControlStateNormal];
                 [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     
                     if (_mySendOrderCellWithBtnState_CheHui) {

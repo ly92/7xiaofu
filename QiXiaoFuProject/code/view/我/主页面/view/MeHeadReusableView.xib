@@ -221,7 +221,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ct-4R-EYE">
                             <rect key="frame" x="251" y="0.0" width="124" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="  服券" image="icon_collect_red">
+                            <state key="normal" title="  服券" image="icon_coupon">
                                 <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
@@ -235,14 +235,14 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p4-Md-q4O">
                             <rect key="frame" x="125" y="0.0" width="125" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="  积分" image="icon_shopcar_red">
+                            <state key="normal" title="  积分" image="icon_redits">
                                 <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9k2-md-BE3">
                             <rect key="frame" x="0.0" y="0.0" width="124" height="44"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="  签到" image="icon_wallet_red">
+                            <state key="normal" title="  签到" image="icon_signin">
                                 <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
@@ -319,7 +319,10 @@
     <resources>
         <image name="btn_next" width="13" height="22"/>
         <image name="icon_collect_red" width="18" height="17"/>
+        <image name="icon_coupon" width="20" height="20"/>
+        <image name="icon_redits" width="20" height="20"/>
         <image name="icon_shopcar_red" width="19" height="19"/>
+        <image name="icon_signin" width="20" height="20"/>
         <image name="icon_wallet_red" width="20" height="20"/>
         <image name="me_btn_login" width="60" height="28"/>
         <image name="me_img_default" width="87" height="87"/>

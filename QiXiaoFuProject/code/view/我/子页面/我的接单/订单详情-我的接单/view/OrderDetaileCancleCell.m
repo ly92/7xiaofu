@@ -292,7 +292,14 @@
     }
 }
 
-
+- (void)setMove_count:(NSInteger)move_count{
+    _move_count = move_count;
+    if (move_count == 0){
+//        _leftBtn.hidden = YES;
+//        _cancleBtn.hidden = YES;
+        _leftLeftBtn.hidden = YES;
+    }
+}
 
 
 
