@@ -7,6 +7,7 @@
 //
 
 #import "CreditsViewController.h"
+#import "CreditsTableViewCell.h"
 
 @interface CreditsViewController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -24,6 +25,7 @@
 
     self.navigationItem.title = @"我的积分";
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
     [self loadReditsList];
     
     [_tableView headerAddMJRefresh:^{
@@ -62,14 +64,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreditsTableViewCell"];
+    CreditsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreditsTableViewCell"];
 
-    if (!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CreditsTableViewCell"];
-    }
-    
-    cell.textLabel.text = @"签到送积分";
-    cell.detailTextLabel.text = @"+5";
+    cell.nameLbl.text = @"签到送积分";
+    cell.timeLbl.text = @"2017年6月1日 19:25";
+    cell.amountLbl.text = @"+5";
     
     return cell;
 }

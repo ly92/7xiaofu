@@ -787,6 +787,8 @@
 		08052DB01EDFF037004AF3B2 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */; };
 		08052DB41EDFF045004AF3B2 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB21EDFF045004AF3B2 /* SignInViewController.m */; };
 		08052DB51EDFF045004AF3B2 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB31EDFF045004AF3B2 /* SignInViewController.xib */; };
+		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
+		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2301,6 +2303,9 @@
 		08052DB11EDFF045004AF3B2 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		08052DB21EDFF045004AF3B2 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		08052DB31EDFF045004AF3B2 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		08052DB71EE03196004AF3B2 /* CreditsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsTableViewCell.h; sourceTree = "<group>"; };
+		08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsTableViewCell.m; sourceTree = "<group>"; };
+		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -7575,6 +7580,7 @@
 			isa = PBXGroup;
 			children = (
 				08052DA61EDFF00F004AF3B2 /* controller */,
+				08052DB61EE0317C004AF3B2 /* view */,
 			);
 			path = "积分";
 			sourceTree = "<group>";
@@ -7615,6 +7621,16 @@
 				08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		08052DB61EE0317C004AF3B2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				08052DB71EE03196004AF3B2 /* CreditsTableViewCell.h */,
+				08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */,
+				08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		0853FF151ED67B39005D0E94 /* 空闲时间 */ = {
@@ -8014,6 +8030,7 @@
 				048FF2B31D769EDB00268A78 /* SendOrderSwitchCell.xib in Resources */,
 				048FF2091D7528CC00268A78 /* sex.plist in Resources */,
 				04E8BD0F1D587C5B003E4550 /* Main.storyboard in Resources */,
+				08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */,
 				04A587A81D8D33A500FA3E46 /* WalletHeaderView.xib in Resources */,
 				048FF2081D7528CC00268A78 /* payType1.plist in Resources */,
 				041B31A91D7D18E000A8EBA2 /* LoginViewController.xib in Resources */,
@@ -8306,6 +8323,7 @@
 				04DAC6511DB9AB65002235A7 /* AppDelegate+Parse.m in Sources */,
 				04DAC5571DB8BC5A002235A7 /* PSTGridLayoutInfo.m in Sources */,
 				04B736EA1D9CCC5D001561AE /* ProductModel.m in Sources */,
+				08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */,
 				04DAC5761DB8BC5B002235A7 /* EaseMessageCell.m in Sources */,
 				04E1575F1DB0E7E00066E1CE /* ShopPositionModel.m in Sources */,
 				0498E4551DB70A8800262A9C /* JKNotifierBar.m in Sources */,
