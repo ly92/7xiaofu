@@ -37,20 +37,20 @@
 
 
 - (void)loadReditsList{
-//    NSMutableDictionary * params = [NSMutableDictionary new];
-//    params[@"userid"] = kUserId;
-//    [MCNetTool postWithUrl:HttpMeMyUniAcc1 params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//        
-//        [_tableView reloadData];
-//        [_tableView headerEndRefresh];
-//        
-//    } fail:^(NSString *error) {
-//        
-//        [self showErrorText:error];
-//        [_tableView headerEndRefresh];
-//        
-//    }];
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
     
+    
+    [MCNetTool postWithUrl:HttpRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        
+        [_tableView reloadData];
+        [_tableView headerEndRefresh];
+        
+    } fail:^(NSString *error) {
+        
+        [self showErrorText:error];
+        [_tableView headerEndRefresh];
+    }];
 }
 
 

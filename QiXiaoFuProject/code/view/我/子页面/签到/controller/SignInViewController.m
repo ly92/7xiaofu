@@ -73,16 +73,22 @@
     [self setColorWithIndex:5];
     self.signinBtn.enabled = NO;
     self.signinBtn.backgroundColor = [UIColor grayColor];
+    
+    NSString *date = [Utool timestamp:[NSDate date]];
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"sign_time"] = date;
+    
+    
+    [self showLoading];
+    [MCNetTool postWithUrl:HttpSignIn params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        [self dismissLoading];
+        
+    } fail:^(NSString *error) {
+        [self dismissLoading];
+        [self showErrorText:error];
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

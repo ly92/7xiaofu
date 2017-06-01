@@ -168,3 +168,12 @@ NSString  * const HttpTransferRefuseMove = @"tp.php/Home/My/refuseMove";
 /** 同意转移*/
 NSString  * const HttpTransferAgreeMove = @"tp.php/Home/My/billMove";
 
+
+/** 签到*/
+NSString  * const HttpSignIn = @"tp.php/Home/My/sign";
+
+/** 积分*/
+NSString  * const HttpRedits = @"";
+
+/** 服券*/
+NSString  * const HttpCoupon = @"";

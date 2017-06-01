@@ -174,3 +174,12 @@ UIKIT_EXTERN NSString  * const HttpTransferRefuseMove;
 /** 同意转移*/
 UIKIT_EXTERN NSString  * const HttpTransferAgreeMove;
 
+
+/** 签到*/
+UIKIT_EXTERN NSString  * const HttpSignIn;
+
+/** 积分*/
+UIKIT_EXTERN NSString  * const HttpRedits;
+
+/** 服券*/
+UIKIT_EXTERN NSString  * const HttpCoupon;
