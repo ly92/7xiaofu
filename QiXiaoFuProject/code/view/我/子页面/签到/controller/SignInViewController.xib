@@ -229,9 +229,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xqo-hI-8Ht">
                     <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入阿花关于我国日月无光如果我依然故我引入" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-18-YHD">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-18-YHD">
                             <rect key="frame" x="10" y="27" width="355" height="163"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <mutableString key="text">1、每日签到可以获得一定数量的积分；2、连续签到数额相应增加；3、连续签到上限为7天，连续签到记录在第8天开始时将清零重新计算 ；4、如果中断签到，连续签到记录也将清零；5、签到积分可兑换福券，福券可用于发单或购买商城自营备件，一个订单只能使用一个；6、本活动最终解释权归七小服所有。连接签到如下：DAY1 获得5个积分DAY2 获得10个积分DAY3 获得15个积分DAY4 获得20个积分DAY5 获得25个积分DAY6 获得30个积分DAY7 获得35个积分DAY8 获得5个积分 ……。</mutableString>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>

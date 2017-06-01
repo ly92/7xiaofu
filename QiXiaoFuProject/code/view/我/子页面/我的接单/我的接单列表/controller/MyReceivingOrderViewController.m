@@ -362,7 +362,7 @@
                 params[@"move_to_eng_id"] = sendOrderModel.ot_user_id;//接受者的id
                 params[@"id"] = sendOrderModel.id;//订单id
                 params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
-                params[@"move_state"] = @"0";//表示被拒绝
+                params[@"move_state"] = sendOrderModel.move_state;
                 
                 [MCNetTool postWithUrl:HttpTransferRefuseMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
@@ -389,7 +389,7 @@
                 params[@"move_to_eng_id"] = sendOrderModel.ot_user_id;//接受者的id
                 params[@"id"] = sendOrderModel.id;//订单id
                 params[@"move_to_eng_name"] = sendOrderModel.call_nik_name;//接受者的昵称
-                params[@"move_state"] = @"1";//表示接受
+                params[@"move_state"] = sendOrderModel.move_state;
                 
                 [MCNetTool postWithUrl:HttpTransferAgreeMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
@@ -415,6 +415,7 @@
     OrderDetailViewController * vc = [[OrderDetailViewController alloc]initWithNibName:@"OrderDetailViewController" bundle:nil];
     MySendOrderModel * mySendOrderModel = _dataArray[indexPath.section];
     vc.pro_id = mySendOrderModel.id;
+    vc.move_state = mySendOrderModel.move_state;
     [self.navigationController pushViewController:vc animated:YES];
 
     

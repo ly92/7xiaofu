@@ -139,6 +139,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"id"] = _pro_id;
+    params[@"move_state"] = _move_state;
 
     
     [self showLoading];
@@ -153,7 +154,8 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         
 //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
         
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
+//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle,kSeverTiaoJiaImage,kSeverTiaoJia];
         _titles = [NSMutableArray arrayWithArray:titles];
 
 
@@ -207,7 +209,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         }
         
         //转移状态处理
-        if ([_orderDetaileProModel.move_state intValue] == 2){
+        if ([_orderDetaileProModel.move_state intValue] == 2 && [_orderDetaileProModel.bill_belong intValue] == 2){
             //已转移
             _chatBtn.hidden = YES;
         }
@@ -301,7 +303,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 8 || indexPath.row == 9 || indexPath.row == 10 ){
+                 indexPath.row == 8 || indexPath.row == 9/* || indexPath.row == 10 */){
         
         
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -338,10 +340,12 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
-            }else if(indexPath.row == 10){
-                // 使用备件
-                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
             }
+            
+//            else if(indexPath.row == 10){
+//                // 使用备件
+//                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
+//            }
             return cell;
         
         
@@ -354,13 +358,13 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
 
         }else if([title isEqualToString:kSeverCancle]){
             OrderDetaileCancleCell *cell =[tableView dequeueReusableCellWithIdentifier:@"OrderDetaileCancleCell"];
-            cell.t_state =_orderDetaileProModel.t_state;
-            cell.pay_statu =_orderDetaileProModel.pay_statu;
-            //下面三行顺序不可变
-            cell.bill_statu =_orderDetaileProModel.bill_statu;
-            cell.move_state = [_orderDetaileProModel.move_state integerValue];
-            cell.move_count = [_orderDetaileProModel.move_count integerValue];
-            
+//            cell.t_state =_orderDetaileProModel.t_state;
+//            cell.pay_statu =_orderDetaileProModel.pay_statu;
+//            //下面三行顺序不可变
+//            cell.bill_statu =_orderDetaileProModel.bill_statu;
+//            cell.move_state = [_orderDetaileProModel.move_state integerValue];
+//            cell.move_count = [_orderDetaileProModel.move_count integerValue];
+            cell.orderDetaileProModel = _orderDetaileProModel;
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){
                 UserInfoModel * user = [UserManager readModel];
@@ -388,7 +392,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         params[@"move_to_eng_id"] = _orderDetaileProModel.ot_user_id;//接受者的id
                         params[@"id"] = _orderDetaileProModel.id;//订单id
                         params[@"move_to_eng_name"] = _orderDetaileProModel.call_nik_name;//接受者的昵称
-                        params[@"move_state"] = @"0";//表示被拒绝
+                        params[@"move_state"] = _orderDetaileProModel.move_state;
                         
                         [MCNetTool postWithUrl:HttpTransferRefuseMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                             
@@ -417,7 +421,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         params[@"move_to_eng_id"] = _orderDetaileProModel.ot_user_id;//接受者的id
                         params[@"id"] = _orderDetaileProModel.id;//订单id
                         params[@"move_to_eng_name"] = _orderDetaileProModel.call_nik_name;//接受者的昵称
-                        params[@"move_state"] = @"1";//表示接受
+                        params[@"move_state"] = _orderDetaileProModel.move_state;
                         
                         [MCNetTool postWithUrl:HttpTransferAgreeMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                             

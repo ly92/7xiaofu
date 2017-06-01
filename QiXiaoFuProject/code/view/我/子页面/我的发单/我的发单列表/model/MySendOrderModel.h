@@ -59,6 +59,7 @@
 @property (nonatomic, copy) NSString *move_state;//转移状态1在转移  2已接受  0已拒绝
 @property (nonatomic, copy) NSString *move_count;//剩余转移次数
 @property (nonatomic, copy) NSString *move_to_eng_id;//接受者ID
+@property (nonatomic, copy) NSString *bill_belong;//1别人转给我的 2我转移给别人的
 
 @end
 

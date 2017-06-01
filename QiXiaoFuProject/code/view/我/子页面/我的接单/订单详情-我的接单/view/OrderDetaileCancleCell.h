@@ -7,19 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderDetaileProModel.h"
 
 @interface OrderDetaileCancleCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *cancleBtn;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *leftLeftBtn;
  
-@property (nonatomic, assign) NSInteger t_state;
-@property (nonatomic, assign) NSInteger pay_statu;
-@property (nonatomic, assign) NSInteger bill_statu;
-@property (nonatomic, assign) NSInteger move_state;
-@property (nonatomic, assign) NSInteger move_count;
+//@property (nonatomic, assign) NSInteger t_state;
+//@property (nonatomic, assign) NSInteger pay_statu;
+//@property (nonatomic, assign) NSInteger bill_statu;
+//@property (nonatomic, assign) NSInteger move_state;
+//@property (nonatomic, assign) NSInteger move_count;
 
-
+@property (nonatomic, strong) OrderDetaileProModel * orderDetaileProModel;
 
 
 @property(nonatomic, copy) void (^orderDetaileCancle_cancle)();

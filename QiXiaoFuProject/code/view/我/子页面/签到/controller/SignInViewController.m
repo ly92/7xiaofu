@@ -54,6 +54,7 @@
         view.backgroundColor = [UIColor grayColor];
     }
     
+    [self setColorWithIndex:4];
 }
 
 - (void)setColorWithIndex:(NSInteger)index{
@@ -70,6 +71,8 @@
 }
 - (IBAction)signAction {
     [self setColorWithIndex:5];
+    self.signinBtn.enabled = NO;
+    self.signinBtn.backgroundColor = [UIColor grayColor];
 }
 
 /*

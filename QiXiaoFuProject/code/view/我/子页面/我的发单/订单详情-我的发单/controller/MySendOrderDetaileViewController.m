@@ -135,7 +135,8 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         
         
 //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle];
+//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle];
+        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
         
         _titles = [NSMutableArray arrayWithArray:titles];
         
@@ -248,7 +249,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
              return cell;
         }else if(indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2 ||
                  indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 7 ||
-                 indexPath.row == 8 || indexPath.row == 9 || indexPath.row == 10 ){
+                 indexPath.row == 8 || indexPath.row == 9 /*|| indexPath.row == 10*/ ){
             
             
             ProductDetaileCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetaileCell"];
@@ -285,10 +286,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             }else if(indexPath.row == 9){
                 // 服务价格
                 cell.contentLab.text = [NSString stringWithFormat:@"¥%@",_orderDetaileProModel.service_price];
-            }else if(indexPath.row == 10){
-                // 使用备件
-                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
             }
+//            else if(indexPath.row == 10){
+//                // 使用备件
+//                cell.contentLab.text = [NSString stringWithFormat:@"%@",@"XXXXX(56712356),YYYYYYY(17836712),ZzzzZZZ(617468734623)"];
+//            }
             return cell;
             
             

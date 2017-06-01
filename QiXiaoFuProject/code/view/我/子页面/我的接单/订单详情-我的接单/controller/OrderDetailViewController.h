@@ -10,5 +10,6 @@
 
 @interface OrderDetailViewController : BaseViewController
 @property (nonatomic, copy) NSString *pro_id;// 项目
+@property (nonatomic, copy) NSString *move_state;//转移状态
 
 @end

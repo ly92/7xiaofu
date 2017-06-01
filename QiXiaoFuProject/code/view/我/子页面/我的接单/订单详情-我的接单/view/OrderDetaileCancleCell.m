@@ -16,17 +16,62 @@
 }
 
 
-- (void)setBill_statu:(NSInteger )bill_statu{
+//- (void)setBill_statu:(NSInteger )bill_statu{
+//
+//    _bill_statu = bill_statu;
+//
+//    
+//}
+//
+//- (void)setMove_state:(NSInteger)move_state{
+////    _move_state = move_state;
+//    if (move_state == 1){
+//        _leftBtn.hidden = NO;
+//        _cancleBtn.hidden = NO;
+//        _leftLeftBtn.hidden = YES;
+//        
+//        [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+//        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+//            
+//            if (_orderDetaileTransfer_BtnRefuse) {
+//                _orderDetaileTransfer_BtnRefuse();
+//            }
+//        }];
+//        
+//        [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
+//        [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+//            
+//            if (_orderDetaileTransfer_BtnAgree) {
+//                _orderDetaileTransfer_BtnAgree();
+//            }
+//        }];
+//    }else if (move_state == 2){
+//        _leftBtn.hidden = YES;
+//        _cancleBtn.hidden = YES;
+//        _leftLeftBtn.hidden = YES;
+//    }
+//}
+//
+//- (void)setMove_count:(NSInteger)move_count{
+////    _move_count = move_count;
+//    if (move_count == 0){
+////        _leftBtn.hidden = YES;
+////        _cancleBtn.hidden = YES;
+//        _leftLeftBtn.hidden = YES;
+//    }
+//}
 
-    _bill_statu = bill_statu;
 
+- (void)setOrderDetaileProModel:(OrderDetaileProModel *)orderDetaileProModel{
+    _orderDetaileProModel = orderDetaileProModel;
+    
     _leftLeftBtn.hidden = YES;
     
     //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 转移】【】
-    switch (bill_statu) {
+    switch (orderDetaileProModel.bill_statu) {
         case 0:
         {
-//            [self topViewLabShowType:NO whihContent:@"已撤销"];
+            //            [self topViewLabShowType:NO whihContent:@"已撤销"];
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = YES;
@@ -38,7 +83,7 @@
                     _orderDetaileCancle_QuXiaoDingDan();
                 }
             }];
-
+            
         }
             break;
         case 1:
@@ -51,12 +96,12 @@
         case 2:
         {
             
-//            [self topViewLabShowType:NO whihContent:@"已接单"];
+            //            [self topViewLabShowType:NO whihContent:@"已接单"];
             
             
             
             
-            if (_t_state == 0 || _t_state == 4) {
+            if (orderDetaileProModel.t_state == 0 || orderDetaileProModel.t_state == 4) {
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
                 [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
@@ -67,7 +112,7 @@
                     }
                 }];
                 
-     
+                
                 [_cancleBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
                 [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     
@@ -76,17 +121,17 @@
                     }
                 }];
                 
-
+                
             }
             else{
-            
+                
                 _leftBtn.hidden = YES;
                 _cancleBtn.hidden = NO;
                 _cancleBtn.enabled = NO;
                 [_cancleBtn setTitle:@"  等待客户确认完成  " forState:UIControlStateNormal];
                 _cancleBtn.userInteractionEnabled = NO;
             }
-
+            
             
         }
             break;
@@ -94,7 +139,7 @@
         {
             // 订单已完成
             
-//            [self topViewLabShowType:NO whihContent:@"已完成"];
+            //            [self topViewLabShowType:NO whihContent:@"已完成"];
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = YES;
@@ -112,7 +157,7 @@
         case 4:
         {
             
-//            [self topViewLabShowType:NO whihContent:@"已失效"];
+            //            [self topViewLabShowType:NO whihContent:@"已失效"];
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = YES;
@@ -122,14 +167,14 @@
                     _orderDetaileCancle_QuXiaoDingDan();
                 }
             }];
-      
+            
             
             
         }
             break;
         case 5:
         {
-//            [self topViewLabShowType:NO whihContent:@"已取消"];
+            //            [self topViewLabShowType:NO whihContent:@"已取消"];
             
             // 删除
             _cancleBtn.hidden = NO;
@@ -141,52 +186,52 @@
                     _orderDetaileCancle_Delete();
                 }
             }];
-  
+            
             
             
         }
             break;
         case 6:
         {
-//            [self topViewLabShowType:NO whihContent:@"调价中"];
+            //            [self topViewLabShowType:NO whihContent:@"调价中"];
             
             
             // 取消订单 --> 工程师取消发单
             
-//            _leftBtn.hidden = NO;
-//            [_leftBtn setTitle:@"  同意  " forState:UIControlStateNormal];
-//            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-//                
-//                if (_orderDetaileCancle_TongYi) {
-//                    _orderDetaileCancle_TongYi();
-//                }
-//            }];
-//     
-//            
-//            
-//            _cancleBtn.hidden = NO;
-//            [_cancleBtn setTitle:@"不同意" forState:UIControlStateNormal];
-//            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-//                
-//                if (_orderDetaileCancle_BuTongYi) {
-//                    _orderDetaileCancle_BuTongYi();
-//                }
-//            }];
+            //            _leftBtn.hidden = NO;
+            //            [_leftBtn setTitle:@"  同意  " forState:UIControlStateNormal];
+            //            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            //
+            //                if (_orderDetaileCancle_TongYi) {
+            //                    _orderDetaileCancle_TongYi();
+            //                }
+            //            }];
+            //
+            //
+            //
+            //            _cancleBtn.hidden = NO;
+            //            [_cancleBtn setTitle:@"不同意" forState:UIControlStateNormal];
+            //            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            //
+            //                if (_orderDetaileCancle_BuTongYi) {
+            //                    _orderDetaileCancle_BuTongYi();
+            //                }
+            //            }];
             
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = YES;
             [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
             _cancleBtn.userInteractionEnabled = NO;
-
+            
             
         }
             break;
         case 7:// 补单
         {
             
-            if (_pay_statu == 0) {
-//                [self topViewLabShowType:YES whihContent:@"待支付"];
+            if (orderDetaileProModel.pay_statu == 0) {
+                //                [self topViewLabShowType:YES whihContent:@"待支付"];
                 [_leftBtn setTitle:@"  取消  " forState:UIControlStateNormal];
                 [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     if (_orderDetaileCancle_cancle) {
@@ -204,7 +249,7 @@
                 
             }else{
                 
-//                [self topViewLabShowType:NO whihContent:@"补单"];
+                //                [self topViewLabShowType:NO whihContent:@"补单"];
                 
                 _cancleBtn.hidden = NO;
                 _leftBtn.hidden = YES;
@@ -234,7 +279,7 @@
                     _orderDetaileTransfer_Btn();
                 }
             }];
-
+            
             
             [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
             [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -256,52 +301,53 @@
             
         }
             break;
-        
+            
         default:
             break;
     }
+
+    //转移订单的相关处理
+    if ([orderDetaileProModel.move_state intValue] == 1){
+        
+        if ([orderDetaileProModel.bill_belong intValue] == 1){
+            _leftBtn.hidden = NO;
+            _cancleBtn.hidden = NO;
+            _leftLeftBtn.hidden = YES;
+            
+            [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_orderDetaileTransfer_BtnRefuse) {
+                    _orderDetaileTransfer_BtnRefuse();
+                }
+            }];
+            
+            [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
+            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                
+                if (_orderDetaileTransfer_BtnAgree) {
+                    _orderDetaileTransfer_BtnAgree();
+                }
+            }];
+        }else if([orderDetaileProModel.bill_belong intValue] == 2){
+            _leftBtn.hidden = YES;
+            _cancleBtn.hidden = YES;
+            _leftLeftBtn.hidden = YES;
+        }
+        
+        
+    }else if ([orderDetaileProModel.move_state intValue] == 2){
+        if ([orderDetaileProModel.bill_belong intValue] == 2){
+            _leftBtn.hidden = YES;
+            _cancleBtn.hidden = YES;
+            _leftLeftBtn.hidden = YES;
+        }
+    }
     
-}
-
-- (void)setMove_state:(NSInteger)move_state{
-    _move_state = move_state;
-    if (move_state == 1){
-        _leftBtn.hidden = NO;
-        _cancleBtn.hidden = NO;
-        _leftLeftBtn.hidden = YES;
-        
-        [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
-        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            
-            if (_orderDetaileTransfer_BtnRefuse) {
-                _orderDetaileTransfer_BtnRefuse();
-            }
-        }];
-        
-        [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
-        [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            
-            if (_orderDetaileTransfer_BtnAgree) {
-                _orderDetaileTransfer_BtnAgree();
-            }
-        }];
-    }else if (move_state == 2){
-        _leftBtn.hidden = YES;
-        _cancleBtn.hidden = YES;
+    if ([orderDetaileProModel.move_count intValue] >= 2){
         _leftLeftBtn.hidden = YES;
     }
 }
-
-- (void)setMove_count:(NSInteger)move_count{
-    _move_count = move_count;
-    if (move_count == 0){
-//        _leftBtn.hidden = YES;
-//        _cancleBtn.hidden = YES;
-        _leftLeftBtn.hidden = YES;
-    }
-}
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
