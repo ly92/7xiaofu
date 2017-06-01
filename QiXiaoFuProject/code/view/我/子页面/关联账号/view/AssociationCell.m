@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
-@property (weak, nonatomic) IBOutlet UIButton *settingMarkBtn;
 @property (weak, nonatomic) IBOutlet UILabel *levelLab;
 
 @end
@@ -79,7 +78,21 @@
 
 }
 
+- (void)setAzi:(AZi *)azi{
+    _azi = azi;
+    
+    [_iconImageView setImageWithUrl:azi.member_avatar placeholder:kDefaultImage_header];
+    _nameLab.text = azi.member_name;
+    _timeLab.text = [Utool comment_timeStamp2TimeFormatter:azi.inputtime];
+    
+    _levelLab.text = @"级别: C";
+    
+//    if(user_to_me.to_user_name.length != 0){
+//        
+//        [_settingMarkBtn setTitle:user_to_me.to_user_name forState:UIControlStateNormal];
+//    }
 
+}
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
@@ -91,7 +104,7 @@
         NSString * memberId =(_me_to_user.member_id.length ==0)?_user_to_me.member_id:_me_to_user.member_id;
         
         NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"userid"] = @"9632f32bc685ca31a5dbcef444bfbf2f";
+        params[@"userid"] = kUserId;
         params[@"name"] = string;
         params[@"id"] = memberId;
         
@@ -113,6 +126,9 @@
 
 
 
+- (IBAction)openAction {
+    self.openBlock();
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

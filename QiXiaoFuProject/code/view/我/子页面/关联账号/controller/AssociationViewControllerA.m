@@ -59,18 +59,18 @@
 - (void)loadZhanghaoList{
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
-    [MCNetTool postWithUrl:HttpMeMyUniAcc params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    [MCNetTool postWithUrl:HttpMeMyUniAcc1 params:params success:^(NSDictionary *requestDic, NSString *msg) {
         _associationModel = [AssociationModel mj_objectWithKeyValues:requestDic];
         
-        NSMutableArray *tempArray = [NSMutableArray array];
-        for (Me_To_User *model in _associationModel.me_to_user) {
-            if ([model.jibie isEqualToString:@"B"]){
-                [self.bDataArray addObject:model];
-            }else{
-                [tempArray addObject:model];
-            }
-        }
-        [self.cDataArray addObject:tempArray];
+//        NSMutableArray *tempArray = [NSMutableArray array];
+//        for (Me_To_User *model in _associationModel.me_to_user) {
+//            if ([model.jibie isEqualToString:@"B"]){
+//                [self.bDataArray addObject:model];
+//            }else{
+//                [tempArray addObject:model];
+//            }
+//        }
+//        [self.cDataArray addObject:tempArray];
         
         [_tableView reloadData];
         
@@ -92,13 +92,16 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.bDataArray.count;
+    if ([self.associationModel.me_to_user yw_notNull]){
+        return self.associationModel.me_to_user.count;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == self.selectedSection){
-        NSArray *cDatas = self.cDataArray[section];
-        return cDatas.count + 1;
+    if (section == self.selectedSection && self.associationModel.me_to_user.count > section){
+        Me_To_User *me_touser = self.associationModel.me_to_user[section];
+        return me_touser.zi.count + 1;
     }else{
         return 1;
     }
@@ -109,16 +112,30 @@
     AssociationCell *cell =[tableView dequeueReusableCellWithIdentifier:@"AssociationCell"];
     
     if (indexPath.row == 0){
-        Me_To_User *me_touser = self.bDataArray[indexPath.section];
+        Me_To_User *me_touser = self.associationModel.me_to_user[indexPath.section];
         cell.me_to_user = me_touser;
         cell.iconLeftDis.constant = 10;
+        cell.btnW.constant = 30;
+        cell.openBtn.hidden = NO;
+        cell.openBlock = ^{
+          //展开C级
+            if (self.selectedSection == indexPath.section){
+                self.selectedSection = -1;
+            }else{
+                self.selectedSection = indexPath.section;
+            }
+            [self.tableView reloadData];
+        };
     }else{
-        NSArray *cDatas = self.cDataArray[indexPath.section];
-        Me_To_User *me_touser = cDatas[indexPath.row - 1];
-        cell.me_to_user = me_touser;
-        cell.iconLeftDis.constant = 30;
+        Me_To_User *me_touser = self.associationModel.me_to_user[indexPath.section];
+        if (me_touser.zi.count > indexPath.row - 1){
+            AZi *azi = me_touser.zi[indexPath.row - 1];
+            cell.azi = azi;
+            cell.iconLeftDis.constant = 30;
+            cell.btnW.constant = 0;
+            cell.openBtn.hidden = YES;
+        }
     }
-    
     return cell;
 }
 
@@ -130,24 +147,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    self.selectedSection = indexPath.section;
-    [self.tableView reloadData];
-    
-    return;
-    
     NSString * member_id;
     NSString *move_to_eng_name;
     
     
-    if (indexPath.section==0) {
-        
-        member_id = _associationModel.user_to_me.member_id;
-        move_to_eng_name = _associationModel.user_to_me.member_name;
-    }else{
-        if (_associationModel.me_to_user.count > indexPath.row){
-            Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
+    if (indexPath.row==0) {
+        if (_associationModel.me_to_user.count > indexPath.section){
+            Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.section];
             member_id = me_to_user.member_id;
             move_to_eng_name = me_to_user.member_name;
+        }
+    }else{
+        Me_To_User *me_touser = self.associationModel.me_to_user[indexPath.section];
+        if (me_touser.zi.count > indexPath.row - 1){
+            AZi *azi = me_touser.zi[indexPath.row - 1];
+            member_id = azi.member_id;
+            move_to_eng_name = azi.member_name;
         }
     }
     

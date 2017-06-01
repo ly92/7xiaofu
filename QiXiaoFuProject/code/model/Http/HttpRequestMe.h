@@ -117,6 +117,9 @@ UIKIT_EXTERN NSString  * const HttpMeUpdateMemberInfoCer;
 /** 关联账号 */
 UIKIT_EXTERN NSString  * const HttpMeMyUniAcc;
 
+/** 关联账号 */
+UIKIT_EXTERN NSString  * const HttpMeMyUniAcc1;
+
 /** 设置备注名 */
 UIKIT_EXTERN NSString  * const HttpMeSetMemberNote;
 

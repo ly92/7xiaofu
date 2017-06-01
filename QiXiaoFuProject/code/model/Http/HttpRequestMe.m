@@ -113,6 +113,9 @@ NSString  * const HttpMeUpdateMemberInfoCer = @"tp.php/Home/My/updateMemberInfoC
 /** 关联账号 */
 NSString  * const HttpMeMyUniAcc = @"tp.php/Home/My/myUniAcc";
 
+/** 关联账号 */
+NSString  * const HttpMeMyUniAcc1 = @"tp.php/Home/My/myUniAcc1";
+
 /** 设置备注名 */
 NSString  * const HttpMeSetMemberNote = @"tp.php/Home/My/setMemberNote";
 

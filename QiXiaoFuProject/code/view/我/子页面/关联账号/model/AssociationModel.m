@@ -23,7 +23,12 @@
 
 
 @implementation Me_To_User
-
++ (NSDictionary *)objectClassInArray{
+    return @{@"zi" : [AZi class]};
+}
 @end
 
+@implementation AZi
+
+@end
 
