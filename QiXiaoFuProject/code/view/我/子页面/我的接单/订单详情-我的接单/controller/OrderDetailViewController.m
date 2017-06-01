@@ -26,6 +26,7 @@
 #import "NSArray+Utils.h"
 #import "ChatViewController.h"
 #import "AssociationViewController.h"
+#import "AssociationViewControllerA.h"
 
 
 static NSString * const kSeverName = @"项目名称";
@@ -360,10 +361,18 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){
-                AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
-                vc.isFromTrans = YES;
-                vc.orderId = _orderDetaileProModel.id;
-                [self.navigationController pushViewController:vc animated:YES];
+                UserInfoModel * user = [UserManager readModel];
+                if ([user.member_level isEqualToString:@"A"]){
+                    AssociationViewControllerA * vc = [[AssociationViewControllerA alloc]initWithNibName:@"AssociationViewControllerA" bundle:nil];
+                    vc.isFromTrans = YES;
+                    vc.orderId = _orderDetaileProModel.id;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }else{
+                    AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
+                    vc.isFromTrans = YES;
+                    vc.orderId = _orderDetaileProModel.id;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
             };
             
             
@@ -381,6 +390,8 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         
                         [MCNetTool postWithUrl:HttpTransferRefuseMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                             
+                            //转移操作成功后的通知
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
                             [self.navigationController popViewControllerAnimated:YES];//  成功，返回
                             [self showSuccessText:msg];
                             
@@ -408,6 +419,8 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                         
                         [MCNetTool postWithUrl:HttpTransferAgreeMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                             
+                            //转移操作成功后的通知
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
                             [self.navigationController popViewControllerAnimated:YES];//  成功，返回
                             [self showSuccessText:msg];
                             

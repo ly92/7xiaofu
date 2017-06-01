@@ -18,7 +18,7 @@
 #import "UserInfoModel.h"
 #import "JPUSHService.h"
 #import "EaseModHelper.h"
-
+#import "UserInfoModel1.h"
 
 @interface LoginViewController (){
 
@@ -119,11 +119,13 @@
         [JPUSHService setAlias:_account callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
         [UserManager archiverModel:userModel];
 
+        //获取用户信息-等级
+        [self loadMineDataInfo];
+        
         [EaseModHelper loginEaseModWithAccount:_account withCompletion:^(NSString * account, NSString *error) {
             LxDBAnyVar(account);
         }];
         [self dismissViewControllerAnimated:YES completion:^{
-
             
         }];
         
@@ -135,6 +137,32 @@
     }];
 
 }
+
+#pragma mark - 获取用户信息
+- (void)loadMineDataInfo{
+    
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    
+    [MCNetTool postWithUrl:HttpMeShowMemberInfo params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        
+        UserInfoModel1 *userInfoModel1 = [UserInfoModel1 mj_objectWithKeyValues:requestDic];
+        
+        UserInfoModel * user = [UserManager readModel];
+        user.userIcon = userInfoModel1.member_avatar;
+        user.userName = userInfoModel1.member_nik_name;
+        user.is_real =userInfoModel1.is_real;
+        user.member_level = userInfoModel1.member_level;
+        
+        [UserManager archiverModel:user];
+        
+        
+    } fail:^(NSString *error) {
+        [self showErrorText:error];
+    }];
+    
+}
+
 
 - (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
     

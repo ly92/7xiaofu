@@ -178,6 +178,8 @@
                 
                 [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
+                    //转移成功后的通知
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
                     [self.navigationController popViewControllerAnimated:YES];
                     [self showSuccessText:msg];
                     

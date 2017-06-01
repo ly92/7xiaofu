@@ -45,8 +45,16 @@
     [self myBillListDataPage:1 hud:YES];
     
     [self addRefreshView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transferSuccess) name:@"TRANSFERSUCCESS" object:nil];
     // Do any additional setup after loading the view from its nib.
 }
+
+//转移操作成功后刷新
+- (void)transferSuccess{
+    [self myBillListDataPage:1 hud:YES];
+}
+
 - (void)addRefreshView{
     
     
