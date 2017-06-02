@@ -12,8 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreditsViewController">
             <connections>
                 <outlet property="reditsLbl" destination="EdX-t4-evT" id="mHN-ot-a29"/>
-                <outlet property="ruleTextView" destination="s0v-NO-MBJ" id="6Q8-zA-PcY"/>
-                <outlet property="ruleViewH" destination="r0v-zF-PsI" id="nuy-LN-DhH"/>
                 <outlet property="tableView" destination="Yhn-iW-ARy" id="LMc-fH-7Aj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yhn-iW-ARy">
-                    <rect key="frame" x="0.0" y="81" width="375" height="460"/>
+                    <rect key="frame" x="0.0" y="81" width="375" height="475"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="weS-v5-ent"/>
@@ -65,26 +63,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94a-Ap-Bvr">
-                    <rect key="frame" x="0.0" y="542" width="375" height="125"/>
+                    <rect key="frame" x="0.0" y="557" width="375" height="110"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s0v-NO-MBJ">
-                            <rect key="frame" x="10" y="0.0" width="355" height="115"/>
-                            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In2-ba-ncR">
+                            <rect key="frame" x="10" y="0.0" width="355" height="110"/>
                             <string key="text">积分规则：1、推荐人成功推荐注册并且对方通过实名认证推荐人得100积分2、新注册用户，得50积分3、实名认证通过，得50积分4、第一次接单完成，得100积分</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="htP-fu-bhF"/>
-                            </connections>
-                        </textView>
+                            <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="s0v-NO-MBJ" secondAttribute="bottom" constant="10" id="BrG-6f-qFB"/>
-                        <constraint firstAttribute="trailing" secondItem="s0v-NO-MBJ" secondAttribute="trailing" constant="10" id="USY-Hg-e2J"/>
-                        <constraint firstItem="s0v-NO-MBJ" firstAttribute="top" secondItem="94a-Ap-Bvr" secondAttribute="top" id="cpO-jZ-x65"/>
-                        <constraint firstItem="s0v-NO-MBJ" firstAttribute="leading" secondItem="94a-Ap-Bvr" secondAttribute="leading" constant="10" id="d00-0g-PYk"/>
-                        <constraint firstAttribute="height" constant="125" id="r0v-zF-PsI"/>
+                        <constraint firstAttribute="trailing" secondItem="In2-ba-ncR" secondAttribute="trailing" constant="10" id="OOR-le-Agk"/>
+                        <constraint firstItem="In2-ba-ncR" firstAttribute="leading" secondItem="94a-Ap-Bvr" secondAttribute="leading" constant="10" id="S9d-PB-Ltq"/>
+                        <constraint firstAttribute="bottom" secondItem="In2-ba-ncR" secondAttribute="bottom" id="g16-R0-fre"/>
+                        <constraint firstItem="In2-ba-ncR" firstAttribute="top" secondItem="94a-Ap-Bvr" secondAttribute="top" id="qJe-Fe-7mX"/>
+                        <constraint firstAttribute="height" constant="110" id="r0v-zF-PsI"/>
                     </constraints>
                 </view>
             </subviews>

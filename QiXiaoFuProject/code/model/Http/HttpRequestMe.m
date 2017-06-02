@@ -171,6 +171,8 @@ NSString  * const HttpTransferAgreeMove = @"tp.php/Home/My/billMove";
 
 /** 签到*/
 NSString  * const HttpSignIn = @"tp.php/Home/My/sign";
+/** 签到状态*/
+NSString  * const HttpSignState = @"tp.php/Home/My/signShow";
 
 /** 积分*/
 NSString  * const HttpRedits = @"tp.php/Home/My/signList";

@@ -175,6 +175,8 @@ UIKIT_EXTERN NSString  * const HttpTransferRefuseMove;
 UIKIT_EXTERN NSString  * const HttpTransferAgreeMove;
 
 
+/** 签到状态*/
+UIKIT_EXTERN NSString  * const HttpSignState;
 /** 签到*/
 UIKIT_EXTERN NSString  * const HttpSignIn;
 

@@ -11,12 +11,9 @@
 #import "CreditsModel.h"
 
 
-@interface CreditsViewController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+@interface CreditsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *showRuleBtn;
-@property (weak, nonatomic) IBOutlet UITextView *ruleTextView;
 @property (weak, nonatomic) IBOutlet UILabel *reditsLbl;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ruleViewH;
 
 @property (nonatomic, strong) CreditsModel *creditsModel;
 
@@ -178,34 +175,6 @@
     return  44;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    self.ruleViewH.constant = 45;
-//    self.showRuleBtn.selected = NO;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)showRuleAction {
-//    if (self.showRuleBtn.selected){
-//        [UIView animateWithDuration:1.0f animations:^{
-//            self.ruleViewH.constant = 45;
-//        }];
-//    }else{
-//        [UIView animateWithDuration:1.0f animations:^{
-//           self.ruleViewH.constant = 200;
-//        }];
-//    }
-//    self.showRuleBtn.selected = !self.showRuleBtn.selected;
-}
-
-#pragma mark - UITextViewDelegate
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    [self showRuleAction];
-    return NO;
-}
 
 
 
