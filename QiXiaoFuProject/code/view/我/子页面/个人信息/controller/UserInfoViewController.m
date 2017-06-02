@@ -47,6 +47,7 @@
 
 @property (nonatomic, strong) UserInfoModel1 *userInfoModel1;
 
+@property (weak, nonatomic) IBOutlet UIView *reminderView;
 @property (nonatomic, strong) NSArray *classArray;
 
 @end
@@ -56,7 +57,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息";
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"reminder_icon" highImage:@"reminder_icon" target:self action:@selector(reminderAction)];
     
     _titles = @[@"头像",@"昵称",@"实名认证",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
 
@@ -79,6 +80,28 @@
      // Do any additional setup after loading the view from its nib.
 }
 
+//显示活着隐藏提示视图
+- (IBAction)reminderAction {
+
+    if (self.reminderView.hidden){
+        self.reminderView.hidden = NO;
+        self.reminderView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
+        [UIView animateWithDuration:0.7f animations:^{
+            self.reminderView.layer.transform = CATransform3DMakeScale(1, 1, 1);
+            self.reminderView.alpha = 1;
+        } completion:^(BOOL finished) {
+        }];
+    }else{
+        [UIView animateWithDuration:0.7f animations:^{
+            self.reminderView.layer.transform = CATransform3DMakeScale(2, 2, 2);
+            self.reminderView.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.reminderView.hidden = YES;
+        }];
+    }
+  
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
 
@@ -93,9 +116,6 @@
 
 
 - (void)getClass{
-
-    
-    
 
     [MCNetTool postWithUrl:HttpMainGetClass params:nil success:^(NSDictionary *requestDic, NSString *msg) {
         

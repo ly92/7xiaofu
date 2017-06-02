@@ -182,6 +182,7 @@ UIKIT_EXTERN NSString  * const HttpSignIn;
 
 /** 积分*/
 UIKIT_EXTERN NSString  * const HttpRedits;
-
+/** 请求添加积分*/
+UIKIT_EXTERN NSString  * const HttpAddRedits;
 /** 服券*/
 UIKIT_EXTERN NSString  * const HttpCoupon;

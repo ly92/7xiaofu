@@ -21,7 +21,7 @@
 
 @property (nonatomic, copy) NSString *pushState;// 是否要接收推送消息
 
-@property (nonatomic, assign) NSInteger is_real;//是否实名认证【0 否 1 是】
+@property (nonatomic, assign) NSInteger is_real;//是否实名认证【0 否 1 是 2审核中】
 
 @property (nonatomic, assign) NSInteger unreadSystemMessageNumber;//未读的自己系统的消息数量
 

@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController">
             <connections>
+                <outlet property="reminderView" destination="eIE-Y7-xn2" id="won-1Z-Uzj"/>
                 <outlet property="tableView" destination="bLI-3D-TMz" id="77j-SU-COU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,21 +22,55 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bLI-3D-TMz" customClass="TPKeyboardAvoidingTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="0uf-a5-rrh"/>
                         <outlet property="delegate" destination="-1" id="e8R-tH-vMu"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIE-Y7-xn2">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAp-b5-iOJ">
+                            <rect key="frame" x="10" y="10" width="355" height="647"/>
+                            <string key="text">温馨提示1、填写的项目较多，谢谢您的耐心和支持。2、由于中国相关法规的规定，同时为了保障您的合法权益，您需要完善资料才能接单，敬请谅解。3、部分信息为系统备案需要，不会显示给客户。4、实名认证，通过实名认证后，可以进行在线发单及接单。5、技术领域，选择好您所擅长的技术领域后，系统会定向推送适合您的订单消息。6、设置空闲时间，设置好您的空闲时间段后，系统会定向推送适合您的订单消息。</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYD-F9-irR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <connections>
+                                <action selector="reminderAction" destination="-1" eventType="touchUpInside" id="3ro-IG-nvA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="SYD-F9-irR" firstAttribute="leading" secondItem="eIE-Y7-xn2" secondAttribute="leading" id="E7D-tr-7mh"/>
+                        <constraint firstItem="SYD-F9-irR" firstAttribute="top" secondItem="eIE-Y7-xn2" secondAttribute="top" id="Gi1-hK-LS6"/>
+                        <constraint firstItem="DAp-b5-iOJ" firstAttribute="leading" secondItem="eIE-Y7-xn2" secondAttribute="leading" constant="10" id="HoO-J0-L8u"/>
+                        <constraint firstAttribute="bottom" secondItem="SYD-F9-irR" secondAttribute="bottom" id="U1w-Qu-mHT"/>
+                        <constraint firstAttribute="bottom" secondItem="DAp-b5-iOJ" secondAttribute="bottom" constant="10" id="WBK-7g-T3B"/>
+                        <constraint firstAttribute="trailing" secondItem="SYD-F9-irR" secondAttribute="trailing" id="bBE-pa-4RZ"/>
+                        <constraint firstItem="DAp-b5-iOJ" firstAttribute="top" secondItem="eIE-Y7-xn2" secondAttribute="top" constant="10" id="gYy-m8-vwl"/>
+                        <constraint firstAttribute="trailing" secondItem="DAp-b5-iOJ" secondAttribute="trailing" constant="10" id="nYo-LP-TcY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="eIE-Y7-xn2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U8b-u7-6wl"/>
+                <constraint firstAttribute="bottom" secondItem="eIE-Y7-xn2" secondAttribute="bottom" id="bEd-X5-ZkJ"/>
                 <constraint firstAttribute="bottom" secondItem="bLI-3D-TMz" secondAttribute="bottom" id="bas-eX-AkT"/>
                 <constraint firstItem="bLI-3D-TMz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bfM-SK-856"/>
+                <constraint firstItem="eIE-Y7-xn2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lc4-WO-zKX"/>
+                <constraint firstAttribute="trailing" secondItem="eIE-Y7-xn2" secondAttribute="trailing" id="rFT-4g-j2i"/>
                 <constraint firstAttribute="trailing" secondItem="bLI-3D-TMz" secondAttribute="trailing" id="wSA-OC-GVy"/>
                 <constraint firstItem="bLI-3D-TMz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zzP-o5-R2Z"/>
             </constraints>
-            <point key="canvasLocation" x="533" y="354"/>
+            <point key="canvasLocation" x="532.5" y="353.5"/>
         </view>
     </objects>
 </document>

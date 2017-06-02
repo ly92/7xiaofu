@@ -32,7 +32,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twO-JK-oni">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23476" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-t4-evT">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-t4-evT">
                             <rect key="frame" x="10" y="44" width="355" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="Hci-Y9-UKl"/>
@@ -67,7 +67,11 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="In2-ba-ncR">
                             <rect key="frame" x="10" y="0.0" width="355" height="110"/>
-                            <string key="text">积分规则：1、推荐人成功推荐注册并且对方通过实名认证推荐人得100积分2、新注册用户，得50积分3、实名认证通过，得50积分4、第一次接单完成，得100积分</string>
+                            <string key="text">积分规则：
+1、推荐人成功推荐注册并且对方通过实名认证推荐人得100积分
+2、新注册用户，得50积分
+3、实名认证通过，得50积分
+4、第一次接单完成，得100积分</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

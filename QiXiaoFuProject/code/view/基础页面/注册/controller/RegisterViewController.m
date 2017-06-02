@@ -122,6 +122,7 @@
             
             [self goLogin];
             
+            [self addIntegral];
             
         } fail:^(NSString *error) {
             [self showErrorText:error];
@@ -140,6 +141,16 @@
 }
 
 
+//如果实名认证则请求添加积分
+- (void)addIntegral{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"type"] = @"1";//1:注册 2:实名认证
+    
+    [MCNetTool postWithUrl:HttpAddRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    } fail:^(NSString *error) {
+    }];
+}
 
 
 

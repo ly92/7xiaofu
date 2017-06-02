@@ -36,8 +36,9 @@
 
     self.navigationItem.title = @"我的积分";
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
-    [self loadReditsListPage:1 hud:YES];
+    [_tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
+    _tableView.tableFooterView = [UIView new];
+    
     
     [_tableView headerAddMJRefresh:^{
         [self loadReditsListPage:1 hud:NO];
@@ -46,6 +47,8 @@
         [self loadReditsListPage:_page hud:NO];
     }];
     
+    [self loadReditsListPage:1 hud:YES];
+
 }
 
 
@@ -66,8 +69,8 @@
         if (hud){
             [self dismissLoading];
         }
-        self.page = page;
-        self.page ++;
+        _page = page;
+        _page ++;
         self.creditsModel = [CreditsModel mj_objectWithKeyValues:requestDic];
         
         self.reditsLbl.text = self.creditsModel.all_integral;
@@ -161,10 +164,7 @@
                 cell.amountLbl.text = [NSString stringWithFormat:@"+%@积分",credits.integral];
             }
         }
-        
-        
     }
-    
     return cell;
 }
 
@@ -174,7 +174,26 @@
     return  44;
 }
 
-
+-(void)viewDidLayoutSubviews
+{
+    if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [_tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [_tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 
 
 @end

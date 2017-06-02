@@ -177,5 +177,8 @@ NSString  * const HttpSignState = @"tp.php/Home/My/signShow";
 /** 积分*/
 NSString  * const HttpRedits = @"tp.php/Home/My/signList";
 
+/** 请求添加积分*/
+NSString  * const HttpAddRedits = @"tp.php/Home/My/addIntegral";
+
 /** 服券*/
 NSString  * const HttpCoupon = @"";

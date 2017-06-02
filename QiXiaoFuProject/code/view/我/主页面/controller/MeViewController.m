@@ -87,6 +87,9 @@
         user.userName = _userInfoModel1.member_nik_name;
         user.is_real =_userInfoModel1.is_real;
         user.member_level = _userInfoModel1.member_level;
+        if (user.is_real == 1){
+            [self addIntegral];
+        }
         
         [UserManager archiverModel:user];
         
@@ -95,7 +98,17 @@
     } fail:^(NSString *error) {
         [self showErrorText:error];
     }];
+}
+
+//如果实名认证则请求添加积分
+- (void)addIntegral{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"type"] = @"2";//1:注册 2:实名认证
     
+    [MCNetTool postWithUrl:HttpAddRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    } fail:^(NSString *error) {
+    }];
 }
 
 
