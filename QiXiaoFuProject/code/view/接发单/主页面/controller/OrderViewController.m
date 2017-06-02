@@ -158,7 +158,9 @@
 
 - (void)loadMainData{
 
-    [MCNetTool postWithCacheUrl:HttpMain params:nil success:^(NSDictionary *requestDic, NSString *msg) {
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    [MCNetTool postWithCacheUrl:HttpMain params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _orderMainModel = [OrderMainModel mj_objectWithKeyValues:requestDic];
         _engineerCollectionView.orderMainModel =_orderMainModel;
