@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl7;
 @property (weak, nonatomic) IBOutlet UIView *subview;
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -40,6 +41,11 @@
     [self setupSubViewsLayouts];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self signAction];
+}
+
 - (void)setupSubViewsLayouts{
     self.signinBtn.layer.cornerRadius = 50;
     self.lbl1.layer.cornerRadius = 10;
@@ -50,11 +56,11 @@
     self.lbl6.layer.cornerRadius = 10;
     self.lbl7.layer.cornerRadius = 10;
     
+    self.textView.contentOffset = CGPointMake(0, 0);
+    
     for (UIView *view in self.subview.subviews) {
         view.backgroundColor = [UIColor grayColor];
     }
-    
-    [self setColorWithIndex:4];
 }
 
 - (void)setColorWithIndex:(NSInteger)index{
@@ -69,23 +75,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)signAction {
-    [self setColorWithIndex:5];
-    self.signinBtn.enabled = NO;
-    self.signinBtn.backgroundColor = [UIColor grayColor];
-    
     NSString *date = [Utool timestamp:[NSDate date]];
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"sign_time"] = date;
     
-    
     [self showLoading];
     [MCNetTool postWithUrl:HttpSignIn params:params success:^(NSDictionary *requestDic, NSString *msg) {
         [self dismissLoading];
         
+        NSInteger is_sign = [[requestDic objectForKey:@"is_sign"] integerValue];
+        NSInteger sign_day = [[requestDic objectForKey:@"sign_day"] integerValue];
+        if (is_sign == 0){
+            self.signinBtn.enabled = YES;
+            self.signinBtn.backgroundColor = [UIColor orangeColor];
+            [self.signinBtn setTitle:@"签到" forState:UIControlStateNormal];
+        }else{
+            self.signinBtn.enabled = NO;
+            self.signinBtn.backgroundColor = [UIColor grayColor];
+            [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
+            [self showSuccessText:@"已签到"];
+        }
+        
+        if (sign_day > 0 && sign_day < 8){
+            [self setColorWithIndex:sign_day];
+        }
     } fail:^(NSString *error) {
         [self dismissLoading];
+        self.signinBtn.enabled = YES;
+        self.signinBtn.backgroundColor = [UIColor orangeColor];
+        [self.signinBtn setTitle:@"签到" forState:UIControlStateNormal];
         [self showErrorText:error];
     }];
 }

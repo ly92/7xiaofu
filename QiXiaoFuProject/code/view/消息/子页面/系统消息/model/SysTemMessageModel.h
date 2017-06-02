@@ -18,7 +18,7 @@
 @property (assign,nonatomic)NSInteger  message_open;
 @property (copy,nonatomic)NSString * jump_id;
 @property (assign,nonatomic)NSInteger  jump_type;
-
+@property (copy,nonatomic)NSString * move_state;
 @end
 
 

@@ -285,6 +285,7 @@
         if (messageModel.jump_type ==72) {
             OrderDetailViewController * vc = [[OrderDetailViewController alloc]initWithNibName:@"OrderDetailViewController" bundle:nil];
             vc.pro_id = messageModel.jump_id;
+            vc.move_state = messageModel.move_state;
             [self.navigationController pushViewController:vc animated:YES];
         }
         if (messageModel.jump_type ==73) {
