@@ -43,7 +43,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self signAction];
 }
 
 - (void)setupSubViewsLayouts{
@@ -90,11 +89,11 @@
         NSInteger sign_day = [[requestDic objectForKey:@"sign_day"] integerValue];
         if (is_sign == 0){
             self.signinBtn.enabled = YES;
-            self.signinBtn.backgroundColor = [UIColor orangeColor];
+//            self.signinBtn.backgroundColor = [UIColor orangeColor];
             [self.signinBtn setTitle:@"签到" forState:UIControlStateNormal];
         }else{
             self.signinBtn.enabled = NO;
-            self.signinBtn.backgroundColor = [UIColor grayColor];
+//            self.signinBtn.backgroundColor = [UIColor grayColor];
             [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
             [self showSuccessText:@"已签到"];
         }
@@ -105,7 +104,7 @@
     } fail:^(NSString *error) {
         [self dismissLoading];
         self.signinBtn.enabled = YES;
-        self.signinBtn.backgroundColor = [UIColor orangeColor];
+//        self.signinBtn.backgroundColor = [UIColor orangeColor];
         [self.signinBtn setTitle:@"签到" forState:UIControlStateNormal];
         [self showErrorText:error];
     }];

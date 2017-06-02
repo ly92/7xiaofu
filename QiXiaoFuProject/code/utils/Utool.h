@@ -32,6 +32,7 @@
 + (float)heightForString:(NSString *)value fontSize:(float)fontSize andWidth:(float)width;
 
 + (NSString *)timeStamp2TimeFormatter:(NSString *)timeSttamp;
++ (NSString *)timeStampPointTimeFormatter:(NSString *)timeSttamp;
 + (NSString *)timeStamp3TimeFormatter:(NSString *)timeSttamp;
 + (NSString *)timeStamp4TimeFormatter:(NSString *)timeSttamp;
 

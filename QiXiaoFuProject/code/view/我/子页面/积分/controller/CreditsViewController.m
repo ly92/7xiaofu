@@ -76,7 +76,7 @@
         self.reditsLbl.text = self.creditsModel.all_integral;
         
         if (self.creditsModel.list.count < 10){
-            [self.tableView hidenFooter];
+            [_tableView hidenFooter];
         }
         
         [self.dataArray addObjectsFromArray:self.creditsModel.list];
@@ -151,7 +151,7 @@
                 break;
         }
         
-        cell.timeLbl.text = [Utool timeStamp3TimeFormatter:credits.addtime];
+        cell.timeLbl.text = [Utool timeStampPointTimeFormatter:credits.addtime];
         
         if ([credits.integral hasPrefix:@"-"]){
             cell.amountLbl.text = credits.integral;
@@ -179,8 +179,8 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    self.ruleViewH.constant = 45;
-    self.showRuleBtn.selected = NO;
+//    self.ruleViewH.constant = 45;
+//    self.showRuleBtn.selected = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -189,12 +189,16 @@
 }
 
 - (IBAction)showRuleAction {
-    if (self.showRuleBtn.selected){
-        self.ruleViewH.constant = 45;
-    }else{
-        self.ruleViewH.constant = 200;
-    }
-    self.showRuleBtn.selected = !self.showRuleBtn.selected;
+//    if (self.showRuleBtn.selected){
+//        [UIView animateWithDuration:1.0f animations:^{
+//            self.ruleViewH.constant = 45;
+//        }];
+//    }else{
+//        [UIView animateWithDuration:1.0f animations:^{
+//           self.ruleViewH.constant = 200;
+//        }];
+//    }
+//    self.showRuleBtn.selected = !self.showRuleBtn.selected;
 }
 
 #pragma mark - UITextViewDelegate

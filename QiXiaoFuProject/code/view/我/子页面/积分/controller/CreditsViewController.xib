@@ -14,7 +14,6 @@
                 <outlet property="reditsLbl" destination="EdX-t4-evT" id="mHN-ot-a29"/>
                 <outlet property="ruleTextView" destination="s0v-NO-MBJ" id="6Q8-zA-PcY"/>
                 <outlet property="ruleViewH" destination="r0v-zF-PsI" id="nuy-LN-DhH"/>
-                <outlet property="showRuleBtn" destination="vB2-Q5-M4m" id="pCX-55-qqu"/>
                 <outlet property="tableView" destination="Yhn-iW-ARy" id="LMc-fH-7Aj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yhn-iW-ARy">
-                    <rect key="frame" x="0.0" y="81" width="375" height="540"/>
+                    <rect key="frame" x="0.0" y="81" width="375" height="460"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="weS-v5-ent"/>
@@ -66,44 +65,26 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94a-Ap-Bvr">
-                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <rect key="frame" x="0.0" y="542" width="375" height="125"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则规则" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s0v-NO-MBJ">
-                            <rect key="frame" x="10" y="35" width="355" height="0.0"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s0v-NO-MBJ">
+                            <rect key="frame" x="10" y="0.0" width="355" height="115"/>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <string key="text">积分规则：1、推荐人成功推荐注册并且对方通过实名认证推荐人得100积分2、新注册用户，得50积分3、实名认证通过，得50积分4、第一次接单完成，得100积分</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="htP-fu-bhF"/>
                             </connections>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-Q5-M4m">
-                            <rect key="frame" x="10" y="5" width="355" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="4iQ-T0-aME"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="获取及使用规则：">
-                                <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <state key="selected">
-                                <color key="titleColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="showRuleAction" destination="-1" eventType="touchUpInside" id="w0J-4n-CEM"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="s0v-NO-MBJ" secondAttribute="bottom" constant="10" id="BrG-6f-qFB"/>
-                        <constraint firstAttribute="trailing" secondItem="vB2-Q5-M4m" secondAttribute="trailing" constant="10" id="LV5-cC-sxh"/>
                         <constraint firstAttribute="trailing" secondItem="s0v-NO-MBJ" secondAttribute="trailing" constant="10" id="USY-Hg-e2J"/>
-                        <constraint firstItem="vB2-Q5-M4m" firstAttribute="top" secondItem="94a-Ap-Bvr" secondAttribute="top" constant="5" id="WqX-GS-n5D"/>
+                        <constraint firstItem="s0v-NO-MBJ" firstAttribute="top" secondItem="94a-Ap-Bvr" secondAttribute="top" id="cpO-jZ-x65"/>
                         <constraint firstItem="s0v-NO-MBJ" firstAttribute="leading" secondItem="94a-Ap-Bvr" secondAttribute="leading" constant="10" id="d00-0g-PYk"/>
-                        <constraint firstItem="s0v-NO-MBJ" firstAttribute="top" secondItem="vB2-Q5-M4m" secondAttribute="bottom" id="jxs-MK-6cS"/>
-                        <constraint firstItem="vB2-Q5-M4m" firstAttribute="leading" secondItem="94a-Ap-Bvr" secondAttribute="leading" constant="10" id="nqa-CF-f5h"/>
-                        <constraint firstAttribute="height" constant="45" id="r0v-zF-PsI"/>
+                        <constraint firstAttribute="height" constant="125" id="r0v-zF-PsI"/>
                     </constraints>
                 </view>
             </subviews>

@@ -89,6 +89,13 @@
     NSString  * date = [formatter stringFromDate:confromTimesp];
     return date;
 }
++ (NSString *)timeStampPointTimeFormatter:(NSString *)timeSttamp{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy.MM.dd"];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[timeSttamp doubleValue]];
+    NSString  * date = [formatter stringFromDate:confromTimesp];
+    return date;
+}
 
 + (NSString *)timeStamp3TimeFormatter:(NSString *)timeSttamp{
     

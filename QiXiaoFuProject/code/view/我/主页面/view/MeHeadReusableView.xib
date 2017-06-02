@@ -168,14 +168,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NG-6f-MTM" userLabel="line">
-                    <rect key="frame" x="8" y="135" width="345" height="1"/>
+                    <rect key="frame" x="8" y="135" width="345" height="2"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="qIb-aW-gLC"/>
+                        <constraint firstAttribute="height" constant="2" id="qIb-aW-gLC"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZ4-Qp-dHe">
-                    <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="137" width="375" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZZ-7w-sLI" userLabel="line">
                             <rect key="frame" x="124" y="15" width="1" height="14"/>
