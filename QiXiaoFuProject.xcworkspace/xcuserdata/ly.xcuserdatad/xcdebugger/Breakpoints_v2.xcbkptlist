@@ -32,22 +32,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x5546;&#x57ce;&#x8ba2;&#x5355;/controller/ShopOrderViewController.m"
-            timestampString = "517542099.319286"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-loadShopOrderListWithPage:hud:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -299,54 +283,6 @@
             endingLineNumber = "398"
             landmarkName = "-viewcontrollerJump2VCWithindex:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x9000;&#x6362;&#x8d27;/controller/PurchaseShopViewController.m"
-            timestampString = "517982974.193064"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-submitBtnAction:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[PurchaseShopViewController submitBtnAction:]"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%80%80%E6%8D%A2%E8%B4%A7/controller/PurchaseShopViewController.m"
-                  timestampString = "518076756.772985"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "2428">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[PurchaseShopViewController submitBtnAction:]_block_invoke"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E9%80%80%E6%8D%A2%E8%B4%A7/controller/PurchaseShopViewController.m"
-                  timestampString = "518076756.774694"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
