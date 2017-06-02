@@ -88,7 +88,6 @@
         }
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         [self showErrorText:error];
-        [_tableView headerEndRefresh];
     }];
 }
 
@@ -151,15 +150,15 @@
         cell.timeLbl.text = [Utool timeStampPointTimeFormatter:credits.addtime];
         
         if ([credits.integral hasPrefix:@"-"]){
-            cell.amountLbl.text = credits.integral;
+            cell.amountLbl.text = [NSString stringWithFormat:@"%@积分",credits.integral];
             cell.amountLbl.textColor = [UIColor greenColor];
         }else if ([credits.integral hasPrefix:@"+"]){
             cell.amountLbl.textColor = [UIColor redColor];
-            cell.amountLbl.text = credits.integral;
+            cell.amountLbl.text = [NSString stringWithFormat:@"%@积分",credits.integral];
         }else{
             if ([credits.integral intValue] > 0){
                 cell.amountLbl.textColor = [UIColor redColor];
-                cell.amountLbl.text = [NSString stringWithFormat:@"+%@",credits.integral];
+                cell.amountLbl.text = [NSString stringWithFormat:@"+%@积分",credits.integral];
             }
         }
         
