@@ -173,7 +173,7 @@ NSString  * const HttpTransferAgreeMove = @"tp.php/Home/My/billMove";
 NSString  * const HttpSignIn = @"tp.php/Home/My/sign";
 
 /** 积分*/
-NSString  * const HttpRedits = @"";
+NSString  * const HttpRedits = @"tp.php/Home/My/signList";
 
 /** 服券*/
 NSString  * const HttpCoupon = @"";

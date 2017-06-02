@@ -789,6 +789,7 @@
 		08052DB51EDFF045004AF3B2 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB31EDFF045004AF3B2 /* SignInViewController.xib */; };
 		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
 		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
+		08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DC31EE129E6004AF3B2 /* CreditsModel.m */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2306,6 +2307,8 @@
 		08052DB71EE03196004AF3B2 /* CreditsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsTableViewCell.h; sourceTree = "<group>"; };
 		08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsTableViewCell.m; sourceTree = "<group>"; };
 		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
+		08052DC21EE129E6004AF3B2 /* CreditsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsModel.h; sourceTree = "<group>"; };
+		08052DC31EE129E6004AF3B2 /* CreditsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsModel.m; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -7580,6 +7583,7 @@
 			isa = PBXGroup;
 			children = (
 				08052DA61EDFF00F004AF3B2 /* controller */,
+				08052DC11EE129C3004AF3B2 /* model */,
 				08052DB61EE0317C004AF3B2 /* view */,
 			);
 			path = "积分";
@@ -7631,6 +7635,15 @@
 				08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		08052DC11EE129C3004AF3B2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				08052DC21EE129E6004AF3B2 /* CreditsModel.h */,
+				08052DC31EE129E6004AF3B2 /* CreditsModel.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		0853FF151ED67B39005D0E94 /* 空闲时间 */ = {
@@ -8212,6 +8225,7 @@
 				04DAC5641DB8BC5B002235A7 /* UIViewController+HUD.m in Sources */,
 				0446030B1D7AA18200CC787C /* PPNumberButton.m in Sources */,
 				0416E9C51D9B5C7500D59A0A /* base64.m in Sources */,
+				08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */,
 				04DAC5691DB8BC5B002235A7 /* EaseEmojiEmoticons.m in Sources */,
 				048FF1321D72E54B00268A78 /* ReceivingOrderViewController.m in Sources */,
 				04D6E2491DDD8E0100F29FE1 /* OrderDetailLogisticsCell.m in Sources */,

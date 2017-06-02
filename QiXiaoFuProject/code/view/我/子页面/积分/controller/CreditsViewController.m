@@ -8,6 +8,8 @@
 
 #import "CreditsViewController.h"
 #import "CreditsTableViewCell.h"
+#import "CreditsModel.h"
+
 
 @interface CreditsViewController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -16,9 +18,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *reditsLbl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ruleViewH;
 
+@property (nonatomic, strong) CreditsModel *creditsModel;
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation CreditsViewController
+- (NSMutableArray *)dataArray{
+    if (!_dataArray){
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,28 +40,56 @@
     self.navigationItem.title = @"我的积分";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
-    [self loadReditsList];
+    [self loadReditsListPage:1 hud:YES];
     
     [_tableView headerAddMJRefresh:^{
-        
-        [self loadReditsList];
+        [self loadReditsListPage:1 hud:NO];
+    }];
+    [_tableView footerAddMJRefresh:^{
+        [self loadReditsListPage:_page hud:NO];
     }];
     
 }
 
 
-- (void)loadReditsList{
+- (void)loadReditsListPage:(NSInteger)page hud:(BOOL)hud{
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
+    params[@"member_id"] = kUserId;
+    params[@"curpage"] = @(page);
     
+    if (hud){
+        [self showLoading];
+    }
+    if (page == 1){
+        [self.dataArray removeAllObjects];
+    }
     
     [MCNetTool postWithUrl:HttpRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        if (hud){
+            [self dismissLoading];
+        }
+        self.page = page;
+        self.page ++;
+        self.creditsModel = [CreditsModel mj_objectWithKeyValues:requestDic];
+        
+        self.reditsLbl.text = self.creditsModel.all_integral;
+        
+        if (self.creditsModel.list.count < 10){
+            [self.tableView hidenFooter];
+        }
+        
+        [self.dataArray addObjectsFromArray:self.creditsModel.list];
         
         [_tableView reloadData];
-        [_tableView headerEndRefresh];
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
         
     } fail:^(NSString *error) {
-        
+        if (hud){
+            [self dismissLoading];
+        }
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         [self showErrorText:error];
         [_tableView headerEndRefresh];
     }];
@@ -59,16 +101,73 @@
 #pragma mark - UITableViewDelegate UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 10;
+    if (self.dataArray.count > 0){
+        return self.dataArray.count;
+    }else{
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CreditsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CreditsTableViewCell"];
 
-    cell.nameLbl.text = @"签到送积分";
-    cell.timeLbl.text = @"2017年6月1日 19:25";
-    cell.amountLbl.text = @"+5";
+    if (self.dataArray.count > indexPath.row){
+        CreditsObj *credits = self.dataArray[indexPath.row];
+        //积分类型 1购买产品 2活动 3抽奖 4积分兑换 6签到 7其他
+        switch ([credits.sourcetype intValue]) {
+            case 1:{
+                //
+               cell.nameLbl.text = @"购买产品";
+            }
+                break;
+            case 2:{
+                //
+                cell.nameLbl.text = @"活动";
+            }
+                break;
+            case 3:{
+                //
+                cell.nameLbl.text = @"抽奖";
+            }
+                break;
+            case 4:{
+                //
+                cell.nameLbl.text = @"积分兑换";
+            }
+                break;
+            case 6:{
+                //
+                cell.nameLbl.text = @"签到";
+            }
+                break;
+            case 7:{
+                //
+                cell.nameLbl.text = @"其他";
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        cell.timeLbl.text = [Utool timeStamp3TimeFormatter:credits.addtime];
+        
+        if ([credits.integral hasPrefix:@"-"]){
+            cell.amountLbl.text = credits.integral;
+            cell.amountLbl.textColor = [UIColor greenColor];
+        }else if ([credits.integral hasPrefix:@"+"]){
+            cell.amountLbl.textColor = [UIColor redColor];
+            cell.amountLbl.text = credits.integral;
+        }else{
+            if ([credits.integral intValue] > 0){
+                cell.amountLbl.textColor = [UIColor redColor];
+                cell.amountLbl.text = [NSString stringWithFormat:@"+%@",credits.integral];
+            }
+        }
+        
+        
+    }
     
     return cell;
 }
