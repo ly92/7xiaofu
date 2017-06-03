@@ -50,6 +50,13 @@
 @property (nonatomic, copy) NSString *jibie;
 
 @property (nonatomic, strong) NSArray<AZi *> *zi;
+
+@property (nonatomic, copy) NSString *level1_id;
+@property (nonatomic, copy) NSString *level2_id;
+@property (nonatomic, copy) NSString *level3_id;
+
+
+
 @end
 
 
