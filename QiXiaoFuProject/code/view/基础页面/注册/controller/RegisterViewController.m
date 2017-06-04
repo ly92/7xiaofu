@@ -118,11 +118,26 @@
             }];
             
 //            [self.navigationController popViewControllerAnimated:YES];
+            /**
+             {
+             repCode = "00",
+             repMsg = "注册成功",
+             listData = 	{
+             phone = "18612333016",
+             userid = "ffb60a5ab266629a4bf9ac91ddb97fb9",
+             tags = 	(
+             ),
+             store_id = 1,
+             store_name = "",
+             },
+             }
+             */
             
+            NSString *userID = [requestDic objectForKey:@"userid"];
             
             [self goLogin];
             
-            [self addIntegral];
+            [self addIntegral:userID];
             
         } fail:^(NSString *error) {
             [self showErrorText:error];
@@ -142,9 +157,9 @@
 
 
 //如果实名认证则请求添加积分
-- (void)addIntegral{
+- (void)addIntegral:(NSString *)userId{
     NSMutableDictionary * params = [NSMutableDictionary new];
-    params[@"userid"] = kUserId;
+    params[@"userid"] = userId;
     params[@"type"] = @"1";//1:注册 2:实名认证
     
     [MCNetTool postWithUrl:HttpAddRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {

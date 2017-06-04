@@ -142,11 +142,24 @@
                 break;
             case 7:{
                 //
-                cell.nameLbl.text = @"其他";
+                cell.nameLbl.text = @"注册";
+            }
+                break;
+            case 8:{
+                //
+                cell.nameLbl.text = @"实名";
+            }
+                break;
+            case 9:{
+                //
+                cell.nameLbl.text = @"第一次接单";
             }
                 break;
                 
-            default:
+            default:{
+                //
+                cell.nameLbl.text = @"其他";
+            }
                 break;
         }
         
