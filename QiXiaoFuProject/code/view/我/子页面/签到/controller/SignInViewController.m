@@ -38,6 +38,8 @@
     
     self.navigationItem.title = @"签到";
     
+    [self setColorWithIndex:0];
+    
     [self setupSubViewsLayouts];
 }
 
