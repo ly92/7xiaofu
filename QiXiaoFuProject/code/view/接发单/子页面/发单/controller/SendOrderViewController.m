@@ -394,9 +394,9 @@
          }
         if (indexPath.row ==4) {// 预约开始时间
             
-            STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
+            STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:4];
             pickerDate.pickerDate5Block = ^(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSInteger minute,NSString * time){
-                cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld:%ld",year,month,day,hour,minute];
+                cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld时",year,month,day,hour];
                 _requestParams[@"service_stime"] = [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];//服务预约开始时间【时间戳】
             };
             [pickerDate show];
@@ -404,9 +404,9 @@
         }
         if (indexPath.row ==5) {// 预约结束时间
             
-            STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
+            STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:4];
             pickerDate.pickerDate5Block = ^(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSInteger minute,NSString * time){
-                cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld:%ld",year,month,day,hour,minute];
+                cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld时",year,month,day,hour];
                 _requestParams[@"service_etime"] = [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];//服务预约结束时间【时间戳】
                 
             };

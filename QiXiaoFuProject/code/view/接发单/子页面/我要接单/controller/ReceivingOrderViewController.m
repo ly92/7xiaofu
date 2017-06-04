@@ -307,7 +307,7 @@
     }
     */
     if(indexPath.section == 1){
-        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
+        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
         pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
             
             _service_stime = time;
@@ -321,7 +321,7 @@
     
     if(indexPath.section == 2){
         
-        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
+        STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:3];
         pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
         
             _service_etime =  time;
