@@ -119,7 +119,7 @@
     if (section == self.selectedSection && self.bDataArray.count > section){
         Me_To_User *me_touser = self.bDataArray[section];
         NSMutableArray *arrM = [self.cMutableDict objectForKey:me_touser.level2_id];
-        if (arrM && arrM.count > 0){
+        if (arrM && arrM.count > 0 && !self.isFromTrans){
             return arrM.count + 1;
         }
     }
@@ -131,20 +131,32 @@
     AssociationCell *cell =[tableView dequeueReusableCellWithIdentifier:@"AssociationCell"];
     
     if (indexPath.row == 0){
+        
         Me_To_User *me_touser = self.bDataArray[indexPath.section];
         cell.me_to_user = me_touser;
-        cell.iconLeftDis.constant = 10;
-        cell.btnW.constant = 30;
-        cell.openBtn.hidden = NO;
-        cell.openBlock = ^{
-            //展开C级
-            if (self.selectedSection == indexPath.section){
-                self.selectedSection = -1;
-            }else{
-                self.selectedSection = indexPath.section;
-            }
-            [self.tableView reloadData];
-        };
+        
+        if (self.isFromTrans){
+            cell.iconLeftDis.constant = 10;
+            cell.btnW.constant = 0;
+            cell.openBtn.hidden = YES;
+            cell.openBlock = ^{
+            };
+        }else{
+            cell.iconLeftDis.constant = 10;
+            cell.btnW.constant = 30;
+            cell.openBtn.hidden = NO;
+            cell.openBlock = ^{
+                //展开C级
+                if (self.selectedSection == indexPath.section){
+                    self.selectedSection = -1;
+                }else{
+                    self.selectedSection = indexPath.section;
+                }
+                [self.tableView reloadData];
+            };
+        }
+        
+        
     }else{
         Me_To_User *me_touser = self.bDataArray[indexPath.section];
         NSMutableArray *arrM = [self.cMutableDict objectForKey:me_touser.level2_id];
