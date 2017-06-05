@@ -46,7 +46,7 @@
     
     NSString * _tixianPlas;
 
-    
+    NSString *_pay_sn;
     
 
 }
@@ -134,6 +134,9 @@
     [MCNetTool postWithUrl:HttpMeRecharge params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         ShopPayModel * shopPayModel = [ShopPayModel mj_objectWithKeyValues:requestDic];
+        
+        //记录订单编号
+        _pay_sn = shopPayModel.pay_sn;
         
         if (_payType == 2) {
             // 支付宝支付
@@ -646,6 +649,8 @@
         
         [self showSuccessText:@"充值成功"];
         
+        [self payResultDealWithMsxop:@"alipay" PaySn:_pay_sn];
+        
         [Utool performBlock:^{
             
             [self.navigationController popViewControllerAnimated:YES];
@@ -671,6 +676,8 @@
         DeLog(@"微信支付成功");
         
         [self showSuccessText:@"充值成功"];
+
+        [self payResultDealWithMsxop:@"wxpay" PaySn:_pay_sn];
         
         [Utool performBlock:^{
             
@@ -692,15 +699,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 支付回调后处理
+// tp.php/Home/My/rechargeDeal?userid=xxx&MSXOP=xxx&pay_sn=xxx  alipay，wxpay
+- (void)payResultDealWithMsxop:(NSString *)msxop PaySn:(NSString *)pay_sn{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"MSXOP"] = msxop;
+    params[@"pay_sn"] = pay_sn;
+    
+    [MCNetTool postWithUrl:HttpMeRechargeResult params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        [self showSuccessText:@"充值成功！"];
+    } fail:^(NSString *error) {
+        
+    }];
 }
-*/
+
 
 @end

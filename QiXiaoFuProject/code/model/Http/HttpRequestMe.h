@@ -142,6 +142,8 @@ UIKIT_EXTERN NSString  * const HttpMeEngStartWork;
 
 /** 充值 */
 UIKIT_EXTERN NSString  * const HttpMeRecharge;
+/** 充值结果处理 */
+UIKIT_EXTERN NSString  * const HttpMeRechargeResult;
 
 /** 钱包明细 */
 UIKIT_EXTERN NSString  * const HttpMeShowBalanceDetail;

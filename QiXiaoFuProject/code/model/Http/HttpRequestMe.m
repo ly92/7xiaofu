@@ -141,6 +141,9 @@ NSString  * const HttpMeEngStartWork = @"tp.php/Home/My/engStartWork";
 /** 充值 */
 NSString  * const HttpMeRecharge = @"tp.php/Home/My/recharge";
 
+/** 充值结果处理 */
+NSString  * const HttpMeRechargeResult = @"tp.php/Home/My/rechargeDeal";
+
 /** 钱包明细 */
 NSString  * const HttpMeShowBalanceDetail = @"tp.php/home/my/showBalanceDetail";
 
@@ -149,6 +152,7 @@ NSString  * const HttpMeShowBalance = @"tp.php/home/my/showBalance";
 
 /** 提现申请 */
 NSString  * const HttpMeReCash = @"tp.php/Home/My/reCash";
+
 
 /** 检查验证码是否正确 ---  用于找回平台支付密码*/
 NSString  * const HttpMeCheckVerify = @"tp.php/Home/My/checkVerify";
