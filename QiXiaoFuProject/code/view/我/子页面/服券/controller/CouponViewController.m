@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"我的服券";
+    self.navigationItem.title = @"我的福券";
 }
 
 - (void)didReceiveMemoryWarning {

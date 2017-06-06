@@ -47,7 +47,7 @@
  */
 @property (weak, nonatomic) IBOutlet UIButton *creditsBtn;
 /**
- *  服券
+ *  福券
  */
 @property (weak, nonatomic) IBOutlet UIButton *couponBtn;
 

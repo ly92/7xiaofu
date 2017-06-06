@@ -184,5 +184,5 @@ NSString  * const HttpRedits = @"tp.php/Home/My/signList";
 /** 请求添加积分*/
 NSString  * const HttpAddRedits = @"tp.php/Home/My/addIntegral";
 
-/** 服券*/
+/** 福券*/
 NSString  * const HttpCoupon = @"";

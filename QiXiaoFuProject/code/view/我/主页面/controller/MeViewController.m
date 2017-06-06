@@ -86,9 +86,14 @@
         user.userIcon = _userInfoModel1.member_avatar;
         user.userName = _userInfoModel1.member_nik_name;
         user.is_real =_userInfoModel1.is_real;
+        user.count_bill = _userInfoModel1.count_bill;
+        user.count_bill_integral = _userInfoModel1.count_bill_integral;
         user.member_level = _userInfoModel1.member_level;
         if (user.is_real == 1){
-            [self addIntegral];
+            [self addIntegral:@"2"];
+        }
+        if (user.count_bill == 1 && user.count_bill_integral == 0){
+            [self addIntegral:@"3"];
         }
         
         [UserManager archiverModel:user];
@@ -101,10 +106,10 @@
 }
 
 //如果实名认证则请求添加积分
-- (void)addIntegral{
+- (void)addIntegral:(NSString *)type{
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
-    params[@"type"] = @"2";//1:注册 2:实名认证
+    params[@"type"] = type;//1:注册 2:实名认证 3:完成第一个订单加分
     
     [MCNetTool postWithUrl:HttpAddRedits params:params success:^(NSDictionary *requestDic, NSString *msg) {
     } fail:^(NSString *error) {
@@ -305,7 +310,7 @@
             CreditsViewController *creditsVC = [[CreditsViewController alloc] init];
             [self.navigationController pushViewController:creditsVC animated:YES];
         }];
-        // 进入服券
+        // 进入福券
         [engineerHeaderReusableView.couponBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
             CouponViewController *couponVC = [[CouponViewController alloc] init];
             [self.navigationController pushViewController:couponVC animated:YES];
