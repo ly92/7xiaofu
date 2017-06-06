@@ -18,6 +18,7 @@
 #import "WebCell.h"
 #import "YWWebScrollView.h"
 #import "ShopCarModel.h"
+#import "ChatViewController.h"
 
 
 @interface ShopDetaileViewController ()<MCBannerViewDataSource, MCBannerViewDelegate,UITableViewDelegate,UITableViewDataSource >{
@@ -263,7 +264,8 @@
     if(indexPath.section ==0){
         
         if (indexPath.row == 1) {
-            return 35;
+//            return 35;
+            return 0;
          }else if (indexPath.row == 2) {
             ShopDetaileTagCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ShopDetaileTagCell"];
             cell.goodsDetaileModel= _goodsDetaileModel;
@@ -550,5 +552,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)connectService {
+    ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
+                                                                                   friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
+                                                                                             user:kPhone
+                                                                                         userName:kUserName
+                                                                                         userIcon:kUserIcon];
+    
+    chatController.title = @"客服";
+    chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
+    chatController.userIcon = kUserIcon;
+    [self.navigationController pushViewController:chatController animated:YES];
+    
+}
 
 @end
