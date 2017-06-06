@@ -15,6 +15,7 @@
     
     _headerImageBtn.layer.cornerRadius =  64/2;
     _headerImageBtn.clipsToBounds = YES;
+    _headerImageBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     // Initialization code
 }
 

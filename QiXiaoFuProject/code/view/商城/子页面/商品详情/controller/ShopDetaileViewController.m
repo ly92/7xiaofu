@@ -20,7 +20,7 @@
 #import "ShopCarModel.h"
 
 
-@interface ShopDetaileViewController ()<MCBannerViewDataSource, MCBannerViewDelegate >{
+@interface ShopDetaileViewController ()<MCBannerViewDataSource, MCBannerViewDelegate,UITableViewDelegate,UITableViewDataSource >{
 
 
     UIImage * _shareImage;
@@ -39,6 +39,9 @@
 
 @property(nonatomic,strong)NSMutableDictionary *heightDic;//计算webview的高度
 
+@property (nonatomic, assign) NSInteger sel_sec_index;//选中的sectionheader索引 1商品介绍 2商品参数
+
+
 @end
 
 @implementation ShopDetaileViewController
@@ -46,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.sel_sec_index = 2;
     self.navigationItem.title = @"商品详情";
     
     _count = 1;
@@ -163,7 +167,7 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -201,14 +205,12 @@
             WebCell *cell = [tableView dequeueReusableCellWithIdentifier:@"webCell"];
             cell.tag = indexPath.row;
             cell.contentStr = _goodsDetaileModel.goods_info.mobile_body;
-            
 //            cell.htmlUrl = _goodsDetaileModel.goods_info.goods_desc_url;
             
-            
             cell.webCellReturnHeightBlock = ^(WebCell * webCell,CGFloat height){
-                if (![self.heightDic objectForKey:[NSString stringWithFormat:@"%ld",webCell.tag]]||[[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld",webCell.tag]] floatValue] != webCell.height)
+                if (![self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]]||[[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]] floatValue] != webCell.height)
                 {
-                    [self.heightDic setObject:[NSNumber numberWithFloat:webCell.height] forKey:[NSString stringWithFormat:@"%ld",webCell.tag]];
+                    [self.heightDic setObject:[NSNumber numberWithFloat:webCell.height] forKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]];
                     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:webCell.tag inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
                     
 //                    [self dismissLoading];
@@ -221,12 +223,40 @@
     }
      
     if (indexPath.section == 1) {
-        //商品位置 商品库存  工程师库存
-        ShopDetaileAdressCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ShopDetaileAdressCell"];
-        cell.shopNumLab.text = _goodsDetaileModel.goods_info.goods_storage;
-        cell.engineerNumLab.text = _goodsDetaileModel.goods_info.engineer_storage;
+            //商品位置 商品库存  工程师库存
+            ShopDetaileAdressCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ShopDetaileAdressCell"];
+            cell.shopNumLab.text = _goodsDetaileModel.goods_info.goods_storage;
+            cell.engineerNumLab.text = _goodsDetaileModel.goods_info.engineer_storage;
+            return cell;
+    }
+    
+    if (indexPath.section == 2){
+        WebCell *cell = [tableView dequeueReusableCellWithIdentifier:@"webCell"];
+        cell.tag = indexPath.row;
+        
+        NSString *str;
+        if (self.sel_sec_index == 1){
+            str = @"";
+        }else if (self.sel_sec_index == 2){
+            str = _goodsDetaileModel.goods_info.goods_table;
+        }
+        
+        NSString *str2 = [str stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+        NSString *str3 = [str2 stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+        
+        cell.contentStr = str3;
+        
+        cell.webCellReturnHeightBlock = ^(WebCell * webCell,CGFloat height){
+            if (![self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]]||[[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]] floatValue] != webCell.height)
+            {
+                [self.heightDic setObject:[NSNumber numberWithFloat:webCell.height] forKey:[NSString stringWithFormat:@"%ld%ld",webCell.tag,indexPath.section]];
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:webCell.tag inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        };
         return cell;
     }
+    
+    
     return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -241,14 +271,20 @@
 
         }else if(indexPath.row ==3){
             
-            CGFloat height = [[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]] floatValue];
+            CGFloat height = [[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",indexPath.row,indexPath.section]] floatValue];
             return height==0?30:height;
         }
          return UITableViewAutomaticDimension;
     }
     if(indexPath.section ==1){
-         return  60;
+        return  60;
     }
+    
+    if (indexPath.section == 2){
+        CGFloat height = [[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",indexPath.row,indexPath.section]] floatValue];
+        return height==0?30:height;
+    }
+    
     return  50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -426,7 +462,67 @@
     }];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 2){
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        view.backgroundColor = rgb(240, 240, 240);
+        
+        UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth / 2.0, 44)];
+        [btn1 setTitle:@"商品介绍" forState:UIControlStateNormal];
+        [btn1 setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+        [btn1 setBackgroundColor:[UIColor whiteColor]];
+        [btn1 addTarget:self action:@selector(goods_desc) forControlEvents:UIControlEventTouchUpInside];
+        UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth / 2.0 + 1, 0, kScreenWidth / 2.0, 44)];
+        [btn2 setTitle:@"商品参数" forState:UIControlStateNormal];
+        [btn2 setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+        [btn2 setBackgroundColor:[UIColor whiteColor]];
+        [btn2 addTarget:self action:@selector(goods_memo) forControlEvents:UIControlEventTouchUpInside];
+        
+        CGFloat lineX = 0;
+        
+        if (self.sel_sec_index == 1){
+//            btn1.selected = YES;
+//            btn2.selected = NO;
+            lineX = 0;
+        }else{
+//            btn1.selected = NO;
+//            btn2.selected = YES;
+            lineX = kScreenWidth / 2.0;
+        }
+
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(lineX, 42.5, kScreenWidth / 2.0, 1.5f)];
+        line.backgroundColor = rgb(213, 59, 38);
+        
+        
+        [view addSubview:btn1];
+        [view addSubview:btn2];
+        [view addSubview:line];
+        
+        return view;
+    }
+    
+    return nil;
+}
+
+- (void)goods_desc{
+    if (self.sel_sec_index == 1) return;
+    
+    self.sel_sec_index = 1;
+    [self.tableView reloadData];
+    
+}
+
+- (void)goods_memo{
+    if (self.sel_sec_index == 2) return;
+    self.sel_sec_index = 2;
+     [self.tableView reloadData];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 2){
+        return 54;
+    }
     return 10.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

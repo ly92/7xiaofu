@@ -272,22 +272,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x4e3b;&#x9875;&#x9762;/controller/MeViewController.m"
-            timestampString = "518421578.392425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "416"
-            endingLineNumber = "416"
-            landmarkName = "-viewcontrollerJump2VCWithindex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -403,14 +387,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x4e3b;&#x9875;&#x9762;/controller/MeViewController.m"
-            timestampString = "518421526.132766"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x53d1;&#x5355;/controller/MySendOrderDetaileViewController.m"
+            timestampString = "518424979.945645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-loadMineDataInfo"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
+            landmarkName = "-sendOrder_CheXiaoOrder_withModel:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__69-[MySendOrderDetaileViewController sendOrder_CheXiaoOrder_withModel:]_block_invoke"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/controller/MySendOrderDetaileViewController.m"
+                  timestampString = "518432761.71806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "699"
+                  endingLineNumber = "699"
+                  offsetFromSymbolStart = "1804">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__69-[MySendOrderDetaileViewController sendOrder_CheXiaoOrder_withModel:]_block_invoke_2"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85-%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/controller/MySendOrderDetaileViewController.m"
+                  timestampString = "518432761.719844"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "699"
+                  endingLineNumber = "699"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x6211;&#x7684;&#x53d1;&#x5355;&#x5217;&#x8868;/controller/MySendOrderViewController.m"
+            timestampString = "518424982.370231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "-sendOrder_CheXiaoOrder_withModel:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__62-[MySendOrderViewController sendOrder_CheXiaoOrder_withModel:]_block_invoke"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
+                  timestampString = "518432761.723959"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "1804">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__62-[MySendOrderViewController sendOrder_CheXiaoOrder_withModel:]_block_invoke_2"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
+                  timestampString = "518432761.725702"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -165,6 +165,8 @@
 
 @property (nonatomic, copy) NSString *goods_stcids;
 
+@property (nonatomic, copy) NSString *goods_table;
+
 @property (nonatomic, strong) NSArray<Goods_Attr *> *goods_attr;
 
 @property (nonatomic, copy) NSString *from_commonid;
