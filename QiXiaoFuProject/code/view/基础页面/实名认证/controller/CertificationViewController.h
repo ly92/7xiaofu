@@ -9,6 +9,6 @@
 #import "BaseViewController.h"
 
 @interface CertificationViewController : BaseViewController
-@property (nonatomic, assign) NSInteger is_real;// 1 已实名
+@property (nonatomic, copy) NSString *is_real;// 1 已实名
 
 @end

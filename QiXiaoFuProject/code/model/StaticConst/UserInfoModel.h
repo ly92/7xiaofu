@@ -21,7 +21,7 @@
 
 @property (nonatomic, copy) NSString *pushState;// 是否要接收推送消息
 
-@property (nonatomic, assign) NSInteger is_real;//是否实名认证【0 否 1 是 2审核中】
+@property (nonatomic, copy) NSString *is_real;//是否实名认证【0 否 1 是 2审核中】
 @property (nonatomic, assign) NSInteger count_bill;//是否完成第一个订单【0 否 1 是】
 @property (nonatomic, assign) NSInteger count_bill_integral;//完成单后是否已加分【0未加分 1已加分】
 

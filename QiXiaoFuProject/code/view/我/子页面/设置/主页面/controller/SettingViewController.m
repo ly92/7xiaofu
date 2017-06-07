@@ -247,7 +247,7 @@ static NSString * kPushState = @"是否接收推送消息";
             }else if (indexPath.row == 1){
                 [Utool verifyLogin:self LogonBlock:^{
                     
-                    if (_is_real == 0) {
+                    if ([_is_real intValue] == 0) {
                         BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"您尚未进行实名认证,认证之后才能接单,要立即去认证吗?" cancelButtonTitle:@"先等等" clickButton:^(NSInteger buttonIndex) {
                             
                             if(buttonIndex == 1){
@@ -260,7 +260,7 @@ static NSString * kPushState = @"是否接收推送消息";
                         [alert show];
                         
                     }else{
-                        
+                    
                         ChangePassViewController * vc = [[ChangePassViewController alloc]initWithNibName:@"ChangePassViewController" bundle:nil ];
                         [self.navigationController pushViewController:vc animated:YES];
                     }

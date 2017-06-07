@@ -89,7 +89,7 @@
         user.count_bill = _userInfoModel1.count_bill;
         user.count_bill_integral = _userInfoModel1.count_bill_integral;
         user.member_level = _userInfoModel1.member_level;
-        if (user.is_real == 1){
+        if ([user.is_real intValue] == 1){
             [self addIntegral:@"2"];
         }
         if (user.count_bill == 1 && user.count_bill_integral == 0){
@@ -205,7 +205,7 @@
             engineerHeaderReusableView.loginView.hidden = NO;
             engineerHeaderReusableView.noLoginView.hidden = YES;
         }
-        if (_userInfoModel1.is_real  == 1) {
+        if ([_userInfoModel1.is_real intValue]  == 1) {
 
             engineerHeaderReusableView.aouthBtn.selected = NO;
 //            engineerHeaderReusableView.aouthBtn.backgroundColor = [UIColor whiteColor];

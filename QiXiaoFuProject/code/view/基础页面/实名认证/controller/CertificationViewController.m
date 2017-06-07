@@ -49,7 +49,7 @@
     _footerView = footerView;
     _tableView.tableFooterView = footer;;
     
-    if (_is_real == 1) {
+    if ([_is_real intValue] == 1) {
         footerView.submitBtn.enabled = NO;
         footerView.tailBtn.enabled = NO;
         footerView.frontBtn.enabled = NO;
@@ -220,7 +220,7 @@
         cell.contentTextField.placeholder = @"请输入真实姓名";
         cell.type = 1;
         
-        if (_is_real == 1) {
+        if ([_is_real intValue] == 1) {
             cell.contentTextField.enabled = NO;
         }else{
             cell.contentTextField.enabled = YES;
@@ -241,7 +241,7 @@
         CertificationCell *cell =[tableView dequeueReusableCellWithIdentifier:@"CertificationCell"];
         cell.type = 2;
         
-        if (_is_real == 1) {
+        if ([_is_real intValue] == 1) {
             cell.contentTextField.enabled = NO;
         }else{
             cell.contentTextField.enabled = YES;
