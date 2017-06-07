@@ -113,7 +113,7 @@
 
     if (self.dataArray.count > indexPath.row){
         CreditsObj *credits = self.dataArray[indexPath.row];
-        //积分类型 1购买产品 2活动 3抽奖 4积分兑换 6签到 7其他
+        //积分类型 1购买产品 2活动 3抽奖 4积分兑换 6签到 7其他 8 9
         switch ([credits.sourcetype intValue]) {
             case 1:{
                 //
@@ -151,6 +151,11 @@
             }
                 break;
             case 9:{
+                //
+                cell.nameLbl.text = @"待定";
+            }
+                break;
+            case 10:{
                 //
                 cell.nameLbl.text = @"第一次接单";
             }

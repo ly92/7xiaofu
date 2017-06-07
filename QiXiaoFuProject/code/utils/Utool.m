@@ -221,7 +221,7 @@
     
     UserInfoModel * userModel = [UserManager readModel];
     
-    NSInteger  is_real = userModel.is_real;
+    NSInteger  is_real = [userModel.is_real intValue];
 
     
     if(kUserId.length == 0){

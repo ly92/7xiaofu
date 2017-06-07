@@ -19,7 +19,7 @@
 
 @property (nonatomic, copy) NSString *working_year;// 从业年限
 
-@property (nonatomic, assign) NSInteger is_real;//是否认证 【0 未认证】【1 已认证】【2 认证待审核】
+@property (nonatomic, copy) NSString *is_real;//是否认证 【0 未认证】【1 已认证】【2 认证待审核】
 
 @property (nonatomic, copy) NSString *member_truename;// 工程师名称
 

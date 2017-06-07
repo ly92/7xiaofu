@@ -35,10 +35,10 @@
     [_iconImageView setImageWithUrl:engineerDetaileModel.member_avatar placeholder:kDefaultImage_header];
     _nameLab.text = engineerDetaileModel.member_truename;
 
-    if(engineerDetaileModel.is_real ==0){
+    if([engineerDetaileModel.is_real intValue] ==0){
     //【0 未认证】
 
-    }else if (engineerDetaileModel.is_real ==1){
+    }else if ([engineerDetaileModel.is_real intValue] ==1){
     //【1 已认证】
         _zizhiImageView.image = [UIImage imageNamed:@"img_yirenzheng"];
     }else{

@@ -18,7 +18,7 @@
 
 @property (nonatomic, copy) NSString *real_img2;//身份证背面
 
-@property (nonatomic, assign) NSInteger is_real;//0 未认证可提交 1 已认证不可提交 2 待审核不可提交
+@property (nonatomic, copy) NSString *is_real;//0 未认证可提交 1 已认证不可提交 2 待审核不可提交
 
 @end
 
