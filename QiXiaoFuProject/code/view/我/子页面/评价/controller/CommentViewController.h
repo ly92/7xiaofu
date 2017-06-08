@@ -11,6 +11,7 @@
 @interface CommentViewController : BaseViewController
 
 @property (nonatomic,copy)NSString * f_id;
+@property (nonatomic, assign) BOOL isFromEng;//工程师对客户评价
 
 
 @property(nonatomic, copy) void (^commentViewBlock)();

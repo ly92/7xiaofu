@@ -27,7 +27,7 @@
 #import "ChatViewController.h"
 #import "AssociationViewController.h"
 #import "AssociationViewControllerA.h"
-
+#import "CommentViewController.h"
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -511,6 +511,22 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                 } otherButtonTitles:@"删除"];
                 [alert show];
                 
+            };
+            // 评价客户
+            cell.orderDetaileEvaluate_Btn =^(){
+                
+                CommentViewController * vc = [[CommentViewController alloc]initWithNibName:@"CommentViewController" bundle:nil];
+                vc.f_id = _orderDetaileProModel.id;
+                vc.isFromEng = YES;
+                vc.commentViewBlock =^(){
+                    
+                    [self myOtBillDetailRequest];
+                    
+                };
+//                [self deleateChatlistWithUserPhone:_orderDetaileProModel.call_name];
+                
+                
+                [self.navigationController pushViewController:vc animated:YES];
             };
             
             // 调价工程师确认  -- 同意

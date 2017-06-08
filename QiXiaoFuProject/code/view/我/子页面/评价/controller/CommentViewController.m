@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *starView;
 @property (weak, nonatomic) IBOutlet MCTextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *descLbl;
 
 @end
 
@@ -29,7 +30,11 @@
     self.navigationItem.title = @"评价";
     
     _textView.placeholder = @"请输入评价内容";
-    
+    if (self.isFromEng){
+        self.descLbl.text = @"给客户打个分吧";
+    }else{
+        self.descLbl.text = @"给工程师的服务打个分吧";
+    }
     
     LPLevelView *lView = [LPLevelView new];
     lView.frame = CGRectMake(10, 150, (kScreenWidth - 20)/3*2, _starView.frame.size.height);
@@ -74,8 +79,12 @@
     params[@"stars"] = @(_level);
     params[@"content"] = _textView.text;
     
+    NSString *url = HttpMeAddEngEvaluation;
+    if (self.isFromEng){
+        url = HttpMeEngaddClientEvaluation;
+    }
     
-    [MCNetTool postWithUrl:HttpMeAddEngEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    [MCNetTool postWithUrl:url params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         [self showSuccessText:msg];
         

@@ -412,6 +412,18 @@
 {
     
 //    if (_isFirstSearch) {
+    AMapPOIKeywordsSearchRequest *requestPoi = [[AMapPOIKeywordsSearchRequest alloc] init];
+    requestPoi.keywords = searchString;
+//    requestPoi.location = location;
+    // 搜索半径
+//    requestPoi.radius = 25000;
+    // 搜索结果排序
+    requestPoi.sortrule = 1;
+    // 当前页数
+    requestPoi.page = searchPage;
+    [_searchAPI AMapPOIKeywordsSearch:requestPoi];
+
+/*
         AMapPOIAroundSearchRequest *requestPoi = [[AMapPOIAroundSearchRequest alloc] init];
     requestPoi.keywords = searchString;
         requestPoi.location = location;
@@ -422,7 +434,7 @@
         // 当前页数
         requestPoi.page = searchPage;
         [_searchAPI AMapPOIAroundSearch:requestPoi];
-        
+        */
 //        _isFirstSearch = NO;
 //
 //    }
