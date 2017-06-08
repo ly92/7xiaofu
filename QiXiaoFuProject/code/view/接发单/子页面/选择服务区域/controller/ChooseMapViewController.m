@@ -94,7 +94,7 @@
     _mapBGView.delegate = self;
     _mapBGView.showsCompass = NO;// 不显示罗盘
     _mapBGView.showsScale = NO;// 不显示比例尺
-    _mapBGView.zoomLevel = 11.7;// 地图缩放等级
+    _mapBGView.zoomLevel = 13;// 地图缩放等级
     _mapBGView.minZoomLevel = 3;// 地图缩放等级
     _mapBGView.maxZoomLevel = 20;// 地图缩放等级
 

@@ -58,6 +58,11 @@
         [mapbgView addSubview:_mapView];
         _mapView.showsUserLocation = YES;
         _mapView.userInteractionEnabled = YES;
+        _mapView.showsCompass = NO;// 不显示罗盘
+//        _mapView.showsScale = NO;// 不显示比例尺
+        _mapView.zoomLevel = 13;// 地图缩放等级
+        _mapView.minZoomLevel = 3;// 地图缩放等级
+        _mapView.maxZoomLevel = 20;// 地图缩放等级
 
         
         
@@ -136,6 +141,14 @@
     }];
 
 
+}
+
+#pragma mark - MAMapViewDelegate
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
+    // 首次定位
+    if (updatingLocation) {
+        [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude)];
+    }
 }
 
 

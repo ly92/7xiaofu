@@ -135,9 +135,6 @@
 		0439B1101DD9906B00135F90 /* EBMuteDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0439B1061DD9906B00135F90 /* EBMuteDetector.m */; };
 		0439B1111DD9906B00135F90 /* UIImage+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0439B1081DD9906B00135F90 /* UIImage+ColorAtPoint.m */; };
 		0439B1121DD9906B00135F90 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0439B10A1DD9906B00135F90 /* UILabel+ContentSize.m */; };
-		044602A61D79637A00CC787C /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044602A31D79637A00CC787C /* AMapFoundationKit.framework */; };
-		044602A71D79637A00CC787C /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044602A41D79637A00CC787C /* AMapSearchKit.framework */; };
-		044602A81D79637A00CC787C /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044602A51D79637A00CC787C /* MAMapKit.framework */; };
 		044602AE1D79641500CC787C /* MapPoiTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044602AC1D79641500CC787C /* MapPoiTableView.m */; };
 		044602B31D79679500CC787C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 044602B21D79679500CC787C /* libc++.tbd */; };
 		044602B51D79679C00CC787C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 044602B41D79679C00CC787C /* libz.tbd */; };
@@ -1118,9 +1115,6 @@
 		0439B1091DD9906B00135F90 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ContentSize.h"; sourceTree = "<group>"; };
 		0439B10A1DD9906B00135F90 /* UILabel+ContentSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ContentSize.m"; sourceTree = "<group>"; };
 		0439B10B1DD9906B00135F90 /* EBForeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBForeNotification.h; sourceTree = "<group>"; };
-		044602A31D79637A00CC787C /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
-		044602A41D79637A00CC787C /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
-		044602A51D79637A00CC787C /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		044602AB1D79641500CC787C /* MapPoiTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoiTableView.h; sourceTree = "<group>"; };
 		044602AC1D79641500CC787C /* MapPoiTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoiTableView.m; sourceTree = "<group>"; };
 		044602B21D79679500CC787C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -2379,10 +2373,7 @@
 				D5CAFAFA2A07AC6CB51FD159 /* libPods-QiXiaoFuProject.a in Frameworks */,
 				04DAC6291DB8BF2D002235A7 /* Parse.framework in Frameworks */,
 				0498E4A01DB8ADF500262A9C /* libcurl.a in Frameworks */,
-				044602A61D79637A00CC787C /* AMapFoundationKit.framework in Frameworks */,
 				04DAC6281DB8BF2D002235A7 /* Bolts.framework in Frameworks */,
-				044602A81D79637A00CC787C /* MAMapKit.framework in Frameworks */,
-				044602A71D79637A00CC787C /* AMapSearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3150,16 +3141,6 @@
 				0439B10A1DD9906B00135F90 /* UILabel+ContentSize.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		0446028C1D795B9400CC787C /* 高德地图 */ = {
-			isa = PBXGroup;
-			children = (
-				044602A31D79637A00CC787C /* AMapFoundationKit.framework */,
-				044602A41D79637A00CC787C /* AMapSearchKit.framework */,
-				044602A51D79637A00CC787C /* MAMapKit.framework */,
-			);
-			path = "高德地图";
 			sourceTree = "<group>";
 		};
 		044602D91D7A886E00CC787C /* 商品位置 */ = {
@@ -7368,7 +7349,6 @@
 				04A587BD1D8D465B00FA3E46 /* JYJKeyBoard */,
 				041B31D51D7D921700A8EBA2 /* VerifyButton */,
 				041B31BE1D7D270200A8EBA2 /* MCTextField */,
-				0446028C1D795B9400CC787C /* 高德地图 */,
 				048FF1FC1D7528CC00268A78 /* ZHpickView */,
 				048FF0DC1D71990000268A78 /* JPullDownMenu */,
 				048FF0C91D7183DA00268A78 /* YLSwitch */,
@@ -8128,7 +8108,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E77C43C1AA2CEE793E544DF5 /* [CP] Copy Pods Resources */ = {
@@ -8858,10 +8838,10 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/高德地图",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/pay/alipay",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/view/消息/主页面/lib/3rdparty/Parse",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/FrameWorks/JSpatch",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QiXiaoFuProject/QiXiaoFuProject-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -8882,6 +8862,7 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
 					"\"${PODS_ROOT}/Headers/Public/ZYCornerRadius\"",
 					"\"${PROJECT_DIR}/QiXiaoFuProject/code/utils/pay/alipay\"",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				INFOPLIST_FILE = QiXiaoFuProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -8898,6 +8879,7 @@
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/view/消息/主页面/lib/3rdparty/UMeng",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/JPUSHService",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/JPUSHService/Lib",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qixiaofu.7xf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -8919,10 +8901,10 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/高德地图",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/pay/alipay",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/view/消息/主页面/lib/3rdparty/Parse",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/FrameWorks/JSpatch",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QiXiaoFuProject/QiXiaoFuProject-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -8943,6 +8925,7 @@
 					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
 					"\"${PODS_ROOT}/Headers/Public/ZYCornerRadius\"",
 					"\"${PROJECT_DIR}/QiXiaoFuProject/code/utils/pay/alipay\"",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				INFOPLIST_FILE = QiXiaoFuProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -8959,6 +8942,7 @@
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/view/消息/主页面/lib/3rdparty/UMeng",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/JPUSHService",
 					"$(PROJECT_DIR)/QiXiaoFuProject/code/utils/JPUSHService/Lib",
+					"$(PROJECT_DIR)/QiXiaoFuProject/code/lib/MAMap",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qixiaofu.7xf;
 				PRODUCT_NAME = "$(TARGET_NAME)";

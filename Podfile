@@ -14,6 +14,10 @@ pod 'DOPDropDownMenu-Enhanced', '~> 1.0.0'
 pod 'SVProgressHUD', '~> 2.1.2'
 pod 'ZYCornerRadius', '~> 1.0.2'
 pod  'Masonry', '~>1.0.2'
+pod 'AMap3DMap'
+pod 'AMapSearch'
+pod 'AMapLocation'
+
 end
 
 
