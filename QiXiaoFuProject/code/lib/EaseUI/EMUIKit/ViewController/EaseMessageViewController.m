@@ -104,6 +104,20 @@
     if ([conversationChatter length] == 0) {
         return nil;
     }
+    /*
+     userName
+     16
+     userIcon
+     http://10.216.2.11/UPLOAD/sys/2017-06-06/~UPLOAD~sys~2017-06-06@1496757625.jpg240
+     user
+     18612334016
+     friendUserIcon
+     http://10.216.2.11//img/logo.png
+     friendUsername
+     客服
+     conversationChatter
+     kefu1
+     */
     
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
@@ -127,30 +141,37 @@
         [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
         
         
+        [UIImage loadImageWithUrl:userIcon returnImage:^(UIImage *image) {
+            
+            [Utool saveFileToLoc:user theFile:image];
+            
+            [self.tableView reloadData];
+            
+        }];
         
-     
+        [UIImage loadImageWithUrl:friendUserIcon returnImage:^(UIImage *image) {
+            [Utool saveFileToLoc:conversationChatter theFile:image];
+            [self.tableView reloadData];
+            
+        }];
+
         
         NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"phone"] = conversationChatter;
-       
+        params[@"phone"] = user;
         
         [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
-            
-            
             
             ChatListModel * chatListModel = [[ChatListModel alloc] init];
             chatListModel.user = user;
             chatListModel.userName = userName;
             chatListModel.userIcon = userIcon;
             
-            
             chatListModel.friendUser = conversationChatter;
             chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
             chatListModel.friendUserIcon = requestDic[@"touxiang"];
             [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
 
-            
-            [UIImage loadImageWithUrl:userIcon returnImage:^(UIImage *image) {
+            [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
                 
                 [Utool saveFileToLoc:user theFile:image];
                 
@@ -158,7 +179,7 @@
                 
             }];
             
-            [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
+            [UIImage loadImageWithUrl:friendUserIcon returnImage:^(UIImage *image) {
                 [Utool saveFileToLoc:conversationChatter theFile:image];
                 [self.tableView reloadData];
 
