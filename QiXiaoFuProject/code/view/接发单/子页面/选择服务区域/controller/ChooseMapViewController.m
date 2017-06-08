@@ -142,10 +142,11 @@
     }
     
     //如果未搜索到输入的位置则直接返回输入的位置名称
-    if (![string isEqualToString:_selectTip.name]){
-        _selectTip.name = string;
-    }
-    
+//    if (![string isEqualToString:_selectTip.name]){
+//        _selectTip.name = string;
+//    }
+    //直接显示输入地址
+    _selectTip.name = string;
     if (_chooseSeviceAreaBlock) {
         _chooseSeviceAreaBlock(_selectTip);
     }
@@ -353,7 +354,7 @@
     AMapPOI *poi = [_searchResultArray objectAtIndex:indexPath.row];
     _selectPoi = poi;
     [_mapBGView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude)];
-    _adressTextfield.text =poi.name;
+//    _adressTextfield.text =poi.name;
     [self.view endEditing:YES];
     
     [_mapBGView removeOverlays:_mapBGView.overlays];
