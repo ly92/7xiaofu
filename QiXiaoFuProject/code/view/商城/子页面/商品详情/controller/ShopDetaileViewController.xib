@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="addShopCarBtn" destination="y0y-Ge-Gvl" id="25D-Z3-472"/>
                 <outlet property="buyBtnAction" destination="3b3-3e-Iew" id="81h-po-4eV"/>
+                <outlet property="chatBuyBtn" destination="u0G-dj-yhS" id="gQv-I7-SSg"/>
                 <outlet property="tableView" destination="OwP-O1-dXx" id="l62-rJ-hz3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

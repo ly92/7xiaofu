@@ -23,6 +23,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    if (showPrice){
+        self.priceLab.hidden = NO;
+    }else{
+        self.priceLab.hidden = YES;
+    }
 }
 
 

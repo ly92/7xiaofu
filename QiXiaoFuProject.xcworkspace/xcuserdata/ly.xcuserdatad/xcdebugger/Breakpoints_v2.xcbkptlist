@@ -19,22 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x53d1;&#x5355;1/controller/SendOrder1ViewController.m"
-            timestampString = "518679538.382937"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
             timestampString = "518682825.082074"
             startingColumnNumber = "9223372036854775807"
@@ -74,6 +58,54 @@
             startingLineNumber = "544"
             endingLineNumber = "544"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x8bc4;&#x8bba;&#x5217;&#x8868;/controller/CommentListViewController.m"
+            timestampString = "518691849.563098"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x53d1;&#x5355;1/controller/SendOrder1ViewController.m"
+            timestampString = "518692075.981784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x4e3b;&#x9875;&#x9762;/controller/MeViewController.m"
+            timestampString = "518692962.985193"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-loadMineDataInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

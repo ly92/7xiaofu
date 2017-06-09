@@ -42,6 +42,7 @@
 
 @property (nonatomic, assign) NSInteger sel_sec_index;//选中的sectionheader索引 1商品介绍 2商品参数
 
+@property (weak, nonatomic) IBOutlet UIButton *chatBuyBtn;//联系客服购买
 
 @end
 
@@ -52,6 +53,12 @@
     
     self.sel_sec_index = 2;
     self.navigationItem.title = @"商品详情";
+    
+    if (showPrice){
+        self.chatBuyBtn.hidden = YES;
+    }else{
+        self.chatBuyBtn.hidden = NO;
+    }
     
     _count = 1;
     self.heightDic = [[NSMutableDictionary alloc] init];
@@ -264,8 +271,11 @@
     if(indexPath.section ==0){
         
         if (indexPath.row == 1) {
-//            return 35;
+            if (showPrice){
+            return 35;
+            }else{
             return 0;
+            }
          }else if (indexPath.row == 2) {
             ShopDetaileTagCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ShopDetaileTagCell"];
             cell.goodsDetaileModel= _goodsDetaileModel;

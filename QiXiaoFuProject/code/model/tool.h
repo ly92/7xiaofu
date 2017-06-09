@@ -9,6 +9,8 @@
 
 #define kNetWorkEnvironment 2
 
+#define showPrice 1   //1显示价格  0不显示价格
+
 
 // 常量
 #import "StaticConst.h"
