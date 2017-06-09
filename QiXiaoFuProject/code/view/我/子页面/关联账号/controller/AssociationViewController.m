@@ -85,18 +85,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     AssociationCell *cell =[tableView dequeueReusableCellWithIdentifier:@"AssociationCell"];
-    
+    [cell.openBtn setImage:[UIImage imageNamed:@"btn_next"] forState:UIControlStateNormal];
+    cell.openBtn.userInteractionEnabled = NO;
     if (indexPath.section==0) {
         cell.user_to_me= _associationModel.user_to_me;
     }else{
         Me_To_User * me_to_user = _associationModel.me_to_user[indexPath.row];
         cell.me_to_user= me_to_user;
     }
+    cell.refreshBlock = ^{
+        [self loadZhanghaoList];
+    };
+    cell.openBlock = ^{};
     //是否隐藏设置备注按钮
     cell.settingMarkBtn.hidden = self.isFromTrans;
     cell.iconLeftDis.constant = 10;
-    cell.btnW.constant = 0;
-    cell.openBtn.hidden = YES;
+//    cell.openBtn.hidden = YES;
     
     return cell;
 }

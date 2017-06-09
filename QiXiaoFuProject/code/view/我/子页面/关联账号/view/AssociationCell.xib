@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018.09.09 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-c0-zZC">
-                        <rect key="frame" x="183.5" y="11" width="96.5" height="14.5"/>
+                        <rect key="frame" x="190.5" y="11" width="96.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -45,21 +46,19 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="级别:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3J-SF-1Du">
-                        <rect key="frame" x="249.5" y="38" width="30.5" height="16"/>
+                        <rect key="frame" x="256.5" y="38" width="30.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uai-RT-1kG">
-                        <rect key="frame" x="290" y="19" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uai-RT-1kG">
+                        <rect key="frame" x="220" y="0.0" width="100" height="69"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="HTT-Vh-7zL"/>
-                            <constraint firstAttribute="width" constant="30" id="p8f-e1-BU9"/>
+                            <constraint firstAttribute="width" constant="100" id="p8f-e1-BU9"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="展开">
-                            <color key="titleColor" red="0.70980392160000005" green="0.2784313725" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                        <state key="normal" image="btn_next"/>
                         <connections>
                             <action selector="openAction" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ABj-T3-Z40"/>
                         </connections>
@@ -74,6 +73,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="QN8-A3-DV6" firstAttribute="top" secondItem="saD-nk-k0y" secondAttribute="top" id="71R-TE-UV0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EWE-c0-zZC" secondAttribute="trailing" constant="25" id="FAt-0a-sUJ"/>
                     <constraint firstItem="n3J-SF-1Du" firstAttribute="trailing" secondItem="EWE-c0-zZC" secondAttribute="trailing" id="Lh8-hw-zqZ"/>
                     <constraint firstAttribute="trailing" secondItem="uai-RT-1kG" secondAttribute="trailing" id="MZ0-YM-lGV"/>
                     <constraint firstAttribute="trailing" secondItem="Yrq-ZS-tcy" secondAttribute="trailing" id="OAp-pL-3KT"/>
@@ -81,17 +81,16 @@
                     <constraint firstItem="QN8-A3-DV6" firstAttribute="leading" secondItem="saD-nk-k0y" secondAttribute="trailing" constant="10" id="Tfv-fN-ubq"/>
                     <constraint firstItem="n3J-SF-1Du" firstAttribute="centerY" secondItem="xZN-tT-Efo" secondAttribute="centerY" id="VH8-iw-Ga7"/>
                     <constraint firstAttribute="bottom" secondItem="Yrq-ZS-tcy" secondAttribute="bottom" id="Veb-N6-mb1"/>
+                    <constraint firstItem="Yrq-ZS-tcy" firstAttribute="top" secondItem="uai-RT-1kG" secondAttribute="bottom" id="Zjz-gM-UMV"/>
                     <constraint firstItem="EWE-c0-zZC" firstAttribute="centerY" secondItem="QN8-A3-DV6" secondAttribute="centerY" id="bK5-81-lhQ"/>
                     <constraint firstItem="xZN-tT-Efo" firstAttribute="bottom" secondItem="saD-nk-k0y" secondAttribute="bottom" id="gxN-4f-9TB"/>
-                    <constraint firstItem="uai-RT-1kG" firstAttribute="leading" secondItem="EWE-c0-zZC" secondAttribute="trailing" constant="10" id="hQE-Ir-tsQ"/>
                     <constraint firstItem="xZN-tT-Efo" firstAttribute="leading" secondItem="saD-nk-k0y" secondAttribute="trailing" constant="10" id="mEw-aC-FA4"/>
                     <constraint firstItem="saD-nk-k0y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="mdD-gX-DPz"/>
                     <constraint firstItem="saD-nk-k0y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mwD-ri-fPw"/>
-                    <constraint firstItem="uai-RT-1kG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zWu-gc-khH"/>
+                    <constraint firstItem="uai-RT-1kG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wKt-5V-JOW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnW" destination="p8f-e1-BU9" id="XFJ-RJ-M2S"/>
                 <outlet property="iconImageView" destination="saD-nk-k0y" id="cVY-p7-B2M"/>
                 <outlet property="iconLeftDis" destination="mdD-gX-DPz" id="rUD-m0-xEg"/>
                 <outlet property="levelLab" destination="n3J-SF-1Du" id="jcn-Lw-qHH"/>
@@ -103,4 +102,7 @@
             <point key="canvasLocation" x="-194" y="51"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="btn_next" width="13" height="22"/>
+    </resources>
 </document>

@@ -18,8 +18,8 @@
 @property (nonatomic, strong) Me_To_User *me_to_user;
 
 @property (nonatomic, strong) AZi *azi;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnW;
 @property (weak, nonatomic) IBOutlet UIButton *openBtn;
 
 @property(nonatomic, copy) void (^openBlock)();//
+@property(nonatomic, copy) void (^refreshBlock)();//
 @end

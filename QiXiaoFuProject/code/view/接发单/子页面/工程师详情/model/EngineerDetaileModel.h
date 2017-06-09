@@ -22,6 +22,8 @@
 @property (nonatomic, copy) NSString *is_real;//是否认证 【0 未认证】【1 已认证】【2 认证待审核】
 
 @property (nonatomic, copy) NSString *member_truename;// 工程师名称
+@property (nonatomic, copy) NSString *to_user_name;//备注名
+
 
 @property (nonatomic, strong) NSArray<Evaluation1 *> *evaluation;//评价
 

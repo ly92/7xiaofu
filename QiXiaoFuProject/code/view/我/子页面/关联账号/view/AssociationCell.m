@@ -73,6 +73,8 @@
     if(user_to_me.to_user_name.length != 0){
     
         [_settingMarkBtn setTitle:user_to_me.to_user_name forState:UIControlStateNormal];
+    }else{
+    [_settingMarkBtn setTitle:@"设置备注" forState:UIControlStateNormal];
     }
     
 
@@ -111,7 +113,7 @@
         [MCNetTool postWithUrl:HttpMeSetMemberNote params:params success:^(NSDictionary *requestDic, NSString *msg) {
             
             
-            [_settingMarkBtn setTitle:string forState:UIControlStateNormal];
+            self.refreshBlock();
             
             [self showSuccessText:msg];
             

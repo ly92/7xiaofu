@@ -33,7 +33,11 @@
 
     
     [_iconImageView setImageWithUrl:engineerDetaileModel.member_avatar placeholder:kDefaultImage_header];
-    _nameLab.text = engineerDetaileModel.member_truename;
+    if (engineerDetaileModel.to_user_name.length > 0){
+        _nameLab.text = engineerDetaileModel.to_user_name;
+    }else{
+        _nameLab.text = engineerDetaileModel.member_truename;
+    }
 
     if([engineerDetaileModel.is_real intValue] ==0){
     //【0 未认证】
