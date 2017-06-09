@@ -166,12 +166,12 @@
         {
             // 订单已完成
             
-            //            [self topViewLabShowType:NO whihContent:@"已完成"];
+//                        [self topViewLabShowType:NO whihContent:@"已完成"];
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = NO;
             
-            if (_is_eval == 0) {
+            if ([_is_eval intValue] == 0) {
                 [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
                 
                 [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -182,9 +182,13 @@
                 }];
                 
             }else{
-                _leftBtn.selected = YES;
-                [_leftBtn setTitle:@"  已评价  " forState:UIControlStateSelected];
-                _leftBtn.userInteractionEnabled = NO;
+                [_leftBtn setTitle:@"  查看评价  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_orderSendDetaileSee_Comment) {
+                        _orderSendDetaileSee_Comment();
+                    }
+                    
+                }];
             }
             
             

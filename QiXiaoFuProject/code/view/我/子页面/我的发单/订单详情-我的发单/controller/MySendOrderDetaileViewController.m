@@ -212,7 +212,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         }else if (_orderDetaileProModel.bill_statu ==2) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==3) {
-            [cell.stateBtn setTitle:@"已完成" forState:UIControlStateNormal];
+            if ([_orderDetaileProModel.is_eval intValue] == 0){
+                [cell.stateBtn setTitle:@"已完成" forState:UIControlStateNormal];
+            }else{
+                [cell.stateBtn setTitle:@"已评价" forState:UIControlStateNormal];
+            }
         }else if (_orderDetaileProModel.bill_statu ==4) {
             [cell.stateBtn setTitle:@"已失效" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==5) {
@@ -534,6 +538,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
 
                 
                 [self.navigationController pushViewController:vc animated:YES];
+            };
+            //查看评价
+            cell.orderSendDetaileSee_Comment =^(){
+                
+                
             };
              
             // 未完成

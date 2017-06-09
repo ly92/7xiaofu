@@ -23,7 +23,7 @@
 
 #import "MatchingEngineerListVC.h"
 #import "ForgetPayPassViewController.h"
-
+#import "BlockUIAlertView.h"
 
 @interface PayViewController (){
 
@@ -508,9 +508,21 @@
     
         [self showSuccessText:@"发单成功"];
         _requestParams = nil;
-        MatchingEngineerListVC * vc= [[MatchingEngineerListVC alloc]initWithNibName:@"MatchingEngineerListVC" bundle:nil];
-        vc.orderId = orderId;
-        [self.navigationController pushViewController:vc animated:YES];
+        
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"发单成功" message:[NSString stringWithFormat:@""] cancelButtonTitle:@"返回首页" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                MatchingEngineerListVC * vc= [[MatchingEngineerListVC alloc]initWithNibName:@"MatchingEngineerListVC" bundle:nil];
+                vc.orderId = orderId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if (buttonIndex == 0){
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        } otherButtonTitles:@"匹配工程师"];
+        [alert show];
+        
+        
     
     }
     

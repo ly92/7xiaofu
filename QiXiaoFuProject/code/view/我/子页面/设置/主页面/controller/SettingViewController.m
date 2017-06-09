@@ -26,6 +26,9 @@
 #import "AppManager.h"
 #import "LoginViewController.h"
 #import "BaseNavigationController.h"
+#import "SendOrder1ViewController.h"
+
+
 
 static NSString * kCecheKey = @"清除缓存";
 static NSString * kShareKey = @"推荐给好友";
@@ -35,10 +38,12 @@ static NSString * kChengePassWordKey = @"修改登录密码";
 static NSString * kPushState = @"是否接收推送消息";
 
 
-@interface SettingViewController ()<UIActionSheetDelegate,SKStoreProductViewControllerDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface SettingViewController ()<UIActionSheetDelegate,SKStoreProductViewControllerDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *titles;
+@property (weak, nonatomic) IBOutlet UIView *helpView;
+@property (weak, nonatomic) IBOutlet UITextView *helpTextView;
 
 
 @end
@@ -63,7 +68,7 @@ static NSString * kPushState = @"是否接收推送消息";
     NSArray * sections1Array =@[@"关于我们",@"版本",@"给我五星评价"];
 //    NSArray * sections2Array =@[@"意见反馈",@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
 //    NSArray * sections2Array =@[@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
-    NSArray * sections2Array =@[@"用户协议",@"操作手册"];
+    NSArray * sections2Array =@[@"用户协议",@"操作手册",@"意见反馈",@"帮助中心"];
 
     _titles = @[sections0Array,sections1Array,sections2Array];
 
@@ -407,14 +412,47 @@ static NSString * kPushState = @"是否接收推送消息";
             vc.title =key;
             vc.type = 1;
              [self.navigationController pushViewController:vc animated:YES];
-        }
-        if (indexPath.row == 1) {
+        }else if (indexPath.row == 1) {
             XieYiViewController * vc =[[XieYiViewController alloc]init];
             vc.title =key;
             vc.type = 2;
             [self.navigationController pushViewController:vc animated:YES];
         }
+        else if (indexPath.row == 2) {
+            //意见反馈
+            SendOrder1ViewController * vc = [[SendOrder1ViewController alloc]initWithNibName:@"SendOrder1ViewController" bundle:nil ];
+            vc.isFeedBack = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if (indexPath.row == 3) {
+            //帮助中心
+            self.helpTextView.contentOffset = CGPointMake(0, 0);
+            self.helpView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
+            self.helpView.hidden = NO;
+            
+            [UIView animateWithDuration:1.0 animations:^{
+                self.helpView.layer.transform = CATransform3DMakeScale(1, 1, 1);
+                self.helpView.alpha = 1;
+            } completion:^(BOOL finished) {
+               
+           }];
+            
+            
+        }
+
     }
+    
+}
+
+#pragma  mark - UITextViewDelegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    [UIView animateWithDuration:1.0 animations:^{
+        self.helpView.layer.transform = CATransform3DMakeScale(2, 2, 2);
+        self.helpView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.helpView.hidden = YES;
+    }];
+
+    return NO;
 }
 
 

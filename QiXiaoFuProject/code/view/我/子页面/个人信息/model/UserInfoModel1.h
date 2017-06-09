@@ -28,8 +28,8 @@
 @property (nonatomic, assign) NSInteger is_paypwd;//是否设置支付密码【0 否】【1 是】
 
 @property (nonatomic, copy) NSString *is_real;//是否实名认证【0 否 1 是】
-@property (nonatomic, assign) NSInteger count_bill;//是否完成第一个订单【0 否 1 是】
-@property (nonatomic, assign) NSInteger count_bill_integral;//完成单后是否已加分【0未加分 1已加分】
+@property (nonatomic, copy) NSString *count_bill;//是否完成第一个订单【0 否 1 是】
+@property (nonatomic, copy) NSString *count_bill_integral;//完成单后是否已加分【0未加分 1已加分】
 
 @property (nonatomic, copy) NSString * iv_code;// 邀请码
 

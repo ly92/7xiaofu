@@ -36,12 +36,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.isFeedBack){
+    self.navigationItem.title = @"意见反馈";
+    }else{
     self.navigationItem.title = @"发单";
+    }
+    
 
     _quyuArray = [NSMutableArray new];
     [_quyuArray addObject:@"0"];
     [_quyuArray addObject:@"1"];
+    if (!self.isFeedBack){
     [_quyuArray addObject:@"2"];
+    }
+    
 
     _isTop = NO;
     
@@ -55,19 +63,27 @@
     [_tableView registerNib:[UINib nibWithNibName:@"SendOrderSwitchCell" bundle:nil] forCellReuseIdentifier:@"SendOrderSwitchCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"SendOrder1UpImageCell" bundle:nil] forCellReuseIdentifier:@"SendOrder1UpImageCell"];
 
+    if (self.isFeedBack){
+    [sendOrderFooterView.trueSendOrderBtn setTitle:@"提交" forState:UIControlStateNormal];
+    }else{
+        [sendOrderFooterView.trueSendOrderBtn setTitle:@"确认发单" forState:UIControlStateNormal];
+    }
     
     [sendOrderFooterView.trueSendOrderBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
        
-        if (_isTop &&  [_requestParams[@"top_day"] length]==0) {
-            [self showErrorText:@"请填写置顶天数"];
-            return ;
-        }
-        PayViewController * vc = [[PayViewController alloc]initWithNibName:@"PayViewController" bundle:nil];
-        vc.requestParams = _requestParams;
-        vc.showaddbillModel = _showaddbillModel;
-        vc.isTop = _isTop;
-        [self.navigationController pushViewController:vc animated:YES];
+        if (self.isFeedBack){
         
+        }else{
+            if (_isTop &&  [_requestParams[@"top_day"] length]==0) {
+                [self showErrorText:@"请填写置顶天数"];
+                return ;
+            }
+            PayViewController * vc = [[PayViewController alloc]initWithNibName:@"PayViewController" bundle:nil];
+            vc.requestParams = _requestParams;
+            vc.showaddbillModel = _showaddbillModel;
+            vc.isTop = _isTop;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
@@ -98,7 +114,11 @@
     if (indexPath.row ==0) {
     
         SendOrder1Cell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrder1Cell"];
+        if (self.isFeedBack){
+        cell.textView.placeholder = @"请输入反馈内容";
+        }else{
         cell.textView.placeholder = @"请输入备注内容";
+        }
         
         cell.textView.completionBlock =^(NSString * text){
             _requestParams[@"bill_desc"] = text;//备注

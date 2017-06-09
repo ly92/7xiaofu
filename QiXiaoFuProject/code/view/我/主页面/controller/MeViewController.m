@@ -92,7 +92,7 @@
         if ([user.is_real intValue] == 1){
             [self addIntegral:@"2"];
         }
-        if (user.count_bill == 1 && user.count_bill_integral == 0){
+        if ([user.count_bill intValue] == 1 && [user.count_bill_integral intValue] == 0){
             [self addIntegral:@"3"];
         }
         

@@ -51,7 +51,7 @@
 
 @property (nonatomic, assign) NSInteger t_state;//工程师完成状态【0 未完成】【1 已完成】
 
-@property (nonatomic, assign) NSInteger is_eval;//是否已评价【0 未评价】【1 已评价】
+@property (nonatomic, copy) NSString *is_eval;//是否已评价【0 未评价】【1 已评价】
 
 
 //转移
@@ -60,6 +60,7 @@
 @property (nonatomic, copy) NSString *move_count;//剩余转移次数
 @property (nonatomic, copy) NSString *move_to_eng_id;//接受者ID
 @property (nonatomic, copy) NSString *bill_belong;//1别人转给我的 2我转移给别人的
+@property (nonatomic, copy) NSString *is_user_eval;//工程师对客户评价 0代表未评，1代表已评
 
 @end
 

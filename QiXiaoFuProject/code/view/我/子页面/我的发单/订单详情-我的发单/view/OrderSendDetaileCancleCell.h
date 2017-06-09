@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 
 
-@property (nonatomic, assign) NSInteger is_eval;
+@property (nonatomic, copy) NSString *is_eval;
 @property (nonatomic, assign) NSInteger t_state;
 @property (nonatomic, assign) NSInteger bill_statu;
 @property (nonatomic, assign) NSInteger pay_statu;
@@ -36,7 +36,7 @@
 @property(nonatomic, copy) void (^orderSendDetaileCancle_Tiaojia)(UIButton * btn);// 调价
 
 @property(nonatomic, copy) void (^orderSendDetaileCancle_Comment)();// 去评价
-
+@property(nonatomic, copy) void (^orderSendDetaileSee_Comment)();// 查看评价
 @property(nonatomic, copy) void (^orderSendDetaileCancle_WeiWanCheng)();// 未完成
 
 

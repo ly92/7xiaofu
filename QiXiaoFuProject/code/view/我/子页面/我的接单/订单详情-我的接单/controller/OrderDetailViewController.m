@@ -249,7 +249,11 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         }else if (_orderDetaileProModel.bill_statu ==2) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==3) {
-            [cell.stateBtn setTitle:@"已完成" forState:UIControlStateNormal];
+            if ([_orderDetaileProModel.is_user_eval intValue] == 0){
+                [cell.stateBtn setTitle:@"已完成" forState:UIControlStateNormal];
+            }else{
+                [cell.stateBtn setTitle:@"已评价" forState:UIControlStateNormal];
+            }
         }else if (_orderDetaileProModel.bill_statu ==4) {
             [cell.stateBtn setTitle:@"已失效" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==5) {
@@ -523,10 +527,18 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                     [self myOtBillDetailRequest];
                     
                 };
+                // 评价客户
+                
 //                [self deleateChatlistWithUserPhone:_orderDetaileProModel.call_name];
                 
                 
                 [self.navigationController pushViewController:vc animated:YES];
+            };
+            
+            // 查看评价客户
+            cell.orderDetaileSeeEvaluate_Btn =^(){
+                
+                
             };
             
             // 调价工程师确认  -- 同意

@@ -89,7 +89,7 @@
 
 @property (nonatomic, assign) NSInteger t_state;//
 
-@property (nonatomic, assign) NSInteger is_eval;//
+@property (nonatomic, copy) NSString *is_eval;//
 
 
 //转移

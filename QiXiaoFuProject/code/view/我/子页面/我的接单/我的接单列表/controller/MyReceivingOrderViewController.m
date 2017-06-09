@@ -15,7 +15,7 @@
 #import "BlockUIAlertView.h"
 #import "JieFanDanZaiCiPayViewController.h"
 #import "ChatViewController.H"
-
+#import "CommentViewController.h"
 
 @interface MyReceivingOrderViewController ()
 
@@ -404,7 +404,24 @@
         } otherButtonTitles:@"确定"];
         [alert show];
     };
-
+    
+    //去评价客户
+    cell.myReceivingOrderCellEvaluate_Btn = ^(){
+        CommentViewController * vc = [[CommentViewController alloc]initWithNibName:@"CommentViewController" bundle:nil];
+        vc.f_id = mySendOrderModel.id;
+        vc.isFromEng = YES;
+        vc.commentViewBlock =^(){
+            [self myBillListDataPage:1 hud:YES];
+        };
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    
+    //查看对客户的评价
+    cell.myReceivingOrderCellSeeEvaluate_Btn = ^{
+        
+    };
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -15,4 +15,7 @@
 
 @property (nonatomic, strong) ShowaddbillModel * showaddbillModel;// 客户发单请求配置参数
 
+
+@property (nonatomic, assign) BOOL isFeedBack;//是否为意见反馈
+
 @end

@@ -251,7 +251,7 @@
             {
                 // 订单已完成
                 
-                [self topViewLabShowType:NO whihContent:@"已完成"];
+                
 
                 _rightBtn.hidden = NO;
                 _leftBtn.hidden = NO;
@@ -260,20 +260,22 @@
                 [self deleateChatlistWithUserPhone:nil];
 
                 
-                if (mySendOrderModel.is_eval == 0) {
-                    [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
-                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        
-                        if (_mySendOrderCellWithBtnState_Comment) {
-                            _mySendOrderCellWithBtnState_Comment(mySendOrderModel);
-                        }
-                    }];
+                if ([mySendOrderModel.is_eval intValue] == 0) {
+                    [self topViewLabShowType:NO whihContent:@"已完成"];
+//                    [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
+//                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+//                        
+//                        if (_mySendOrderCellWithBtnState_Comment) {
+//                            _mySendOrderCellWithBtnState_Comment(mySendOrderModel);
+//                        }
+//                    }];
 
                 }else{
-//                    _leftBtn.hidden = YES;
+                    [self topViewLabShowType:NO whihContent:@"已评价"];
+                    _leftBtn.hidden = YES;
                     _leftBtn.selected = YES;
-                    [_leftBtn setTitle:@"  已评价  " forState:UIControlStateSelected];
-                    _leftBtn.userInteractionEnabled = NO;
+//                    [_leftBtn setTitle:@"  已评价  " forState:UIControlStateSelected];
+//                    _leftBtn.userInteractionEnabled = NO;
                  }
 
                 

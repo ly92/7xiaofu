@@ -48,4 +48,7 @@
 
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnAgreeTransfer)(MySendOrderModel * sendOrderModel);//同意转移
 
+@property(nonatomic, copy) void (^myReceivingOrderCellEvaluate_Btn)();//评价
+@property(nonatomic, copy) void (^myReceivingOrderCellSeeEvaluate_Btn)();//查看评价
+
 @end

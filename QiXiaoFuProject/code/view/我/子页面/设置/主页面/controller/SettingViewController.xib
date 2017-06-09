@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
+                <outlet property="helpView" destination="EP9-9v-2pg" id="Yms-Uf-7Ve"/>
                 <outlet property="tableView" destination="cxB-r0-KqG" id="vKj-sA-BPz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,20 +22,49 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cxB-r0-KqG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="WQ8-so-ndr"/>
                         <outlet property="delegate" destination="-1" id="pdz-w8-fuf"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EP9-9v-2pg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZuF-3f-tsr">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <mutableString key="text">Q: 七小服平台中的工程师如何分级？A：目前七小服平台工程师分为三级，直接注册入驻平台的为大A级工程师，根据A的邀请码注册进入平台的为B级工程师，根据B的邀请码注册进入平台的为C级工程师。A是B的上级，B是C的上级，三者有关联关系。Q: 七小服平台的订单有哪几种类型？A：平台分为“纯服务”，“备件+服务”两类订单。“纯服务”订单是指工程师在平台接单；“备件+服务”是指工程师从平台购买备件，用于项目中。Q: 七小服平台收取多少平台管理费？A：“纯服务”模式下，平台收取服务费30%，A收入70%。   “备件+服务”模式下，平台收取服务费25%，A收入75%。Q: 当平台交易双方出现纠纷的时候，七小服平台如何承担责任？A：未来七小服会引入保险机制，一方面会针对工程师维修不当引发的业务故障，个人财务损失，人身安全等一系列的问题进行参保；同时，资源方对于工程师的酬劳拖欠，恶意评价等问题进行一系列的惩罚机制。Q: 如何界定服务质量A：我们有三重保障：大A工程师的背书（前期对大A的筛选非常严格）；引入保险机制，如果出现新的故障会针对级别保险赔付；工程师服务后平台会做评价，引入个人信誉积分，如果处理不好，会影响后面的接单。Q: 怎么才能增加自己的接单率？A：注册后请第一时间实名认证，并设置好自己的空闲时间和擅长的技能。完成填写后，才会增加自己的接单概率，系统也会推送适合您的订单。Q: 工程师接单后是否可以取消？A：工程师接单后是可以取消的，但是如取消订单就会扣除工程师接单费用的10%。可以把订单转移到其他人：只能转给自己的上级A或者B，上级可以直接完成订单；或上级再转给其他人，最多只能转移订单2次。Q: 补单是什么意思？A：若B或者C想给A一些收入分成（比如项目是A介绍的），可以通过走“补单”的形式，给上级一定的回报。Q: 为什么个人信息中必须设置昵称和头像？A：为保护工程师的个人隐私，系统在显示你的名字的时候只会显示昵称，不会显示您的全名。</mutableString>
+                            <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="whh-SN-REc"/>
+                            </connections>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ZuF-3f-tsr" firstAttribute="top" secondItem="EP9-9v-2pg" secondAttribute="top" id="0Ih-vi-7kU"/>
+                        <constraint firstItem="ZuF-3f-tsr" firstAttribute="leading" secondItem="EP9-9v-2pg" secondAttribute="leading" id="4ou-cW-yZi"/>
+                        <constraint firstAttribute="trailing" secondItem="ZuF-3f-tsr" secondAttribute="trailing" id="RUM-ak-F3r"/>
+                        <constraint firstAttribute="bottom" secondItem="ZuF-3f-tsr" secondAttribute="bottom" id="XrI-LU-r7H"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="EP9-9v-2pg" secondAttribute="bottom" id="7wl-3c-xDL"/>
                 <constraint firstItem="cxB-r0-KqG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Ak-1c-p7F"/>
+                <constraint firstItem="EP9-9v-2pg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OGX-cx-2I6"/>
+                <constraint firstItem="EP9-9v-2pg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Uvb-nA-T6T"/>
+                <constraint firstAttribute="trailing" secondItem="EP9-9v-2pg" secondAttribute="trailing" id="eVt-Kh-gvt"/>
                 <constraint firstAttribute="trailing" secondItem="cxB-r0-KqG" secondAttribute="trailing" id="y1j-wS-Cdn"/>
                 <constraint firstAttribute="bottom" secondItem="cxB-r0-KqG" secondAttribute="bottom" id="ySP-xY-37K"/>
                 <constraint firstItem="cxB-r0-KqG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yph-2i-iAz"/>
             </constraints>
+            <point key="canvasLocation" x="63.5" y="117.5"/>
         </view>
     </objects>
 </document>
