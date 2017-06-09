@@ -91,6 +91,7 @@
 
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"member_id"] = _member_id;
+    params[@"userid"] = kUserId;
     
     [MCNetTool postWithCacheUrl:HttpMainEngDetail params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
