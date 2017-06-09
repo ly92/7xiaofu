@@ -149,11 +149,13 @@
             cell.openBlock = ^{
                 NSString * member_id;
                 NSString *move_to_eng_name;
+                NSString *to_user_name;
                 if (indexPath.row==0) {
                     if (self.bDataArray.count > indexPath.section){
                         Me_To_User * me_to_user = self.bDataArray[indexPath.section];
                         member_id = me_to_user.member_id;
                         move_to_eng_name = me_to_user.member_name;
+                        to_user_name = me_to_user.to_user_name;
                     }
                 }else{
                     Me_To_User *me_touser = self.bDataArray[indexPath.section];
@@ -162,6 +164,7 @@
                         Me_To_User *model = arrM[indexPath.row -1];
                         member_id = model.member_id;
                         move_to_eng_name = model.member_name;
+                        to_user_name = model.to_user_name;
                     }
                 }
                 
@@ -195,6 +198,7 @@
                     // 工程师详情
                     EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
                     vc.member_id = member_id;
+                    vc.to_user_name = to_user_name;
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 
@@ -216,11 +220,13 @@
             cell.openBlock = ^{
                 NSString * member_id;
                 NSString *move_to_eng_name;
+                NSString *to_user_name;
                 if (indexPath.row==0) {
                     if (self.bDataArray.count > indexPath.section){
                         Me_To_User * me_to_user = self.bDataArray[indexPath.section];
                         member_id = me_to_user.member_id;
                         move_to_eng_name = me_to_user.member_name;
+                        to_user_name = me_to_user.to_user_name;
                     }
                 }else{
                     Me_To_User *me_touser = self.bDataArray[indexPath.section];
@@ -229,6 +235,7 @@
                         Me_To_User *model = arrM[indexPath.row -1];
                         member_id = model.member_id;
                         move_to_eng_name = model.member_name;
+                        to_user_name = model.to_user_name;
                     }
                 }
                 
@@ -262,6 +269,7 @@
                     // 工程师详情
                     EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
                     vc.member_id = member_id;
+                    vc.to_user_name = to_user_name;
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 
@@ -294,11 +302,13 @@
     }else{
         NSString * member_id;
         NSString *move_to_eng_name;
+        NSString *to_user_name;
         if (indexPath.row==0) {
             if (self.bDataArray.count > indexPath.section){
                 Me_To_User * me_to_user = self.bDataArray[indexPath.section];
                 member_id = me_to_user.member_id;
                 move_to_eng_name = me_to_user.member_name;
+                to_user_name = me_to_user.to_user_name;
             }
         }else{
             Me_To_User *me_touser = self.bDataArray[indexPath.section];
@@ -307,6 +317,7 @@
                 Me_To_User *model = arrM[indexPath.row -1];
                 member_id = model.member_id;
                 move_to_eng_name = model.member_name;
+                to_user_name = model.to_user_name;
             }
         }
         
@@ -340,6 +351,7 @@
             // 工程师详情
             EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
             vc.member_id = member_id;
+            vc.to_user_name = to_user_name;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

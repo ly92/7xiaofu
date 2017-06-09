@@ -33,8 +33,8 @@
 
     
     [_iconImageView setImageWithUrl:engineerDetaileModel.member_avatar placeholder:kDefaultImage_header];
-    if (engineerDetaileModel.to_user_name.length > 0){
-        _nameLab.text = engineerDetaileModel.to_user_name;
+    if (self.to_user_name.length > 0){
+        _nameLab.text = self.to_user_name;
     }else{
         _nameLab.text = engineerDetaileModel.member_truename;
     }

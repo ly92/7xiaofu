@@ -145,6 +145,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
          EngineerDetaileHeaderCell *  cell = [tableView dequeueReusableCellWithIdentifier:@"EngineerDetaileHeaderCell"];
+        cell.to_user_name = self.to_user_name;
          cell.engineerDetaileModel =_engineerDetaileModel;
          return cell;
     }

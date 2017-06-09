@@ -10,4 +10,6 @@
 
 @interface EngineerDetaileViewController : BaseViewController
 @property (nonatomic, copy) NSString * member_id;
+@property (nonatomic, copy) NSString *to_user_name;//关联用户的备注名
+
 @end

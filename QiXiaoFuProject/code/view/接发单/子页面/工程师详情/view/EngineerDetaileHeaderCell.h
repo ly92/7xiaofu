@@ -11,5 +11,6 @@
 
 @interface EngineerDetaileHeaderCell : UITableViewCell
 @property (nonatomic, strong) EngineerDetaileModel *engineerDetaileModel;
+@property (nonatomic, copy) NSString *to_user_name;
 
 @end
