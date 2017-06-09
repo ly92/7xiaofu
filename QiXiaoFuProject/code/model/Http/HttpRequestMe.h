@@ -34,6 +34,8 @@ UIKIT_EXTERN NSString  * const HttpMeHelp_body;
 /**关于我们 */
 UIKIT_EXTERN NSString  * const HttpMeAboutWe;
 
+/**帮助中心 */
+UIKIT_EXTERN NSString  * const HttpMeHelp;
 
 /*==========================功能==========================*/
 

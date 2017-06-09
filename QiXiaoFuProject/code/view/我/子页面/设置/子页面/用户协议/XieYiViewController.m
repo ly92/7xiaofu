@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//  type;// 1 注册协议 2 操作手册  3 加入我们  4查看物流信息 5 关于我们
+//  type;// 1 注册协议 2 操作手册  3 加入我们  4查看物流信息 5 关于我们 6帮助中心
     
     if (_type == 1) {
         _url = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpXieyi];
@@ -47,6 +47,9 @@
         _url = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpMeAboutWe];
     }
     
+    if (_type == 6) {
+        _url = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpMeHelp];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -76,19 +79,19 @@
 //几个代理方法
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-    
+    [self showLoading];
     
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)web{
     
-    
+    [self dismissLoading];
     
 }
 
 -(void)webView:(UIWebView*)webView  DidFailLoadWithError:(NSError*)error{
     
-    
+    [self dismissLoading];
 }
 
 

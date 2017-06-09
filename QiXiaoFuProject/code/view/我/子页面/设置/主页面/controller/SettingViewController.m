@@ -425,16 +425,21 @@ static NSString * kPushState = @"是否接收推送消息";
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 3) {
             //帮助中心
-            self.helpTextView.contentOffset = CGPointMake(0, 0);
-            self.helpView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
-            self.helpView.hidden = NO;
+            XieYiViewController * vc =[[XieYiViewController alloc]init];
+            vc.title =key;
+            vc.type = 6;
+            [self.navigationController pushViewController:vc animated:YES];
             
-            [UIView animateWithDuration:1.0 animations:^{
-                self.helpView.layer.transform = CATransform3DMakeScale(1, 1, 1);
-                self.helpView.alpha = 1;
-            } completion:^(BOOL finished) {
-               
-           }];
+//            self.helpTextView.contentOffset = CGPointMake(0, 0);
+//            self.helpView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
+//            self.helpView.hidden = NO;
+//            
+//            [UIView animateWithDuration:1.0 animations:^{
+//                self.helpView.layer.transform = CATransform3DMakeScale(1, 1, 1);
+//                self.helpView.alpha = 1;
+//            } completion:^(BOOL finished) {
+//               
+//           }];
             
             
         }
@@ -443,18 +448,18 @@ static NSString * kPushState = @"是否接收推送消息";
     
 }
 
-#pragma  mark - UITextViewDelegate
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    [UIView animateWithDuration:1.0 animations:^{
-        self.helpView.layer.transform = CATransform3DMakeScale(2, 2, 2);
-        self.helpView.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.helpView.hidden = YES;
-    }];
-
-    return NO;
-}
-
+//#pragma  mark - UITextViewDelegate
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+//    [UIView animateWithDuration:1.0 animations:^{
+//        self.helpView.layer.transform = CATransform3DMakeScale(2, 2, 2);
+//        self.helpView.alpha = 0;
+//    } completion:^(BOOL finished) {
+//        self.helpView.hidden = YES;
+//    }];
+//
+//    return NO;
+//}
+//
 
 - (void)evaluate{
     //初始化控制器

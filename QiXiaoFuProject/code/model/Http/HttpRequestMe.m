@@ -34,6 +34,9 @@ NSString  * const HttpMeHelp_body =@"download/caozuoshouce/navi.html";
 //NSString  * const HttpMeAboutWe = @"api/index.php?act=login&op=guanyu";
 NSString  * const HttpMeAboutWe = @"download/about/about.html";
 
+/**帮助中心 */
+NSString  * const HttpMeHelp = @"download/help/help.html";
+
 /*==========================功能==========================*/
 
 /**我的发单列表*/
