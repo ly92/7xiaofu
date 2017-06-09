@@ -535,7 +535,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                 [self.navigationController pushViewController:vc animated:YES];
             };
             
-            // 查看评价客户
+            // 查看评价
             cell.orderDetaileSeeEvaluate_Btn =^(){
                 
                 

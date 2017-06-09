@@ -417,7 +417,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     };
     
-    //查看对客户的评价
+    //查看评价
     cell.myReceivingOrderCellSeeEvaluate_Btn = ^{
         
     };
