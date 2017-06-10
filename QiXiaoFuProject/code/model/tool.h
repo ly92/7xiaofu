@@ -7,7 +7,7 @@
  
  */
 
-#define kNetWorkEnvironment 2
+#define kNetWorkEnvironment 1
 
 #define showPrice 1   //1显示价格  0不显示价格
 

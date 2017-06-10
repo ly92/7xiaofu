@@ -193,3 +193,6 @@ UIKIT_EXTERN NSString  * const HttpRedits;
 UIKIT_EXTERN NSString  * const HttpAddRedits;
 /** 福券*/
 UIKIT_EXTERN NSString  * const HttpCoupon;
+
+/** 反馈*/
+UIKIT_EXTERN NSString  * const HttpMeFeedBack;

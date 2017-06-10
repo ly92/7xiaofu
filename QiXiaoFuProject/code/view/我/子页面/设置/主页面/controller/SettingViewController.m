@@ -420,8 +420,14 @@ static NSString * kPushState = @"是否接收推送消息";
         }
         else if (indexPath.row == 2) {
             //意见反馈
+            
+//            FeedbackViewController * feedbackViewController = [[FeedbackViewController alloc]initWithNibName:@"FeedbackViewController" bundle:nil];
+//            feedbackViewController.title =key;
+//            [self.navigationController pushViewController:feedbackViewController animated:YES];
+        
             SendOrder1ViewController * vc = [[SendOrder1ViewController alloc]initWithNibName:@"SendOrder1ViewController" bundle:nil ];
             vc.isFeedBack = YES;
+            vc.requestParams = [NSMutableDictionary dictionary];
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 3) {
             //帮助中心

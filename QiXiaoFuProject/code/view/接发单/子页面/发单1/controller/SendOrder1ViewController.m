@@ -42,7 +42,6 @@
     self.navigationItem.title = @"发单";
     }
     
-
     _quyuArray = [NSMutableArray new];
     [_quyuArray addObject:@"0"];
     [_quyuArray addObject:@"1"];
@@ -72,7 +71,23 @@
     [sendOrderFooterView.trueSendOrderBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
        
         if (self.isFeedBack){
-        
+            NSString *content = _requestParams[@"bill_desc"];
+            if (!content.yw_notNull){
+                [self showErrorText:@"请输入反馈内容"];
+                return ;
+            }
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"content"] = content;
+            params[@"member_name"] = kUserName;
+            params[@"id"] = kUserId;
+            params[@"userid"] = kUserId;
+            
+            [MCNetTool postWithUrl:HttpMeFeedBack params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [self showSuccessText:@"提交成功，感谢您的反馈！"];
+                [self.navigationController popViewControllerAnimated:YES];
+            } fail:^(NSString *error) {
+                [self showErrorText:@"提交失败，请重试！"];
+            }];
         }else{
             if (_isTop &&  [_requestParams[@"top_day"] length]==0) {
                 [self showErrorText:@"请填写置顶天数"];

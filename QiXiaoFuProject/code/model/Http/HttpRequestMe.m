@@ -192,3 +192,6 @@ NSString  * const HttpAddRedits = @"tp.php/Home/My/addIntegral";
 
 /** 福券*/
 NSString  * const HttpCoupon = @"";
+
+/** 反馈*/
+NSString  * const HttpMeFeedBack = @"tp.php/Home/My/feedBack";
