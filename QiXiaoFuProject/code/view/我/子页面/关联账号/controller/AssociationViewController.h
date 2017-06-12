@@ -10,7 +10,6 @@
 
 @interface AssociationViewController : BaseViewController
 @property (nonatomic, assign) BOOL isFromTrans;//是否为转移订单时选择用户
-@property (nonatomic, copy) NSString *orderId;//待转移的订单ID
-
+@property(nonatomic, copy) void (^orderTransferBlock)(NSString *receiver_id,NSString *receiver_name);
 
 @end

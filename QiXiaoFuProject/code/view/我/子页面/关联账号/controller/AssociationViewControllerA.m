@@ -172,23 +172,28 @@
                     BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                         
                         if(buttonIndex == 1){
-                            NSMutableDictionary * params = [NSMutableDictionary new];
-                            params[@"userid"] = kUserId;
-                            params[@"move_to_eng_id"] = member_id;//接受者的id
-                            params[@"id"] = self.orderId;//订单id
-                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-                            [self showLoading];
-                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                                [self dismissLoading];
-                                //转移成功后的通知
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+                            if (self.orderTransferBlock){
+                            self.orderTransferBlock(member_id, move_to_eng_name);
                                 [self.navigationController popViewControllerAnimated:YES];
-                                [self showSuccessText:msg];
-                                
-                            } fail:^(NSString *error) {
-                                [self dismissLoading];
-                                [self showErrorText:error];
-                            }];
+                            }
+                            
+//                            NSMutableDictionary * params = [NSMutableDictionary new];
+//                            params[@"userid"] = kUserId;
+//                            params[@"move_to_eng_id"] = member_id;//接受者的id
+//                            params[@"id"] = self.orderId;//订单id
+//                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
+//                            [self showLoading];
+//                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//                                [self dismissLoading];
+//                                //转移成功后的通知
+//                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+//                                [self.navigationController popViewControllerAnimated:YES];
+//                                [self showSuccessText:msg];
+//                                
+//                            } fail:^(NSString *error) {
+//                                [self dismissLoading];
+//                                [self showErrorText:error];
+//                            }];
                         }
                         
                     } otherButtonTitles:@"确定"];
@@ -243,23 +248,27 @@
                     BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                         
                         if(buttonIndex == 1){
-                            NSMutableDictionary * params = [NSMutableDictionary new];
-                            params[@"userid"] = kUserId;
-                            params[@"move_to_eng_id"] = member_id;//接受者的id
-                            params[@"id"] = self.orderId;//订单id
-                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-                            [self showLoading];
-                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                                [self dismissLoading];
-                                //转移成功后的通知
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+                            if (self.orderTransferBlock){
+                                self.orderTransferBlock(member_id, move_to_eng_name);
                                 [self.navigationController popViewControllerAnimated:YES];
-                                [self showSuccessText:msg];
-                                
-                            } fail:^(NSString *error) {
-                                [self dismissLoading];
-                                [self showErrorText:error];
-                            }];
+                            }
+//                            NSMutableDictionary * params = [NSMutableDictionary new];
+//                            params[@"userid"] = kUserId;
+//                            params[@"move_to_eng_id"] = member_id;//接受者的id
+//                            params[@"id"] = self.orderId;//订单id
+//                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
+//                            [self showLoading];
+//                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//                                [self dismissLoading];
+//                                //转移成功后的通知
+//                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+//                                [self.navigationController popViewControllerAnimated:YES];
+//                                [self showSuccessText:msg];
+//                                
+//                            } fail:^(NSString *error) {
+//                                [self dismissLoading];
+//                                [self showErrorText:error];
+//                            }];
                         }
                         
                     } otherButtonTitles:@"确定"];
@@ -325,23 +334,27 @@
             BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                 
                 if(buttonIndex == 1){
-                    NSMutableDictionary * params = [NSMutableDictionary new];
-                    params[@"userid"] = kUserId;
-                    params[@"move_to_eng_id"] = member_id;//接受者的id
-                    params[@"id"] = self.orderId;//订单id
-                    params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-                    [self showLoading];
-                    [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                        [self dismissLoading];
-                        //转移成功后的通知
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+                    if (self.orderTransferBlock){
+                        self.orderTransferBlock(member_id, move_to_eng_name);
                         [self.navigationController popViewControllerAnimated:YES];
-                        [self showSuccessText:msg];
-                        
-                    } fail:^(NSString *error) {
-                        [self dismissLoading];
-                        [self showErrorText:error];
-                    }];
+                    }
+//                    NSMutableDictionary * params = [NSMutableDictionary new];
+//                    params[@"userid"] = kUserId;
+//                    params[@"move_to_eng_id"] = member_id;//接受者的id
+//                    params[@"id"] = self.orderId;//订单id
+//                    params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
+//                    [self showLoading];
+//                    [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//                        [self dismissLoading];
+//                        //转移成功后的通知
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
+//                        [self.navigationController popViewControllerAnimated:YES];
+//                        [self showSuccessText:msg];
+//                        
+//                    } fail:^(NSString *error) {
+//                        [self dismissLoading];
+//                        [self showErrorText:error];
+//                    }];
                 }
                 
             } otherButtonTitles:@"确定"];

@@ -797,6 +797,8 @@
 		0853FF281ED6B7DF005D0E94 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF271ED6B7DF005D0E94 /* LocalData.m */; };
 		0853FF2C1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF2A1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m */; };
 		0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */; };
+		088BB21F1EEE7EA4003A1D80 /* TransferOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */; };
+		088BB2201EEE7EA4003A1D80 /* TransferOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2319,6 +2321,9 @@
 		0853FF291ED7BBC4005D0E94 /* SearchEngGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEngGoodsViewController.h; sourceTree = "<group>"; };
 		0853FF2A1ED7BBC4005D0E94 /* SearchEngGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEngGoodsViewController.m; sourceTree = "<group>"; };
 		0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchEngGoodsViewController.xib; sourceTree = "<group>"; };
+		088BB21C1EEE7EA4003A1D80 /* TransferOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferOrderViewController.h; sourceTree = "<group>"; };
+		088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferOrderViewController.m; sourceTree = "<group>"; };
+		088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferOrderViewController.xib; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -3461,6 +3466,7 @@
 		048919FB1DD5CF8C0099E24F /* 我的接单 */ = {
 			isa = PBXGroup;
 			children = (
+				088BB21B1EEE7E86003A1D80 /* transferOrder */,
 				048919FC1DD5CF8C0099E24F /* 我的接单列表 */,
 				04891A061DD5CF8C0099E24F /* 订单详情-我的接单 */,
 			);
@@ -7665,6 +7671,16 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		088BB21B1EEE7E86003A1D80 /* transferOrder */ = {
+			isa = PBXGroup;
+			children = (
+				088BB21C1EEE7EA4003A1D80 /* TransferOrderViewController.h */,
+				088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */,
+				088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */,
+			);
+			path = transferOrder;
+			sourceTree = "<group>";
+		};
 		099A94241EC2AAA8004EDD66 /* category */ = {
 			isa = PBXGroup;
 			children = (
@@ -7865,6 +7881,7 @@
 				048FF20B1D7528CC00268A78 /* 多组数据.plist in Resources */,
 				0422A6261D94C415001ADE98 /* ShopDetaileTagCell.xib in Resources */,
 				0853FF221ED68D56005D0E94 /* SpaceTimeCell.xib in Resources */,
+				088BB2201EEE7EA4003A1D80 /* TransferOrderViewController.xib in Resources */,
 				041B31B31D7D1C1100A8EBA2 /* LoginFooterView.xib in Resources */,
 				041B31CA1D7D319300A8EBA2 /* RegisterViewController.xib in Resources */,
 				041B31EA1D7D9A2800A8EBA2 /* CertificationViewController.xib in Resources */,
@@ -8493,6 +8510,7 @@
 				04E8BD641D58822D003E4550 /* AppManager.m in Sources */,
 				0492663E1D5EE26C0098A3A6 /* TabBar.m in Sources */,
 				04DAC5171DB8BC5A002235A7 /* EMCDDeviceManager+Microphone.m in Sources */,
+				088BB21F1EEE7EA4003A1D80 /* TransferOrderViewController.m in Sources */,
 				049266C81D5EE3C90098A3A6 /* UIImage+MJ.m in Sources */,
 				04DAC5771DB8BC5B002235A7 /* EaseMessageTimeCell.m in Sources */,
 				04DAC5551DB8BC5A002235A7 /* PSTCollectionViewLayout.m in Sources */,

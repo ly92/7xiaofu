@@ -25,11 +25,9 @@
 #import "TPKeyboardAvoidingTableView.h"
 #import "NSArray+Utils.h"
 #import "ChatViewController.h"
-#import "AssociationViewController.h"
-#import "AssociationViewControllerA.h"
 #import "CommentViewController.h"
 #import "CommentListViewController.h"
-
+#import "TransferOrderViewController.h"
 
 
 static NSString * const kSeverName = @"项目名称";
@@ -374,18 +372,9 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             cell.orderDetaileProModel = _orderDetaileProModel;
             //转移订单
             cell.orderDetaileTransfer_Btn = ^(){
-                UserInfoModel * user = [UserManager readModel];
-                if ([user.member_level isEqualToString:@"A"]){
-                    AssociationViewControllerA * vc = [[AssociationViewControllerA alloc]initWithNibName:@"AssociationViewControllerA" bundle:nil];
-                    vc.isFromTrans = YES;
-                    vc.orderId = _orderDetaileProModel.id;
-                    [self.navigationController pushViewController:vc animated:YES];
-                }else{
-                    AssociationViewController * vc = [[AssociationViewController alloc]initWithNibName:@"AssociationViewController" bundle:nil];
-                    vc.isFromTrans = YES;
-                    vc.orderId = _orderDetaileProModel.id;
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
+                TransferOrderViewController *transferVC = [[TransferOrderViewController alloc] init];
+                transferVC.orderId = _orderDetaileProModel.id;
+                [self.navigationController pushViewController:transferVC animated:YES];
             };
             
             
