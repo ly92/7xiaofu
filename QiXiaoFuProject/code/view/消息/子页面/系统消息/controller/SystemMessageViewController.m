@@ -267,9 +267,9 @@
     
     if (self.dealBtnView.hidden){
         //资金消息不进入详情页
-        if (self.systemMessageType == SystemMessageTypeMoney){
-            return;
-        }
+//        if (self.systemMessageType == SystemMessageTypeMoney){
+//            return;
+//        }
         
         SysTemMessageModel * messageModel = _dataArray[indexPath.section];
         
@@ -296,8 +296,8 @@
         }
         
         if (messageModel.jump_type ==74) {
-            WalletViewController * vc = [[WalletViewController alloc]initWithNibName:@"WalletViewController" bundle:nil];
-            [self.navigationController pushViewController:vc animated:YES];
+//            WalletViewController * vc = [[WalletViewController alloc]initWithNibName:@"WalletViewController" bundle:nil];
+//            [self.navigationController pushViewController:vc animated:YES];
             
         }
         

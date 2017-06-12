@@ -367,29 +367,40 @@
                 chatController.title = [[RobotManager sharedInstance] getRobotNickWithUsername:conversation.conversationId];
                 [self.navigationController pushViewController:chatController animated:YES];
             } else {
- 
                 
 //                ChatViewController *chatController = [[ChatViewController alloc]
 //                                                      initWithConversationChatter:conversation.conversationId conversationType:conversation.type];
-//                
+//
                 
-                ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.conversationId  friendUsername:conversationModel.title
-                                                friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
-                                                        user:kPhone
-                                                    userName:kUserName
-                                                    userIcon:kUserIcon];
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"phone"] = conversation.conversationId;
                 
-                
-                
-                chatController.title = conversationModel.title;
-                chatController.friendIcon = conversationModel.avatarURLPath;
-                chatController.userIcon = kUserIcon;
-                [self.navigationController pushViewController:chatController animated:YES];
+                [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    
+                    [self goToChatView:conversation.conversationId friendUsername:[requestDic objectForKey:@"member_nik_name"] friendUserIcon:[requestDic objectForKey:@"touxiang"]user:conversation.conversationId userName:kUserName userIcon:kUserIcon avatarURLPath:conversationModel.avatarURLPath];
+                    
+                } fail:^(NSString *error) {
+                    [self goToChatView:conversation.conversationId friendUsername:@"客服" friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage] user:conversation.conversationId userName:kUserName userIcon:kUserIcon avatarURLPath:conversationModel.avatarURLPath];
+                }];
             }
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"setupUnreadMessageCount" object:nil];
         [self.tableView reloadData];
     }
+}
+
+- (void)goToChatView:(NSString *)conversationChatter
+      friendUsername:(NSString *)friendUsername
+      friendUserIcon:(NSString *)friendUserIcon
+                user:(NSString *)user
+            userName:(NSString *)userName
+            userIcon:(NSString *)userIcon avatarURLPath:(NSString *)avatarURLPath{
+    ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:conversationChatter  friendUsername:friendUsername friendUserIcon:friendUserIcon user:user userName:userName userIcon:userIcon];
+    
+    chatController.title = friendUsername;
+    chatController.friendIcon = avatarURLPath;
+    chatController.userIcon = kUserIcon;
+    [self.navigationController pushViewController:chatController animated:YES];
 }
 
 #pragma mark - EaseConversationListViewControllerDataSource

@@ -163,12 +163,20 @@
             
             ChatListModel * chatListModel = [[ChatListModel alloc] init];
             chatListModel.user = user;
-            chatListModel.userName = userName;
             chatListModel.userIcon = userIcon;
+            chatListModel.userName = userName;
             
             chatListModel.friendUser = conversationChatter;
-            chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
-            chatListModel.friendUserIcon = requestDic[@"touxiang"];
+            
+            if ([user isEqualToString:kPhone]){
+                chatListModel.friendUserIcon = friendUserIcon;
+                chatListModel.friendUsername = @"客服";
+            }else{
+                
+                chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
+                chatListModel.friendUserIcon = requestDic[@"touxiang"];
+            }
+            
             [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
 
             [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
