@@ -51,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.sel_sec_index = 2;
+    self.sel_sec_index = 1;
     self.navigationItem.title = @"商品详情";
     
     if (showPrice){
@@ -180,7 +180,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0){
-      return 4;
+      return 3;
     }
       return 1;
 }
@@ -244,7 +244,7 @@
         
         NSString *str;
         if (self.sel_sec_index == 1){
-            str = @"";
+            str = _goodsDetaileModel.goods_info.mobile_body;
         }else if (self.sel_sec_index == 2){
             str = _goodsDetaileModel.goods_info.goods_table;
         }
@@ -282,9 +282,9 @@
             return cell.cellHeight;
 
         }else if(indexPath.row ==3){
-            
-            CGFloat height = [[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",indexPath.row,indexPath.section]] floatValue];
-            return height==0?30:height;
+            return 0;
+//            CGFloat height = [[self.heightDic objectForKey:[NSString stringWithFormat:@"%ld%ld",indexPath.row,indexPath.section]] floatValue];
+//            return height==0?30:height;
         }
          return UITableViewAutomaticDimension;
     }
