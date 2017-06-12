@@ -69,6 +69,9 @@ NSString  * const HttpMeEngDelBill = @"tp.php/Home/My/engDelBill";
 /**工程师评价订单*/
 NSString  * const HttpMeEngaddClientEvaluation = @"tp.php/Home/My/addClientEvaluation";
 
+/**查看评价*/
+NSString  * const HttpSeeClientEvaluation = @"tp.php/Home/My/orderComment";
+
 /**撤销发单*/
 NSString  * const HttpMeUndoBill = @"tp.php/Home/My/undoBill";
 

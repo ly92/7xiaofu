@@ -71,7 +71,8 @@ UIKIT_EXTERN NSString  * const HttpMeEngDelBill;
 
 /**工程师评价订单*/
 UIKIT_EXTERN NSString  * const HttpMeEngaddClientEvaluation;
-
+/**查看评价*/
+UIKIT_EXTERN NSString  * const HttpSeeClientEvaluation;
 /**撤销发单*/
 UIKIT_EXTERN NSString  * const HttpMeUndoBill ;
 

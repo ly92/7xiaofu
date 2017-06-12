@@ -67,14 +67,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x8bc4;&#x8bba;&#x5217;&#x8868;/controller/CommentListViewController.m"
-            timestampString = "518691849.563098"
+            filePath = "QiXiaoFuProject/code/lib/EaseUI/EMUIKit/ViewController/EaseMessageViewController.m"
+            timestampString = "518920905.639387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-initWithConversationChatter:friendUsername:friendUserIcon:user:userName:userIcon:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x6211;&#x7684;&#x53d1;&#x5355;&#x5217;&#x8868;/controller/MySendOrderViewController.m"
+            timestampString = "518923510.815063"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "-seeComment:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MySendOrderViewController seeComment:]"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
+                  timestampString = "518923984.270071"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "415"
+                  endingLineNumber = "415"
+                  offsetFromSymbolStart = "3480">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[MySendOrderViewController seeComment:]_block_invoke"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
+                  timestampString = "518923984.27271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "417"
+                  endingLineNumber = "417"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

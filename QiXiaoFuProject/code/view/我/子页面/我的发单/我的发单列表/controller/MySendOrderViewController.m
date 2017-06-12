@@ -256,15 +256,14 @@
     };
     // 去评价
     cell.mySendOrderCellWithBtnState_Comment =^(MySendOrderModel * sendOrderModel){
-        
          [self sendOrder_goComment_withModel:sendOrderModel];
-
-        
+    };
+    //查看评价
+    cell.mySendOrderCellWithBtnState_SeeComment =^(MySendOrderModel * sendOrderModel){
+        [self seeComment:sendOrderModel];
     };
     // 删除订单
     cell.mySendOrderCellWithBtnState_Delete =^(MySendOrderModel * sendOrderModel,NSIndexPath * cellIndexPath){
-        
-        
         BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"删除之后订单无法被找回,你确认要删除此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
             
             if(buttonIndex == 1){
@@ -404,6 +403,20 @@
     };
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+//查看评价
+- (void)seeComment:(MySendOrderModel * )sendOrderModel{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"sender_id"] = kUserId;
+    params[@"receiver_id"] = sendOrderModel.ot_user_id;
+
+    
+    [MCNetTool postWithUrl:HttpSeeClientEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        
+    } fail:^(NSString *error) {
+        
+    }];
 }
 
 #pragma mark - 客户取消发单

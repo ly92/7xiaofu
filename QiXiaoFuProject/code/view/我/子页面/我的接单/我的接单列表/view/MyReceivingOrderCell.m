@@ -195,7 +195,7 @@
             
             _chatBtn.hidden = YES;
             [self deleateChatlistWithUserPhone:nil];
-            _leftBtn.hidden = YES;
+            _leftBtn.hidden = NO;
             _rightBtn.hidden = NO;
             _rightBtn.selected = NO;
             [_rightBtn setTitle:@"  删除  " forState:UIControlStateNormal];
@@ -209,22 +209,22 @@
             if ([mySendOrderModel.is_user_eval intValue] == 0){
                 [self topViewLabShowType:NO whihContent:@"已完成"];
                 
-//                [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
-//                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-//                    
-//                    if (_myReceivingOrderCellEvaluate_Btn) {
-//                        _myReceivingOrderCellEvaluate_Btn();
-//                    }
-//                }];
+                [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_myReceivingOrderCellEvaluate_Btn) {
+                        _myReceivingOrderCellEvaluate_Btn();
+                    }
+                }];
             }else{
                 [self topViewLabShowType:NO whihContent:@"已评价"];
-//                [_leftBtn setTitle:@"  查看评价  " forState:UIControlStateNormal];
-//                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-//                    
-//                    if (_myReceivingOrderCellSeeEvaluate_Btn) {
-//                        _myReceivingOrderCellSeeEvaluate_Btn();
-//                    }
-//                }];
+                [_leftBtn setTitle:@"  查看评价  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_myReceivingOrderCellSeeEvaluate_Btn) {
+                        _myReceivingOrderCellSeeEvaluate_Btn();
+                    }
+                }];
             }
 
             

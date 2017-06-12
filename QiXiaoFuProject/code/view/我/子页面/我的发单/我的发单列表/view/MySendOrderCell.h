@@ -37,7 +37,8 @@
 
 @property(nonatomic, copy) void (^mySendOrderCellWithBtnState_BuTongYi)(MySendOrderModel * sendOrderModel);
 
-@property(nonatomic, copy) void (^mySendOrderCellWithBtnState_Comment)(MySendOrderModel * sendOrderModel);
+@property(nonatomic, copy) void (^mySendOrderCellWithBtnState_Comment)(MySendOrderModel * sendOrderModel);//评价
+@property(nonatomic, copy) void (^mySendOrderCellWithBtnState_SeeComment)(MySendOrderModel * sendOrderModel);//查看评价
 
 
 @property(nonatomic, copy) void (^mySendOrderCellWithBtnChat)(MySendOrderModel * sendOrderModel);
