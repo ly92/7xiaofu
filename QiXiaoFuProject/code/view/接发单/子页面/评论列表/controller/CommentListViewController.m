@@ -20,15 +20,22 @@
 @property(nonatomic, assign) NSInteger page;//页数
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) NSMutableArray *seeCommentData;
+
+
 @end
 
 @implementation CommentListViewController
 
+- (NSMutableArray *)seeCommentData{
+    if (!_seeCommentData){
+        _seeCommentData = [NSMutableArray array];
+    }
+    return _seeCommentData;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    self.navigationItem .title = @"评论列表";
     
 //    if(_type == 1){
 //        self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"评论" target:self action:@selector(commentItemAction:)];
@@ -45,13 +52,49 @@
 
     _tableView.tableFooterView = [UIView new];
     
-    // Do any additional setup after loading the view from its nib.
-    [self loadEngnieerCommentModelDataWithPage:1 hud:YES];
-    
-    [self addRefreshView];
-    // Do any additional setup after loading the view from its nib.
+    if (self.isSeeComment){
+        [self loadSeeComment];
+        self.navigationItem .title = @"评论记录";
+    }else{
+        self.navigationItem .title = @"评论列表";
+        [self loadEngnieerCommentModelDataWithPage:1 hud:YES];
+        [self addRefreshView];
+    }
 }
 
+- (void)loadSeeComment{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"sender_id"] = self.sender_id;
+    params[@"receiver_id"] = self.receiver_id;
+    [MCNetTool postWithUrl:HttpSeeClientEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        CommentModel * commentModel1 = [[CommentModel alloc] init];
+        CommentModel * commentModel2 = [[CommentModel alloc] init];
+//        [_iconImageView setImageWithUrl:commentModel.member_avatar placeholder:kDefaultImage_header];
+//        _nameLab.text = commentModel.member_truename;
+//        _timelAb.text = [Utool comment_timeStamp2TimeFormatter:commentModel.time];
+//        _lView.level = [commentModel.stars floatValue];
+//        _contentLab.text = commentModel.content;
+        commentModel1.member_avatar = [requestDic objectForKey:@"bill_user_avatar"];
+        commentModel1.member_truename = [requestDic objectForKey:@"bill_nik_name"];
+        commentModel1.time = [requestDic objectForKey:@""];
+        commentModel1.stars = [requestDic objectForKey:@"stars"];
+        commentModel1.content = [requestDic objectForKey:@"content"];
+        
+        commentModel2.member_avatar = [requestDic objectForKey:@"ot_user_avatar"];
+        commentModel2.member_truename = [requestDic objectForKey:@"ot_nik_name"];
+        commentModel2.time = [requestDic objectForKey:@""];
+        commentModel2.stars = [requestDic objectForKey:@"star_to_user"];
+        commentModel2.content = [requestDic objectForKey:@"content_to_user"];
+        
+        [self.seeCommentData addObject:commentModel1];
+        [self.seeCommentData addObject:commentModel2];
+        
+    } fail:^(NSString *error) {
+        
+    }];
+
+}
 
 - (void)loadEngnieerCommentModelDataWithPage:(NSInteger)page hud:(BOOL)hud{
     
@@ -121,15 +164,30 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.isSeeComment){
+        return 2;
+    }
     return _dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.isSeeComment){
+        return 1;
+    }
     CommentModel * commentModel = _dataArray[section];
     return 1 + commentModel.reply_list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.isSeeComment){
+        CommentCell*  cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+        if (self.seeCommentData.count > indexPath.row){
+            CommentModel * commentModel = self.seeCommentData[indexPath.row];
+            cell.commentModel =commentModel;
+        }
+       return cell;
+    }
     
     
     CommentModel * commentModel = _dataArray[indexPath.section];
@@ -155,6 +213,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.isSeeComment){
+        return;
+    }
     
     if(_type != 1){
     

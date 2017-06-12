@@ -17,6 +17,8 @@
 #import "ChatViewController.h"
 //#import "SendOrderViewController.h"
 //#import "CertificationViewController.h"
+#import "CommentListViewController.h"
+
 
 @interface MySendOrderViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -260,7 +262,11 @@
     };
     //查看评价
     cell.mySendOrderCellWithBtnState_SeeComment =^(MySendOrderModel * sendOrderModel){
-        [self seeComment:sendOrderModel];
+        CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
+        vc.isSeeComment = YES;
+        vc.sender_id = kUserId;
+        vc.receiver_id = sendOrderModel.ot_user_id;
+        [self.navigationController pushViewController:vc animated:YES];
     };
     // 删除订单
     cell.mySendOrderCellWithBtnState_Delete =^(MySendOrderModel * sendOrderModel,NSIndexPath * cellIndexPath){
@@ -404,20 +410,20 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-//查看评价
-- (void)seeComment:(MySendOrderModel * )sendOrderModel{
-    NSMutableDictionary * params = [NSMutableDictionary new];
-    params[@"userid"] = kUserId;
-    params[@"sender_id"] = kUserId;
-    params[@"receiver_id"] = sendOrderModel.ot_user_id;
-
-    
-    [MCNetTool postWithUrl:HttpSeeClientEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
-        
-    } fail:^(NSString *error) {
-        
-    }];
-}
+////查看评价
+//- (void)seeComment:(MySendOrderModel * )sendOrderModel{
+//    NSMutableDictionary * params = [NSMutableDictionary new];
+//    params[@"userid"] = kUserId;
+//    params[@"sender_id"] = kUserId;
+//    params[@"receiver_id"] = sendOrderModel.ot_user_id;
+//
+//    
+//    [MCNetTool postWithUrl:HttpSeeClientEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//        
+//    } fail:^(NSString *error) {
+//        
+//    }];
+//}
 
 #pragma mark - 客户取消发单
 /**

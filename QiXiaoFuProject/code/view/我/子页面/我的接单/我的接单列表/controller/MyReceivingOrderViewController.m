@@ -16,6 +16,8 @@
 #import "JieFanDanZaiCiPayViewController.h"
 #import "ChatViewController.H"
 #import "CommentViewController.h"
+#import "CommentListViewController.h"
+
 
 @interface MyReceivingOrderViewController ()
 
@@ -419,7 +421,11 @@
     
     //查看评价
     cell.myReceivingOrderCellSeeEvaluate_Btn = ^{
-        
+        CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
+        vc.isSeeComment = YES;
+        vc.sender_id = mySendOrderModel.ot_user_id;
+        vc.receiver_id = kUserId;
+        [self.navigationController pushViewController:vc animated:YES];
     };
     
     return cell;

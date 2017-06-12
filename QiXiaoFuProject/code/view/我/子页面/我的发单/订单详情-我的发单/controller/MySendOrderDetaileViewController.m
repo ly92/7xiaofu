@@ -25,6 +25,8 @@
 #import "ChatViewController.h"
 #import "CommentViewController.h"
 #import "ChongSendOrderVC1.h"
+#import "CommentListViewController.h"
+
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -541,7 +543,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             };
             //查看评价
             cell.orderSendDetaileSee_Comment =^(){
-                
+                CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
+                vc.isSeeComment = YES;
+                vc.sender_id = kUserId;
+                vc.receiver_id = _orderDetaileProModel.ot_user_id;
+                [self.navigationController pushViewController:vc animated:YES];
                 
             };
              

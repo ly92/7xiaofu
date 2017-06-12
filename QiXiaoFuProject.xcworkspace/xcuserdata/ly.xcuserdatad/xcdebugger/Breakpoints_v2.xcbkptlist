@@ -20,27 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
-            timestampString = "518682825.082074"
+            timestampString = "518932173.49066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x6211;&#x7684;&#x63a5;&#x5355;&#x5217;&#x8868;/controller/MyReceivingOrderViewController.m"
-            timestampString = "518681606.98568"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +36,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x53d1;&#x5355;/controller/MySendOrderDetaileViewController.m"
-            timestampString = "518683301.406123"
+            timestampString = "518932029.211336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
+            startingLineNumber = "546"
+            endingLineNumber = "546"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x6211;&#x7684;&#x63a5;&#x5355;&#x5217;&#x8868;/controller/MyReceivingOrderViewController.m"
+            timestampString = "518931939.2881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,156 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x6211;&#x7684;&#x53d1;&#x5355;&#x5217;&#x8868;/controller/MySendOrderViewController.m"
-            timestampString = "518923510.815063"
+            timestampString = "518932013.37654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
-            landmarkName = "-seeComment:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[MySendOrderViewController seeComment:]"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
-                  timestampString = "518929669.608979"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "415"
-                  endingLineNumber = "415"
-                  offsetFromSymbolStart = "3480">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__40-[MySendOrderViewController seeComment:]_block_invoke"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/QiXiaoFuProject/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95/%E6%88%91%E7%9A%84%E5%8F%91%E5%8D%95%E5%88%97%E8%A1%A8/controller/MySendOrderViewController.m"
-                  timestampString = "518929669.610801"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "417"
-                  endingLineNumber = "417"
-                  offsetFromSymbolStart = "88">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6d88;&#x606f;/&#x4e3b;&#x9875;&#x9762;/controller/MessageViewController.m"
-            timestampString = "518925436.816661"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/lib/EaseUI/EMUIKit/ViewController/EaseMessageViewController.m"
-            timestampString = "518928701.081649"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-initWithConversationChatter:friendUsername:friendUserIcon:user:userName:userIcon:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/lib/EaseUI/EMUIKit/ViewController/EaseMessageViewController.m"
-            timestampString = "518929078.028574"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "-initWithConversationChatter:friendUsername:friendUserIcon:user:userName:userIcon:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x5b50;&#x9875;&#x9762;/&#x5de5;&#x7a0b;&#x5e08;&#x5206;&#x5e03;&#x5730;&#x56fe;/controller/EngineerDistributedMapViewController.m"
-            timestampString = "518929317.935391"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-toNavigationMapwithModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x6211;&#x7684;&#x63a5;&#x5355;&#x5217;&#x8868;/controller/MyReceivingOrderViewController.m"
-            timestampString = "518929382.278984"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x53d1;&#x5355;/controller/MySendOrderDetaileViewController.m"
-            timestampString = "518929387.207925"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "735"
-            endingLineNumber = "735"
-            landmarkName = "-chatItemAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
-            timestampString = "518929393.761329"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "759"
-            endingLineNumber = "759"
-            landmarkName = "-chatItemAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

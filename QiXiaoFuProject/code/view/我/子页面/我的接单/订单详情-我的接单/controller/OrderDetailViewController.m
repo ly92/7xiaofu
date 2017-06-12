@@ -28,6 +28,9 @@
 #import "AssociationViewController.h"
 #import "AssociationViewControllerA.h"
 #import "CommentViewController.h"
+#import "CommentListViewController.h"
+
+
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -537,7 +540,11 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             
             // 查看评价
             cell.orderDetaileSeeEvaluate_Btn =^(){
-                
+                CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
+                vc.isSeeComment = YES;
+                vc.sender_id = _orderDetaileProModel.bill_user_id;
+                vc.receiver_id = kUserId;
+                [self.navigationController pushViewController:vc animated:YES];
                 
             };
             
