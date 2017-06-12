@@ -759,7 +759,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
     ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:_orderDetaileProModel.call_name
                                                                                    friendUsername:_orderDetaileProModel.call_nik_name
                                                                                    friendUserIcon:_orderDetaileProModel.bill_user_avatar
-                                                                                             user:kPhone
+                                                                                             user:_orderDetaileProModel.call_name
                                                                                          userName:kUserName
                                                                                          userIcon:kUserIcon];
     
