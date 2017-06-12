@@ -163,18 +163,26 @@
                     }
                 }];
                 
-                [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
-                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
-                        _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
-                    }
-                }];
+               
+                if(mySendOrderModel.t_state == 4){
+                    [_rightBtn setTitle:@"  确认完成  " forState:UIControlStateNormal];
+                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        
+                        if (_myReceivingOrderCellWithBtnState_QueRenWanCheng) {
+                            _myReceivingOrderCellWithBtnState_QueRenWanCheng(mySendOrderModel);
+                        }
+                    }];
+                }else{
+                    [_rightBtn setTitle:@"  开始工作  " forState:UIControlStateNormal];
+                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        
+                        if (_myReceivingOrderCellWithBtnKaishiGongzuo) {
+                            _myReceivingOrderCellWithBtnKaishiGongzuo(mySendOrderModel);
+                        }
+                    }];
+                }
                 
             }else {
-                
-                
-                
                 
                 _leftBtn.hidden = YES;
                 _rightBtn.hidden = NO;

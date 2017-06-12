@@ -42,7 +42,7 @@
 
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnChat)(MySendOrderModel * sendOrderModel);
 
-@property(nonatomic, copy) void (^myReceivingOrderCellWithBtnKaishiGongzuo)(MySendOrderModel * sendOrderModel);
+@property(nonatomic, copy) void (^myReceivingOrderCellWithBtnKaishiGongzuo)(MySendOrderModel * sendOrderModel);//开始工作
 
 @property(nonatomic, copy) void (^myReceivingOrderCellWithBtnRefuseTransfer)(MySendOrderModel * sendOrderModel);//拒绝转移
 

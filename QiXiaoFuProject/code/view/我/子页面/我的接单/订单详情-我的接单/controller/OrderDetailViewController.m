@@ -542,8 +542,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             cell.orderDetaileSeeEvaluate_Btn =^(){
                 CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
                 vc.isSeeComment = YES;
-                vc.sender_id = _orderDetaileProModel.bill_user_id;
-                vc.receiver_id = kUserId;
+                 vc.order_id = _orderDetaileProModel.id;
                 [self.navigationController pushViewController:vc animated:YES];
                 
             };

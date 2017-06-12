@@ -264,8 +264,7 @@
     cell.mySendOrderCellWithBtnState_SeeComment =^(MySendOrderModel * sendOrderModel){
         CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
         vc.isSeeComment = YES;
-        vc.sender_id = kUserId;
-        vc.receiver_id = sendOrderModel.ot_user_id;
+        vc.order_id = sendOrderModel.id;
         [self.navigationController pushViewController:vc animated:YES];
     };
     // 删除订单

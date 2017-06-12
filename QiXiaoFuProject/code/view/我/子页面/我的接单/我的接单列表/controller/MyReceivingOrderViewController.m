@@ -281,7 +281,7 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     };
-
+    
     // 取消
     cell.myReceivingOrderCellWithBtnState_cancle =^(MySendOrderModel * sendOrderModel){
         
@@ -423,8 +423,7 @@
     cell.myReceivingOrderCellSeeEvaluate_Btn = ^{
         CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
         vc.isSeeComment = YES;
-        vc.sender_id = mySendOrderModel.ot_user_id;
-        vc.receiver_id = kUserId;
+        vc.order_id = mySendOrderModel.id;
         [self.navigationController pushViewController:vc animated:YES];
     };
     

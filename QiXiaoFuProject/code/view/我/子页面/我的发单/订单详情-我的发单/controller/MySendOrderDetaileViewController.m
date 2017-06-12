@@ -545,8 +545,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             cell.orderSendDetaileSee_Comment =^(){
                 CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
                 vc.isSeeComment = YES;
-                vc.sender_id = kUserId;
-                vc.receiver_id = _orderDetaileProModel.ot_user_id;
+                vc.order_id = _orderDetaileProModel.id;
                 [self.navigationController pushViewController:vc animated:YES];
                 
             };

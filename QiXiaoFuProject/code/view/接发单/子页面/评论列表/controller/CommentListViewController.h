@@ -16,9 +16,7 @@
 
 
 @property (nonatomic, assign) BOOL isSeeComment;//是否为查看评价
-@property (nonatomic, copy) NSString *sender_id;//发单者ID
-@property (nonatomic, copy) NSString *receiver_id;//接单者ID
-
+@property (nonatomic, copy) NSString *order_id;//单号
 
 
 @end

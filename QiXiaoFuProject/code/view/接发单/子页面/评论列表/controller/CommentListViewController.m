@@ -65,33 +65,39 @@
 - (void)loadSeeComment{
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
-    params[@"sender_id"] = self.sender_id;
-    params[@"receiver_id"] = self.receiver_id;
+    params[@"id"] = self.order_id;
     [MCNetTool postWithUrl:HttpSeeClientEvaluation params:params success:^(NSDictionary *requestDic, NSString *msg) {
         CommentModel * commentModel1 = [[CommentModel alloc] init];
         CommentModel * commentModel2 = [[CommentModel alloc] init];
+        NSDictionary *list = [requestDic objectForKey:@"list"];
 //        [_iconImageView setImageWithUrl:commentModel.member_avatar placeholder:kDefaultImage_header];
 //        _nameLab.text = commentModel.member_truename;
 //        _timelAb.text = [Utool comment_timeStamp2TimeFormatter:commentModel.time];
 //        _lView.level = [commentModel.stars floatValue];
 //        _contentLab.text = commentModel.content;
-        commentModel1.member_avatar = [requestDic objectForKey:@"bill_user_avatar"];
-        commentModel1.member_truename = [requestDic objectForKey:@"bill_nik_name"];
-        commentModel1.time = [requestDic objectForKey:@""];
-        commentModel1.stars = [requestDic objectForKey:@"stars"];
-        commentModel1.content = [requestDic objectForKey:@"content"];
+        commentModel1.member_avatar = [list objectForKey:@"bill_user_avatar"];
+        commentModel1.member_truename = [list objectForKey:@"bill_nik_name"];
+        commentModel1.time = [list objectForKey:@"inputtime"];
+        commentModel1.stars = [list objectForKey:@"stars"];
+        commentModel1.content = [list objectForKey:@"content"];
         
-        commentModel2.member_avatar = [requestDic objectForKey:@"ot_user_avatar"];
-        commentModel2.member_truename = [requestDic objectForKey:@"ot_nik_name"];
-        commentModel2.time = [requestDic objectForKey:@""];
-        commentModel2.stars = [requestDic objectForKey:@"star_to_user"];
-        commentModel2.content = [requestDic objectForKey:@"content_to_user"];
+        commentModel2.member_avatar = [list objectForKey:@"ot_user_avatar"];
+        commentModel2.member_truename = [list objectForKey:@"ot_nik_name"];
+        commentModel2.time = [list objectForKey:@"eng_inputtime"];
+        commentModel2.stars = [list objectForKey:@"star_to_user"];
+        commentModel2.content = [list objectForKey:@"content_to_user"];
         
-        [self.seeCommentData addObject:commentModel1];
-        [self.seeCommentData addObject:commentModel2];
+        if (commentModel1.time.length > 0){
+            [self.seeCommentData addObject:commentModel1];
+        }
+        if (commentModel2.time.length > 0){
+            [self.seeCommentData addObject:commentModel2];
+        }
         
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.seeCommentData empty:EmptyDataTableViewDefault withScrollView:_tableView];
+        [self.tableView reloadData];
     } fail:^(NSString *error) {
-        
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.seeCommentData empty:EmptyDataTableViewDefault withScrollView:_tableView];
     }];
 
 }
@@ -165,7 +171,7 @@
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.isSeeComment){
-        return 2;
+        return self.seeCommentData.count;
     }
     return _dataArray.count;
 }
@@ -182,8 +188,8 @@
     
     if (self.isSeeComment){
         CommentCell*  cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
-        if (self.seeCommentData.count > indexPath.row){
-            CommentModel * commentModel = self.seeCommentData[indexPath.row];
+        if (self.seeCommentData.count > indexPath.section){
+            CommentModel * commentModel = self.seeCommentData[indexPath.section];
             cell.commentModel =commentModel;
         }
        return cell;
