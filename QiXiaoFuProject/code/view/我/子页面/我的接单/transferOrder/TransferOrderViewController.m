@@ -101,7 +101,7 @@
     params[@"move_to_eng_id"] = self.receiver_id;//接受者的id
     params[@"id"] = self.orderId;//订单id
     params[@"move_to_eng_name"] = self.receiver_name;//接受者的昵称
-    params[@"content"] = content;
+    params[@"move_reason"] = content;
     [self showLoading];
     [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
         [self dismissLoading];

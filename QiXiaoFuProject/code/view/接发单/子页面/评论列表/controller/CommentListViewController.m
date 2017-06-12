@@ -55,6 +55,8 @@
     if (self.isSeeComment){
         [self loadSeeComment];
         self.navigationItem .title = @"评论记录";
+        self.tableView.backgroundColor = rgb(240, 240, 240);
+        self.view.backgroundColor = rgb(240, 240, 240);
     }else{
         self.navigationItem .title = @"评论列表";
         [self loadEngnieerCommentModelDataWithPage:1 hud:YES];
