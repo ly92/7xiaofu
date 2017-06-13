@@ -26,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"空闲时间";
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"添加" target:self action:@selector(addSpaceTime)];
     
     _page = 1;
     _dataArray = [NSMutableArray new];
@@ -99,6 +98,11 @@
         }
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
+        if (_dataArray.count == 0){
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"新增" target:self action:@selector(addSpaceTime)];
+        }else{
+        self.navigationItem.rightBarButtonItem = nil;
+        }
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
         

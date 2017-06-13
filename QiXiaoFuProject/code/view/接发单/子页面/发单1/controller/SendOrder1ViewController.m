@@ -15,6 +15,8 @@
 #import "TPKeyboardAvoidingTableView.h"
 #import "PayViewController.h"
 #import "NSArray+Utils.h"
+#import "BlockUIAlertView.h"
+
 
 @interface SendOrder1ViewController (){
 
@@ -83,8 +85,11 @@
             params[@"userid"] = kUserId;
             
             [MCNetTool postWithUrl:HttpMeFeedBack params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                [self showSuccessText:@"提交成功，感谢您的反馈！"];
-                [self.navigationController popViewControllerAnimated:YES];
+                
+                BlockUIAlertView *alert = [[BlockUIAlertView alloc] initWithTitle:@"提示" message:@"提交成功，感谢您对七小服的支持!" cancelButtonTitle:@"我知道了" clickButton:^(NSInteger buttonIndex) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                } otherButtonTitles:nil];
+                [alert show];
             } fail:^(NSString *error) {
                 [self showErrorText:@"提交失败，请重试！"];
             }];

@@ -516,6 +516,7 @@
                 vc.orderId = orderId;
                 [self.navigationController pushViewController:vc animated:YES];
             }else if (buttonIndex == 0){
+                [self.view endEditing:YES];
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
             

@@ -24,7 +24,7 @@
 @interface SystemMessageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)  NSMutableArray *dataArray;
-@property (nonatomic, strong) NSMutableArray *dealArray;
+@property (nonatomic, strong) NSMutableArray *selectedArray;
 
 @property (assign, nonatomic)  NSInteger page;
 @property (weak, nonatomic) IBOutlet UIView *dealBtnView;
@@ -71,13 +71,15 @@
         [self loadSystemMessageWithRefreshPage:_page];
     }];
     
+    self.dealBtnViewH.constant = 0;
+    self.dealBtnView.hidden = YES;
 }
 
-- (NSMutableArray *)dealArray{
-    if (!_dealArray){
-        _dealArray = [NSMutableArray array];
+- (NSMutableArray *)selectedArray{
+    if (!_selectedArray){
+        _selectedArray = [NSMutableArray array];
     }
-    return _dealArray;
+    return _selectedArray;
 }
 
 //处理信息
@@ -89,7 +91,7 @@
         self.dealBtnViewH.constant = 0;
         self.dealBtnView.hidden = YES;
     }
-    [self.dealArray removeAllObjects];
+    [self.selectedArray removeAllObjects];
     self.isSelectedAll = NO;
     
     [self.tableView reloadData];
@@ -99,9 +101,8 @@
 }
 
 - (void)loadSystemMessageWithRefreshPage:(NSInteger )page{
-    self.dealBtnViewH.constant = 0;
-    self.dealBtnView.hidden = YES;
-    [self.dealArray removeAllObjects];
+//    self.dealBtnViewH.constant = 0;
+//    self.dealBtnView.hidden = YES;
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
@@ -247,7 +248,7 @@
         cell.selectedImgV.hidden = YES;
     }else{
         cell.selectedImgV.hidden = NO;
-        if ([self.dealArray containsObject:@(indexPath.section)]){
+        if ([self.selectedArray containsObject:messageModel.message_id]){
             cell.selectedImgV.image = [UIImage imageNamed:@"btn_checkbox_s"];
         }else{
             cell.selectedImgV.image = [UIImage imageNamed:@"btn_checkbox_n"];
@@ -265,13 +266,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (_dataArray.count < indexPath.section){
+        return;
+    }
+    SysTemMessageModel * messageModel = _dataArray[indexPath.section];
+    
     if (self.dealBtnView.hidden){
         //资金消息不进入详情页
 //        if (self.systemMessageType == SystemMessageTypeMoney){
 //            return;
 //        }
-        
-        SysTemMessageModel * messageModel = _dataArray[indexPath.section];
         
         // 【71：项目详情】【72：接单详情】【73：发单详情】【74：跳转到钱包详情里，此时jump_id为空】【75：众筹详情】
         
@@ -336,13 +340,13 @@
             
         }
     }else{
-        if ([self.dealArray containsObject:@(indexPath.section)]){
-            [self.dealArray removeObject:@(indexPath.section)];
+        if ([self.selectedArray containsObject:messageModel.message_id]){
+            [self.selectedArray removeObject:messageModel.message_id];
         }else{
-            [self.dealArray addObject:@(indexPath.section)];
+            [self.selectedArray addObject:messageModel.message_id];
         }
         
-        if (self.dealArray.count != self.dataArray.count){
+        if (self.selectedArray.count != self.dataArray.count){
             self.isSelectedAll = NO;
         }
         
@@ -394,11 +398,10 @@
 }
 
 - (void)selectedAllAction{
-    [self.dealArray removeAllObjects];
-
+    [self.selectedArray removeAllObjects];
     if (!self.isSelectedAll){
-        for (NSInteger i = 0; i < self.dataArray.count; i ++) {
-            [self.dealArray addObject:@(i)];
+        for (SysTemMessageModel * messageModel in self.dataArray) {
+            [self.selectedArray addObject:messageModel.message_id];
         }
     }
     [self.tableView reloadData];
@@ -496,18 +499,14 @@
 
 - (void)dealMessageNetWithOPType:(NSString *)op{
     
-    if (self.dealArray.count == 0){
+    if (self.selectedArray.count == 0){
         [self showErrorText:@"请至少选择一条"];
         return;
     }
     
     NSMutableArray *message_arr = [NSMutableArray array];
-    for (NSNumber *num in self.dealArray) {
-        NSInteger index = [num integerValue];
-        if (self.dataArray.count > index){
-            SysTemMessageModel * messageModel = self.dataArray[index];
-            [message_arr addObject:messageModel.message_id];
-        }
+    for (NSString *message_id in self.selectedArray) {
+            [message_arr addObject:message_id];
     }
     NSString *message_ids = [message_arr componentsJoinedByString:@","];
     
