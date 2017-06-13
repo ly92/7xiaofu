@@ -142,22 +142,22 @@
                 break;
             case 7:{
                 //
-                cell.nameLbl.text = @"注册";
+                cell.nameLbl.text = @"新用户注册";
             }
                 break;
             case 8:{
                 //
-                cell.nameLbl.text = @"实名";
+                cell.nameLbl.text = @"实名认证";
             }
                 break;
             case 9:{
                 //
-                cell.nameLbl.text = @"待定";
+                cell.nameLbl.text = @"推荐好友";
             }
                 break;
             case 10:{
                 //
-                cell.nameLbl.text = @"第一次接单";
+                cell.nameLbl.text = @"第一次完成订单";
             }
                 break;
                 
