@@ -27,6 +27,8 @@
 
 @property (strong,nonatomic)ShopCarModel * shopCarModel;
 
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewH;
 
 
 @end
@@ -145,6 +147,13 @@
         }];
         [_tableView headerEndRefresh];
         
+        if (_dataArray.count == 0){
+            self.bottomView.hidden = YES;
+            self.bottomViewH.constant = 0;
+        }else{
+            self.bottomView.hidden = NO;
+            self.bottomViewH.constant = 50;
+        }
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewShopCar withScrollView:_tableView];
         
