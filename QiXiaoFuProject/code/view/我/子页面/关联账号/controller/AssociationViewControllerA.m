@@ -140,12 +140,33 @@
         if (self.isFromTrans){
             cell.iconLeftDis.constant = 10;
 //            cell.openBtn.hidden = YES;
-            cell.openBlock = ^{};
+            cell.openBlock = ^{
+                
+                NSString * member_id;
+                NSString *move_to_eng_name;
+                NSString *to_user_name;
+                if (self.bDataArray.count > indexPath.section){
+                    Me_To_User * me_to_user = self.bDataArray[indexPath.section];
+                    member_id = me_to_user.member_id;
+                    move_to_eng_name = me_to_user.member_name;
+                    to_user_name = me_to_user.to_user_name;
+                }
+                BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                    
+                    if(buttonIndex == 1){
+                        if (self.orderTransferBlock){
+                            self.orderTransferBlock(member_id, move_to_eng_name);
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }
+                    }
+                } otherButtonTitles:@"确定"];
+                [alert show];
+            };
             cell.refreshBlock = ^{};
+            
         }else{
             cell.iconLeftDis.constant = 10;
 //            cell.openBtn.hidden = NO;
-            
             cell.openBlock = ^{
                 NSString * member_id;
                 NSString *move_to_eng_name;
@@ -168,44 +189,11 @@
                     }
                 }
                 
-                if (self.isFromTrans){
-                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-                        
-                        if(buttonIndex == 1){
-                            if (self.orderTransferBlock){
-                            self.orderTransferBlock(member_id, move_to_eng_name);
-                                [self.navigationController popViewControllerAnimated:YES];
-                            }
-                            
-//                            NSMutableDictionary * params = [NSMutableDictionary new];
-//                            params[@"userid"] = kUserId;
-//                            params[@"move_to_eng_id"] = member_id;//接受者的id
-//                            params[@"id"] = self.orderId;//订单id
-//                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-//                            [self showLoading];
-//                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//                                [self dismissLoading];
-//                                //转移成功后的通知
-//                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
-//                                [self.navigationController popViewControllerAnimated:YES];
-//                                [self showSuccessText:msg];
-//                                
-//                            } fail:^(NSString *error) {
-//                                [self dismissLoading];
-//                                [self showErrorText:error];
-//                            }];
-                        }
-                        
-                    } otherButtonTitles:@"确定"];
-                    [alert show];
-                }else{
-                    
-                    // 工程师详情
-                    EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
-                    vc.member_id = member_id;
-                    vc.to_user_name = to_user_name;
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
+                // 工程师详情
+                EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
+                vc.member_id = member_id;
+                vc.to_user_name = to_user_name;
+                [self.navigationController pushViewController:vc animated:YES];
                 
             };
             cell.refreshBlock = ^{
@@ -243,44 +231,11 @@
                         to_user_name = model.to_user_name;
                     }
                 }
-                
-                if (self.isFromTrans){
-                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-                        
-                        if(buttonIndex == 1){
-                            if (self.orderTransferBlock){
-                                self.orderTransferBlock(member_id, move_to_eng_name);
-                                [self.navigationController popViewControllerAnimated:YES];
-                            }
-//                            NSMutableDictionary * params = [NSMutableDictionary new];
-//                            params[@"userid"] = kUserId;
-//                            params[@"move_to_eng_id"] = member_id;//接受者的id
-//                            params[@"id"] = self.orderId;//订单id
-//                            params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-//                            [self showLoading];
-//                            [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//                                [self dismissLoading];
-//                                //转移成功后的通知
-//                                [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
-//                                [self.navigationController popViewControllerAnimated:YES];
-//                                [self showSuccessText:msg];
-//                                
-//                            } fail:^(NSString *error) {
-//                                [self dismissLoading];
-//                                [self showErrorText:error];
-//                            }];
-                        }
-                        
-                    } otherButtonTitles:@"确定"];
-                    [alert show];
-                }else{
-                    
-                    // 工程师详情
-                    EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
-                    vc.member_id = member_id;
-                    vc.to_user_name = to_user_name;
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
+                // 工程师详情
+                EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
+                vc.member_id = member_id;
+                vc.to_user_name = to_user_name;
+                [self.navigationController pushViewController:vc animated:YES];
                 
             };
             cell.refreshBlock = ^{
@@ -301,13 +256,37 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0){
-        //展开C级
-        if (self.selectedSection == indexPath.section){
-            self.selectedSection = -1;
+        
+        if (self.isFromTrans){
+            NSString * member_id;
+            NSString *move_to_eng_name;
+            NSString *to_user_name;
+            if (self.bDataArray.count > indexPath.section){
+                Me_To_User * me_to_user = self.bDataArray[indexPath.section];
+                member_id = me_to_user.member_id;
+                move_to_eng_name = me_to_user.member_name;
+                to_user_name = me_to_user.to_user_name;
+            }
+            
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                
+                if(buttonIndex == 1){
+                    if (self.orderTransferBlock){
+                        self.orderTransferBlock(member_id, move_to_eng_name);
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                }
+            } otherButtonTitles:@"确定"];
+            [alert show];
         }else{
-            self.selectedSection = indexPath.section;
+            //展开C级
+            if (self.selectedSection == indexPath.section){
+                self.selectedSection = -1;
+            }else{
+                self.selectedSection = indexPath.section;
+            }
+            [self.tableView reloadData];
         }
-        [self.tableView reloadData];
     }else{
         NSString * member_id;
         NSString *move_to_eng_name;
@@ -329,44 +308,13 @@
                 to_user_name = model.to_user_name;
             }
         }
+
+        // 工程师详情
+        EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
+        vc.member_id = member_id;
+        vc.to_user_name = to_user_name;
+        [self.navigationController pushViewController:vc animated:YES];
         
-        if (self.isFromTrans){
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"确定将订单转移到:%@",move_to_eng_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-                
-                if(buttonIndex == 1){
-                    if (self.orderTransferBlock){
-                        self.orderTransferBlock(member_id, move_to_eng_name);
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }
-//                    NSMutableDictionary * params = [NSMutableDictionary new];
-//                    params[@"userid"] = kUserId;
-//                    params[@"move_to_eng_id"] = member_id;//接受者的id
-//                    params[@"id"] = self.orderId;//订单id
-//                    params[@"move_to_eng_name"] = move_to_eng_name;//接受者的昵称
-//                    [self showLoading];
-//                    [MCNetTool postWithUrl:HttpTransferStartMove params:params success:^(NSDictionary *requestDic, NSString *msg) {
-//                        [self dismissLoading];
-//                        //转移成功后的通知
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:@"TRANSFERSUCCESS" object:nil];
-//                        [self.navigationController popViewControllerAnimated:YES];
-//                        [self showSuccessText:msg];
-//                        
-//                    } fail:^(NSString *error) {
-//                        [self dismissLoading];
-//                        [self showErrorText:error];
-//                    }];
-                }
-                
-            } otherButtonTitles:@"确定"];
-            [alert show];
-        }else{
-            
-            // 工程师详情
-            EngineerDetaileViewController * vc  = [[EngineerDetaileViewController alloc]initWithNibName:@"EngineerDetaileViewController" bundle:nil];
-            vc.member_id = member_id;
-            vc.to_user_name = to_user_name;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
     }
 }
 
