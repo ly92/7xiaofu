@@ -324,11 +324,7 @@
         
         
         ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:sendOrderModel.call_name
-                                                                                       friendUsername:sendOrderModel.call_nik_name
-                                                                                       friendUserIcon:sendOrderModel.bill_user_avatar
-                                                                                                 user:sendOrderModel.call_name
-                                                                                             userName:kUserName
-                                                                                             userIcon:kUserIcon];
+friendUsername:sendOrderModel.call_nik_name friendUserIcon:sendOrderModel.bill_user_avatar];
         chatController.title = sendOrderModel.call_nik_name;
         chatController.friendIcon = sendOrderModel.bill_user_avatar;
         chatController.userIcon = kUserIcon;

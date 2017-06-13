@@ -428,17 +428,12 @@
         //        [self.navigationController pushViewController:vc animated:YES];
         
         ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:@"kefu1" friendUsername:@"客服"
-                                                                                       friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]
-                                                                                                 user:kPhone
-                                                                                             userName:kUserName
-                                                                                             userIcon:kUserIcon];
+                                                                                       friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage]];
         
         chatController.title = @"客服";
         chatController.friendIcon = [NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage];
         chatController.userIcon = kUserIcon;
         [self.navigationController pushViewController:chatController animated:YES];
-        
-        
     }
     if (index == 8) {
         UserInfoModel * user = [UserManager readModel];

@@ -96,11 +96,7 @@
 
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter
                              friendUsername:(NSString *)friendUsername
-                             friendUserIcon:(NSString *)friendUserIcon
-                             user:(NSString *)user
-                             userName:(NSString *)userName
-                             userIcon:(NSString *)userIcon
-{
+                             friendUserIcon:(NSString *)friendUserIcon{
     if ([conversationChatter length] == 0) {
         return nil;
     }
@@ -132,71 +128,63 @@
         [_conversation markAllMessagesAsRead];
         
         ChatListModel * chatListModel = [[ChatListModel alloc] init];
-        chatListModel.user = user;
-        chatListModel.userName = userName;
-        chatListModel.userIcon = userIcon;
+        chatListModel.user = kPhone;
+        chatListModel.userName = kUserName;
+        chatListModel.userIcon = kUserIcon;
+        
         chatListModel.friendUser = conversationChatter;
         chatListModel.friendUsername = friendUsername;
         chatListModel.friendUserIcon = friendUserIcon;
+        
         [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
         
         
-        [UIImage loadImageWithUrl:userIcon returnImage:^(UIImage *image) {
-            
-            [Utool saveFileToLoc:user theFile:image];
-            
+        [UIImage loadImageWithUrl:kUserIcon returnImage:^(UIImage *image) {
+            [Utool saveFileToLoc:kPhone theFile:image];
             [self.tableView reloadData];
-            
         }];
         
         [UIImage loadImageWithUrl:friendUserIcon returnImage:^(UIImage *image) {
             [Utool saveFileToLoc:conversationChatter theFile:image];
             [self.tableView reloadData];
-            
         }];
 
         
-        NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"phone"] = user;
-        
-        [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
-            
-            ChatListModel * chatListModel = [[ChatListModel alloc] init];
-            chatListModel.user = user;
-            chatListModel.userIcon = userIcon;
-            chatListModel.userName = userName;
-            
-            chatListModel.friendUser = conversationChatter;
-            
-            if ([user isEqualToString:kPhone]){
-                chatListModel.friendUserIcon = friendUserIcon;
-                chatListModel.friendUsername = @"客服";
-            }else{
-                
-                chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
-                chatListModel.friendUserIcon = requestDic[@"touxiang"];
-            }
-            
-            [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
-
-            [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
-                
-                [Utool saveFileToLoc:user theFile:image];
-                
-                [self.tableView reloadData];
-                
-            }];
-            
-            [UIImage loadImageWithUrl:friendUserIcon returnImage:^(UIImage *image) {
-                [Utool saveFileToLoc:conversationChatter theFile:image];
-                [self.tableView reloadData];
-
-            }];
-            
-        } fail:^(NSString *error) {
-            
-            
-        }];
+//        NSMutableDictionary * params = [NSMutableDictionary new];
+//        params[@"phone"] = user;
+//        
+//        [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//            
+//            ChatListModel * chatListModel = [[ChatListModel alloc] init];
+//            chatListModel.user = user;
+//            chatListModel.userIcon = userIcon;
+//            chatListModel.userName = userName;
+//            
+//            chatListModel.friendUser = conversationChatter;
+//            
+//            if ([user isEqualToString:kPhone]){
+//                chatListModel.friendUserIcon = friendUserIcon;
+//                chatListModel.friendUsername = @"客服";
+//            }else{
+//                
+//                chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
+//                chatListModel.friendUserIcon = requestDic[@"touxiang"];
+//            }
+//            
+//            [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
+//
+//            [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
+//                [Utool saveFileToLoc:user theFile:image];
+//                [self.tableView reloadData];
+//            }];
+//            
+//            [UIImage loadImageWithUrl:friendUserIcon returnImage:^(UIImage *image) {
+//                [Utool saveFileToLoc:conversationChatter theFile:image];
+//                [self.tableView reloadData];
+//            }];
+//            
+//        } fail:^(NSString *error) {
+//        }];
         
     }
     

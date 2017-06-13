@@ -381,17 +381,12 @@
     
     ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:sendOrderModel.call_name
                                                                                    friendUsername:sendOrderModel.call_nik_name
-                                                                                   friendUserIcon:sendOrderModel.ot_user_avatar
-                                                                                             user:sendOrderModel.call_name
-                                                                                         userName:kUserName
-                                                                                         userIcon:kUserIcon];
+                                                                                   friendUserIcon:sendOrderModel.ot_user_avatar];
     
     chatController.title = sendOrderModel.call_nik_name;
     chatController.friendIcon = sendOrderModel.ot_user_avatar;
     chatController.userIcon = kUserIcon;
     [self.navigationController pushViewController:chatController animated:YES];
-
-    
 }
 #pragma mark - 去评价
 /**

@@ -749,16 +749,12 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
     
     ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:_orderDetaileProModel.call_name
                                                                                    friendUsername:_orderDetaileProModel.call_nik_name
-                                                                                   friendUserIcon:_orderDetaileProModel.ot_user_avatar
-                                                                                             user:_orderDetaileProModel.call_name
-                                                                                         userName:kUserName
-                                                                                         userIcon:kUserIcon];
+                                                                                   friendUserIcon:_orderDetaileProModel.ot_user_avatar];
     
     chatController.title = _orderDetaileProModel.call_nik_name;
     chatController.friendIcon = _orderDetaileProModel.ot_user_avatar;
     chatController.userIcon = kUserIcon;
     [self.navigationController pushViewController:chatController animated:YES];
-    
 }
 
 

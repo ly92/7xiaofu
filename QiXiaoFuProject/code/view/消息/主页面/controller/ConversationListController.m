@@ -290,33 +290,39 @@
 
 - (void)loadUserIconWithPhone:(NSString *)phone{
 
-    
     UIImage * friendUserIcon = [Utool getFileFromLoc:phone];
     
     if (friendUserIcon == nil) {
-        NSMutableDictionary * params = [NSMutableDictionary new];
-        params[@"phone"] = phone;
         
-        [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
-            
-            ChatListModel * chatListModel = [[ChatListModel alloc] init];
-            chatListModel.user = kUserId;
-            chatListModel.userName = kUserName;
-            chatListModel.userIcon = kUserIcon;
-            
-            chatListModel.friendUser = phone;
-            chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
-            chatListModel.friendUserIcon = requestDic[@"touxiang"];
-            [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
-            
-            [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
+        if ([phone isEqualToString:kPhone]){
+            [UIImage loadImageWithUrl:kUserIcon returnImage:^(UIImage *image) {
                 [Utool saveFileToLoc:phone theFile:image];
                 [self.tableView reloadData];
             }];
-            
-        } fail:^(NSString *error) {
-            
-        }];
+        }else{
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"phone"] = phone;
+            [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                
+                ChatListModel * chatListModel = [[ChatListModel alloc] init];
+                chatListModel.user = kPhone;
+                chatListModel.userName = kUserName;
+                chatListModel.userIcon = kUserIcon;
+                
+                chatListModel.friendUser = phone;
+                chatListModel.friendUsername = [requestDic[@"member_nik_name"] length] == 0?requestDic[@"member_id"]:requestDic[@"member_nik_name"];
+                chatListModel.friendUserIcon = requestDic[@"touxiang"];
+                [[ChatDBManager shareManager] insertDataWithModel:chatListModel];
+                
+                [UIImage loadImageWithUrl:requestDic[@"touxiang"] returnImage:^(UIImage *image) {
+                    [Utool saveFileToLoc:phone theFile:image];
+                    [self.tableView reloadData];
+                }];
+                
+            } fail:^(NSString *error) {
+                
+            }];
+        }
      }
 }
 
@@ -377,10 +383,10 @@
                 
                 [MCNetTool postWithUrl:HttpGetMemberInfoByPhone params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
-                    [self goToChatView:conversation.conversationId friendUsername:[requestDic objectForKey:@"member_nik_name"] friendUserIcon:[requestDic objectForKey:@"touxiang"]user:conversation.conversationId userName:kUserName userIcon:kUserIcon avatarURLPath:conversationModel.avatarURLPath];
+                    [self goToChatView:conversation.conversationId friendUsername:[requestDic objectForKey:@"member_nik_name"] friendUserIcon:[requestDic objectForKey:@"touxiang"] avatarURLPath:conversationModel.avatarURLPath];
                     
                 } fail:^(NSString *error) {
-                    [self goToChatView:conversation.conversationId friendUsername:@"客服" friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage] user:conversation.conversationId userName:kUserName userIcon:kUserIcon avatarURLPath:conversationModel.avatarURLPath];
+                    [self goToChatView:conversation.conversationId friendUsername:@"客服" friendUserIcon:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpKefuHeaderImage] avatarURLPath:conversationModel.avatarURLPath];
                 }];
             }
         }
@@ -391,11 +397,8 @@
 
 - (void)goToChatView:(NSString *)conversationChatter
       friendUsername:(NSString *)friendUsername
-      friendUserIcon:(NSString *)friendUserIcon
-                user:(NSString *)user
-            userName:(NSString *)userName
-            userIcon:(NSString *)userIcon avatarURLPath:(NSString *)avatarURLPath{
-    ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:conversationChatter  friendUsername:friendUsername friendUserIcon:friendUserIcon user:user userName:userName userIcon:userIcon];
+      friendUserIcon:(NSString *)friendUserIcon avatarURLPath:(NSString *)avatarURLPath{
+    ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:conversationChatter  friendUsername:friendUsername friendUserIcon:friendUserIcon];
     
     chatController.title = friendUsername;
     chatController.friendIcon = avatarURLPath;

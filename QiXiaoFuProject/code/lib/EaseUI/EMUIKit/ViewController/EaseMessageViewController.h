@@ -185,13 +185,15 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
  @param userName            自己昵称
  @param userIcon            自己头像
  */
+//- (instancetype)initWithConversationChatter:(NSString *)conversationChatter
+//                             friendUsername:(NSString *)friendUsername
+//                             friendUserIcon:(NSString *)friendUserIcon
+//                                       user:(NSString *)user
+//                                   userName:(NSString *)userName
+//                                   userIcon:(NSString *)userIcon;
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter
                              friendUsername:(NSString *)friendUsername
-                             friendUserIcon:(NSString *)friendUserIcon
-                                       user:(NSString *)user
-                                   userName:(NSString *)userName
-                                   userIcon:(NSString *)userIcon;
-
+                             friendUserIcon:(NSString *)friendUserIcon;
 
 
 - (void)tableViewDidTriggerHeaderRefresh;

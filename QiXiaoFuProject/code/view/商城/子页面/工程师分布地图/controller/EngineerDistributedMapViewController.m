@@ -243,10 +243,7 @@
     
     ChatViewController * chatController = [[ChatViewController alloc] initWithConversationChatter:engineerDistributedModel.call_name
                                                                                    friendUsername:engineerDistributedModel.member_truename
-                                                                                   friendUserIcon:engineerDistributedModel.duifangtouxiang
-                                                                                             user:engineerDistributedModel.call_name
-                                                                                         userName:kUserName
-                                                                                         userIcon:kUserIcon];
+                                                                                   friendUserIcon:engineerDistributedModel.duifangtouxiang];
     
     chatController.title = engineerDistributedModel.member_truename;
     chatController.friendIcon = engineerDistributedModel.duifangtouxiang;
