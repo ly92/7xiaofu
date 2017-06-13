@@ -12,7 +12,7 @@
 @interface MyStockCell : UITableViewCell
 
 
-@property (strong,nonatomic)NSIndexPath * indexPath;
+//@property (strong,nonatomic)NSIndexPath * indexPath;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIButton *changeAdressBtn;
 @property (weak, nonatomic) IBOutlet UIButton *adressBtn;

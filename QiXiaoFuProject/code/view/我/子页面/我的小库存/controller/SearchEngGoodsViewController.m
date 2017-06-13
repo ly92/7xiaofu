@@ -137,7 +137,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MyStockCell *  cell =[tableView dequeueReusableCellWithIdentifier:@"MyStockCell"];
-    cell.indexPath = indexPath;
+//    cell.indexPath = indexPath;
     
     cell.myStockModel = _dataArray[indexPath.section];
     
@@ -152,7 +152,7 @@
             if(buttonIndex == 1){
                 
                 
-                MyStockModel * stockModel = _dataArray [btn.tag];
+                MyStockModel * stockModel = _dataArray [indexPath.section];
                 
                 NSMutableDictionary * params = [NSMutableDictionary new];
                 params[@"userid"] = kUserId;
@@ -160,10 +160,10 @@
                 
                 [MCNetTool postWithUrl:HttpMeClearEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
                     
-                    [_dataArray removeObjectAtIndex:btn.tag];//移除数据源的数据
-                    NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:btn.tag];
-                    [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];//移除tableView中的section
-                    
+//                    [_dataArray removeObjectAtIndex:btn.tag];//移除数据源的数据
+//                    NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:btn.tag];
+//                    [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];//移除tableView中的section
+                    [self loadMyStockDataWithPage:1 hud:NO];
                     
                 } fail:^(NSString *error) {
                     [self showErrorText:error];
@@ -179,20 +179,20 @@
     
     [cell.changeAdressBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
-        NSInteger  tag = btn.tag;
+//        NSInteger  tag = btn.tag;
         
         MyStockChangeZreaViewController * vc = [[MyStockChangeZreaViewController alloc]initWithNibName:@"MyStockChangeZreaViewController" bundle:nil];
         
         vc.myStockChangeZreaVCBlock =^(MAreasModel * areasModelProvince,MAreasModel * areasModelCity,MAreasModel * areasModelDis){
             
             
-            NSIndexPath * cellIndexPath = [NSIndexPath indexPathForRow:0 inSection:tag];
-            MyStockCell * cell = [tableView cellForRowAtIndexPath:cellIndexPath];
+//            NSIndexPath * cellIndexPath = [NSIndexPath indexPathForRow:0 inSection:tag];
+//            MyStockCell * cell = [tableView cellForRowAtIndexPath:cellIndexPath];
             
             NSString * address_name = [NSString stringWithFormat:@"%@%@%@",areasModelProvince.area_name,areasModelCity.area_name,checkNULL(areasModelDis.area_name)];
             
             
-            [cell.adressBtn setTitle:[NSString stringWithFormat:@" %@",address_name] forState:UIControlStateNormal];
+//            [cell.adressBtn setTitle:[NSString stringWithFormat:@" %@",address_name] forState:UIControlStateNormal];
             
             MyStockModel * stockModel = _dataArray [btn.tag];
             
@@ -206,6 +206,7 @@
             params[@"address_name"] = address_name;
             
             [MCNetTool postWithUrl:HttpMeSaveEngGoodsSnArea params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [self loadMyStockDataWithPage:1 hud:NO];
                 [self showSuccessText:msg];
             } fail:^(NSString *error) {
                 [self showErrorText:error];

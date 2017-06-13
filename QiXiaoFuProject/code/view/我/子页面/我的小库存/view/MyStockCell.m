@@ -30,14 +30,14 @@
     // Initialization code
 }
 
-- (void)setIndexPath:(NSIndexPath *)indexPath{
-
-    _indexPath = indexPath;
-
-    _cancelBtn.tag = _indexPath.section;
-    _changeAdressBtn.tag = _indexPath.section;
-
-}
+//- (void)setIndexPath:(NSIndexPath *)indexPath{
+//
+//    _indexPath = indexPath;
+//
+//    _cancelBtn.tag = _indexPath.section;
+//    _changeAdressBtn.tag = _indexPath.section;
+//
+//}
 
 
 - (void)setMyStockModel:(MyStockModel *)myStockModel{

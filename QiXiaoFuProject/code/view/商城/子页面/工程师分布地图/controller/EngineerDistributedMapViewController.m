@@ -78,7 +78,7 @@
     [super viewDidLoad];
     
     
-    self.navigationItem.title = @"工程师分布";
+    self.navigationItem.title = @"工程师库存分布";
     
     
     // Do any additional setup after loading the view from its nib.
