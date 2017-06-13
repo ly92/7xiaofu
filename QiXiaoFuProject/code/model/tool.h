@@ -9,7 +9,7 @@
 
 #define kNetWorkEnvironment 2
 
-#define showPrice 1   //1显示价格  0不显示价格
+#define showPrice 0   // 0不显示价格 1显示价格
 
 
 // 常量
