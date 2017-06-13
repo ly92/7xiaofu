@@ -26,7 +26,7 @@
 #import "CommentViewController.h"
 #import "ChongSendOrderVC1.h"
 #import "CommentListViewController.h"
-
+#import "ChooseSNNumViewController.h"
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -309,10 +309,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             
         }else if([title isEqualToString:kSeverCancle]){
             OrderSendDetaileCancleCell *cell =[tableView dequeueReusableCellWithIdentifier:@"OrderSendDetaileCancleCell"];
-            cell.is_eval =_orderDetaileProModel.is_eval;
-            cell.t_state =_orderDetaileProModel.t_state;
-            cell.pay_statu =_orderDetaileProModel.pay_statu;
-            cell.bill_statu =_orderDetaileProModel.bill_statu;
+//            cell.is_eval =_orderDetaileProModel.is_eval;
+//            cell.t_state =_orderDetaileProModel.t_state;
+//            cell.pay_statu =_orderDetaileProModel.pay_statu;
+//            cell.bill_statu =_orderDetaileProModel.bill_statu;
+            cell.orderDetaileProModel = _orderDetaileProModel;
              // 取消订单
             cell.orderSendDetaileCancle_cancle =^( ){
                 
@@ -549,6 +550,15 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                 [self.navigationController pushViewController:vc animated:YES];
                 
             };
+            
+            //备件使用
+            cell.orderSendDetaileUsedGoods_Btn = ^(){
+                ChooseSNNumViewController * vc = [[ChooseSNNumViewController alloc]initWithNibName:@"ChooseSNNumViewController" bundle:nil];
+                vc.isUsedGoods = YES;
+                vc.orderDetaileProModel = _orderDetaileProModel;
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+
              
             // 未完成
             cell.orderSendDetaileCancle_WeiWanCheng =^(){

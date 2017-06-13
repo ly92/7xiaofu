@@ -28,6 +28,7 @@
 #import "CommentViewController.h"
 #import "CommentListViewController.h"
 #import "TransferOrderViewController.h"
+#import "ChooseSNNumViewController.h"
 
 
 static NSString * const kSeverName = @"项目名称";
@@ -534,6 +535,14 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
                  vc.order_id = _orderDetaileProModel.id;
                 [self.navigationController pushViewController:vc animated:YES];
                 
+            };
+            
+            //备件使用
+            cell.orderDetaileUsedGoods_Btn = ^(){
+                ChooseSNNumViewController * vc = [[ChooseSNNumViewController alloc]initWithNibName:@"ChooseSNNumViewController" bundle:nil];
+                vc.isUsedGoods = YES;
+                vc.orderDetaileProModel = _orderDetaileProModel;
+                [self.navigationController pushViewController:vc animated:YES];
             };
             
             // 调价工程师确认  -- 同意

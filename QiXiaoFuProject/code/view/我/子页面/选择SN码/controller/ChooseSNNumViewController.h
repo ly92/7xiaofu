@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "OrderDetaileProModel.h"
 
 @interface ChooseSNNumViewController : BaseViewController
 
@@ -20,6 +21,9 @@
 
 @property(nonatomic, copy) void (^chooseSNNumBlock)(NSMutableDictionary * selectDict);
 
+
+@property (nonatomic, assign) BOOL isUsedGoods;//是否为使用备件
+@property (nonatomic, strong) OrderDetaileProModel * orderDetaileProModel;
 
 
 @end

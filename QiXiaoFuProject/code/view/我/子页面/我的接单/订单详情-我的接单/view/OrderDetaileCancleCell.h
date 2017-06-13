@@ -52,5 +52,6 @@
 @property(nonatomic, copy) void (^orderDetaileTransfer_BtnAgree)();//转移订单
 @property(nonatomic, copy) void (^orderDetaileEvaluate_Btn)();//评价
 @property(nonatomic, copy) void (^orderDetaileSeeEvaluate_Btn)();//查看评价
+@property(nonatomic, copy) void (^orderDetaileUsedGoods_Btn)();//查看评价
 
 @end

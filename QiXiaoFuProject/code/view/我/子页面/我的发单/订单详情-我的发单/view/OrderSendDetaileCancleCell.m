@@ -17,11 +17,10 @@
     
     // Initialization code
 }
-- (void)setBill_statu:(NSInteger )bill_statu{
-    
-    _bill_statu = bill_statu;
-    
-    
+
+- (void)setOrderDetaileProModel:(OrderDetaileProModel *)orderDetaileProModel{
+    _orderDetaileProModel = orderDetaileProModel;
+    NSInteger bill_statu = orderDetaileProModel.bill_statu;
     //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
     switch (bill_statu) {
         case 0:
@@ -49,7 +48,7 @@
             //                [self topViewLabShowType:YES whihContent:@"待接单"];
             
             
-            if (_pay_statu == 0) {// 未支付
+            if (orderDetaileProModel.pay_statu == 0) {// 未支付
                 
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
@@ -91,7 +90,7 @@
                 
                 
             }
-           
+            
             
         }
             break;
@@ -100,8 +99,8 @@
             
             //            [self topViewLabShowType:NO whihContent:@"已接单"];
             
-            if(_t_state == 0){
-            
+            if(orderDetaileProModel.t_state == 0){
+                
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
                 [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
@@ -119,7 +118,7 @@
                     }
                     
                 }];
-            }else if(_t_state ==4 ){
+            }else if(orderDetaileProModel.t_state ==4 ){
                 
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
@@ -141,7 +140,7 @@
                 
             }
             else{
-            
+                
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
                 [_leftBtn setTitle:@"  未完成  " forState:UIControlStateNormal];
@@ -166,12 +165,12 @@
         {
             // 订单已完成
             
-//                        [self topViewLabShowType:NO whihContent:@"已完成"];
+            //                        [self topViewLabShowType:NO whihContent:@"已完成"];
             
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = NO;
             
-            if ([_is_eval intValue] == 0) {
+            if ([orderDetaileProModel.is_eval intValue] == 0) {
                 [_leftBtn setTitle:@"  评价  " forState:UIControlStateNormal];
                 
                 [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -199,7 +198,19 @@
                     _orderSendDetaileCancle_Delete();
                 }
             }];
-
+            
+            //备件使用
+            if (orderDetaileProModel.goods.count > 0){
+                _leftLeftBtn.hidden = NO;
+                [_leftLeftBtn setTitle:@"  所用备件  " forState:UIControlStateNormal];
+                [_leftLeftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_orderSendDetaileUsedGoods_Btn) {
+                        _orderSendDetaileUsedGoods_Btn();
+                    }
+                }];
+            }else{
+                _leftLeftBtn.hidden = YES;
+            }
             
             
         }
@@ -223,7 +234,7 @@
                     _orderSendDetaileCancle_ChongXinFaBu();
                 }
             }];
-
+            
             
             
         }
@@ -255,7 +266,7 @@
             _leftBtn.hidden = YES;
             [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
             _cancleBtn.userInteractionEnabled = NO;
-
+            
         }
             break;
         case 7:// 补单
@@ -269,6 +280,15 @@
     
 }
 
+//- (void)setBill_statu:(NSInteger )bill_statu{
+//    
+//    _bill_statu = bill_statu;
+//    
+//    
+//    
+//    
+//}
+//
 
 
 

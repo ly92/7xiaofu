@@ -29,25 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.title = @"选择SN码";
-    
-    
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"确定" target:self action:@selector(tureItemAction:)];
 
-    _chooseArr = [NSMutableArray array];
-    _dataArray = [NSMutableArray new];
-    _page = 1;
-    
-    _selectValueDictionary = [NSMutableDictionary new];
-    
-    if (_selectDict.count != 0) {
-        _selectValueDictionary = [NSMutableDictionary dictionaryWithDictionary:_selectDict];
-    }
-    
-    
-    
-    
 //    self.tableView.editing = YES;
 //    self.tableView.allowsMultipleSelectionDuringEditing = YES;
 
@@ -55,12 +37,29 @@
 
     _tableView .tableFooterView = [UIView new];
 
+    if (self.isUsedGoods){
+        self.navigationItem.title = @"所用备件";
+        if (self.orderDetaileProModel.goods.count > 0){
+            [self.tableView reloadData];
+        }
+        
+    }else{
+        self.navigationItem.title = @"选择SN码";
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"确定" target:self action:@selector(tureItemAction:)];
+        _chooseArr = [NSMutableArray array];
+        _dataArray = [NSMutableArray new];
+        _page = 1;
+        
+        _selectValueDictionary = [NSMutableDictionary new];
+        
+        if (_selectDict.count != 0) {
+            _selectValueDictionary = [NSMutableDictionary dictionaryWithDictionary:_selectDict];
+        }
 
-    
-    [self loadMyStockDataWithPage:1 hud:YES];
-    [self addRefreshView];
-    
-    
+        [self loadMyStockDataWithPage:1 hud:YES];
+        [self addRefreshView];
+    }
+
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -139,27 +138,40 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.isUsedGoods){
+        return self.orderDetaileProModel.goods.count;
+    }
     return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChooseSNNumCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ChooseSNNumCell"];
     
-    MyStockModel *  myStockModel  = _dataArray[indexPath.row];
-    cell.titleLab.text = myStockModel.goods_name;
-    cell.contentLab.text = myStockModel.goods_sn;
-    cell.tintColor = kThemeColor;
-    
-    NSArray *value = [_selectValueDictionary allKeys];
-    if ([value containsObject:myStockModel.id])
-    {
-        cell.accessoryType =UITableViewCellAccessoryCheckmark;
-     }else
-    {
-        cell.accessoryType =UITableViewCellAccessoryNone;
+    if (self.isUsedGoods){
+        if (self.orderDetaileProModel.goods.count > indexPath.row){
+            GoodsModel *goodModel = self.orderDetaileProModel.goods[indexPath.row];
+            cell.titleLab.text = goodModel.goods_name;
+            cell.contentLab.text = goodModel.goods_sn;
+            cell.tintColor = kThemeColor;
+            cell.accessoryType =UITableViewCellAccessoryNone;
+        }
+    }else{
+        MyStockModel *  myStockModel  = _dataArray[indexPath.row];
+        cell.titleLab.text = myStockModel.goods_name;
+        cell.contentLab.text = myStockModel.goods_sn;
+        cell.tintColor = kThemeColor;
         
+        NSArray *value = [_selectValueDictionary allKeys];
+        if ([value containsObject:myStockModel.id])
+        {
+            cell.accessoryType =UITableViewCellAccessoryCheckmark;
+        }else
+        {
+            cell.accessoryType =UITableViewCellAccessoryNone;
+            
+        }
     }
-
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -207,20 +219,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    ChooseSNNumCell *cell = [self.tableView cellForRowAtIndexPath: indexPath ];
-    
-    MyStockModel *  myStockModel  = _dataArray[indexPath.row];
-
-    if (cell.accessoryType ==UITableViewCellAccessoryNone){
-        cell.accessoryType =UITableViewCellAccessoryCheckmark;
-        [_selectValueDictionary setObject:myStockModel.goods_sn forKey:myStockModel.id];
-     }
-    else{
-        [_selectValueDictionary removeObjectForKey:myStockModel.id];
-        cell.accessoryType =UITableViewCellAccessoryNone;
+    if (self.isUsedGoods){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }else{
+        ChooseSNNumCell *cell = [self.tableView cellForRowAtIndexPath: indexPath ];
+        
+        MyStockModel *  myStockModel  = _dataArray[indexPath.row];
+        
+        if (cell.accessoryType ==UITableViewCellAccessoryNone){
+            cell.accessoryType =UITableViewCellAccessoryCheckmark;
+            [_selectValueDictionary setObject:myStockModel.goods_sn forKey:myStockModel.id];
+        }
+        else{
+            [_selectValueDictionary removeObjectForKey:myStockModel.id];
+            cell.accessoryType =UITableViewCellAccessoryNone;
+        }
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
     }
-     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 

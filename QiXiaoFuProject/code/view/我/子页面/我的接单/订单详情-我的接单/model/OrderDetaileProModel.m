@@ -11,7 +11,9 @@
 @implementation OrderDetaileProModel
 
 + (NSDictionary *)objectClassInArray{
-    return @{@"payment_list" : [Payment_List23 class]};
+    return @{@"payment_list" : [Payment_List23 class],
+             @"goods" : [GoodsModel class]
+             };
 }
 
 @end
@@ -20,4 +22,7 @@
 
 @end
 
+@implementation GoodsModel
+
+@end
 

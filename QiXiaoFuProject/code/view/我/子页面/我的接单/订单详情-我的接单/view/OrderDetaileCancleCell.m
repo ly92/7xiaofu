@@ -142,7 +142,6 @@
             //            [self topViewLabShowType:NO whihContent:@"已完成"];
 
             _leftBtn.hidden = NO;
-            
             _cancleBtn.hidden = NO;
             [_cancleBtn setTitle:@"  删除  " forState:UIControlStateNormal];
             [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -168,6 +167,19 @@
                         _orderDetaileSeeEvaluate_Btn();
                     }
                 }];
+            }
+            
+            //备件使用
+            if (_orderDetaileProModel.goods.count > 0){
+                _leftLeftBtn.hidden = NO;
+                [_leftLeftBtn setTitle:@"  所用备件  " forState:UIControlStateNormal];
+                [_leftLeftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_orderDetaileUsedGoods_Btn) {
+                        _orderDetaileUsedGoods_Btn();
+                    }
+                }];
+            }else{
+                _leftLeftBtn.hidden = YES;
             }
 
         }

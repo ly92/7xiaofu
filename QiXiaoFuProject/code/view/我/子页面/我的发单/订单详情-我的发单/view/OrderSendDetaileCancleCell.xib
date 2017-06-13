@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDv-DN-lYP">
@@ -62,19 +62,35 @@
                                     <color key="titleColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2Z-aD-UdE">
+                                <rect key="frame" x="54" y="8" width="82" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="   取消订单  " backgroundImage="btn_btnbox_red">
+                                    <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled" backgroundImage="btn_btnbox_gray">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="btn_btnbox_gray">
+                                    <color key="titleColor" red="0.4549019608" green="0.4549019608" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yJX-rR-O8l" firstAttribute="height" secondItem="6vb-Wa-Sma" secondAttribute="height" id="73e-Ka-VcO"/>
                             <constraint firstAttribute="trailing" secondItem="FwX-BP-hf3" secondAttribute="trailing" constant="5" id="8uA-R0-UP2"/>
+                            <constraint firstItem="yJX-rR-O8l" firstAttribute="leading" secondItem="H2Z-aD-UdE" secondAttribute="trailing" constant="10" id="E16-Cg-G7W"/>
                             <constraint firstItem="FwX-BP-hf3" firstAttribute="leading" secondItem="xDv-DN-lYP" secondAttribute="leading" constant="5" id="K3o-Il-AFf"/>
                             <constraint firstAttribute="trailing" secondItem="6vb-Wa-Sma" secondAttribute="trailing" id="MGp-cs-IYS"/>
                             <constraint firstItem="6vb-Wa-Sma" firstAttribute="centerY" secondItem="xDv-DN-lYP" secondAttribute="centerY" id="Mdi-O4-Ib6"/>
                             <constraint firstItem="FwX-BP-hf3" firstAttribute="top" secondItem="xDv-DN-lYP" secondAttribute="top" id="Nfb-J3-6Sh"/>
                             <constraint firstAttribute="trailing" secondItem="7Ht-Zy-39f" secondAttribute="trailing" constant="5" id="SYo-YV-V44"/>
+                            <constraint firstItem="yJX-rR-O8l" firstAttribute="height" secondItem="H2Z-aD-UdE" secondAttribute="height" id="VLp-mg-0n0"/>
                             <constraint firstItem="yJX-rR-O8l" firstAttribute="centerY" secondItem="6vb-Wa-Sma" secondAttribute="centerY" id="dlS-IC-bmV"/>
                             <constraint firstItem="6vb-Wa-Sma" firstAttribute="leading" secondItem="yJX-rR-O8l" secondAttribute="trailing" constant="10" id="f6v-48-wUY"/>
                             <constraint firstAttribute="bottom" secondItem="7Ht-Zy-39f" secondAttribute="bottom" id="iYh-mw-dEb"/>
+                            <constraint firstItem="yJX-rR-O8l" firstAttribute="centerY" secondItem="H2Z-aD-UdE" secondAttribute="centerY" id="pbE-JF-gih"/>
                             <constraint firstItem="7Ht-Zy-39f" firstAttribute="leading" secondItem="xDv-DN-lYP" secondAttribute="leading" constant="5" id="q9I-OW-Q21"/>
                         </constraints>
                     </view>
@@ -90,6 +106,7 @@
             <connections>
                 <outlet property="cancleBtn" destination="6vb-Wa-Sma" id="pN6-WV-c8c"/>
                 <outlet property="leftBtn" destination="yJX-rR-O8l" id="aoG-aD-La0"/>
+                <outlet property="leftLeftBtn" destination="H2Z-aD-UdE" id="bAQ-5j-TWp"/>
             </connections>
             <point key="canvasLocation" x="-155" y="53"/>
         </tableViewCell>

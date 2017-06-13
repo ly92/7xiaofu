@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Payment_List23;
+@class Payment_List23,GoodsModel;
 @interface OrderDetaileProModel : NSObject
 
 @property (nonatomic, copy) NSString *entry_name;//项目名称
@@ -30,7 +30,7 @@
 @property (nonatomic, copy) NSString *is_user_eval;//工程师是否已评价客户 0代表未评，1代表已评
 
 @property (nonatomic, strong) NSArray <NSString *>*image;//	图片一维数组
-
+@property (nonatomic, strong) NSArray <GoodsModel *> *goods;//	图片一维数组
 @property (nonatomic, copy) NSString *service_price;
 
 @property (nonatomic, copy) NSString *bill_user_avatar;//发单人头像URL
@@ -110,6 +110,13 @@
 @property (nonatomic, copy) NSString *payment_id;//	支付ID
 
 @end
+
+@interface GoodsModel : NSObject
+@property (nonatomic, copy) NSString *goods_name;//	备件名称
+@property (nonatomic, copy) NSString *goods_sn;//	备件码
+
+@end
+
 
 
 
