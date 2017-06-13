@@ -37,6 +37,8 @@
 @property (strong, nonatomic) UIButton * filtButton;
 
 
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewH;
 
 
 @end
@@ -46,7 +48,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.topView.hidden = YES;
+    self.topViewH.constant = 0;
     _filtButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _filtButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [_filtButton setTitle:@"筛选" forState:UIControlStateNormal];
