@@ -395,11 +395,12 @@
             
             if ([requestDic[@"statu"] integerValue] == 2) {
                 //  【2 支付密码正确】
+                
                 //  去支付
                 [weekPayPassword hiddenPayPasswordView];
-                
-                [self submintRequestWithPayPass:pwd];
-                
+                [weekPayPassword hidenKeyboard:^(BOOL finished) {
+                    [self submintRequestWithPayPass:pwd];
+                }];
                 
             }else if ([requestDic[@"statu"] integerValue] == 3){
             

@@ -340,12 +340,12 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%A1%AE%E8%AE%A4%E5%AE%8C%E6%88%90%E8%AE%A2%E5%8D%95/controller/EngineerTureOrderFinishViewController.m"
-                  timestampString = "519045926.716543"
+                  timestampString = "519050028.122797"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
                   endingLineNumber = "79"
-                  offsetFromSymbolStart = "2108">
+                  offsetFromSymbolStart = "2080">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -355,12 +355,12 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%A1%AE%E8%AE%A4%E5%AE%8C%E6%88%90%E8%AE%A2%E5%8D%95/controller/EngineerTureOrderFinishViewController.m"
-                  timestampString = "519045926.718089"
+                  timestampString = "519050028.124318"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
                   endingLineNumber = "79"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>

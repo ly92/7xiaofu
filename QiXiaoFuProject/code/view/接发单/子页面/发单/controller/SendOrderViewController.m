@@ -129,6 +129,7 @@
     // Do any additional setup after loadinwg the view from its nib.
 }
 
+
 #pragma mark - 客户发单的必要信息
 - (void)showaddbillData{
 

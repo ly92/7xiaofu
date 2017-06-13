@@ -28,6 +28,7 @@
 /** 弹出 */
 - (void)showInView:(UIView *)view;
 
+- (void)hidenKeyboard:(void (^)(BOOL finished))completion;
 
 -(void)showProgressView:(NSString *)infoStr;
 

@@ -120,9 +120,6 @@
 
 
 
-
-
-
 #pragma mark - 下一步
 - (void)nextItemAction:(UIBarButtonItem *)item{
     
