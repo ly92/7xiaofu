@@ -136,10 +136,10 @@
     if (indexPath.row == 0){
         Me_To_User *me_touser = self.bDataArray[indexPath.section];
         cell.me_to_user = me_touser;
-        
         if (self.isFromTrans){
             cell.iconLeftDis.constant = 10;
 //            cell.openBtn.hidden = YES;
+            cell.settingMarkBtn.hidden = YES;
             cell.openBlock = ^{
                 
                 NSString * member_id;
@@ -200,8 +200,6 @@
                 [self loadZhanghaoList];
             };
         }
-        
-        
     }else{
         Me_To_User *me_touser = self.bDataArray[indexPath.section];
         NSMutableArray *arrM = [self.cMutableDict objectForKey:me_touser.level2_id];
