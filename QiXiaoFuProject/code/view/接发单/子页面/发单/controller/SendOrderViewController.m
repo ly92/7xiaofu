@@ -182,6 +182,11 @@
         [self showErrorText:@"请选择服务区域"];
         return;
     }
+    if (_requestParams[@"lng"] == nil || _requestParams[@"lat"] == nil) {
+        [self showErrorText:@"请重新选择服务区域"];
+        return;
+    }
+    
     if ([_requestParams[@"service_stime"] length] == 0) {
         [self showErrorText:@"请选择服务开始时间"];
         return;
