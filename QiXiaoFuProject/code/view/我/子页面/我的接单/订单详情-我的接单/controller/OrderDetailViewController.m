@@ -270,7 +270,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             if ([_orderDetaileProModel.move_state intValue] == 1){
                 [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
             }else if ([_orderDetaileProModel.move_state intValue] == 2){
-                [cell.stateBtn setTitle:@"已转移" forState:UIControlStateNormal];
+                [cell.stateBtn setTitle:@"来自转移" forState:UIControlStateNormal];
             }
         }
         

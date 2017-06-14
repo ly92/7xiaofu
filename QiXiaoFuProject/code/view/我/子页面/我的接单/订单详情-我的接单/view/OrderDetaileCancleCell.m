@@ -94,7 +94,7 @@
         case 2:
         {
             
-            if (orderDetaileProModel.t_state == 0) {
+            if (orderDetaileProModel.t_state == 0 || orderDetaileProModel.t_state == 4) {
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
                 [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
@@ -351,7 +351,7 @@
                 
                 
             }else if ([orderDetaileProModel.move_state intValue] == 2){
-                if ([orderDetaileProModel.bill_belong intValue] == 2){
+                if ([orderDetaileProModel.bill_belong intValue] == 1){
                     _leftBtn.hidden = YES;
                     _cancleBtn.hidden = YES;
                     _leftLeftBtn.hidden = YES;

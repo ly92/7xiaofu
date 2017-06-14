@@ -148,7 +148,7 @@
             
             [self topViewLabShowType:NO whihContent:@"  已接单  "];
             
-            if(mySendOrderModel.t_state == 0){
+            if(mySendOrderModel.t_state == 0 || mySendOrderModel.t_state == 4){
                 
                 _leftBtn.hidden = NO;
                 _rightBtn.hidden = NO;
@@ -375,8 +375,8 @@
                 }
             }else if ([mySendOrderModel.move_state intValue] == 2){
                 //转移状态 1转移中 2已接受 0已拒绝
-                [self topViewLabShowType:NO whihContent:@"  已转移  "];
-                if ([mySendOrderModel.bill_belong intValue] == 2){
+                [self topViewLabShowType:NO whihContent:@"  来自转移  "];
+                if ([mySendOrderModel.bill_belong intValue] == 1){
                     _leftBtn.hidden = YES;
                     _rightBtn.hidden = YES;
                     _chatBtn.hidden = YES;

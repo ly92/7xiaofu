@@ -198,21 +198,20 @@
                         }
                     }];
 
-//                
-//                }else if(mySendOrderModel.t_state ==4 ){
-//                    
-//                    
-//                    _leftBtn.hidden = YES;
-//                    _rightBtn.hidden = NO;
-//                    [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-//                    
-//                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-//                        
-//                        if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
-//                            _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-//                        }
-//                    }];
-//                    
+                }else if(mySendOrderModel.t_state ==4 ){
+                    
+                    
+                    _leftBtn.hidden = YES;
+                    _rightBtn.hidden = NO;
+                    [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+                    
+                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        
+                        if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
+                            _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
+                        }
+                    }];
+                    
                     
                 } else if(mySendOrderModel.t_state == 1){
                 

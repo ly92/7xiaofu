@@ -182,7 +182,7 @@
         [self showErrorText:@"请选择服务区域"];
         return;
     }
-    if (_requestParams[@"lng"] == nil || _requestParams[@"lat"] == nil) {
+    if (_requestParams[@"lng"] == 0 || _requestParams[@"lat"] == 0) {
         [self showErrorText:@"请重新选择服务区域"];
         return;
     }

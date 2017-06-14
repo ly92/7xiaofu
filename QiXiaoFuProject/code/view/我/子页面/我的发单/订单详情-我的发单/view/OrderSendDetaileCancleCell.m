@@ -120,27 +120,27 @@
                     
                 }];
             }
-            //                else if(orderDetaileProModel.t_state ==4 ){
-            //
-            //                _leftBtn.hidden = NO;
-            //                _cancleBtn.hidden = NO;
-            //                [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-            //                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            //
-            //                    if (_orderSendDetaileCancle_cancle) {
-            //                        _orderSendDetaileCancle_cancle();
-            //                    }
-            //                }];
-            //                [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
-            //                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            //
-            //                    if (_orderSendDetaileCancle_Tiaojia) {
-            //                        _orderSendDetaileCancle_Tiaojia(btn);
-            //                    }
-            //
-            //                }];
-            //
-            //            }
+                            else if(orderDetaileProModel.t_state ==4 ){
+            
+                            _leftBtn.hidden = NO;
+                            _cancleBtn.hidden = NO;
+                            [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+                            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+                                if (_orderSendDetaileCancle_cancle) {
+                                    _orderSendDetaileCancle_cancle();
+                                }
+                            }];
+                            [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
+                            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            
+                                if (_orderSendDetaileCancle_Tiaojia) {
+                                    _orderSendDetaileCancle_Tiaojia(btn);
+                                }
+            
+                            }];
+            
+                        }
             else{
                 
                 _leftBtn.hidden = NO;
