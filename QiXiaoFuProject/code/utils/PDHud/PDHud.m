@@ -19,9 +19,9 @@
     [self setInfoImage:[UIImage imageNamed:@"PDHud.bundle/HUD_info@2x.png"]];
     [self setErrorImage:[UIImage imageNamed:@"PDHud.bundle/HUD_error@2x.png"]];
     
-    [self setDefaultMaskType:SVProgressHUDMaskTypeNone];// > 1  hud显示期间禁用用户交互  SVProgressHUDMaskTypeNone 用户可以交互
-    [self setDefaultStyle:SVProgressHUDStyleDark];
+    [self setDefaultMaskType:SVProgressHUDMaskTypeBlack];// > 1  hud显示期间禁用用户交互  SVProgressHUDMaskTypeNone 用户可以交互
     [self setCornerRadius:8.0];
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 
