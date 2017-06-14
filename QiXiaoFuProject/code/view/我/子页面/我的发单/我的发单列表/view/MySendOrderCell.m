@@ -13,11 +13,6 @@
 
 @interface MySendOrderCell()<WB_StopWatchDelegate>{
 
-#warning -----------------TODO ---------------
-//    48小时内还有聊天功能-----添加聊天
-//    48小时发生问题可上传文字+图片-----添加“反馈问题”
-
-
 
 }
 
@@ -115,7 +110,7 @@
         
         /*  我的发单  */
         
-        //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
+        //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 开始工作】
         switch (mySendOrderModel.bill_statu) {
             case 0:
             {
@@ -203,26 +198,25 @@
                         }
                     }];
 
+//                
+//                }else if(mySendOrderModel.t_state ==4 ){
+//                    
+//                    
+//                    _leftBtn.hidden = YES;
+//                    _rightBtn.hidden = NO;
+//                    [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+//                    
+//                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+//                        
+//                        if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
+//                            _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
+//                        }
+//                    }];
+//                    
+                    
+                } else if(mySendOrderModel.t_state == 1){
                 
-                }else if(mySendOrderModel.t_state ==4 ){
-                    
-                    
-                    _leftBtn.hidden = YES;
-                    _rightBtn.hidden = NO;
-                    [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                    
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        
-                        if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
-                            _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-                        }
-                    }];
-                    
-                    
-                } else{
-                
-                    //   确认完成   调价
-           
+                    //   确认完成
                     _leftBtn.hidden = NO;
                     _rightBtn.hidden = NO;
                     [_leftBtn setTitle:@"  未完成  " forState:UIControlStateNormal];

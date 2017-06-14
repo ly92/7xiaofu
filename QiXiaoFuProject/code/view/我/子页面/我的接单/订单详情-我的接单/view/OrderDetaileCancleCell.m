@@ -67,12 +67,10 @@
     
     _leftLeftBtn.hidden = YES;
     
-    //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 转移】【】
+    //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 开始工作】【】
     switch (orderDetaileProModel.bill_statu) {
         case 0:
         {
-            //            [self topViewLabShowType:NO whihContent:@"已撤销"];
-            
             _cancleBtn.hidden = NO;
             _leftBtn.hidden = YES;
             
@@ -96,12 +94,7 @@
         case 2:
         {
             
-            //            [self topViewLabShowType:NO whihContent:@"已接单"];
-            
-            
-            
-            
-            if (orderDetaileProModel.t_state == 0 || orderDetaileProModel.t_state == 4) {
+            if (orderDetaileProModel.t_state == 0) {
                 _leftBtn.hidden = NO;
                 _cancleBtn.hidden = NO;
                 [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
@@ -327,7 +320,47 @@
                 }
             }];
             
+            //转移订单的相关处理 1转移中 2已接受 0已拒绝
+            if ([orderDetaileProModel.move_state intValue] == 1){
+                
+                if ([orderDetaileProModel.bill_belong intValue] == 1){
+                    _leftBtn.hidden = NO;
+                    _cancleBtn.hidden = NO;
+                    _leftLeftBtn.hidden = YES;
+                    
+                    [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        
+                        if (_orderDetaileTransfer_BtnRefuse) {
+                            _orderDetaileTransfer_BtnRefuse();
+                        }
+                    }];
+                    
+                    [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
+                    [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        
+                        if (_orderDetaileTransfer_BtnAgree) {
+                            _orderDetaileTransfer_BtnAgree();
+                        }
+                    }];
+                }else if([orderDetaileProModel.bill_belong intValue] == 2){
+                    _leftBtn.hidden = YES;
+                    _cancleBtn.hidden = YES;
+                    _leftLeftBtn.hidden = YES;
+                }
+                
+                
+            }else if ([orderDetaileProModel.move_state intValue] == 2){
+                if ([orderDetaileProModel.bill_belong intValue] == 2){
+                    _leftBtn.hidden = YES;
+                    _cancleBtn.hidden = YES;
+                    _leftLeftBtn.hidden = YES;
+                }
+            }
             
+            if ([orderDetaileProModel.move_count intValue] >= 2){
+                _leftLeftBtn.hidden = YES;
+            }
             
         }
             break;
@@ -336,47 +369,7 @@
             break;
     }
 
-    //转移订单的相关处理
-    if ([orderDetaileProModel.move_state intValue] == 1){
-        
-        if ([orderDetaileProModel.bill_belong intValue] == 1){
-            _leftBtn.hidden = NO;
-            _cancleBtn.hidden = NO;
-            _leftLeftBtn.hidden = YES;
-            
-            [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
-            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_orderDetaileTransfer_BtnRefuse) {
-                    _orderDetaileTransfer_BtnRefuse();
-                }
-            }];
-            
-            [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
-            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                
-                if (_orderDetaileTransfer_BtnAgree) {
-                    _orderDetaileTransfer_BtnAgree();
-                }
-            }];
-        }else if([orderDetaileProModel.bill_belong intValue] == 2){
-            _leftBtn.hidden = YES;
-            _cancleBtn.hidden = YES;
-            _leftLeftBtn.hidden = YES;
-        }
-        
-        
-    }else if ([orderDetaileProModel.move_state intValue] == 2){
-        if ([orderDetaileProModel.bill_belong intValue] == 2){
-            _leftBtn.hidden = YES;
-            _cancleBtn.hidden = YES;
-            _leftLeftBtn.hidden = YES;
-        }
-    }
     
-    if ([orderDetaileProModel.move_count intValue] >= 2){
-        _leftLeftBtn.hidden = YES;
-    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

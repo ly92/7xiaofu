@@ -21,7 +21,8 @@
 - (void)setOrderDetaileProModel:(OrderDetaileProModel *)orderDetaileProModel{
     _orderDetaileProModel = orderDetaileProModel;
     NSInteger bill_statu = orderDetaileProModel.bill_statu;
-    //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
+    //  发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 开始工作】
+    _leftLeftBtn.hidden = YES;
     switch (bill_statu) {
         case 0:
         {
@@ -118,27 +119,28 @@
                     }
                     
                 }];
-            }else if(orderDetaileProModel.t_state ==4 ){
-                
-                _leftBtn.hidden = NO;
-                _cancleBtn.hidden = NO;
-                [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_orderSendDetaileCancle_cancle) {
-                        _orderSendDetaileCancle_cancle();
-                    }
-                }];
-                [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
-                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                    
-                    if (_orderSendDetaileCancle_Tiaojia) {
-                        _orderSendDetaileCancle_Tiaojia(btn);
-                    }
-                    
-                }];
-                
             }
+            //                else if(orderDetaileProModel.t_state ==4 ){
+            //
+            //                _leftBtn.hidden = NO;
+            //                _cancleBtn.hidden = NO;
+            //                [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+            //                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            //
+            //                    if (_orderSendDetaileCancle_cancle) {
+            //                        _orderSendDetaileCancle_cancle();
+            //                    }
+            //                }];
+            //                [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
+            //                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            //
+            //                    if (_orderSendDetaileCancle_Tiaojia) {
+            //                        _orderSendDetaileCancle_Tiaojia(btn);
+            //                    }
+            //
+            //                }];
+            //
+            //            }
             else{
                 
                 _leftBtn.hidden = NO;
@@ -294,7 +296,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

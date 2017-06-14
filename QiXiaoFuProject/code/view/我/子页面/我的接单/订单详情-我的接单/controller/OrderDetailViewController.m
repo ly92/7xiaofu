@@ -242,7 +242,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         cell.nameLab.text = _orderDetaileProModel.bill_user_name;
         cell.timeLab.text = [Utool comment_timeStamp2TimeFormatter:_orderDetaileProModel.inputtime];
         
-        //发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
+        //发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】【8 开始工作】
 
         if (_orderDetaileProModel.bill_statu ==0) {
             [cell.stateBtn setTitle:@"撤销" forState:UIControlStateNormal];
@@ -266,14 +266,15 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             [cell.stateBtn setTitle:@"补单" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==8) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
+            //转移状态
+            if ([_orderDetaileProModel.move_state intValue] == 1){
+                [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
+            }else if ([_orderDetaileProModel.move_state intValue] == 2){
+                [cell.stateBtn setTitle:@"已转移" forState:UIControlStateNormal];
+            }
         }
         
-        //转移状态
-        if ([_orderDetaileProModel.move_state intValue] == 1){
-            [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
-        }else if ([_orderDetaileProModel.move_state intValue] == 2){
-            [cell.stateBtn setTitle:@"已转移" forState:UIControlStateNormal];
-        }
+        
         
         return cell;
     }
