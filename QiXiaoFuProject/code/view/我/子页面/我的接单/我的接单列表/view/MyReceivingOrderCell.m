@@ -177,6 +177,33 @@
                 _rightBtn.userInteractionEnabled = NO;
                 
             }
+            
+            //调价中
+            if ([mySendOrderModel.is_change_price intValue] == 1){
+                [self topViewLabShowType:NO whihContent:@"调价中"];
+                
+                // 取消订单 --> 工程师取消发单
+                
+                _leftBtn.hidden = NO;
+                _rightBtn.hidden = NO;
+                _rightBtn.selected = NO;
+                
+                [_leftBtn setTitle:@" 同意 " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_myReceivingOrderCellWithBtnState_TongYi) {
+                        _myReceivingOrderCellWithBtnState_TongYi(mySendOrderModel);
+                    }
+                }];
+                
+                [_rightBtn setTitle:@" 不同意 " forState:UIControlStateNormal];
+                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_myReceivingOrderCellWithBtnState_BuTongYi) {
+                        _myReceivingOrderCellWithBtnState_BuTongYi(mySendOrderModel);
+                    }
+                }];
+            }
         }
             break;
         case 3:

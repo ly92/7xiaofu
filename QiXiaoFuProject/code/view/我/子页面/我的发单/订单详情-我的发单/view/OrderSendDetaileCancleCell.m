@@ -92,6 +92,13 @@
                 
             }
             
+            //调价中
+            if ([orderDetaileProModel.is_change_price intValue] == 1){
+                _cancleBtn.hidden = NO;
+                _leftBtn.hidden = YES;
+                [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
+                _cancleBtn.userInteractionEnabled = NO;
+            }
             
         }
             break;
@@ -120,27 +127,27 @@
                     
                 }];
             }
-                            else if(orderDetaileProModel.t_state ==4 ){
-            
-                            _leftBtn.hidden = NO;
-                            _cancleBtn.hidden = NO;
-                            [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            
-                                if (_orderSendDetaileCancle_cancle) {
-                                    _orderSendDetaileCancle_cancle();
-                                }
-                            }];
-                            [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
-                            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-            
-                                if (_orderSendDetaileCancle_Tiaojia) {
-                                    _orderSendDetaileCancle_Tiaojia(btn);
-                                }
-            
-                            }];
-            
-                        }
+            else if(orderDetaileProModel.t_state ==4 ){
+                
+                _leftBtn.hidden = NO;
+                _cancleBtn.hidden = NO;
+                [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_orderSendDetaileCancle_cancle) {
+                        _orderSendDetaileCancle_cancle();
+                    }
+                }];
+                [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
+                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    
+                    if (_orderSendDetaileCancle_Tiaojia) {
+                        _orderSendDetaileCancle_Tiaojia(btn);
+                    }
+                    
+                }];
+                
+            }
             else{
                 
                 _leftBtn.hidden = NO;
@@ -161,6 +168,13 @@
                 }];
             }
             
+            //调价中
+            if ([orderDetaileProModel.is_change_price intValue] == 1){
+                _cancleBtn.hidden = NO;
+                _leftBtn.hidden = YES;
+                [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
+                _cancleBtn.userInteractionEnabled = NO;
+            }
         }
             break;
         case 3:

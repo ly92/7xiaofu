@@ -99,6 +99,9 @@
 @property (nonatomic, copy) NSString *move_to_eng_id;//接受者ID
 @property (nonatomic, copy) NSString *bill_belong;//1别人转给我的 2我转移给别人的
 
+@property (nonatomic, copy) NSString *is_change_price;//是否为调价状态【0否】【1调价中】
+
+
 @end
 
 @interface Payment_List23 : NSObject

@@ -8,7 +8,7 @@
 
 #import "ChooseMapViewController.h"
 #import "PDLocationManager.h"
-
+#import "BlockUIAlertView.h"
 
 #define CELL_HEIGHT                     55.f
 #define CELL_COUNT                      5
@@ -117,6 +117,10 @@
     [self addNotificationkeyboard];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self actionLocation];
+}
 
 - (void)rightTrueAction:(UIBarButtonItem *)item{
     
@@ -124,39 +128,45 @@
     
     LxDBAnyVar(string);
     
-//    if(!_selectTip && !_selectPoi){
-//        [self showErrorText:@"请选择区域"];
-//        return;
-//    }
-    
-    if(!_selectTip && !_selectPoi){
-        _selectTip = [[AMapTip alloc] init];
-        _selectTip.location = _location;
-        _selectTip.name = string;
-    }
-    
-    if(!_selectTip && _selectPoi){
+    if(_selectPoi){
         _selectTip = [[AMapTip alloc] init];
         _selectTip.location = _selectPoi.location;
         _selectTip.name = _selectPoi.name;
+        
+        //直接显示输入地址
+        _selectTip.name = string;
+        if (_chooseSeviceAreaBlock) {
+            _chooseSeviceAreaBlock(_selectTip);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        if (_location){
+            _selectTip = [[AMapTip alloc] init];
+            _selectTip.location = _location;
+            _selectTip.name = string;
+            
+            //直接显示输入地址
+            _selectTip.name = string;
+            if (_chooseSeviceAreaBlock) {
+                _chooseSeviceAreaBlock(_selectTip);
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            BlockUIAlertView *alert = [[BlockUIAlertView alloc] initWithTitle:@"定位不成功" message:@"确定否允许使用位置，是否重新定位？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+                if (buttonIndex == 0){
+                    //直接显示输入地址
+                    _selectTip.name = string;
+                    _selectTip.location = _location;
+                    if (_chooseSeviceAreaBlock) {
+                        _chooseSeviceAreaBlock(_selectTip);
+                    }
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            } otherButtonTitles:@"确定"];
+            [alert show];
+        }
     }
-    
-    //如果未搜索到输入的位置则直接返回输入的位置名称
-//    if (![string isEqualToString:_selectTip.name]){
-//        _selectTip.name = string;
-//    }
-    //直接显示输入地址
-    _selectTip.name = string;
-    if (_chooseSeviceAreaBlock) {
-        _chooseSeviceAreaBlock(_selectTip);
-    }
-    [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
-
-
 
 
 #pragma mark -  初始化地图

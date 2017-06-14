@@ -51,6 +51,8 @@
 
 @property (nonatomic, assign) NSInteger t_state;//工程师完成状态【0 未完成】【1 已完成】
 
+@property (nonatomic, copy) NSString *is_change_price;//是否为调价状态【0否】【1调价中】
+
 @property (nonatomic, copy) NSString *is_eval;//是否已评价【0 未评价】【1 已评价】
 
 

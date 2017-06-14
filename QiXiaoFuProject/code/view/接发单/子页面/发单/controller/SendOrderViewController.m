@@ -182,7 +182,7 @@
         [self showErrorText:@"请选择服务区域"];
         return;
     }
-    if (_requestParams[@"lng"] == 0 || _requestParams[@"lat"] == 0) {
+    if ([_requestParams[@"lng"]  isEqual: @(0)]  || [_requestParams[@"lat"]  isEqual: @(0)]) {
         [self showErrorText:@"请重新选择服务区域"];
         return;
     }
@@ -391,6 +391,10 @@
 
 //                _requestParams[@"service_city"] = [selectPoi.name stringByReplacingOccurrencesOfString:@"市" withString:@""]  ;//服务区域城市名
                 _requestParams[@"service_address"] = [NSString stringWithFormat:@"%@",selectPoi.name];//g	服务区域详细地址
+                
+                if (selectPoi.location.longitude == 0 || selectPoi.location.latitude == 0){
+                    [self showErrorText:@"所选服务区域不可用"];
+                }
                 _requestParams[@"lng"] = @(selectPoi.location.longitude);//服务区域经度
                 _requestParams[@"lat"] = @(selectPoi.location.latitude);//服务区域纬度
                 

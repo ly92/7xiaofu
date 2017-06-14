@@ -173,7 +173,14 @@
                     }];
                     
                 }
-                
+                //调价状态
+                if([mySendOrderModel.is_change_price intValue] == 1){
+                    [self topViewLabShowType:NO whihContent:@"调价中"];
+                    _rightBtn.hidden = NO;
+                    _leftBtn.hidden = YES;
+                    [_rightBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
+                    _rightBtn.userInteractionEnabled = NO;
+                }
                 
             }
                 break;
@@ -235,6 +242,15 @@
                         }
                     }];
                 
+                }
+                
+                //调价状态
+                if([mySendOrderModel.is_change_price intValue] == 1){
+                    [self topViewLabShowType:NO whihContent:@"调价中"];
+                    _rightBtn.hidden = NO;
+                    _leftBtn.hidden = YES;
+                    [_rightBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
+                    _rightBtn.userInteractionEnabled = NO;
                 }
 
                 
