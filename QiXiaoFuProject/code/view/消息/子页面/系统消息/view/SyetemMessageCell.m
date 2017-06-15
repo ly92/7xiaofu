@@ -7,6 +7,7 @@
 //
 
 #import "SyetemMessageCell.h"
+#import "NSDate+Utils.h"
 
 @interface SyetemMessageCell ()
 
@@ -35,8 +36,16 @@
 
 - (void)setMessageModel:(SysTemMessageModel *)messageModel{
 
+    NSDate *time = [NSDate dateWithTimeIntervalSince1970:[messageModel.message_time doubleValue]];
+    if ([time isToday]){
+        _timeLab.text = [NSString stringWithFormat:@"今天 %@",[Utool messageIndex_timeStamp2TimeFormatter:messageModel.message_time]];
+    }else if ([time isYesterday]){
+        _timeLab.text =  [NSString stringWithFormat:@"昨天 %@",[Utool messageIndex_timeStamp2TimeFormatter:messageModel.message_time]];
+    }else{
+        _timeLab.text = [Utool timeStampPointTimeFormatter:messageModel.message_time];
+    }
+    
     _titleLab.text = messageModel.from_member_name;
-    _timeLab.text = [Utool comment_timeStamp2TimeFormatter:messageModel.message_time];
     _contentLab.text = messageModel.message_body;
     
     if (messageModel.message_open ==0) {

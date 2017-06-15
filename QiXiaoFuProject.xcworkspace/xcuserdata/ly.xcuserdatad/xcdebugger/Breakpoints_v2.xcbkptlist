@@ -227,22 +227,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x53d1;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x53d1;&#x5355;/controller/MySendOrderDetaileViewController.m"
-            timestampString = "519131587.061768"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "756"
-            endingLineNumber = "756"
-            landmarkName = "-chatItemAction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x6211;&#x7684;&#x63a5;&#x5355;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;-&#x6211;&#x7684;&#x63a5;&#x5355;/controller/OrderDetailViewController.m"
             timestampString = "519131587.061768"
             startingColumnNumber = "9223372036854775807"
@@ -324,7 +308,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%A1%AE%E8%AE%A4%E5%AE%8C%E6%88%90%E8%AE%A2%E5%8D%95/controller/EngineerTureOrderFinishViewController.m"
-                  timestampString = "519185683.566422"
+                  timestampString = "519195149.180493"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -339,7 +323,7 @@
                   moduleName = "QiXiaoFuProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%A1%AE%E8%AE%A4%E5%AE%8C%E6%88%90%E8%AE%A2%E5%8D%95/controller/EngineerTureOrderFinishViewController.m"
-                  timestampString = "519185683.567881"
+                  timestampString = "519195149.18194"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -378,6 +362,38 @@
             startingLineNumber = "344"
             endingLineNumber = "344"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6d88;&#x606f;/&#x5b50;&#x9875;&#x9762;/&#x7cfb;&#x7edf;&#x6d88;&#x606f;/view/SyetemMessageRemindCell.m"
+            timestampString = "519194884.880055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-setMessageModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6d88;&#x606f;/&#x5b50;&#x9875;&#x9762;/&#x7cfb;&#x7edf;&#x6d88;&#x606f;/view/SyetemMessageRemindCell.m"
+            timestampString = "519194896.126386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-setMessageModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

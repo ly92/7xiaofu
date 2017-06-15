@@ -177,7 +177,7 @@
                 _rightBtn.userInteractionEnabled = NO;
                 
             }
-            
+            /*
             //调价中
             if ([mySendOrderModel.is_change_price intValue] == 1){
                 [self topViewLabShowType:NO whihContent:@"调价中"];
@@ -204,6 +204,7 @@
                     }
                 }];
             }
+             */
         }
             break;
         case 3:
@@ -382,13 +383,13 @@
                     _rightBtn.hidden = NO;
                     _rightBtn.selected = NO;
                     
-                    [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+                    [_leftBtn setTitle:@"  拒绝  " forState:UIControlStateNormal];
                     [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                         if (_myReceivingOrderCellWithBtnRefuseTransfer) {
                             _myReceivingOrderCellWithBtnRefuseTransfer(mySendOrderModel);
                         }
                     }];
-                    [_rightBtn setTitle:@"  接受转移  " forState:UIControlStateNormal];
+                    [_rightBtn setTitle:@"  同意  " forState:UIControlStateNormal];
                     [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                         if (_myReceivingOrderCellWithBtnAgreeTransfer) {
                             _myReceivingOrderCellWithBtnAgreeTransfer(mySendOrderModel);
@@ -402,7 +403,7 @@
                 }
             }else if ([mySendOrderModel.move_state intValue] == 2){
                 //转移状态 1转移中 2已接受 0已拒绝
-                [self topViewLabShowType:NO whihContent:@"  来自转移  "];
+                [self topViewLabShowType:NO whihContent:@"  来自订单转移  "];
                 if ([mySendOrderModel.bill_belong intValue] == 1){
                     _leftBtn.hidden = YES;
                     _rightBtn.hidden = YES;

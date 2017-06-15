@@ -249,11 +249,11 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         }else if (_orderDetaileProModel.bill_statu ==1) {
             [cell.stateBtn setTitle:@"待接单" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==2) {
-            if ([_orderDetaileProModel.is_change_price intValue] == 1){
-                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
-            }else{
+//            if ([_orderDetaileProModel.is_change_price intValue] == 1){
+//                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
+//            }else{
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
-            }
+//            }
             
         }else if (_orderDetaileProModel.bill_statu ==3) {
             if ([_orderDetaileProModel.is_user_eval intValue] == 0){
@@ -275,7 +275,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
             if ([_orderDetaileProModel.move_state intValue] == 1){
                 [cell.stateBtn setTitle:@"转移待确定" forState:UIControlStateNormal];
             }else if ([_orderDetaileProModel.move_state intValue] == 2){
-                [cell.stateBtn setTitle:@"来自转移" forState:UIControlStateNormal];
+                [cell.stateBtn setTitle:@"来自订单转移" forState:UIControlStateNormal];
             }
         }
         

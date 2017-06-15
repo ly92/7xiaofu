@@ -91,7 +91,7 @@
                 
                 
             }
-            
+            /*
             //调价中
             if ([orderDetaileProModel.is_change_price intValue] == 1){
                 _cancleBtn.hidden = NO;
@@ -99,7 +99,7 @@
                 [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
                 _cancleBtn.userInteractionEnabled = NO;
             }
-            
+            */
         }
             break;
         case 2:
@@ -167,7 +167,7 @@
                     }
                 }];
             }
-            
+            /*
             //调价中
             if ([orderDetaileProModel.is_change_price intValue] == 1){
                 _cancleBtn.hidden = NO;
@@ -175,6 +175,7 @@
                 [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
                 _cancleBtn.userInteractionEnabled = NO;
             }
+             */
         }
             break;
         case 3:

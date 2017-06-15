@@ -173,6 +173,7 @@
                     }];
                     
                 }
+                /*
                 //调价状态
                 if([mySendOrderModel.is_change_price intValue] == 1){
                     [self topViewLabShowType:NO whihContent:@"调价中"];
@@ -181,7 +182,7 @@
                     [_rightBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
                     _rightBtn.userInteractionEnabled = NO;
                 }
-                
+                */
             }
                 break;
             case 2:
@@ -243,7 +244,7 @@
                     }];
                 
                 }
-                
+                /*
                 //调价状态
                 if([mySendOrderModel.is_change_price intValue] == 1){
                     [self topViewLabShowType:NO whihContent:@"调价中"];
@@ -252,7 +253,7 @@
                     [_rightBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
                     _rightBtn.userInteractionEnabled = NO;
                 }
-
+                 */
                 
             }
                 break;

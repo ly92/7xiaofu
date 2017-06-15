@@ -7,7 +7,7 @@
 //
 
 #import "SyetemMessageRemindCell.h"
-
+#import "NSDate+Utils.h"
 
 @interface SyetemMessageRemindCell ()
 
@@ -39,7 +39,17 @@
 
 - (void)setMessageModel:(SysTemMessageModel *)messageModel{
     _titleLab.text = messageModel.from_member_name;
-    _timeLab.text = [Utool comment_timeStamp2TimeFormatter:messageModel.message_time];
+    
+    NSDate *time = [NSDate dateFromString:messageModel.message_time];
+    if ([time isToday]){
+     _timeLab.text = [NSString stringWithFormat:@"今天 %@",[Utool messageIndex_timeStamp2TimeFormatter:messageModel.message_time]];
+    }else if ([time isYesterday]){
+     _timeLab.text =  [NSString stringWithFormat:@"昨天 %@",[Utool messageIndex_timeStamp2TimeFormatter:messageModel.message_time]];
+    }else{
+     _timeLab.text = [Utool timeStampPointTimeFormatter:messageModel.message_time];
+    }
+    
+   
     _contentLab.text = messageModel.message_body;
     
     if (messageModel.message_open ==0) {

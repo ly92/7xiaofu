@@ -211,14 +211,14 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             }else{
                 [cell.stateBtn setTitle:@"待接单" forState:UIControlStateNormal];
             }
-            if ([_orderDetaileProModel.is_change_price intValue] == 1){
-                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
-            }
+//            if ([_orderDetaileProModel.is_change_price intValue] == 1){
+//                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
+//            }
         }else if (_orderDetaileProModel.bill_statu ==2) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
-            if ([_orderDetaileProModel.is_change_price intValue] == 1){
-                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
-            }
+//            if ([_orderDetaileProModel.is_change_price intValue] == 1){
+//                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];
+//            }
         }else if (_orderDetaileProModel.bill_statu ==3) {
             if ([_orderDetaileProModel.is_eval intValue] == 0){
                 [cell.stateBtn setTitle:@"已完成" forState:UIControlStateNormal];

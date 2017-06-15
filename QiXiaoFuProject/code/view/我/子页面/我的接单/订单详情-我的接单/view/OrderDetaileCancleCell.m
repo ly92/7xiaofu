@@ -124,7 +124,7 @@
                 [_cancleBtn setTitle:@"  等待客户确认完成  " forState:UIControlStateNormal];
                 _cancleBtn.userInteractionEnabled = NO;
             }
-            
+            /*
             //调价中
             if ([orderDetaileProModel.is_change_price intValue] == 1){
                 _cancleBtn.hidden = NO;
@@ -132,7 +132,7 @@
                 [_cancleBtn setTitle:@"  等待工程师同意  " forState:UIControlStateNormal];
                 _cancleBtn.userInteractionEnabled = NO;
             }
-            
+            */
         }
             break;
         case 3:
@@ -335,7 +335,7 @@
                     _cancleBtn.hidden = NO;
                     _leftLeftBtn.hidden = YES;
                     
-                    [_leftBtn setTitle:@"  拒绝转移  " forState:UIControlStateNormal];
+                    [_leftBtn setTitle:@"  拒绝  " forState:UIControlStateNormal];
                     [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                         
                         if (_orderDetaileTransfer_BtnRefuse) {
@@ -343,7 +343,7 @@
                         }
                     }];
                     
-                    [_cancleBtn setTitle:@"  同意转移  " forState:UIControlStateNormal];
+                    [_cancleBtn setTitle:@"  同意  " forState:UIControlStateNormal];
                     [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                         
                         if (_orderDetaileTransfer_BtnAgree) {
