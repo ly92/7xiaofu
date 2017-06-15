@@ -99,7 +99,7 @@
 - (void)bottomViewState:(MySendOrderModel *)mySendOrderModel{
 
     
-    _chatBtn.selected = mySendOrderModel.os == 1?YES:NO;
+    _chatBtn.selected = NO;
     
     if (mySendOrderModel.call_name.length ==0 ) {
         _chatBtn.hidden = YES;

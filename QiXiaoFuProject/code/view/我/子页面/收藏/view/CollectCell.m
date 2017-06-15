@@ -50,7 +50,7 @@
 - (void)setCollectGoodModel:(CollectGoodModel *)collectGoodModel{
 
 
-    [_iconImageView setImageWithUrl:collectGoodModel.goods_image placeholder:kDefaultImage_Z];
+    [_iconImageView setImageWithUrl:collectGoodModel.goods_image_url placeholder:kDefaultImage_Z];
     _titleLab.text = collectGoodModel.goods_name;
     _priceLab.text = [NSString stringWithFormat:@"¥ %@",collectGoodModel.goods_price];
 //    [_locBtn setTitle:collectGoodModel.area_name forState:UIControlStateNormal];

@@ -79,8 +79,8 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
     
     _chatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_red"] forState:UIControlStateNormal];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateHighlighted];
-    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateSelected];
+//    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateHighlighted];
+//    [_chatBtn setBackgroundImage:[UIImage imageNamed:@"icon_chat_n"] forState:UIControlStateSelected];
     _chatBtn.size = _chatBtn.currentBackgroundImage.size;
     [_chatBtn addTarget:self action:@selector(chatItemAction:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc]initWithCustomView:_chatBtn];
@@ -107,7 +107,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
     self.tableView.tableHeaderView =headerView;
         
     
-   
+    //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+    //        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle];
+    NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
+    
+    _titles = [NSMutableArray arrayWithArray:titles];
  
 }
 
@@ -134,14 +138,6 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
         _orderDetaileProModel.pay_statu =_pay_statu;
         
         
-        
-        
-//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
-//        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverSparePart,kSeverImage,kSeverCancle];
-        NSArray * titles = @[kSeverName,kSeverLY,kSeverPPXH,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice,kSeverImage,kSeverCancle];
-        
-        _titles = [NSMutableArray arrayWithArray:titles];
-        
         if(_orderDetaileProModel.call_name.length == 0){
             _chatBtn.hidden = YES;
         }else{
@@ -154,11 +150,11 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             _chatBtn.hidden = NO;
         }
 
-        if (_orderDetaileProModel.os ==1) {
-            _chatBtn.selected = YES;
-        }else{
-            _chatBtn.selected = NO;
-        }
+//        if (_orderDetaileProModel.os ==1) {
+//            _chatBtn.selected = YES;
+//        }else{
+//            _chatBtn.selected = NO;
+//        }
 
         _orderDetailHeaderView.orderNumLab.text = [NSString stringWithFormat:@"订单序号 %@",_orderDetaileProModel.bill_sn];
         _orderDetailHeaderView.orderTimeLab.text = [NSString stringWithFormat:@"创建时间 %@",[Utool comment_timeStamp2TimeFormatter:_orderDetaileProModel.inputtime]];
@@ -512,7 +508,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
 //                btn.selected =!btn.selected;
                 
 //                if(btn.selected){
-                    if(![_titles containsObject:kSeverKehuContent]){
+                if(![_titles containsObject:kSeverKehuContent]){
                     
                     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_titles.count inSection:1];

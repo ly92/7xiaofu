@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collecData = @[@"全部",@"发单",@"完成订单",@"取消订单",@"撤消发单",@"购买备件",@"取消商城订单",@"退货",@"充值",@"提现",@"置顶",@"补单"];
+    self.collecData = @[@"全部",@"发单",@"完成订单",@"取消订单",@"撤消发单",@"购买备件",@"取消商城订单",@"退货",@"充值",@"提现",@"置顶",@"补单",@"调价"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"WalletDetailCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"WalletDetailCollectionCell"];
     
     self.navigationItem.title = @"账户余额明细";

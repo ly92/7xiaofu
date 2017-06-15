@@ -18,6 +18,7 @@
 @property (nonatomic,copy)NSString *goods_salenum;
 @property (nonatomic,copy)NSString *goods_storage;
 @property (nonatomic,copy)NSString *fav_id;
+@property (nonatomic,copy)NSString *goods_image_url;
 
 @end
 

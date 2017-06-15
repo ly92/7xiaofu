@@ -236,7 +236,7 @@
     NSData * imageData = [[NSData alloc]init ];
     imageData = UIImageJPEGRepresentation(image, 1);
     
-    [self.photoArrayM addObject:image];
+    
     
     
     NSMutableDictionary * params = [NSMutableDictionary new];
@@ -249,6 +249,9 @@
         
         [self dismissLoading];
       
+        [self.photoArrayM addObject:image];
+        [self buttonFrame];
+        
         [_photoUrlArray addObject:requestDic[@"img"]];
         
         if (_orderDetaileKeHuContentImageArrayCellBlock) {
@@ -260,10 +263,9 @@
     }];
     
     
-    
     [[self viewController] dismissViewControllerAnimated:YES completion:^{
-        [self buttonFrame];
     }];
+    
     
 }
 
