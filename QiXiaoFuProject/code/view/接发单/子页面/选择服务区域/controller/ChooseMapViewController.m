@@ -24,7 +24,6 @@
     BOOL isFirstLocated;
     // 搜索页数
     NSInteger searchPage;
-    
     NSString * _searchString;
     
     // 禁止连续点击两次
@@ -39,11 +38,7 @@
     
     AMapGeoPoint * _location;// 坐标
     
-    
     BOOL _isFirstSearch;// 是否是第一次搜索
-
-    
-
 }
 
 
@@ -65,7 +60,7 @@
 @property (nonatomic, copy) NSString  *lng;
 @property (nonatomic, copy) NSString  *lat;
 
-
+@property (nonatomic, assign) BOOL isAroundSearch;
 
 @end
 
@@ -74,7 +69,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"选择服务区域";//  地图
-    
     
     _isFirstSearch = YES;
     
@@ -85,7 +79,6 @@
     _adressTextfield.returnKeyType =UIReturnKeySearch;
     
       _searchResultArray = [NSMutableArray new];
-    
     
     [_toolView setBorder:[[UIColor grayColor] colorWithAlphaComponent:0.3] width:0.5];
     
@@ -100,6 +93,8 @@
 
     _mapBGView.showsUserLocation = YES; // 开启定位
     
+    [self actionLocation];
+    
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(_toolView.left, _toolView.bottom, kScreenWidth - 10*2, self.view.height - 10-45-216) style:UITableViewStylePlain];;
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -110,8 +105,8 @@
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellIdentifier"];
     _tableView.hidden = YES;
     
-    _searchAPI = [[AMapSearchAPI alloc] init];
-    _searchAPI.delegate = self;
+    self.searchAPI = [[AMapSearchAPI alloc] init];
+    self.searchAPI.delegate = self;
 
 
     [self addNotificationkeyboard];
@@ -119,6 +114,11 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self actionLocation];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self actionLocation];
 }
 
@@ -200,7 +200,7 @@
         
         _location = point;
         
-        [self searchPoiByAMapGeoPoint:point withSearchDtring:@""];
+        [self searchAroundPoint:point withSearchDtring:@""];
         searchPage = 1;
     }
     _isMapViewRegionChangedFromTableView = NO;
@@ -257,17 +257,8 @@
 
 - (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
 
-
-        LxDBAnyVar(view.annotation.subtitle);
-    
-
-
-}
-
-
-
-
-
+    LxDBAnyVar(view.annotation.subtitle);
+   }
 
 - (void)mapView:(MAMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
@@ -284,46 +275,28 @@
     }
 }
 
-
 #pragma mark - UITextFieldDelegate
 - (void)adressTextfieldChangeAction:(UITextField *)textField{
-    
     _searchString =textField.text;
-    
     NSLog(@"-------   %@",_searchString);
     [self searchPoiByAMapGeoPoint:_location withSearchDtring:textField.text];
-    
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-
-     [self searchPoiByAMapGeoPoint:_location withSearchDtring:textField.text];
-
+    [self searchPoiByAMapGeoPoint:_location withSearchDtring:textField.text];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-
-
- 
     [self searchPoiByAMapGeoPoint:_location withSearchDtring:textField.text];
-
 }
-
-
-
-
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-
-//    [self searchPoiBySearchString:textField.text];
-
+    //    [self searchPoiBySearchString:textField.text];
+    
     [self searchPoiByAMapGeoPoint:_location withSearchDtring:textField.text];
-
     return YES;
 }
-
-
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 #pragma mark - UITableViewDataSource
@@ -364,7 +337,9 @@
     AMapPOI *poi = [_searchResultArray objectAtIndex:indexPath.row];
     _selectPoi = poi;
     [_mapBGView setCenterCoordinate:CLLocationCoordinate2DMake(poi.location.latitude, poi.location.longitude)];
-//    _adressTextfield.text =poi.name;
+    if (self.adressTextfield.text.length == 0){
+        self.adressTextfield.text =poi.name;
+    }
     [self.view endEditing:YES];
     
     [_mapBGView removeOverlays:_mapBGView.overlays];
@@ -385,11 +360,6 @@
 }
 
 
-
-
-
-
-
 - (IBAction)locBtnAction:(id)sender {
     
     [self actionLocation];
@@ -408,7 +378,6 @@
 }
 
 
-
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     
     [self.view endEditing:YES];
@@ -416,24 +385,39 @@
 }
 
 
+- (void)searchAroundPoint:(AMapGeoPoint *)location withSearchDtring:(NSString *)searchString{
+    if (_location){
+        [self.searchAPI cancelAllRequests];
+    }
+    AMapPOIAroundSearchRequest *requestPoi = [[AMapPOIAroundSearchRequest alloc] init];
+    requestPoi.keywords = searchString;
+    requestPoi.location = _location;
+    // 搜索半径
+    requestPoi.radius = 25000;
+    // 搜索结果排序
+    requestPoi.sortrule = 1;
+    // 当前页数
+    requestPoi.page = searchPage;
+    [self.searchAPI AMapPOIAroundSearch:requestPoi];
+    self.isAroundSearch = YES;
+}
 
 
 // 搜索中心点坐标周围的POI-AMapGeoPoint
 - (void)searchPoiByAMapGeoPoint:(AMapGeoPoint *)location withSearchDtring:(NSString *)searchString
 {
+//    [self searchAroundPoint:location withSearchDtring:searchString];
     
 //    if (_isFirstSearch) {
+    if (_location){
+        [self.searchAPI cancelAllRequests];
+    }
     AMapPOIKeywordsSearchRequest *requestPoi = [[AMapPOIKeywordsSearchRequest alloc] init];
     requestPoi.keywords = searchString;
-//    requestPoi.location = location;
-    // 搜索半径
-//    requestPoi.radius = 25000;
-    // 搜索结果排序
-    requestPoi.sortrule = 1;
-    // 当前页数
-    requestPoi.page = searchPage;
-    [_searchAPI AMapPOIKeywordsSearch:requestPoi];
-
+    requestPoi.requireSubPOIs = YES;
+    [self.searchAPI AMapPOIKeywordsSearch:requestPoi];
+    
+    self.isAroundSearch = NO;
 /*
         AMapPOIAroundSearchRequest *requestPoi = [[AMapPOIAroundSearchRequest alloc] init];
     requestPoi.keywords = searchString;
@@ -483,9 +467,26 @@
 //}
 
 #pragma mark -  AMapPOIAroundSearchRequest AMapSearchDelegate
+
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error{
+    
+}
+
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response{
     
+    
+    
+    if (self.adressTextfield.text.length == 0 && self.isAroundSearch == NO){
+        [self searchAroundPoint:_location withSearchDtring:@""];
+    }
+    
+    if (response.pois.count == 0 && self.isAroundSearch == NO && self.adressTextfield.text.length != 0){
+        [self searchAroundPoint:_location withSearchDtring:self.adressTextfield.text];
+    }
+    
     [_searchResultArray removeAllObjects];
+    
+    
     // 添加数据并刷新TableView
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
         DeLog(@"-------  %@--- %@-----%@----%f---%f ",obj.name,obj.district,obj.address,obj.location.latitude,obj.location.longitude)
@@ -503,7 +504,7 @@
     [_tableView reloadData];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
     
-
+   
     /*
      // 添加数据并刷新TableView
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {

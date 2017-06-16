@@ -384,8 +384,7 @@
             
             ChooseMapViewController * vc = [[ChooseMapViewController alloc]initWithNibName:@"ChooseMapViewController" bundle:nil];
             
-            
-            vc.chooseSeviceAreaBlock =^(AMapTip * selectPoi){
+                         vc.chooseSeviceAreaBlock =^(AMapTip * selectPoi){
                 
                 cell.descLab.text =selectPoi.name;
 
