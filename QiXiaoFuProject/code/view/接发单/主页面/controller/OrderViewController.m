@@ -23,9 +23,9 @@
 #import "EngineerDetaileViewController.h"
 #import "EngineerListViewController.h"
 #import "ShopPaySuccViewController.h"
+#import <AMapLocationKit/AMapLocationKit.h>
 
-
-@interface OrderViewController ()<YLSwitchDelegate>
+@interface OrderViewController ()<YLSwitchDelegate,AMapLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic ,strong) EngineerCollectionView * engineerCollectionView;
@@ -33,7 +33,7 @@
 @property (nonatomic ,strong) YLSwitch * switchSegment;
 @property (nonatomic, strong) OrderMainModel * orderMainModel;
 
-
+@property (nonatomic, strong) AMapLocationManager *locationManager;
 
 
 @end
@@ -132,16 +132,24 @@
         [self loadMainData];
     }
 
-    [self textJSpatchCode];
+    [self mapLocation];
 }
 
 
-- (void)textJSpatchCode{
+- (void)mapLocation{
     
+    self.locationManager = [[AMapLocationManager alloc] init];
     
+    [self.locationManager setDelegate:self];
     
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     
+//    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+
+    [self.locationManager startUpdatingLocation];
 }
+
+
 
 
 - (void)jsPatchCode{

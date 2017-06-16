@@ -117,10 +117,6 @@
     [self actionLocation];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self actionLocation];
-}
 
 - (void)rightTrueAction:(UIBarButtonItem *)item{
     

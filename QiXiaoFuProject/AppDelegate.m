@@ -18,6 +18,7 @@
 #import "AppDelegate+EaseMob.h"
 
 
+
 @interface AppDelegate ()
 
 @end
@@ -176,8 +177,9 @@
      NSString *APIKey = @"c5301bb2b0677f87ed81ecdd5c1e5fbe";// 7xf
 
      [AMapServices sharedServices].apiKey = APIKey;
+
     
- }
+}
 
 //// 禁用第三方输入法
 //- (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier NS_AVAILABLE_IOS(8_0){
