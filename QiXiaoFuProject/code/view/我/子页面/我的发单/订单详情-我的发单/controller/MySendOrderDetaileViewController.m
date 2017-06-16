@@ -635,7 +635,9 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                     [MCNetTool postWithUrl:HttpMeUpBillPriceGuest params:params success:^(NSDictionary *requestDic, NSString *msg) {
                         
                         [self showSuccessText:@"调价成功"];
-                        
+                        if([_titles containsObject:kSeverKehuContent]){
+                            [_titles removeObject:kSeverKehuContent];
+                        }
                         [self myBillDetailRequest];
                         
                         
@@ -654,7 +656,9 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                     vc.tiaojiaImageUrlArray = _tiaoImageArray;
                     
                     vc.jieFanDanZaiCiPayViewBlock =^(){
-                        
+                        if([_titles containsObject:kSeverKehuContent]){
+                            [_titles removeObject:kSeverKehuContent];
+                        }
                         [self myBillDetailRequest];
                     };
                     

@@ -9,13 +9,14 @@
 #import "ChooseMapViewController.h"
 #import "PDLocationManager.h"
 #import "BlockUIAlertView.h"
+#import <AMapLocationKit/AMapLocationKit.h>
 
 #define CELL_HEIGHT                     55.f
 #define CELL_COUNT                      5
 #define TITLE_HEIGHT                    64.f
 
 
-@interface ChooseMapViewController ()<MAMapViewDelegate,AMapSearchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
+@interface ChooseMapViewController ()<MAMapViewDelegate,AMapSearchDelegate,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,AMapLocationManagerDelegate>{
     
     
     BOOL iskeyBoardShow;
@@ -61,6 +62,7 @@
 @property (nonatomic, copy) NSString  *lat;
 
 @property (nonatomic, assign) BOOL isAroundSearch;
+@property (nonatomic, strong) AMapLocationManager *locationManager;
 
 @end
 
@@ -157,6 +159,8 @@
                         _chooseSeviceAreaBlock(_selectTip);
                     }
                     [self.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [self actionLocation];
                 }
             } otherButtonTitles:@"确定"];
             [alert show];
@@ -196,8 +200,8 @@
         
         _location = point;
         
-        [self searchAroundPoint:point withSearchDtring:@""];
-        searchPage = 1;
+//        [self searchAroundPoint:point withSearchDtring:@""];
+//        searchPage = 1;
     }
     _isMapViewRegionChangedFromTableView = NO;
     
@@ -370,6 +374,17 @@
 #pragma mark - Action
 - (void)actionLocation
 {
+    self.locationManager = [[AMapLocationManager alloc] init];
+    
+    [self.locationManager setDelegate:self];
+    
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+    
+    //    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    
+    [self.locationManager startUpdatingLocation];
+
+    
     [_mapBGView setCenterCoordinate:_mapBGView.userLocation.coordinate animated:YES];
 }
 
@@ -461,6 +476,16 @@
 //    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;// 关闭网络指示器
 //
 //}
+
+#pragma mark - AMapLocationManagerDelegate
+
+- (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode{
+    _location.latitude = location.coordinate.latitude;
+    _location.longitude = location.coordinate.longitude;
+    [self searchAroundPoint:_location withSearchDtring:@""];
+    searchPage = 1;
+    [self.locationManager stopUpdatingLocation];
+}
 
 #pragma mark -  AMapPOIAroundSearchRequest AMapSearchDelegate
 

@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collecData = @[@"全部",@"发单",@"完成订单",@"取消订单",@"撤消发单",@"购买备件",@"取消商城订单",@"退货",@"充值",@"提现",@"置顶",@"补单",@"调价"];
+    self.collecData = @[@"全部",@"发单",@"完成订单",@"取消订单",@"撤消发单",@"购买备件",@"取消商城订单",@"退货",@"充值",@"提现",@"置顶",@"调价"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"WalletDetailCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"WalletDetailCollectionCell"];
     
     self.navigationItem.title = @"账户余额明细";
@@ -277,8 +277,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DeLog(@"%@",self.collecData[indexPath.row]);
     DeLog(@"%ld",(long)indexPath.row);
+    if (indexPath.row == self.collecData.count - 1){
+        self.desc = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
+    }else{
+        self.desc = [NSString stringWithFormat:@"%ld",indexPath.row];
+    }
     
-    self.desc = [NSString stringWithFormat:@"%ld",indexPath.row];
     [self loadShopOrderListWithPage:1 hud:NO];
     
     self.collectionView.hidden = YES;

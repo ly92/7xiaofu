@@ -53,16 +53,16 @@
     [self.pickerView selectRow:(_year - _yearLeast) inComponent:0 animated:NO];
 
     if(self.rows > 1){
-        [self.pickerView selectRow:(_month - 1) inComponent:1 animated:NO];
+        [self.pickerView selectRow:(_month-1) inComponent:1 animated:NO];
      }
     if(self.rows > 2){
-        [self.pickerView selectRow:(_day - 1) inComponent:2 animated:NO];
+        [self.pickerView selectRow:(_day-1) inComponent:2 animated:NO];
     }
     if (self.rows > 3) {
-          [self.pickerView selectRow:(_hour - 1) inComponent:3 animated:NO];
+          [self.pickerView selectRow:(_hour) inComponent:3 animated:NO];
     }
     if (self.rows > 4) {
-        [self.pickerView selectRow:(_minute - 1) inComponent:4 animated:NO];
+        [self.pickerView selectRow:(_minute) inComponent:4 animated:NO];
     }
 
 }
@@ -194,20 +194,20 @@
 - (void)selectedOk
 {
     if ([self.delegate respondsToSelector:@selector(pickerDate:year:month:day:hour:minute:)]) {
-         [self.delegate pickerDate:self year:self.year month:self.month day:self.day hour:self.hour -1 minute:self.minute -1];
+         [self.delegate pickerDate:self year:self.year month:self.month day:self.day hour:self.hour minute:self.minute];
     }
     
-    NSString * selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1 ,self.minute-1];
+    NSString * selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour ,self.minute];
     
     if (_pickerDate5Block) {
-        _pickerDate5Block(self.year,self.month,self.day,self.hour-1,self.minute-1,selectTime);
+        _pickerDate5Block(self.year,self.month,self.day,self.hour,self.minute,selectTime);
     }
     if (_pickerDate4Block) {
-        _pickerDate4Block(self.year,self.month,self.day,self.hour-1,selectTime);
+        _pickerDate4Block(self.year,self.month,self.day,self.hour,selectTime);
     }
     if (_pickerDate3Block) {
         
-        selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1,self.minute -1];
+        selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour,self.minute];
         _pickerDate3Block(self.year,self.month,self.day,selectTime);
     }
     if (_pickerDate3EndBlock) {
@@ -216,7 +216,7 @@
         _pickerDate3EndBlock(self.year,self.month,self.day,selectTime);
     }
     if (_pickerDateAndRowBlock){
-        selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour - 1,self.minute -1];
+        selectTime =[NSString stringWithFormat:@"%ld.%.2ld.%.2ld %.2ld:%.2ld",self.year,self.month,self.day,self.hour,self.minute];
         _pickerDateAndRowBlock(self.year,self.month,self.day,self.rows,selectTime);
     }
     
