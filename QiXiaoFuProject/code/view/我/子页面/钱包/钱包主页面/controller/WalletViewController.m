@@ -84,8 +84,13 @@
     [MCNetTool postWithUrl:HttpMeShowBalance params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         // 钱包
-        _available_predeposit = [requestDic objectForKey:@"available_predeposit"];
-        _zuidiedu =[requestDic objectForKey:@"zuidiedu"];
+        if (requestDic.allKeys.count > 0){
+            _available_predeposit = [requestDic objectForKey:@"available_predeposit"];
+            _zuidiedu =[requestDic objectForKey:@"zuidiedu"];
+            
+        }else{
+            _available_predeposit = 0;
+        }
         _walletHeaderView.moneyLab.text =[NSString stringWithFormat:@"¥%@",_available_predeposit];
         
         //  众筹   requestDic[@"zc_price"]
