@@ -53,10 +53,10 @@
     [self.pickerView selectRow:(_year - _yearLeast) inComponent:0 animated:NO];
 
     if(self.rows > 1){
-        [self.pickerView selectRow:(_month-1) inComponent:1 animated:NO];
+        [self.pickerView selectRow:(_month - 1) inComponent:1 animated:NO];
      }
     if(self.rows > 2){
-        [self.pickerView selectRow:(_day-1) inComponent:2 animated:NO];
+        [self.pickerView selectRow:(_day - 1) inComponent:2 animated:NO];
     }
     if (self.rows > 3) {
           [self.pickerView selectRow:(_hour) inComponent:3 animated:NO];
@@ -89,9 +89,14 @@
             break;
             case 2:
         {
-            NSInteger yearSelected = [pickerView selectedRowInComponent:0] + self.yearLeast;
-            NSInteger monthSelected = [pickerView selectedRowInComponent:1] + 1;
-            return  [NSCalendar getDaysWithYear:yearSelected month:monthSelected];
+//            NSInteger yearSelected = [pickerView selectedRowInComponent:0] + self.yearLeast;
+//            NSInteger monthSelected = [pickerView selectedRowInComponent:1] + 1;
+            
+            NSInteger dayNum = [NSCalendar getDaysWithYear:self.year month:self.month];
+            
+//            NSLog(@"------%ld",(long)dayNum);
+            
+            return  dayNum;
         }
             break;
             case 3:
@@ -168,6 +173,8 @@
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    [self reloadData];
+    
     switch (component) {
             case 0:
             if (self.rows > 1){
@@ -184,8 +191,6 @@
         default:
             break;
     }
-    
-    [self reloadData];
 }
 
 
@@ -243,12 +248,13 @@
         self.day   = [self.pickerView selectedRowInComponent:2] + 1;
     }
     if (self.rows > 3) {
-        self.hour   = [self.pickerView selectedRowInComponent:3] + 1;
+        self.hour   = [self.pickerView selectedRowInComponent:3];
     }
     if (self.rows > 4) {
-        self.minute   = [self.pickerView selectedRowInComponent:4] + 1;
+        self.minute   = [self.pickerView selectedRowInComponent:4];
     }
 
+    NSLog(@"%ld-%ld-%ld %ld:%ld",(long)self.year,(long)self.month,(long)self.day,(long)self.hour,(long)self.minute);
 }
 
 #pragma mark - --- setters 属性 ---
