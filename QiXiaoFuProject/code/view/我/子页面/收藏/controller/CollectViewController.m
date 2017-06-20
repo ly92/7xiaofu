@@ -86,7 +86,7 @@
         
         page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
         [_collectionView reloadData];
-        if (array.count < 20) {
+        if (array.count < 10) {
             [_collectionView hidenFooter];
         }
         page==1?[_collectionView headerEndRefresh]:[_collectionView footerEndRefresh];

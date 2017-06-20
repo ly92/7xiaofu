@@ -119,7 +119,7 @@
         page_total==1?[_shopListArray setArray:shopListModel.goods_list]:[_shopListArray addObjectsFromArray:shopListModel.goods_list];
         [_collectionView reloadData];
         
-        if (shopListModel.goods_list.count < 20) {
+        if (shopListModel.goods_list.count < 10) {
             [_collectionView hidenFooter];
         }
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_shopListArray empty:EmptyDataTableViewDefault withScrollView:_collectionView];

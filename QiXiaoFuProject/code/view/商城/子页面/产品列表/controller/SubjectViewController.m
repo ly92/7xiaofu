@@ -147,15 +147,15 @@
             [_rightBtn setTitle:searching_Type1.attr_name forState:UIControlStateSelected];
         }
         
-         page_total==1?[_shopListArray setArray:shopListModel.goods_list]:[_shopListArray addObjectsFromArray:shopListModel.goods_list];
+         page==1?[_shopListArray setArray:shopListModel.goods_list]:[_shopListArray addObjectsFromArray:shopListModel.goods_list];
          [_collectionView reloadData];
         
-        if (shopListModel.goods_list.count < 20) {
+        if (shopListModel.goods_list.count < 10) {
             [_collectionView hidenFooter];
         }
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_shopListArray empty:EmptyDataTableViewDefault withScrollView:_collectionView];
         
-        page_total==1?[_collectionView headerEndRefresh]:[_collectionView footerEndRefresh];
+        page==1?[_collectionView headerEndRefresh]:[_collectionView footerEndRefresh];
         
         
     } fail:^(NSString *error) {

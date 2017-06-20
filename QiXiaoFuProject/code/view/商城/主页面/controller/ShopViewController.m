@@ -21,10 +21,10 @@
 
 
 @interface ShopViewController ()<MCBannerViewDataSource, MCBannerViewDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>{
-
+    
     BOOL _isAllGoods;
     NSString * _gc_id;
- 
+    
 }
 @property (weak, nonatomic) IBOutlet UIView *bannerVire;
 
@@ -55,28 +55,34 @@
 
 @implementation ShopViewController
 
+- (NSMutableArray *)class_listArray{
+    if(!_class_listArray){
+        _class_listArray = [NSMutableArray array];
+    }
+    return _class_listArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.fd_prefersNavigationBarHidden = YES;
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    //    self.fd_prefersNavigationBarHidden = YES;
+    //    self.automaticallyAdjustsScrollViewInsets = NO;
     
     
-    _class_listArray = [NSMutableArray new];
     _page = 1;
     _isAllGoods = YES;
- 
+    
     [self banner];
     _bottomView.height = kScreenHeight - 170 - 49 - 64;
     [self categoryTableView];
     [self rightCollectionView];
     
     
-   
+    
     [self loadAllgoodsDataArray];//加载左侧列表和轮播数据
     
     [self loadAllShopListWithGc_id:@"0" page:1];// 加载左侧全部商品对应的右侧列表数据
-
+    
     [self addRefsh];// 刷新控件
     
     
@@ -92,15 +98,15 @@
     self.navigationItem.titleView = _searchBtn;
     
     [self searchBoxAction];// 搜索
-
+    
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
+    
     [super viewWillAppear:animated];
-
-
+    
+    
     
     
 }
@@ -108,7 +114,7 @@
 #pragma mark - 搜索
 
 - (void)searchBoxAction{
-
+    
     [_searchBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
         SearchViewControler * vc = [[SearchViewControler alloc]init];
@@ -129,17 +135,17 @@
         
         
     }];
-
+    
 }
 
 
 
 #pragma mark - 刷新
 - (void)addRefsh{
-
+    
     
     [_rightCollectionView headerAddMJRefresh:^{
- 
+        [self.class_listArray removeAllObjects];
         if (_isAllGoods) {
             [self loadAllShopListWithGc_id:@"0" page:1];
         }else{
@@ -154,10 +160,10 @@
             [self loadAllShopListWithGc_id:@"0" page:_page];
         }
     }];
-
-
-
-
+    
+    
+    
+    
 }
 
 #pragma mark - 获取右侧列表数据
@@ -165,7 +171,7 @@
 - (void)loadShopListWithGc_id:(NSString *)gc_id{
     
     [_class_listArray removeAllObjects];
-
+    
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"store_id"] = @"1";
@@ -177,12 +183,12 @@
         [PDHud dismiss];
         
         _isAllGoods = NO;
-
+        
         ShopMainModel * shopMainModel = [ShopMainModel mj_objectWithKeyValues:requestDic];
         [_class_listArray setArray:shopMainModel.class_list];
         [_rightCollectionView reloadData];
         
-        if (_class_listArray.count < 150) {
+        if (_class_listArray.count < 10) {
             [_rightCollectionView hidenFooter];
         }
         [_rightCollectionView headerEndRefresh];
@@ -191,15 +197,15 @@
         [PDHud dismiss];
         
         [_rightCollectionView headerEndRefresh];
-
-    }];
         
+    }];
+    
 }
 
 #pragma mark - 加载左侧列表和轮播数据
 
 - (void)loadAllgoodsDataArray{
-
+    
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"store_id"] = @"1";
     params[@"gc_id"] = @"0";
@@ -224,7 +230,7 @@
     } fail:^(NSString *error) {
         
     }];
-
+    
 }
 
 #pragma mark - 初始化广告视图
@@ -253,29 +259,29 @@
         [_categoryTableView registerNib:[UINib nibWithNibName:@"LeftTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
         [_bottomView addSubview:_categoryTableView];
         
-      
+        
     }
     return _categoryTableView;
 }
 #pragma mark - 初始化右侧视图
 - (UICollectionView *)rightCollectionView{
-
+    
     if (!_rightCollectionView) {
-         UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc]init];
-         flowayout.minimumInteritemSpacing = 0.f;
+        UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc]init];
+        flowayout.minimumInteritemSpacing = 0.f;
         flowayout.minimumLineSpacing = 0.5f;
-         _rightCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(kScreenWidth/3, 0, kScreenWidth/3*2, _bottomView.frame.size.height) collectionViewLayout:flowayout];
-         [_rightCollectionView registerClass:[RightCollectionViewCell class] forCellWithReuseIdentifier:@"RightCollectionViewCell"];
+        _rightCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(kScreenWidth/3, 0, kScreenWidth/3*2, _bottomView.frame.size.height) collectionViewLayout:flowayout];
+        [_rightCollectionView registerClass:[RightCollectionViewCell class] forCellWithReuseIdentifier:@"RightCollectionViewCell"];
         [_rightCollectionView registerNib:[UINib nibWithNibName:@"CollectCell" bundle:nil] forCellWithReuseIdentifier:@"CollectCell"];
-
+        
         [_rightCollectionView setBackgroundColor:[UIColor clearColor]];
         _rightCollectionView.delegate = self;
         _rightCollectionView.alwaysBounceVertical = YES;
         _rightCollectionView.dataSource = self;
-         [_bottomView addSubview:_rightCollectionView];
-
+        [_bottomView addSubview:_rightCollectionView];
+        
     }
-
+    
     return _rightCollectionView;
 }
 #pragma mark - UITableViewDelegate UITableViewDataSource
@@ -299,7 +305,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleGray;//设置Cell选中效果
     return cell;
-
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  44;
@@ -308,19 +314,19 @@
 {
     
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-//    [_rightCollectionView scrollRectToVisible:CGRectMake(0, 0, self.rightCollectionView.frame.size.width, self.rightCollectionView.frame.size.height) animated:YES];
+    //    [_rightCollectionView scrollRectToVisible:CGRectMake(0, 0, self.rightCollectionView.frame.size.width, self.rightCollectionView.frame.size.height) animated:YES];
     
     if(indexPath.row ==0){
         [_class_listArray removeAllObjects];
         [self loadAllShopListWithGc_id:@"0" page:1];
-
+        
     }else{
         [_class_listArray removeAllObjects];
         Class_List * class_list =_class1_listArray[indexPath.row-1];
         _gc_id = class_list.gc_id;
         [self loadShopListWithGc_id:class_list.gc_id];
     }
-
+    
 }
 
 
@@ -333,23 +339,23 @@
     
     
     
-//    if (_isAllGoods) {
-//        CollectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectCell" forIndexPath:indexPath];
-//        Goods_List * goodlist = _class_listArray[indexPath.item];
-//        cell.good_list = goodlist;
-//        cell.backgroundColor =[UIColor clearColor];
-//        return cell;
-//
-//    }else{
-//        RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
-//        Class_List * class_list =_class_listArray[indexPath.row];
-//        [cell.collectionView_imageview setImageWithUrl:class_list.gc_image placeholder:kDefaultImage_Z];
-//        cell.collectionView_Label.text =class_list.gc_name;
-//        return cell;
-//        
-//    }
-//    
-//    return nil;
+    //    if (_isAllGoods) {
+    //        CollectCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectCell" forIndexPath:indexPath];
+    //        Goods_List * goodlist = _class_listArray[indexPath.item];
+    //        cell.good_list = goodlist;
+    //        cell.backgroundColor =[UIColor clearColor];
+    //        return cell;
+    //
+    //    }else{
+    //        RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
+    //        Class_List * class_list =_class_listArray[indexPath.row];
+    //        [cell.collectionView_imageview setImageWithUrl:class_list.gc_image placeholder:kDefaultImage_Z];
+    //        cell.collectionView_Label.text =class_list.gc_name;
+    //        return cell;
+    //
+    //    }
+    //
+    //    return nil;
     
     RightCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RightCollectionViewCell" forIndexPath:indexPath];
     
@@ -383,22 +389,22 @@
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (_isAllGoods) {
-//        return CGSizeMake((kScreenWidth/3*2 - 0), 90);
-//    }else{
-//        return CGSizeMake((kScreenWidth/3*2 - 0)/2, (kScreenWidth/3*2 - 0)/2+ 10);
-//
-//    }
-//    return CGSizeZero;
+    //
+    //    if (_isAllGoods) {
+    //        return CGSizeMake((kScreenWidth/3*2 - 0), 90);
+    //    }else{
+    //        return CGSizeMake((kScreenWidth/3*2 - 0)/2, (kScreenWidth/3*2 - 0)/2+ 10);
+    //
+    //    }
+    //    return CGSizeZero;
     
     return CGSizeMake((kScreenWidth/3*2 - 0)/3, (kScreenWidth/3*2 - 0)/3+ 10);
-
+    
 }
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     
     if (_isAllGoods ) {
         Goods_List * goodlist = _class_listArray[indexPath.item];
@@ -414,9 +420,9 @@
         vc.gc_id =class_list.gc_id;
         vc.navigationItem.title = class_list.gc_name;
         [self.navigationController pushViewController:vc animated:YES];
-    
+        
     }
-
+    
 }
 
 #pragma mark - ZYBannerViewDataSource
@@ -435,10 +441,10 @@
     UIImageView *imageView = [[UIImageView alloc] init];
     [imageView setImageWithUrl:bannerModel.banner_image placeholder:kDefaultImage_c1];
     imageView.tag = 100;
-//    imageView.contentMode = UIViewContentModeScaleAspectFill;
-//    imageView.clipsToBounds = YES;
+    //    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    //    imageView.clipsToBounds = YES;
     return imageView;
-
+    
 }
 
 #pragma mark - ZYBannerViewDelegate
@@ -446,7 +452,7 @@
 // 在这里实现点击事件的处理
 - (void)banner:(MCBannerView *)banner didSelectItemAtIndex:(NSInteger)index
 {
- 
+    
     NSMutableArray * imageArray = [NSMutableArray new];
     
     [_bannerArray enumerateObjectsUsingBlock:^(Banner_List  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -475,8 +481,6 @@
 - (void)loadAllShopListWithGc_id:(NSString *)gc_id page:(NSInteger )page{
     
     
-    [_class_listArray removeAllObjects];
-    
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"store_id"] = @"1";//店铺ID
     params[@"gc_id"] = @"0";//商品分类ID
@@ -492,31 +496,31 @@
         [PDHud dismiss];
         
         _isAllGoods = YES;
-
+        
         
         
         ShopListModel * shopListModel = [ShopListModel mj_objectWithKeyValues:requestDic];
-   
-        page_total==1?[_class_listArray setArray:shopListModel.goods_list]:[_class_listArray addObjectsFromArray:shopListModel.goods_list];
+        
+        [self.class_listArray addObjectsFromArray:shopListModel.goods_list];
         
         _page = page;
         _page ++;
         
         [_rightCollectionView reloadData];
         
-        if (shopListModel.goods_list.count < 15) {
+        if (shopListModel.goods_list.count < 10) {
             [_rightCollectionView hidenFooter];
         }
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_class_listArray empty:EmptyDataTableViewDefault withScrollView:_rightCollectionView];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.class_listArray empty:EmptyDataTableViewDefault withScrollView:_rightCollectionView];
         
-        page_total==1?[_rightCollectionView headerEndRefresh]:[_rightCollectionView footerEndRefresh];
+        page==1?[_rightCollectionView headerEndRefresh]:[_rightCollectionView footerEndRefresh];
         
         
     } fail:^(NSString *error) {
         [PDHud dismiss];
         
         page==1?[_rightCollectionView headerEndRefresh]:[_rightCollectionView footerEndRefresh];
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_class_listArray empty:EmptyDataTableViewDefault withScrollView:_rightCollectionView];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.class_listArray empty:EmptyDataTableViewDefault withScrollView:_rightCollectionView];
         
     }];
     
@@ -534,13 +538,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
