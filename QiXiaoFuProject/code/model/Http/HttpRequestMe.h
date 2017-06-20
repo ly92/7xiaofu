@@ -131,7 +131,8 @@ UIKIT_EXTERN NSString  * const HttpMeSetMemberNote;
 
 /** 获取备件SN码 */
 UIKIT_EXTERN NSString  * const HttpMeGetEngGoodsSn;
-
+/**退换货时 获取备件SN码 */
+UIKIT_EXTERN NSString  * const HttpMeGetReturnGoodsSn;
 /** 小库存-销库存 */
 UIKIT_EXTERN NSString  * const HttpMeClearEngGoodsSn;
 

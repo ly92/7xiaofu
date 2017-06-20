@@ -17,7 +17,6 @@
 @property (assign, nonatomic) NSInteger page;
 @property (nonatomic, strong)NSIndexPath *indexPath;//用来记录tableviewcell选中位置
 
-
 @property(nonatomic, strong) NSMutableArray *chooseArr;//选中数据的数组
 
 @property(nonatomic, strong) NSMutableDictionary * selectValueDictionary;//选中数据的数组
@@ -83,12 +82,18 @@
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);
     
+    
+    NSString *url;
+    
     if(_order_id.length != 0 ){
          params[@"order_id"] = _order_id;
-     }
+        url = HttpMeGetReturnGoodsSn;
+    }else{
+        url = HttpMeGetEngGoodsSn;
+    }
     
     
-    [MCNetTool postWithCacheUrl:HttpMeGetEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    [MCNetTool postWithCacheUrl:url params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         NSArray * array = [MyStockModel mj_objectArrayWithKeyValuesArray:requestDic];
         

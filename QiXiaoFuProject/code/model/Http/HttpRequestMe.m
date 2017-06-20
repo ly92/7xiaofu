@@ -130,7 +130,8 @@ NSString  * const HttpMeSetMemberNote = @"tp.php/Home/My/setMemberNote";
 
 /** 获取备件SN码 */
 NSString  * const HttpMeGetEngGoodsSn = @"tp.php/Home/My/getEngGoodsSn";
-
+/**退换货时 获取备件SN码 */
+NSString  * const HttpMeGetReturnGoodsSn = @"tp.php/Home/My/getReturnGoodsSn";
 
 /** 小库存-销库存 */
 NSString  * const HttpMeClearEngGoodsSn = @"tp.php/Home/My/clearEngGoodsSn";
