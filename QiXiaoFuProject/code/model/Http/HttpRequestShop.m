@@ -82,6 +82,10 @@ NSString  * const HttpShopStorageDetail =@"api/index.php?act=goods&op=storageDet
 
 /** 退款退货 */
 NSString  * const HttpShopAdd_refund_all = @"api/index.php?act=member_order&op=add_refund_all";
+/** 退款退货 */
+NSString  * const HttpShopAdd_refund_all1 = @"api/index.php?act=member_order&op=refund_return_step_one";
+/** 退款退货 */
+NSString  * const HttpShopAdd_refund_all2 = @"api/index.php?act=member_order&op=add_refund_all";
 
 /** 订单再次支付 */
 NSString  * const HttpShopCheckstand_save = @"api/index.php?act=member_order&op=checkstand_save";

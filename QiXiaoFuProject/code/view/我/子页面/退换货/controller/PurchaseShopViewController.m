@@ -41,8 +41,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *snBtn;
 
-@property (weak, nonatomic) IBOutlet UITextField *orderNumTF;//物流编号
-
 
 @property (nonatomic, strong)UICollectionView *collectionV;
 //上传图片的个数
@@ -125,11 +123,6 @@
     
     NSString * content = _textView.text;
     
-    if (self.orderNumTF.text.length == 0){
-        [self showErrorText:@"请输入物流编号"];
-        return;
-    }
-    
     if(content.length == 0){
     
         [self showErrorText:@"请输入退换货的原因"];
@@ -150,9 +143,8 @@
     params[@"goods_image"] = [_photoUrlArray string];
     params[@"type"] = @(_type);
     params[@"goods_sn"] = _snString;
-    params[@"wuliu_sn"] = self.orderNumTF.text;
     
-    [MCNetTool postWithUrl:HttpShopAdd_refund_all params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    [MCNetTool postWithUrl:HttpShopAdd_refund_all1 params:params success:^(NSDictionary *requestDic, NSString *msg) {
         [self showSuccessText:msg];
         _textView.text = @"";
         [_photoUrlArray removeAllObjects];

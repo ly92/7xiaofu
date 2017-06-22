@@ -27,7 +27,7 @@ static NSString * const kSeverXS = @"服务形式";
 static NSString * const kSeverLX = @"服务类型";
 static NSString * const kSeverTime = @"预约服务时间";
 static NSString * const kSeverQY = @"服务区域";
-static NSString * const kSeverOtherQY = @"其他服务领域";
+//static NSString * const kSeverOtherQY = @"其他服务领域";
 static NSString * const kSeverMark = @"备注  ";
 static NSString * const kSeverPrice = @"服务价格";
 
@@ -70,7 +70,7 @@ static NSString * const kSeverPrice = @"服务价格";
 //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"icon_share" highImage:@"icon_share" target:self action:@selector(shareItemAction:)];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"查看评价" target:self action:@selector(customerEvaluation)];
     
-    _titles = @[kSeverName,kSeverLY,kSeverPP,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverOtherQY,kSeverMark,kSeverPrice];
+    _titles = @[kSeverName,kSeverLY,kSeverPP,kSeverNumber,kSeverXS,kSeverLX,kSeverTime,kSeverQY,kSeverMark,kSeverPrice];
 
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;  //  随便设个不那么离谱的值
@@ -374,9 +374,9 @@ static NSString * const kSeverPrice = @"服务价格";
             ProductDetail1TableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductDetail1TableViewCell"];
             cell.titleLab.text = _titles[indexPath.row];
 
-            if ([title isEqualToString:kSeverOtherQY]) {
-                cell.contentLab.text =_productDetaileModel.other_service_sector.length==0?@"    ":_productDetaileModel.other_service_sector;
-            }
+//            if ([title isEqualToString:kSeverOtherQY]) {
+//                cell.contentLab.text =_productDetaileModel.other_service_sector.length==0?@"    ":_productDetaileModel.other_service_sector;
+//            }
              if ([title isEqualToString:kSeverTime]) {
                 cell.contentLab.text = [NSString stringWithFormat:@"%@ - %@",[Utool timeStamp2TimeFormatter:_productDetaileModel.service_stime],[Utool timeStamp2TimeFormatter:_productDetaileModel.service_etime]];
             }
