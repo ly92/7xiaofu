@@ -89,7 +89,7 @@
             _zuidiedu =[requestDic objectForKey:@"zuidiedu"];
             
         }else{
-            _available_predeposit = 0;
+            _available_predeposit = @"0";
         }
         _walletHeaderView.moneyLab.text =[NSString stringWithFormat:@"¥%@",_available_predeposit];
         

@@ -519,7 +519,11 @@
     
     [MCNetTool postWithUrl:HttpApi params:params success:^(NSDictionary *requestDic, NSString *msg) {
             [self showSuccessText:@"处理成功！"];
+        [self.selectedArray removeAllObjects];
             [self loadSystemMessageWithRefreshPage:1];
+        if (self.isSelectedAll){
+        [self selectedAllAction];
+        }
     } fail:^(NSString *error) {
         [self showErrorText:error];
     }];

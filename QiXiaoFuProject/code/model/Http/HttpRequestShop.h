@@ -64,7 +64,8 @@ UIKIT_EXTERN NSString  * const HttpShopOrderList;
 
 /** 取消订单 */
 UIKIT_EXTERN NSString  * const HttpShopOrderCancel;
-
+/** 发货前删除订单 */
+UIKIT_EXTERN NSString  * const HttpShopOrderCancleBeforDeliver;
 /** 删除订单 */
 UIKIT_EXTERN NSString  * const HttpShopOrderDel;
 

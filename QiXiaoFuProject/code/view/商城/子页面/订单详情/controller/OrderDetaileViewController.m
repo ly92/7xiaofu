@@ -25,10 +25,12 @@
 
 
 
-@interface OrderDetaileViewController ()
+@interface OrderDetaileViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) OrderDetaileModel * orderDetaileModel;
+
+@property (nonatomic, strong) UIPickerView *picker;
 
 @end
 
@@ -260,28 +262,30 @@
         // 删除订单
         shopOrderFooterView.shopOrderCellDeleateBlock = ^(NSString * order_id,NSIndexPath * cellIndexPath){
             
-            
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要删除此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-                
+            if (_orderDetaileModel.state_type == 2){
+                self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.height-200, kScreenWidth, 200)];
+                self.picker.delegate = self;
+                self.picker.dataSource = self;
+                self.picker.backgroundColor = [UIColor whiteColor];
+                [self.view addSubview:self.picker];
+                return ;
+            }
+
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要取消此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                 if(buttonIndex == 1){
-                    
                     NSMutableDictionary * params = [NSMutableDictionary new];
                     params[@"userid"] = kUserId;
                     params[@"store_id"] = @"1";
                     params[@"order_id"] = _order_id;
                     
-                    [MCNetTool postWithUrl:HttpShopOrderDel params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                        [self showSuccessText:msg];
-                        
-                        [self .navigationController popViewControllerAnimated:YES];
-                        
-                        
-                    } fail:^(NSString *error) {
-                        [self showErrorText:error];
-                    }];
-                    
+                        [MCNetTool postWithUrl:HttpShopOrderDel params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                            [self showSuccessText:msg];
+                            
+                            [self .navigationController popViewControllerAnimated:YES];
+                        } fail:^(NSString *error) {
+                            [self showErrorText:error];
+                        }];
                 }
-                
             } otherButtonTitles:@"确认"];
             [alert show];
             
@@ -367,21 +371,56 @@
     return 0.00001f;
 
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self.picker removeFromSuperview];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIPickerViewDelegate,UIPickerViewDataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
 }
-*/
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return 6;
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 25;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSArray *array = @[@"我不想买了",@"地址等信息填写错误，重买",@"商品价格较贵",@"商品重复下单",@"未按约定时间配送",@"其他原因"];
+    if (array.count > row){
+        return array[row];
+    }
+    return @"";
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+     NSArray *array = @[@"我不想买了",@"地址等信息填写错误，重买",@"商品价格较贵",@"商品重复下单",@"未按约定时间配送",@"其他原因"];
+    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要删除此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        if(buttonIndex == 1){
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"userid"] = kUserId;
+            params[@"store_id"] = @"1";
+            params[@"type"] = @"1";
+            params[@"order_id"] = _order_id;
+            if (array.count > row){
+                params[@"message"] = array[row];
+            }else{
+                params[@"message"] = @"其他原因";
+            }
+            [MCNetTool postWithUrl:HttpShopOrderCancleBeforDeliver params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [self showSuccessText:msg];
+                [self .navigationController popViewControllerAnimated:YES];
+            } fail:^(NSString *error) {
+                [self showErrorText:error];
+            }];
+        }
+    } otherButtonTitles:@"确认"];
+    [alert show];
+
+}
 
 @end

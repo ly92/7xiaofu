@@ -68,6 +68,9 @@ NSString  * const HttpShopOrderCancel =@"api/index.php?act=member_order&op=order
 /** 删除订单 */
 NSString  * const HttpShopOrderDel =@"api/index.php?act=member_order&op=order_delete";
 
+/** 发货前删除订单 */
+NSString  * const HttpShopOrderCancleBeforDeliver = @"api/index.php?act=member_order&op=add_return_all";
+
 /** 确认收货 */
  NSString  * const HttpShopOrderFinish =@"api/index.php?act=member_order&op=order_receive";
 

@@ -136,8 +136,15 @@
         _stateLab.hidden = YES;
         _timeLab.hidden = YES;
         
-        _leftBtn.hidden = YES;
+        _leftBtn.hidden = NO;
         _rightBtn.hidden = NO;
+        
+        [_leftBtn setTitle:@"  取消  " forState:UIControlStateNormal];
+        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            if (_shopOrderCellDeleateBlock) {
+                _shopOrderCellDeleateBlock(order_id,_indexPath);
+            }
+        }];
         [_rightBtn setTitle:@"  提醒发货  " forState:UIControlStateNormal];
         [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
             if (_shopOrderCellTiXingFaHuoBlock) {
