@@ -15,7 +15,7 @@
 // 常量
 #import "StaticConst.h"
 #import "Utool.h"
-1
+
 //  第三方sdk
 #import "UMMobClick/MobClick.h"// 友盟
 #import "EMSDK.h"// 环信
