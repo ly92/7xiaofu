@@ -15,11 +15,12 @@
 + (void)initialize
 {
     self.minimumDismissTimeInterval = 1.50f;
-    [self setSuccessImage:[UIImage imageNamed:@"PDHud.bundle/HUD_success@2x.png"]];
-    [self setInfoImage:[UIImage imageNamed:@"PDHud.bundle/HUD_info@2x.png"]];
-    [self setErrorImage:[UIImage imageNamed:@"PDHud.bundle/HUD_error@2x.png"]];
+//    [self setSuccessImage:[UIImage imageNamed:@"PDHud.bundle/HUD_success@2x.png"]];
+//    [self setInfoImage:[UIImage imageNamed:@"PDHud.bundle/HUD_info@2x.png"]];
+//    [self setErrorImage:[UIImage imageNamed:@"PDHud.bundle/HUD_error@2x.png"]];
     
     [self setDefaultMaskType:SVProgressHUDMaskTypeBlack];// > 1  hud显示期间禁用用户交互  SVProgressHUDMaskTypeNone 用户可以交互
+    [self setDefaultStyle:SVProgressHUDStyleLight];
     [self setCornerRadius:8.0];
     [self setBackgroundColor:[UIColor whiteColor]];
 }
