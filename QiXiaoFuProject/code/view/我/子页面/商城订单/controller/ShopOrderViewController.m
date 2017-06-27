@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UIPickerView *picker;
+@property (nonatomic, strong) UIView *pickweView;
 @property (nonatomic, copy) NSString *order_id;
 @end
 
@@ -44,6 +45,8 @@
     
     [self addRefreshView];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancleAction) name:@"SCNavTabBarControllerItemDidChanged" object:nil];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -71,10 +74,13 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.pickweView removeFromSuperview];
+}
+
 
 - (void)loadShopOrderListWithPage:(NSInteger )page hud:(BOOL)hud{
-
-    
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
@@ -212,14 +218,41 @@
     // 删除订单
     shopOrderFooterView.shopOrderCellDeleateBlock = ^(NSString * order_id,NSIndexPath * cellIndexPath){
         
-        if (self.shoppingOrderStatus == OrderStatusReadyGo){
-            self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0,self.view.height - 200, kScreenWidth, 200)];
+        if (shopOrderModel.state_type == 2){
+            
+            UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
+            view.backgroundColor = [UIColor clearColor];
+            UIButton *bg_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            bg_btn.frame = view.bounds;
+            [bg_btn addTarget:self action:@selector(cancleAction) forControlEvents:UIControlEventTouchUpInside];
+            bg_btn.backgroundColor = [UIColor blackColor];
+            bg_btn.alpha = 0.5;
+            [view addSubview:bg_btn];
+            self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0,view.height - 200, kScreenWidth, 200)];
             self.order_id = order_id;
             self.picker.delegate = self;
             self.picker.dataSource = self;
             self.picker.backgroundColor = [UIColor whiteColor];
-            [self.view addSubview:self.picker];
-            [self.picker reloadAllComponents];
+            [view addSubview:self.picker];
+
+            UIButton *cancleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [cancleBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            [cancleBtn setTitle:@"取消" forState:UIControlStateNormal];
+            [cancleBtn addTarget:self action:@selector(cancleAction) forControlEvents:UIControlEventTouchUpInside];
+            cancleBtn.frame = CGRectMake(0,view.height - 200 - 45, kScreenWidth/2.0, 44);
+            [cancleBtn setBackgroundColor:[UIColor whiteColor]];
+            UIButton *sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sureBtn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
+            [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
+            [sureBtn addTarget:self action:@selector(sureAction) forControlEvents:UIControlEventTouchUpInside];
+            sureBtn.frame = CGRectMake(kScreenWidth/2.0+1,view.height - 200 - 45, kScreenWidth/2.0-1, 44);
+            [sureBtn setBackgroundColor:[UIColor whiteColor]];
+            [view addSubview:cancleBtn];
+            [view addSubview:sureBtn];
+            [self.view addSubview:view];
+            
+            self.pickweView = view;
+            
             return ;
         }
         
@@ -349,7 +382,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self.picker removeFromSuperview];
+    [self.pickweView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -376,7 +409,12 @@
     }
     return @"";
 }
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+
+- (void)cancleAction{
+[self.pickweView removeFromSuperview];
+}
+
+- (void)sureAction{
     NSArray *array = @[@"我不想买了",@"地址等信息填写错误，重买",@"商品价格较贵",@"商品重复下单",@"未按约定时间配送",@"其他原因"];
     BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要取消此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
         if(buttonIndex == 1){
@@ -385,6 +423,9 @@
             params[@"store_id"] = @"1";
             params[@"type"] = @"1";
             params[@"order_id"] = self.order_id;
+            
+            NSInteger row = [self.picker selectedRowInComponent:0];
+            
             if (array.count > row){
                 params[@"message"] = array[row];
             }else{
@@ -392,6 +433,7 @@
             }
             [MCNetTool postWithUrl:HttpShopOrderCancleBeforDeliver params:params success:^(NSDictionary *requestDic, NSString *msg) {
                 [self showSuccessText:msg];
+                
                 [self loadShopOrderListWithPage:1 hud:YES];
             } fail:^(NSString *error) {
                 [self showErrorText:error];
@@ -399,8 +441,6 @@
         }
     } otherButtonTitles:@"确认"];
     [alert show];
-    
 }
-
 
 @end

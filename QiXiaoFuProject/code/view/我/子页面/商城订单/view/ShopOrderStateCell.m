@@ -53,7 +53,7 @@
     _shopOrderModel = shopOrderModel;
     
     
-//   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】
+//   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】【21，发货前取消订单】
 
     
     
@@ -195,7 +195,17 @@
         }];
 
         
+    }else if (type == 21){
+        
+        _state1Lab.text = @"取消订单退款中";
+        _state1Lab.hidden = NO;
+        _stateLab.hidden = YES;
+        _timeLab.hidden = YES;
+        
+        _leftBtn.hidden = YES;
+        _rightBtn.hidden = YES;
     }
+
     
 }
 

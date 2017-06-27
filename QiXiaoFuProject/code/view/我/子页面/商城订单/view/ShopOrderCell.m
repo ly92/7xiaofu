@@ -42,7 +42,7 @@
     _shopOrderModel = shopOrderModel;
     
     
-//   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】
+//   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】【21，发货前取消订单】
 
     Order_List * order_List =shopOrderModel.order_list[_indexPath.row];
     [_iconImageView setImageWithUrl:order_List.goods_image placeholder:kDefaultImage_Z];

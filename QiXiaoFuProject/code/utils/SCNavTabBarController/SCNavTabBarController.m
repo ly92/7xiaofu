@@ -263,6 +263,8 @@
 
 - (void)itemDidSelectedWithIndex:(NSInteger)index withCurrentIndex:(NSInteger)currentIndex
 {
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SCNavTabBarControllerItemDidChanged" object:nil];
+    
     if (currentIndex-index>=2 || currentIndex-index<=-2) {
         [_mainView setContentOffset:CGPointMake(index * SCREEN_WIDTH, 0) animated:NO];
     }else{

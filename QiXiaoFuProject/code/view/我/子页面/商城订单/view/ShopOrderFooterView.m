@@ -146,6 +146,11 @@
         _rightBtn.hidden = NO;
          [_rightBtn setTitle:@"  等待商家处理  " forState:UIControlStateNormal];
         
+    }else if (type == 21){
+        
+        _leftBtn.hidden = YES;
+        _rightBtn.hidden = YES;
+        
     }
     
 }

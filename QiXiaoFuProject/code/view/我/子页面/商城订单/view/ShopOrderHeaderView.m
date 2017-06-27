@@ -147,6 +147,12 @@
         _stateLab.hidden = YES;
         _timeLab.hidden = YES;
         
+    }else if (type == 21){
+        _state1Lab.text = @"取消订单退款中";
+        _state1Lab.hidden = NO;
+        _stateLab.hidden = YES;
+        _timeLab.hidden = YES;
+        
     }
     
 }
