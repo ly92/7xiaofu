@@ -116,7 +116,7 @@
         
         _area_list =shopListModel.area_list;
         
-        page_total==1?[_shopListArray setArray:shopListModel.goods_list]:[_shopListArray addObjectsFromArray:shopListModel.goods_list];
+        page==1?[_shopListArray setArray:shopListModel.goods_list]:[_shopListArray addObjectsFromArray:shopListModel.goods_list];
         [_collectionView reloadData];
         
         if (shopListModel.goods_list.count < 10) {
@@ -124,7 +124,7 @@
         }
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_shopListArray empty:EmptyDataTableViewDefault withScrollView:_collectionView];
         
-        page_total==1?[_collectionView headerEndRefresh]:[_collectionView footerEndRefresh];
+        page==1?[_collectionView headerEndRefresh]:[_collectionView footerEndRefresh];
         
         
     } fail:^(NSString *error) {
