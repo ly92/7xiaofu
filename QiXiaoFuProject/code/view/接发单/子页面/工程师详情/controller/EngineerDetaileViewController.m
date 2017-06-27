@@ -187,10 +187,11 @@
         }else{
             cell.titleLab.hidden = YES;
             cell.contentLab.hidden = NO;
-            cell.zhengshuImageView.hidden = YES;
+            cell.zhengshuImageView.hidden = NO;
 
             Cer_Images * ce = _engineerDetaileModel.cer_images[indexPath.row - 1];
             cell.contentLab.text =ce.cer_image_name;
+            [cell.zhengshuImageView setImageWithUrl:ce.cer_image placeholder:nil];
          }
          return cell;
 
@@ -226,8 +227,8 @@
                 return 80;
             }
         }
-        return UITableViewAutomaticDimension;
-    }else
+        return 80;
+    }
     return UITableViewAutomaticDimension;
 }
 
