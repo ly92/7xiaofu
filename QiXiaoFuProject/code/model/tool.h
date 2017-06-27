@@ -7,15 +7,15 @@
  
  */
 
-#define kNetWorkEnvironment 2
+#define kNetWorkEnvironment 1
 
-#define showPrice 1   // 0不显示价格 1显示价格
+#define showPrice 0   // 0不显示价格 1显示价格
 
 
 // 常量
 #import "StaticConst.h"
 #import "Utool.h"
-
+1
 //  第三方sdk
 #import "UMMobClick/MobClick.h"// 友盟
 #import "EMSDK.h"// 环信
