@@ -150,9 +150,10 @@
             }
             [self.navigationController popViewControllerAnimated:YES];
         }else{
-            BlockUIAlertView *alert = [[BlockUIAlertView alloc] initWithTitle:@"定位不成功" message:@"确定否允许使用位置，是否重新定位？" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            BlockUIAlertView *alert = [[BlockUIAlertView alloc] initWithTitle:@"定位不成功" message:@"您可能未允许使用位置，请允许使用位置" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                 if (buttonIndex == 0){
                     //直接显示输入地址
+                    [self actionLocation];
                     _selectTip.name = string;
                     _selectTip.location = _location;
                     if (_chooseSeviceAreaBlock) {
@@ -160,9 +161,12 @@
                     }
                     [self.navigationController popViewControllerAnimated:YES];
                 }else{
-                    [self actionLocation];
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    if ([[UIApplication sharedApplication] canOpenURL:url]){
+                        [[UIApplication sharedApplication] openURL:url];
+                    }
                 }
-            } otherButtonTitles:@"确定"];
+            } otherButtonTitles:@"去设置"];
             [alert show];
         }
     }
