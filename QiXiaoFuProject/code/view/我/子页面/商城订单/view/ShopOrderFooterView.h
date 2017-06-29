@@ -28,6 +28,7 @@
 @property(nonatomic, copy) void (^shopOrderCellQueRenShouHuoBlock)(NSString * order_id,NSIndexPath * cellIndexPath);
 @property(nonatomic, copy) void (^shopOrderCellDeleateBlock)(NSString * order_id,NSIndexPath * cellIndexPath);
 @property(nonatomic, copy) void (^shopOrderCellTuiHuanHuoBlock)(NSString * order_id,NSIndexPath * cellIndexPath);
-
+@property(nonatomic, copy) void (^shopOrderCellTuiHuanHuostpe2Block)(NSString * order_id,NSString * refund_type);
+@property(nonatomic, copy) void (^shopOrderCellTuiHuanHuostpe3Block)(NSString * order_id,NSString * refund_type);
 
 @end

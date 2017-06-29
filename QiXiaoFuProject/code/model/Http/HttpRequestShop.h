@@ -88,6 +88,8 @@ UIKIT_EXTERN NSString  * const HttpShopAdd_refund_all;
 UIKIT_EXTERN NSString  * const HttpShopAdd_refund_all1;
 /** 退款退货 */
 UIKIT_EXTERN NSString  * const HttpShopAdd_refund_all2;
+/** 退款退货 */
+UIKIT_EXTERN NSString  * const HttpShopAdd_refund_all3;
 /** 订单再次支付 */
 UIKIT_EXTERN NSString  * const HttpShopCheckstand_save;
 

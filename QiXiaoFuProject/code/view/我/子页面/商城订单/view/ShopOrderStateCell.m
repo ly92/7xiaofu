@@ -180,7 +180,7 @@
         _leftBtn.hidden = NO;
         _rightBtn.hidden = NO;
         [_leftBtn setTitle:@"  删除  " forState:UIControlStateNormal];
-        [_rightBtn setTitle:@"  退换货  " forState:UIControlStateNormal];
+        [_rightBtn setTitle:@" 申请退换货 " forState:UIControlStateNormal];
         
         
         [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {

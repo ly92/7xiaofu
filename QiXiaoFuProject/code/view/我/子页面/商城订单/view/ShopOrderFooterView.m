@@ -32,18 +32,18 @@
     
     
     //   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】
-    [self orderStateWithState_type:shopOrderModel.state_type withTime:shopOrderModel.order_end_time order_id:shopOrderModel.order_id pay_sn:shopOrderModel.pay_sn order_price: shopOrderModel.order_amount order_sn:shopOrderModel.order_sn];
+    [self orderStateWithState_type:shopOrderModel.state_type withTime:shopOrderModel.order_end_time order_id:shopOrderModel.order_id pay_sn:shopOrderModel.pay_sn order_price: shopOrderModel.order_amount order_sn:shopOrderModel.order_sn return_step_state:shopOrderModel.return_step_state refund_type:shopOrderModel.refund_type];
 }
 
 
 - (void)setOrderDetaileModel:(OrderDetaileModel *)orderDetaileModel{
     _orderDetaileModel = orderDetaileModel;
     
-    [self orderStateWithState_type:orderDetaileModel.state_type withTime:orderDetaileModel.order_end_time order_id:_order_id pay_sn:orderDetaileModel.pay_sn order_price:orderDetaileModel.order_price order_sn:orderDetaileModel.order_sn] ;
+    [self orderStateWithState_type:orderDetaileModel.state_type withTime:orderDetaileModel.order_end_time order_id:_order_id pay_sn:orderDetaileModel.pay_sn order_price:orderDetaileModel.order_price order_sn:orderDetaileModel.order_sn return_step_state:orderDetaileModel.return_step_state refund_type:orderDetaileModel.refund_type] ;
 }
 
 
-- (void)orderStateWithState_type:(NSInteger )type withTime:(NSInteger )order_end_time order_id:(NSString *)order_id pay_sn:(NSString *)pay_sn order_price:(NSString * )order_price order_sn:(NSString *)order_sn {
+- (void)orderStateWithState_type:(NSInteger )type withTime:(NSInteger )order_end_time order_id:(NSString *)order_id pay_sn:(NSString *)pay_sn order_price:(NSString * )order_price order_sn:(NSString *)order_sn return_step_state:(NSString *)return_step_state refund_type:(NSString *)refund_type{
     
     
     
@@ -113,7 +113,7 @@
         _leftBtn.hidden = NO;
         _rightBtn.hidden = NO;
         [_leftBtn setTitle:@"  删除  " forState:UIControlStateNormal];
-        [_rightBtn setTitle:@"  退换货  " forState:UIControlStateNormal];
+        [_rightBtn setTitle:@" 申请退换货 " forState:UIControlStateNormal];
         
         [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
             if (_shopOrderCellDeleateBlock) {
@@ -142,9 +142,73 @@
         
     }else if (type == 6){
         
+        
+        
         _leftBtn.hidden = YES;
         _rightBtn.hidden = NO;
-         [_rightBtn setTitle:@"  等待商家处理  " forState:UIControlStateNormal];
+        
+        
+        
+        switch ([return_step_state intValue]) {
+                case 1:{
+                    //1 后台审核
+                    [_rightBtn setTitle:@"  等待商家审核  " forState:UIControlStateNormal];
+                }
+                break;
+                case 2:{
+                    //2 表示  后台同意第一步
+                    [_rightBtn setTitle:@"  去发货  " forState:UIControlStateNormal];
+                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        if (_shopOrderCellTuiHuanHuostpe2Block) {
+                            _shopOrderCellTuiHuanHuostpe2Block(order_id,refund_type);
+                        }
+                    }];
+                }
+                break;
+                case 3:{
+                    //3表示 后台拒绝第一步
+                    if ([refund_type intValue] == 1){
+                    
+                    }else{
+                    
+                    }
+                    _rightBtn.hidden = YES;
+                    [_rightBtn setTitle:@"  商家拒绝退换货  " forState:UIControlStateNormal];
+                }
+                break;
+                case 4:{
+                    //4 发出物流单号
+                    _rightBtn.hidden = YES;
+                    [_rightBtn setTitle:@"  等待商家确认物流  " forState:UIControlStateNormal];
+                }
+                break;
+                case 5:{
+                    //5代表等待用户确认第二部
+                    if ([refund_type intValue] == 1){
+                        [_rightBtn setTitle:@"  确认完成退货  " forState:UIControlStateNormal];
+                    }else{
+                        [_rightBtn setTitle:@"  确认完成换货  " forState:UIControlStateNormal];
+                    }
+                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        if (_shopOrderCellTuiHuanHuostpe3Block) {
+                            _shopOrderCellTuiHuanHuostpe3Block(order_id,refund_type);
+                        }
+                    }];
+                    
+                }
+                break;
+                case 6:{
+                    //6。表示后台交易完成
+                    _rightBtn.hidden = YES;
+                    [_rightBtn setTitle:@"  退换货结束  " forState:UIControlStateNormal];
+                }
+                
+                break;
+                
+            default:
+                break;
+        }
+        
         
     }else if (type == 21){
         

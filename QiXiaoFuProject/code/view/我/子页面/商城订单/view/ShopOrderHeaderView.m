@@ -78,7 +78,7 @@
     
     //   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】【6 退货换货中】
     
-     [self orderStateWithState_type:shopOrderModel.state_type withTime:shopOrderModel.order_end_time order_id:shopOrderModel.order_id pay_sn:shopOrderModel.pay_sn order_price: shopOrderModel.order_amount];
+     [self orderStateWithState_type:shopOrderModel.state_type withTime:shopOrderModel.order_end_time order_id:shopOrderModel.order_id pay_sn:shopOrderModel.pay_sn order_price: shopOrderModel.order_amount return_step_state:shopOrderModel.return_step_state refund_type:shopOrderModel.refund_type];
     
     _orderPriceLab.text = [NSString stringWithFormat:@"订单金额: %@",shopOrderModel.order_amount];
     
@@ -90,11 +90,11 @@
     
     _orderPriceLab.text = [NSString stringWithFormat:@"订单金额: %@",orderDetaileModel.order_price];
     
-    [self orderStateWithState_type:orderDetaileModel.state_type withTime:orderDetaileModel.order_end_time order_id:_order_id pay_sn:orderDetaileModel.pay_sn order_price:orderDetaileModel.order_price];
+    [self orderStateWithState_type:orderDetaileModel.state_type withTime:orderDetaileModel.order_end_time order_id:_order_id pay_sn:orderDetaileModel.pay_sn order_price:orderDetaileModel.order_price return_step_state:orderDetaileModel.return_step_state refund_type:orderDetaileModel.refund_type];
 }
 
 
-- (void)orderStateWithState_type:(NSInteger )type withTime:(NSInteger )order_end_time order_id:(NSString *)order_id pay_sn:(NSString *)pay_sn order_price:(NSString * )order_price{
+- (void)orderStateWithState_type:(NSInteger )type withTime:(NSInteger )order_end_time order_id:(NSString *)order_id pay_sn:(NSString *)pay_sn order_price:(NSString * )order_price return_step_state:(NSString *)return_step_state refund_type:(NSString *)refund_type{
     
     
     if (type == 0) {
@@ -142,11 +142,66 @@
         
         
     }else if (type == 6){
+        
         _state1Lab.text = @"退换货中";
         _state1Lab.hidden = NO;
         _stateLab.hidden = YES;
         _timeLab.hidden = YES;
         
+        switch ([return_step_state intValue]) {
+                case 1:{
+                    //1 后台审核
+                    if ([refund_type intValue] == 1){
+                        _state1Lab.text = @"退货审核中";
+                    }else{
+                        _state1Lab.text = @"换货审核中";
+                    }
+                }
+                break;
+                case 2:{
+                    //2 表示  后台同意第一步
+                    if ([refund_type intValue] == 1){
+                        _state1Lab.text = @"退货审核通过";
+                    }else{
+                        _state1Lab.text = @"换货审核通过";
+                    }
+                }
+                break;
+                case 3:{
+                    //3表示 后台拒绝第一步
+                    if ([refund_type intValue] == 1){
+                        _state1Lab.text = @"商家拒绝退换";
+                    }else{
+                        _state1Lab.text = @"商家拒绝退换";
+                    }
+                }
+                break;
+                case 4:{
+                    //4 发出物流单号
+                    _state1Lab.text = @"等待商家收货";
+                }
+                break;
+                case 5:{
+                    //5代表等待用户确认第二部
+                    if ([refund_type intValue] == 1){
+                        _state1Lab.text = @"退货完成";
+                    }else{
+                        _state1Lab.text = @"换货待收货";
+                    }
+                }
+                break;
+                case 6:{
+                    //6。表示后台交易完成
+                    if ([refund_type intValue] == 1){
+                        _state1Lab.text = @"退货完成";
+                    }else{
+                        _state1Lab.text = @"换货已收货";
+                    }
+                }
+                break;
+            default:
+                break;
+        }
     }else if (type == 21){
         _state1Lab.text = @"取消订单退款中";
         _state1Lab.hidden = NO;

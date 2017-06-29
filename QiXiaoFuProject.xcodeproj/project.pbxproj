@@ -787,6 +787,8 @@
 		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
 		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
 		08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DC31EE129E6004AF3B2 /* CreditsModel.m */; };
+		083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */; };
+		083E0DC81F050DA50066ED39 /* PurchaseShopStype2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2305,6 +2307,9 @@
 		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
 		08052DC21EE129E6004AF3B2 /* CreditsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsModel.h; sourceTree = "<group>"; };
 		08052DC31EE129E6004AF3B2 /* CreditsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsModel.m; sourceTree = "<group>"; };
+		083E0DC41F050DA50066ED39 /* PurchaseShopStype2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseShopStype2ViewController.h; sourceTree = "<group>"; };
+		083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseShopStype2ViewController.m; sourceTree = "<group>"; };
+		083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseShopStype2ViewController.xib; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -3103,6 +3108,9 @@
 				042C9B721D9688370045FAE6 /* PurchaseShopViewController.h */,
 				042C9B731D9688370045FAE6 /* PurchaseShopViewController.m */,
 				042C9B741D9688370045FAE6 /* PurchaseShopViewController.xib */,
+				083E0DC41F050DA50066ED39 /* PurchaseShopStype2ViewController.h */,
+				083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */,
+				083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -8001,6 +8009,7 @@
 				049A66F71E5C39CF003B4B57 /* SearchView.xib in Resources */,
 				04DAC5891DB8BC5B002235A7 /* EaseUIResource.bundle in Resources */,
 				04A587CB1D8D479700FA3E46 /* RechargeWithdrawFooterView.xib in Resources */,
+				083E0DC81F050DA50066ED39 /* PurchaseShopStype2ViewController.xib in Resources */,
 				041B31FD1D7DA08D00A8EBA2 /* CertificationSuccViewController.xib in Resources */,
 				041B339C1D81875000A8EBA2 /* UserInfoUpImageCell.xib in Resources */,
 				0422C5B91DC433CA002F7B11 /* ShopOrderHeaderView.xib in Resources */,
@@ -8588,6 +8597,7 @@
 				04DAC64B1DB9AB35002235A7 /* AppDelegate+EaseMob.m in Sources */,
 				045F3A971D9A069F00183258 /* GoodsDetaileModel.m in Sources */,
 				049266C71D5EE3C90098A3A6 /* UIColor+Extend.m in Sources */,
+				083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */,
 				049266C41D5EE3C90098A3A6 /* UIButton+Layout.m in Sources */,
 				04DAC57C1DB8BC5B002235A7 /* EaseBubbleView+Text.m in Sources */,
 				049266B91D5EE3C90098A3A6 /* NSString+FolderPath.m in Sources */,

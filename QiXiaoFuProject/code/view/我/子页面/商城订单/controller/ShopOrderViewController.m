@@ -15,6 +15,7 @@
 #import "OrderPayViewController.h"
 #import "ShopOrderFooterView.h"
 #import "ShopOrderHeaderView.h"
+#import "PurchaseShopStype2ViewController.h"
 
 @interface ShopOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -293,6 +294,44 @@
         };
         [self.navigationController pushViewController:vc animated:YES];
     };
+    // 退换货2-物流
+    shopOrderFooterView.shopOrderCellTuiHuanHuostpe2Block = ^(NSString * order_id,NSString * refund_type){
+         PurchaseShopStype2ViewController* vc = [[PurchaseShopStype2ViewController alloc]initWithNibName:@"PurchaseShopStype2ViewController" bundle:nil];
+        vc.order_id = order_id;
+        vc.refund_type = refund_type;
+        vc.purchaseShopViewBlock =^(){
+            [self loadShopOrderListWithPage:1 hud:YES];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    // 退换货3-确认完成
+    shopOrderFooterView.shopOrderCellTuiHuanHuostpe3Block = ^(NSString * order_id,NSString * refund_type){
+        
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定已经完成退换货" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            
+            if(buttonIndex == 1){
+                NSMutableDictionary * params = [NSMutableDictionary new];
+                params[@"userid"] = kUserId;
+                params[@"store_id"] = @"1";
+                params[@"return_step_state"] = @"5";
+                params[@"refund_id"] = shopOrderModel.refund_id;
+                params[@"type"] = refund_type;
+                
+                [MCNetTool postWithUrl:HttpShopAdd_refund_all3 params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                    [self dismissLoading];
+                    [self showSuccessText:msg];
+                    [self loadShopOrderListWithPage:1 hud:YES];
+                } fail:^(NSString *error) {
+                    [self dismissLoading];
+                    [self showErrorText:error];
+                }];
+            }
+        } otherButtonTitles:@"确认"];
+        [alert show];
+        
+        
+    };
+    
     // 提醒发货
     shopOrderFooterView.shopOrderCellTiXingFaHuoBlock = ^(NSString * order_sn,NSIndexPath * cellIndexPath){
         

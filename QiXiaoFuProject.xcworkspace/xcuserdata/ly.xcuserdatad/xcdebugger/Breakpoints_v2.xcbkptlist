@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x5de5;&#x7a0b;&#x5e08;&#x8be6;&#x60c5;/view/EngineerDetaileImageCell.m"
-            timestampString = "520233813.849173"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x5546;&#x57ce;&#x8ba2;&#x5355;/view/ShopOrderStateCell.m"
+            timestampString = "520425984.615826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-setImageArray:"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-orderStateWithState_type:withTime:order_id:pay_sn:order_price:order_sn:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x5de5;&#x7a0b;&#x5e08;&#x8be6;&#x60c5;/view/EngineerDetaileImageCell.m"
-            timestampString = "520233816.223005"
+            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x5b50;&#x9875;&#x9762;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;/controller/OrderDetaileViewController.m"
+            timestampString = "520427931.52722"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-setImageArray:"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x5546;&#x57ce;&#x8ba2;&#x5355;/controller/ShopOrderViewController.m"
+            timestampString = "520429163.627965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "-tableView:viewForFooterInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +67,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x5de5;&#x7a0b;&#x5e08;&#x8be6;&#x60c5;/controller/EngineerDetaileViewController.m"
-            timestampString = "520234447.467881"
+            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x5b50;&#x9875;&#x9762;/&#x8ba2;&#x5355;&#x8be6;&#x60c5;/controller/OrderDetaileViewController.m"
+            timestampString = "520429061.753632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "-tableView:viewForFooterInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

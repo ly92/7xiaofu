@@ -22,7 +22,7 @@
 #import "XieYiViewController.h"
 #import "OrderDetailMarkCell.h"
 #import "OrderDetailSnCell.h"
-
+#import "PurchaseShopStype2ViewController.h"
 
 
 @interface OrderDetaileViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
@@ -327,6 +327,32 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         };
+        
+        // 退换货2-物流
+        shopOrderFooterView.shopOrderCellTuiHuanHuostpe2Block = ^(NSString * order_id, NSString * refund_type){
+            PurchaseShopStype2ViewController* vc = [[PurchaseShopStype2ViewController alloc]initWithNibName:@"PurchaseShopStype2ViewController" bundle:nil];
+            vc.order_id = order_id;
+            vc.refund_type = refund_type;
+            [self.navigationController pushViewController:vc animated:YES];
+        };
+        // 退换货3-确认完成
+        shopOrderFooterView.shopOrderCellTuiHuanHuostpe3Block = ^(NSString * order_id,NSString * refund_type){
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"userid"] = kUserId;
+            params[@"store_id"] = @"1";
+            params[@"return_step_state"] = @"5";
+            params[@"refund_id"] = _orderDetaileModel.refund_id;
+            params[@"type"] = refund_type;
+            
+            [MCNetTool postWithUrl:HttpShopAdd_refund_all3 params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [self dismissLoading];
+                [self showSuccessText:msg];
+            } fail:^(NSString *error) {
+                [self dismissLoading];
+                [self showErrorText:error];
+            }];
+        };
+        
         
         // 提醒发货
         shopOrderFooterView.shopOrderCellTiXingFaHuoBlock = ^(NSString * order_sn,NSIndexPath * cellIndexPath){
