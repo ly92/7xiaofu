@@ -170,9 +170,9 @@
                 case 3:{
                     //3表示 后台拒绝第一步
                     if ([refund_type intValue] == 1){
-                        _state1Lab.text = @"商家拒绝退换";
+                        _state1Lab.text = @"商家拒绝退货";
                     }else{
-                        _state1Lab.text = @"商家拒绝退换";
+                        _state1Lab.text = @"商家拒绝换货";
                     }
                 }
                 break;

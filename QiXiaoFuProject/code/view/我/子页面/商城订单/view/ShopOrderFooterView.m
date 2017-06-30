@@ -61,8 +61,8 @@
         
         
     }else if (type == 1) {
- 
-         _leftBtn.hidden = NO;
+        
+        _leftBtn.hidden = NO;
         _rightBtn.hidden = NO;
         [_leftBtn setTitle:@"  取消  " forState:UIControlStateNormal];
         [_rightBtn setTitle:@"    支付    " forState:UIControlStateNormal];
@@ -150,58 +150,81 @@
         
         
         switch ([return_step_state intValue]) {
-                case 1:{
-                    //1 后台审核
-                    [_rightBtn setTitle:@"  等待商家审核  " forState:UIControlStateNormal];
-                }
+            case 1:{
+                //1 后台审核
+                [_rightBtn setTitle:@"  等待商家审核  " forState:UIControlStateNormal];
+            }
                 break;
-                case 2:{
-                    //2 表示  后台同意第一步
-                    [_rightBtn setTitle:@"  去发货  " forState:UIControlStateNormal];
+            case 2:{
+                //2 表示  后台同意第一步
+                [_rightBtn setTitle:@"  去发货  " forState:UIControlStateNormal];
+                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_shopOrderCellTuiHuanHuostpe2Block) {
+                        _shopOrderCellTuiHuanHuostpe2Block(order_id,refund_type);
+                    }
+                }];
+            }
+                break;
+            case 3:{
+                //3表示 后台拒绝第一步
+                if ([refund_type intValue] == 1){
+                    [_rightBtn setTitle:@"  商家拒绝退货  " forState:UIControlStateNormal];
+                }else{
+                    [_rightBtn setTitle:@"  商家拒绝换货  " forState:UIControlStateNormal];
+                }
+                _rightBtn.hidden = YES;
+            }
+                break;
+            case 4:{
+                //4 发出物流单号
+                _rightBtn.hidden = YES;
+                [_rightBtn setTitle:@"  等待商家确认物流  " forState:UIControlStateNormal];
+            }
+                break;
+            case 5:{
+                //5代表等待用户确认第二部
+                if ([refund_type intValue] == 1){
+                    [_rightBtn setTitle:@"  确认完成退货  " forState:UIControlStateNormal];
+                }else{
+                    [_rightBtn setTitle:@"  确认完成换货  " forState:UIControlStateNormal];
+                }
+                [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (_shopOrderCellTuiHuanHuostpe3Block) {
+                        _shopOrderCellTuiHuanHuostpe3Block(order_id,refund_type);
+                    }
+                }];
+                
+            }
+                break;
+            case 6:{
+                //6。表示后台交易完成
+                _rightBtn.hidden = YES;
+                [_rightBtn setTitle:@"  退换货结束  " forState:UIControlStateNormal];
+                if ([refund_type intValue] == 1){
+                    [_leftBtn setTitle:@"  删除  " forState:UIControlStateNormal];
+                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        if (_shopOrderCellDeleateBlock) {
+                            _shopOrderCellDeleateBlock(order_id,_indexPath);
+                        }
+                    }];
+                }else{
+                    _leftBtn.hidden = NO;
+                    _rightBtn.hidden = NO;
+                    [_leftBtn setTitle:@"  删除  " forState:UIControlStateNormal];
+                    [_rightBtn setTitle:@" 申请退换货 " forState:UIControlStateNormal];
+                    
+                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        if (_shopOrderCellDeleateBlock) {
+                            _shopOrderCellDeleateBlock(order_id,_indexPath);
+                        }
+                    }];
                     [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        if (_shopOrderCellTuiHuanHuostpe2Block) {
-                            _shopOrderCellTuiHuanHuostpe2Block(order_id,refund_type);
+                        if (_shopOrderCellTuiHuanHuoBlock) {
+                            _shopOrderCellTuiHuanHuoBlock(order_id,_indexPath);
                         }
                     }];
                 }
-                break;
-                case 3:{
-                    //3表示 后台拒绝第一步
-                    if ([refund_type intValue] == 1){
-                    
-                    }else{
-                    
-                    }
-                    _rightBtn.hidden = YES;
-                    [_rightBtn setTitle:@"  商家拒绝退换货  " forState:UIControlStateNormal];
-                }
-                break;
-                case 4:{
-                    //4 发出物流单号
-                    _rightBtn.hidden = YES;
-                    [_rightBtn setTitle:@"  等待商家确认物流  " forState:UIControlStateNormal];
-                }
-                break;
-                case 5:{
-                    //5代表等待用户确认第二部
-                    if ([refund_type intValue] == 1){
-                        [_rightBtn setTitle:@"  确认完成退货  " forState:UIControlStateNormal];
-                    }else{
-                        [_rightBtn setTitle:@"  确认完成换货  " forState:UIControlStateNormal];
-                    }
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        if (_shopOrderCellTuiHuanHuostpe3Block) {
-                            _shopOrderCellTuiHuanHuostpe3Block(order_id,refund_type);
-                        }
-                    }];
-                    
-                }
-                break;
-                case 6:{
-                    //6。表示后台交易完成
-                    _rightBtn.hidden = YES;
-                    [_rightBtn setTitle:@"  退换货结束  " forState:UIControlStateNormal];
-                }
+            }
                 
                 break;
                 
@@ -224,11 +247,11 @@
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
