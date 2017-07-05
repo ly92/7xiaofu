@@ -447,7 +447,7 @@
             }];
         }
         
-    } otherButtonTitles:@"取消"];
+    } otherButtonTitles:@"确认"];
     [alert show];
     
 }
