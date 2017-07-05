@@ -38,7 +38,7 @@
 
 // HUD 颜色
 - (UIColor*)backgroundColorForStyle{
-    return [UIColor colorWithWhite:0 alpha:0.9];
+    return [UIColor colorWithWhite:1 alpha:0.9];
 }
 
 
