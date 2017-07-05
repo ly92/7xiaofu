@@ -78,11 +78,16 @@
                 [self showErrorText:@"请输入反馈内容"];
                 return ;
             }
+            
             NSMutableDictionary * params = [NSMutableDictionary new];
             params[@"content"] = content;
             params[@"member_name"] = kUserName;
             params[@"id"] = kUserId;
             params[@"userid"] = kUserId;
+            NSString *images = _requestParams[@"images"];
+            if (images.yw_notNull){
+                params[@"images"] = images;
+            }
             
             [MCNetTool postWithUrl:HttpMeFeedBack params:params success:^(NSDictionary *requestDic, NSString *msg) {
                 

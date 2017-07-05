@@ -61,53 +61,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x63a5;&#x53d1;&#x5355;/&#x5b50;&#x9875;&#x9762;/&#x53d1;&#x5355;1/view/SendOrder1UpImageCell.m"
-            timestampString = "520931308.304015"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SendOrder1UpImageCell imagePickerController:didFinishPickingMediaWithInfo:]"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%8E%A5%E5%8F%91%E5%8D%95/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%8F%91%E5%8D%951/view/SendOrder1UpImageCell.m"
-                  timestampString = "520935508.796147"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "241"
-                  endingLineNumber = "241"
-                  offsetFromSymbolStart = "2016">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__77-[SendOrder1UpImageCell imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%8E%A5%E5%8F%91%E5%8D%95/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E5%8F%91%E5%8D%951/view/SendOrder1UpImageCell.m"
-                  timestampString = "520935508.797718"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "241"
-                  endingLineNumber = "241"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
