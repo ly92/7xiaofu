@@ -33,7 +33,7 @@
         self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
         self.webView.backgroundColor = [UIColor clearColor];
         self.webView.opaque = NO;
-        self.webView.userInteractionEnabled = NO;
+//        self.webView.userInteractionEnabled = NO;
         self.webView.scrollView.bounces = NO;
         self.webView.delegate = self;
         self.webView.paginationBreakingMode = UIWebPaginationBreakingModePage;
@@ -71,6 +71,17 @@
                        "</script>%@"
                        "</body>"
                        "</html>",_contentStr];   // htmlImgStr
+    
+//    NSString *htmls = [NSString stringWithFormat:@"<html> \n"
+//                       "<head> \n"
+//                       "<style type=\"text/css\"> \n"
+//                       "body {font-size:42px;}\n"
+//                       "</style> \n"
+//                       "</head> \n"
+//                       "<body>"
+//                       "%@"
+//                       "</body>"
+//                       "</html>",_contentStr];   // htmlImgStr
     
     [self.webView loadHTMLString:htmls baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
 }

@@ -319,6 +319,7 @@
         _banner.shouldLoop = YES;
         _banner.showFooter = NO;
         _banner.autoScroll = YES;
+        _banner.backgroundColor = [UIColor whiteColor];
         _tableView .tableHeaderView = _banner;
 
     }
@@ -477,7 +478,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 2){
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-        view.backgroundColor = rgb(240, 240, 240);
+//        view.backgroundColor = rgb(240, 240, 240);
+        view.backgroundColor = [UIColor whiteColor];
         
         UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth / 2.0, 44)];
         [btn1 setTitle:@"商品介绍" forState:UIControlStateNormal];

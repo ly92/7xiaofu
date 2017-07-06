@@ -442,7 +442,7 @@ static NSString *banner_footer = @"banner_footer";
         _collectionView.alwaysBounceHorizontal = YES; // 小于等于一页时, 允许bounce
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.scrollsToTop = NO;
-        _collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         
