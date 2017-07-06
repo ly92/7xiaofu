@@ -35,13 +35,13 @@
 
 #pragma mark -UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (_type == 1) {
-        if (range.length + range.location > textField.text.length) {
-            return NO;
-        }
-        NSUInteger newLength = [textField .text length] + [string length] - range.length;
-        return newLength <= 11;
-    }
+//    if (_type == 1) {
+//        if (range.length + range.location > textField.text.length) {
+//            return NO;
+//        }
+//        NSUInteger newLength = [textField .text length] + [string length] - range.length;
+//        return newLength <= 11;
+//    }
     
     if (_type == 2) {
         if (range.length + range.location > textField.text.length) {
