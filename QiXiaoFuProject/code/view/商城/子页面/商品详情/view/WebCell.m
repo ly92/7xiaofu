@@ -57,6 +57,14 @@
                        "<head> \n"
                        "<style type=\"text/css\"> \n"
                        "body {font-size:42px;}\n"
+                       "table{width: 100%%;}"
+                       "table,"
+                       "table tr th,"
+                       "table tr td {"
+                       "border: 1px solid #000;}"
+                       "table {"
+                        "   text-align: left;"
+                         "  border-collapse: collapse;}"
                        "</style> \n"
                        "</head> \n"
                        "<body>"
@@ -72,16 +80,6 @@
                        "</body>"
                        "</html>",_contentStr];   // htmlImgStr
     
-//    NSString *htmls = [NSString stringWithFormat:@"<html> \n"
-//                       "<head> \n"
-//                       "<style type=\"text/css\"> \n"
-//                       "body {font-size:42px;}\n"
-//                       "</style> \n"
-//                       "</head> \n"
-//                       "<body>"
-//                       "%@"
-//                       "</body>"
-//                       "</html>",_contentStr];   // htmlImgStr
     
     [self.webView loadHTMLString:htmls baseURL:[NSURL URLWithString:@"http://www.baidu.com"]];
 }

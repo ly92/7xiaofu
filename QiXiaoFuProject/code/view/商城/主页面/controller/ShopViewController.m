@@ -398,7 +398,7 @@
     //    }
     //    return CGSizeZero;
     
-    return CGSizeMake((kScreenWidth/3*2 - 0)/3, (kScreenWidth/3*2 - 0)/3+ 10);
+    return CGSizeMake((kScreenWidth/3*2 - 0)/3, (kScreenWidth/3*2 - 0)/3+ 20);
     
 }
 
