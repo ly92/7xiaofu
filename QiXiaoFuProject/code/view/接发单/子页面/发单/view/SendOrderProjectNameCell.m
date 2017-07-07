@@ -43,6 +43,7 @@
     self.projectNameTextField.placeholder=@"比如 UNIX服务器硬盘故障";
     self.projectNameTextField.borderStyle=UITextBorderStyleNone;
     self.projectNameTextField.keyboardType=UIKeyboardTypeDefault;
+    self.projectNameTextField.textAlignment = UITextAlignmentRight;
     [self.contentView addSubview:self.projectNameTextField];
     [self.projectNameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.projectNameLabel.mas_right).offset(20);
