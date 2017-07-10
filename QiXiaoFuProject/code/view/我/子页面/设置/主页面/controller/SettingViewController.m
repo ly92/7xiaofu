@@ -151,7 +151,7 @@ static NSString * kPushState = @"是否接收推送消息";
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text =_titles[indexPath.section][indexPath.row];
-
+    cell.hidden = NO;
    
     if (indexPath.section == 1 && indexPath.row == 1) {
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
@@ -159,6 +159,7 @@ static NSString * kPushState = @"是否接收推送消息";
 //        [[AppManager sharedManager] getCurrentVerison]
         
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[[AppManager sharedManager] getCurrentVerison]];
+        cell.hidden = YES;
     }
     
     if (indexPath.section == 0 && indexPath.row == 2) {
@@ -202,6 +203,11 @@ static NSString * kPushState = @"是否接收推送消息";
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 1 && indexPath.row == 1){
+        return 0;
+    }
+    
     return 50.0f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
