@@ -139,6 +139,8 @@
 #pragma mark -- app已经进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"sendTaskNotificationname" object:nil];
+    
     [[EMClient sharedClient] applicationDidEnterBackground:application];
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];

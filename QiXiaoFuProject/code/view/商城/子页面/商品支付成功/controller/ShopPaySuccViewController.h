@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ShopPaySuccViewController : BaseViewController
-@property (nonatomic,copy) NSString * order_id;;
+@property (nonatomic,copy) NSString * order_id;
 @end

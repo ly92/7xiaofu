@@ -25,6 +25,8 @@
 #import "ShopPaySuccViewController.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 
+#import "MatchingEngineerListVC.h"
+
 @interface OrderViewController ()<YLSwitchDelegate,AMapLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -72,9 +74,13 @@
     };
     _engineerCollectionView.didselectItemsEngineerCollectionViewHeader_t_id_Block = ^(NSString * t_id){
         // 项目详情
-         ProductDetaileViewController * vc  = [[ProductDetaileViewController alloc]initWithNibName:@"ProductDetaileViewController" bundle:nil];
-         vc.p_id =t_id;
+        MatchingEngineerListVC * vc= [[MatchingEngineerListVC alloc]initWithNibName:@"MatchingEngineerListVC" bundle:nil];
+        vc.orderId = @"699";
         [weakSelf.navigationController pushViewController:vc animated:YES];
+        
+//         ProductDetaileViewController * vc  = [[ProductDetaileViewController alloc]initWithNibName:@"ProductDetaileViewController" bundle:nil];
+//         vc.p_id =t_id;
+//        [weakSelf.navigationController pushViewController:vc animated:YES];
         
     };
 

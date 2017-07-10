@@ -23,6 +23,9 @@
 #import "ChooseBrandViewController.h"
 
 #import "PayViewController.h"
+#import "LocalData.h"
+#import "BlockUIAlertView.h"
+
 
 #define SHAddressPickerViewHeight 216
 
@@ -31,7 +34,7 @@
     
     NSArray * _selectedDomainsIds;// 已选择的服务领域
     NSString * _service_sectorTitle;
-
+    
 }
 
 
@@ -54,7 +57,11 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"补单";
-    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [backButton setImage:[UIImage imageNamed:@"btn_back.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    [self.navigationItem setLeftBarButtonItem:backItem];
     
     //    @[@"服务形式",@"服务类型",@"服务区域",@"服务时间",@"服务领域",@"品牌型号",@"其他服务领域",@"其他品牌型号",@"备注",@"服务价格",@"置顶显示",@"置顶天数"];
     
@@ -67,7 +74,7 @@
     _service_sector = [NSMutableArray new];
     _service_type = [NSMutableArray new];
     
-    _requestParams= [NSMutableDictionary new];
+    _requestParams= [NSMutableDictionary dictionaryWithDictionary:[LocalData getReplaceTaskData]];
     
     
     
@@ -77,23 +84,23 @@
     [_tableView registerNib:[UINib nibWithNibName:@"SendOrderCell" bundle:nil] forCellReuseIdentifier:@"SendOrderCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"SendOrderSwitchCell" bundle:nil] forCellReuseIdentifier:@"SendOrderSwitchCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"SendOrderNumberCell" bundle:nil] forCellReuseIdentifier:@"SendOrderNumberCell"];
-
+    
     
     SendOrderFooterView * sendOrderFooterView = [SendOrderFooterView sendOrderFooterView];
     UIView * footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 150)];
     [footerView addSubview:sendOrderFooterView];
     sendOrderFooterView.frame = footerView.bounds;
     _tableView.tableFooterView = footerView;
-
+    
     [sendOrderFooterView.trueSendOrderBtn setTitle:@"确认补单" forState:UIControlStateNormal];
     [sendOrderFooterView.trueSendOrderBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
         
-         [self nextItemBuDanAction];
+        [self nextItemBuDanAction];
         
         
     }];
-
+    
     
     
     [self showaddbillData];
@@ -103,8 +110,36 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"sendTaskNotificationname" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        if (_requestParams.allKeys.count > 1){
+            [LocalData saveReplaceTaskData:_requestParams];
+        }
+    }];
+}
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"sendTaskNotificationname" object:nil];
+}
 
+- (void)backClick
+{
+    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"是否需要保存数据" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        if(buttonIndex == 1){
+            if (_requestParams.allKeys.count > 1){
+                [LocalData saveReplaceTaskData:_requestParams];
+            }
+        }else{
+            [LocalData removeReplaceTaskData];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    } otherButtonTitles:@"确定"];
+    [alert show];
+    
+}
 
 
 
@@ -199,9 +234,9 @@
     }
     
     
-//    _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_requestParams[@"service_sector"],_requestParams[@"service_brand"]];//标题【服务领域 - 服务品牌 - 服务型号】
+    //    _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_requestParams[@"service_sector"],_requestParams[@"service_brand"]];//标题【服务领域 - 服务品牌 - 服务型号】
     _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_service_sectorTitle,_requestParams[@"service_brand"]];//标题【服务领域 - 服务品牌 - 服务型号】
-
+    
     _requestParams[@"is_compe"] = @(1);// 补单
     
     PayViewController * vc = [[PayViewController alloc]initWithNibName:@"PayViewController" bundle:nil];
@@ -209,11 +244,11 @@
     vc.showaddbillModel = _showaddbillModel;
     vc.isBuDan = YES;
     [self.navigationController pushViewController:vc animated:YES];
-
+    
 }
 
-    
-    
+
+
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -225,60 +260,126 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSDictionary *localDict = [LocalData getReplaceTaskData];
     if (indexPath.section == 0) {
         
         if (indexPath.row == 0){
-         SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
-         cell.titleLab.text =_titles[indexPath.section][indexPath.row];
-         cell.zhidingSwitch.hidden = YES;
-         cell.textField.placeholder = @"请输项目名称";
-         cell.textFieldBlock =^(NSString * text){
-         
-         _requestParams[@"project_name"] = text;//项目名称
-         
-         };
-         return cell;
+            SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
+            cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+            cell.zhidingSwitch.hidden = YES;
+            cell.textField.placeholder = @"请输项目名称";
+            cell.textFieldBlock =^(NSString * text){
+                
+                _requestParams[@"project_name"] = text;//项目名称
+                
+            };
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            if ([localDict.allKeys containsObject:@"project_name"]){
+                cell.textField.text = [localDict objectForKey:@"project_name"];
+            }
+            return cell;
         }else{
             SendOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderCell"];
             cell.titleLab.text =_titles[indexPath.section][indexPath.row];
             //        cell.descLab.text =@"俺舍不得分哈哈是否家的饭还是骄傲的回复啥地方哈哈啥地方哈师大阿斯顿和发挥巨大师傅好骄傲是";
+            if (indexPath.row == 1) {// 服务形式
+                if ([localDict.allKeys containsObject:@"service_form"]){
+                    NSString *value = [localDict objectForKey:@"service_form"];
+                    for (Service_Form * service_form in _showaddbillModel.service_form) {
+                        if ([service_form.field_value isEqualToString:value]){
+                            cell.descLab.text = service_form.field_name;
+                        }
+                    }
+                }
+            }
+            if (indexPath.row ==2) {// 服务类型
+                if ([localDict.allKeys containsObject:@"service_type"]){
+                    NSString *value = [localDict objectForKey:@"service_type"];
+                    for (Service_Type * service_type in _showaddbillModel.service_type) {
+                        if ([service_type.field_value isEqualToString:value]){
+                            cell.descLab.text = service_type.field_name;
+                        }
+                    }
+                }
+            }
+            if (indexPath.row ==3) {// 服务区域
+                if ([localDict.allKeys containsObject:@"service_address"] && [localDict.allKeys containsObject:@"lng"] && [localDict.allKeys containsObject:@"lat"]){
+                    cell.descLab.text = [localDict objectForKey:@"service_address"];
+                }
+            }
+            if (indexPath.row ==4) {// 预约开始时间
+                if ([localDict.allKeys containsObject:@"service_stime"]){
+                    cell.descLab.text = [Utool timeStamp3TimeFormatter:[localDict objectForKey:@"service_stime"]];
+                }
+            }
+            if (indexPath.row ==5) {// 预约结束时间
+                if ([localDict.allKeys containsObject:@"service_etime"]){
+                    cell.descLab.text = [Utool timeStamp3TimeFormatter:[localDict objectForKey:@"service_etime"]];
+                }
+            }
             
             return cell;
         }
     }
     if (indexPath.section ==1) {
-        if (indexPath.row < 2 ) {
+        if (indexPath.row == 0 ) {
             
             SendOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderCell"];
             cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+            if ([localDict.allKeys containsObject:@"service_sector"]){
+                NSString *str1 = [localDict objectForKey:@"service_sector"];
+                NSArray *ids = [str1 componentsSeparatedByString:@","];
+                NSMutableArray *arrM = [NSMutableArray array];
+                for (NSString *str2 in ids) {
+                    for (Service_Sector12 *user in _showaddbillModel.service_sector) {
+                        if ([user.gc_id isEqualToString:str2]){
+                            [arrM addObject:user.gc_name];
+                        }
+                    }
+                }
+                cell.descLab.text = [arrM componentsJoinedByString:@","];
+            }
+            return cell;
+        }
+        if (indexPath.row == 1) {
+            
+            SendOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderCell"];
+            cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+            if ([localDict.allKeys containsObject:@"service_brand"]){
+                cell.descLab.text = [localDict objectForKey:@"service_brand"];
+            }
             return cell;
         }
         if (indexPath.row ==2) {
             SendOrderNumberCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderNumberCell"];
             cell.titleLab.text =_titles[indexPath.section][indexPath.row];
+            if ([localDict.allKeys containsObject:@"number"]){
+                cell.numTextField.text = [localDict objectForKey:@"number"];
+            }
+            if ([localDict.allKeys containsObject:@"number_unit"]){
+                cell.textField.text = [localDict objectForKey:@"number_unit"];
+            }
             cell.numTextFieldBlock = ^(NSString * number){
-                
                 _requestParams[@"number"] = number;//数量
-                
             };
             cell.textFieldBlock = ^(NSString * text){
-                
                 _requestParams[@"number_unit"] = text;//数量单位
-                
             };
 
+            
             return cell;
         }
     }
-
+    
     if (indexPath.section ==2) {
         SendOrderSwitchCell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrderSwitchCell"];
         cell.titleLab.text =_titles[indexPath.section][indexPath.row];
         cell.zhidingSwitch.hidden = YES;
         cell.textField.placeholder = @"请输入价格";
         cell.textField.keyboardType = UIKeyboardTypeDecimalPad;
-        
+        if ([localDict.allKeys containsObject:@"service_price"]){
+            cell.textField.text = [localDict objectForKey:@"service_price"];
+        }
         cell.textFieldBlock =^(NSString * text){
             
             _requestParams[@"service_price"] = text;//服务价格
@@ -343,7 +444,7 @@
                 
                 cell.descLab.text =selectPoi.name;
                 
-//                    _requestParams[@"service_city"] = [selectPoi.city stringByReplacingOccurrencesOfString:@"市" withString:@""]  ;//服务区域城市名
+                //                    _requestParams[@"service_city"] = [selectPoi.city stringByReplacingOccurrencesOfString:@"市" withString:@""]  ;//服务区域城市名
                 _requestParams[@"service_address"] = [NSString stringWithFormat:@"%@",selectPoi.name];//g	服务区域详细地址
                 
                 
@@ -425,7 +526,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             
         }
-                
+        
     }
     
 }
@@ -461,7 +562,7 @@
         SendOrderZhidingSenctionFootView * sendOrderZhidingSenctionFootView = [SendOrderZhidingSenctionFootView sendOrderZhidingSenctionFootView];
         sendOrderZhidingSenctionFootView.contentLab.text =[NSString stringWithFormat:@"%@",_showaddbillModel.reference];
         
-//        @"参考价格,初级¥500-1000人/天;中级¥1000-1500人/天;高级¥1500-2000人/天;";
+        //        @"参考价格,初级¥500-1000人/天;中级¥1000-1500人/天;高级¥1500-2000人/天;";
         sendOrderZhidingSenctionFootView.timeLab.hidden = YES;
         sendOrderZhidingSenctionFootView.priceLab.hidden = YES;
         
@@ -490,13 +591,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

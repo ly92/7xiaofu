@@ -24,6 +24,7 @@
 #import "MatchingEngineerListVC.h"
 #import "ForgetPayPassViewController.h"
 #import "BlockUIAlertView.h"
+#import "LocalData.h"
 
 @interface PayViewController (){
 
@@ -494,8 +495,11 @@
 // 发单成功 去匹配工程师
 - (void)sendOrderSuccWithOrderId:(NSString *)orderId{
     
+    
+    
     if (_isBuDan) {
-        
+        //清除补单草稿
+        [LocalData removeReplaceTaskData];
         [self showSuccessText:@"补单成功"];
         
         [Utool performBlock:^{
@@ -506,7 +510,8 @@
 
     }
     else{
-    
+        //清除发单草稿
+        [LocalData removeSendTaskData];
         [self showSuccessText:@"发单成功"];
         _requestParams = nil;
         

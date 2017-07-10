@@ -8,6 +8,7 @@
 
 #import "ShopPaySuccViewController.h"
 #import "OrderDetaileViewController.h"
+#import "LocalData.h"
 
 @interface ShopPaySuccViewController ()
 
@@ -17,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.navigationItem.title = @"支付成功";
     

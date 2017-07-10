@@ -153,9 +153,11 @@ static NSString * const kSeverPrice = @"服务价格";
         
         
         if (_productDetaileModel.button_type == 0) {
-            _footerView.recevingOrderBtn.enabled = NO;
+//            _footerView.recevingOrderBtn.enabled = NO;
+            _footerView.hidden = YES;
         }else{
-            _footerView.recevingOrderBtn.enabled = YES;
+//            _footerView.recevingOrderBtn.enabled = YES;
+            _footerView.hidden = NO;
         }
         
         [self dismissLoading];

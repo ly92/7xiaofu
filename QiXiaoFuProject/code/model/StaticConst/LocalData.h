@@ -12,4 +12,15 @@
 //技术领域
 + (void)setUpService_sector:(NSString *)service_sectors;
 + (NSString *)getService_sector;
+
+//发单信息保存
++ (void)saveSendTaskData:(NSDictionary *)dict;
++ (NSDictionary *)getSendTaskData;
++ (void)removeSendTaskData;
+
+//补单信息保存
++ (void)saveReplaceTaskData:(NSDictionary *)dict;
++ (NSDictionary *)getReplaceTaskData;
++ (void)removeReplaceTaskData;
+
 @end

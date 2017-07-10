@@ -24,6 +24,7 @@
 #import "GalenPayPasswordView.h"
 #import "NSString+Utils.h"
 #import "ForgetPayPassViewController.h"
+#import "LocalData.h"
 
 
 @interface ShopPayViewController ()<UIScrollViewDelegate>{
