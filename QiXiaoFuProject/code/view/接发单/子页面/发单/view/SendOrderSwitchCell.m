@@ -8,6 +8,10 @@
 
 #import "SendOrderSwitchCell.h"
 
+@interface SendOrderSwitchCell()<UITextFieldDelegate>
+
+@end
+
 @implementation SendOrderSwitchCell
 
 - (void)awakeFromNib {
@@ -40,5 +44,15 @@
 
     // Configure the view for the selected state
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    textField.textAlignment = NSTextAlignmentLeft;
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    textField.textAlignment = NSTextAlignmentRight;
+}
+
 
 @end

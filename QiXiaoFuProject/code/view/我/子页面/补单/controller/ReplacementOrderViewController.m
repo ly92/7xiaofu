@@ -127,18 +127,19 @@
 
 - (void)backClick
 {
-    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"是否需要保存数据" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-        if(buttonIndex == 1){
-            if (_requestParams.allKeys.count > 1){
+    if (_requestParams.allKeys.count > 1){
+        BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"是否需要保存数据" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            if(buttonIndex == 1){
                 [LocalData saveReplaceTaskData:_requestParams];
+            }else{
+                [LocalData removeReplaceTaskData];
             }
-        }else{
-            [LocalData removeReplaceTaskData];
-        }
+            [self.navigationController popViewControllerAnimated:YES];
+        } otherButtonTitles:@"确定"];
+        [alert show];
+    }else{
         [self.navigationController popViewControllerAnimated:YES];
-    } otherButtonTitles:@"确定"];
-    [alert show];
-    
+    }
 }
 
 
