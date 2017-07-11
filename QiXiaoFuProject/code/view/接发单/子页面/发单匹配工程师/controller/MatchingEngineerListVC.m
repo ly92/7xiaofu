@@ -120,13 +120,13 @@
         if (array.count < 10) {
             [_tableview hidenFooter];
         }
-        page?[_tableview headerEndRefresh]:[_tableview footerEndRefresh];;
+        page==1?[_tableview headerEndRefresh]:[_tableview footerEndRefresh];;
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableview];
 
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
-        page?[_tableview headerEndRefresh]:[_tableview footerEndRefresh];;
+        page==1?[_tableview headerEndRefresh]:[_tableview footerEndRefresh];;
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableview];
     }];
 }

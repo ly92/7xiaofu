@@ -110,7 +110,7 @@
         if (array.count < 10) {
             [_tableView hidenFooter];
         }
-        page?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
         
         
         
@@ -126,7 +126,7 @@
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
-        page?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
 
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];

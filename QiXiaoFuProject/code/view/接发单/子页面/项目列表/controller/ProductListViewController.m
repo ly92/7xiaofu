@@ -11,13 +11,13 @@
 #import "ProductDetaileViewController.h"
 #import "FilterView.h"
 #import "ProductModel.h"
-#import "TPKeyboardAvoidingTableView.h"
+//#import "TPKeyboardAvoidingTableView.h"
 #import "SearchViewControler.h"
 #import "BaseNavigationController.h"
 #import "NSDate+Utils.h"
 
 @interface ProductListViewController ()<FilterViewDelegate,UIScrollViewDelegate>
-@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingTableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) FilterView * filterView;
 
@@ -58,7 +58,7 @@
     [filtButton setBackgroundImage:[UIImage imageNamed:@"icon_select_n"] forState:UIControlStateNormal];
     [filtButton setBackgroundImage:[UIImage imageNamed:@"icon_select_s"] forState:UIControlStateHighlighted];
     [filtButton setBackgroundImage:[UIImage imageNamed:@"icon_select_s"] forState:UIControlStateSelected];
-     filtButton.size = filtButton.currentBackgroundImage.size;
+    filtButton.size = filtButton.currentBackgroundImage.size;
     [filtButton addTarget:self action:@selector(filtItemAction:) forControlEvents:UIControlEventTouchUpInside];
     
     _filtButton = filtButton;
@@ -67,24 +67,24 @@
     UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
     self.navigationItem.rightBarButtonItems= @[filtItem,item,secrchItem];
     
-
+    
     _classifys = @[@"服务时间",@"服务金额"];
     _serviceTime = @[@"服务时间",@"默认",@"由远到近",@"由近到远"];
     _servicePrice = @[@"服务金额",@"默认",@"由多到少",@"由少到多"];
-
+    
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 155;  //  随便设个不那么离谱的值
-
     
     
-      [_tableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
     
-      _tableView.tableFooterView = [UIView new];
-
+    [_tableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+    
+    _tableView.tableFooterView = [UIView new];
+    
     
     [self loadProductModelDataWithPage:1 hud:YES];
-
+    
     
     [self addRefreshView];
     // Do any additional setup after loading the view from its nib.
@@ -114,7 +114,7 @@
     if (_service_etime) {
         params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
     }
-
+    
     
     [MCNetTool postWithCacheUrl:HttpMainProductList params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
@@ -131,43 +131,43 @@
         if (array.count < 10) {
             [_tableView hidenFooter];
         }
-        page?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
-        page?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
+        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];;
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-
+        
     }];
     
 }
 
 - (void)addRefreshView{
-     [_tableView headerAddMJRefresh:^{
+    [_tableView headerAddMJRefresh:^{
         [self loadProductModelDataWithPage:1 hud:NO];
     }];
     [_tableView footerAddMJRefresh:^{
         [self loadProductModelDataWithPage:_page hud:NO];
-     }];
- }
+    }];
+}
 
 
 
 -(void)secrchItemAction:(UIBarButtonItem *)item{
-
+    
     SearchViewControler * vc = [[SearchViewControler alloc]init];
     vc.type = 1;
     BaseNavigationController * nvc = [[BaseNavigationController alloc]initWithRootViewController:vc];
     
     vc.searchViewBlock = ^(NSString * searchKey){
-    
+        
         _keywords = searchKey;
         
         [self loadProductModelDataWithPage:1 hud:YES];
-    
+        
     };
     [self presentViewController:nvc animated:YES completion:^{
         
@@ -181,7 +181,7 @@
     item.selected =!item.selected;
     if (!_filterView) {
         
-         _filterView = [[FilterView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.view.frame.size.height)];
+        _filterView = [[FilterView alloc]initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.view.frame.size.height)];
         _filterView.delegate = self;
         [self.view addSubview:_filterView];
         [UIView animateWithDuration:0.25 animations:^{
@@ -195,16 +195,16 @@
         };
         
     }else{
-         [self dismisFilterView];
- 
-     }
+        [self dismisFilterView];
+        
+    }
 }
 
 
 
 #pragma mark - FilterViewDelegate
 - (void)pickerViewControllerdismis:(NSDictionary *)dict{
-
+    
     LxDBAnyVar(dict);
     
     
@@ -216,13 +216,13 @@
     if (index0.length != 0) {
         
         NSInteger times = [[[NSDate date] timestamp] integerValue];
-         if ([index0 integerValue] ==0){
-             _service_stime = [NSString stringWithFormat:@"%@",@(times)];
+        if ([index0 integerValue] ==0){
+            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
             _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
             
         }else if ([index0 integerValue] ==1){
             _service_stime = [NSString stringWithFormat:@"%@",@(times)];
-             _service_etime =[NSString stringWithFormat:@"%@",@(times + 7*24*60*60)];
+            _service_etime =[NSString stringWithFormat:@"%@",@(times + 7*24*60*60)];
         }else if ([index0 integerValue] ==2){
             _service_stime = [NSString stringWithFormat:@"%@",@(times)];
             _service_etime =[NSString stringWithFormat:@"%@",@(times + 15*24*60*60)];
@@ -230,17 +230,17 @@
             _service_stime = [NSString stringWithFormat:@"%@",@(times)];
             _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
         }
-
+        
     }
     
     
     
     //    NSArray * priceArray = @[@"全部",@"4000",@"2000-5000",@"5000以上"];
-     NSString * index2 = checkNULL(dict[@"2"]);
+    NSString * index2 = checkNULL(dict[@"2"]);
     
     if (index2.length != 0) {
         
-         if ([index2 integerValue] ==0){
+        if ([index2 integerValue] ==0){
             
             _service_sprice = [NSString stringWithFormat:@"%@",@(0)];
             _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
@@ -260,11 +260,11 @@
             _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
         }
     }
-
+    
     
     NSString *  service_sprice = dict[@"211"];// 起始价格
     NSString *  service_eprice = dict[@"212"];// 起始价格
-
+    
     if(service_eprice.length != 0){
         _service_sprice =service_sprice;// 起始价格
         _service_eprice =service_eprice;// 结束价格
@@ -279,33 +279,33 @@
         _service_stime = [Utool timestampForDateFromString:dict[@"111"] withFormat:@"yyyy.MM.dd HH:mm"]          ;
         // 结束时间
         _service_etime = [Utool timestampForDateFromString:dict[@"112"] withFormat:@"yyyy.MM.dd HH:mm"];
-
+        
     }
     
     [self loadProductModelDataWithPage:1 hud:YES];
-
-
+    
+    
     [self dismisFilterView];
-
+    
 }
 
 - (void)contactsPickerViewControllerdismis:(FilterView *)controller{
     
- 
+    
     
     
     [self dismisFilterView];
 }
 - (void)dismisFilterView{
-
+    
     [UIView animateWithDuration:0.25 animations:^{
         _filterView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.view.frame.size.height);
     } completion:^(BOOL finished) {
         [_filterView removeFromSuperview];
         _filterView = nil;
-         _filtButton.selected = NO;
+        _filtButton.selected = NO;
     }];
-
+    
 }
 
 
@@ -323,13 +323,13 @@
     ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
     ProductModel * productModel = _dataArray[indexPath.section];
     cell.productModel = productModel;
-     return cell;
+    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  180;
     
-//    return UITableViewAutomaticDimension;
-
+    //    return UITableViewAutomaticDimension;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -358,9 +358,9 @@
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-
+    
     [self.view endEditing:YES];
-
+    
 }
 
 
@@ -368,13 +368,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
