@@ -34,5 +34,7 @@
 
 @property (nonatomic, copy) NSString *bill_user_id;
 
+@property (nonatomic, copy) NSString *bill_statu;
+
 @end
 

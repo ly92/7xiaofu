@@ -73,6 +73,7 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     _engineerCollectionView.didselectItemsEngineerCollectionViewHeader_t_id_Block = ^(NSString * t_id){
+        
         // 项目详情
          ProductDetaileViewController * vc  = [[ProductDetaileViewController alloc]initWithNibName:@"ProductDetaileViewController" bundle:nil];
          vc.p_id =t_id;
