@@ -73,6 +73,12 @@
     _severPriceLab.text = [NSString stringWithFormat:@"¥ %@",productModel.service_price];
     _severAdressLab.text =productModel.service_city;
     
+    if ([productModel.bill_statu intValue] == 1) {
+        _severPriceLab.textColor = rgb(205, 56, 37);
+    }else{
+        _severPriceLab.textColor = rgb(33, 33, 33);
+    }
+    
 }
 
 
