@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RightCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *collectionView_imageview;
-@property (strong, nonatomic) IBOutlet UILabel *collectionView_Label;
-
+@property (strong, nonatomic) IBOutlet UIImageView *iconImgV;
+@property (strong, nonatomic) IBOutlet UILabel *nameLbl;
+@property (strong, nonatomic) IBOutlet UILabel *priceLbl;
+@property (strong, nonatomic) IBOutlet UILabel *inventoryLbl;
+@property (strong, nonatomic) IBOutlet UILabel *areaLbl;
 @end

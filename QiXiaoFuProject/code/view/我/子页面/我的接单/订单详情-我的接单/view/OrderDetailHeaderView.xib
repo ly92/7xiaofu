@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,24 +16,39 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9b-HU-vvL">
+                    <rect key="frame" x="10" y="10" width="300" height="30"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sN0-d3-vFF" userLabel="line">
+                    <rect key="frame" x="10" y="39.5" width="300" height="0.5"/>
                     <color key="backgroundColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="0.47098599137931035" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="HSs-pO-c4R"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创建时间 2016.08.07 14:25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-nF-IAH">
+                    <rect key="frame" x="177.5" y="10" width="127.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="订单序号 201608091425" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-zX-Waz">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="订单序号 201608091425" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-zX-Waz">
+                    <rect key="frame" x="15" y="10" width="162.5" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1M-IV-PIC">
+                    <rect key="frame" x="15" y="10" width="162.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="orderNumBtnAction" destination="iN0-l3-epB" eventType="touchUpInside" id="7UR-pa-oPt"/>
+                        <action selector="orderNumBtnAction" destination="iN0-l3-epB" eventType="touchDown" id="w0b-eg-rQT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -40,17 +58,22 @@
                 <constraint firstItem="sN0-d3-vFF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="J2f-MK-D3s"/>
                 <constraint firstItem="1VA-zX-Waz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="LKz-fb-Rvy"/>
                 <constraint firstItem="Edf-nF-IAH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="PMe-NB-xvb"/>
+                <constraint firstItem="G1M-IV-PIC" firstAttribute="trailing" secondItem="1VA-zX-Waz" secondAttribute="trailing" id="Sfb-vH-cnp"/>
                 <constraint firstAttribute="trailing" secondItem="E9b-HU-vvL" secondAttribute="trailing" constant="10" id="U2x-AB-3eb"/>
                 <constraint firstAttribute="trailing" secondItem="Edf-nF-IAH" secondAttribute="trailing" constant="15" id="VaJ-n0-qye"/>
                 <constraint firstItem="E9b-HU-vvL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="X3n-tM-4CA"/>
                 <constraint firstAttribute="bottom" secondItem="Edf-nF-IAH" secondAttribute="bottom" id="eik-84-tKx"/>
+                <constraint firstItem="G1M-IV-PIC" firstAttribute="leading" secondItem="1VA-zX-Waz" secondAttribute="leading" id="fTH-Wq-a8u"/>
                 <constraint firstAttribute="bottom" secondItem="1VA-zX-Waz" secondAttribute="bottom" id="fVN-un-LCF"/>
                 <constraint firstAttribute="bottom" secondItem="sN0-d3-vFF" secondAttribute="bottom" id="fpK-wn-b5W"/>
                 <constraint firstAttribute="bottom" secondItem="E9b-HU-vvL" secondAttribute="bottom" id="k6Z-oE-zhu"/>
                 <constraint firstItem="E9b-HU-vvL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="l6t-T3-HQK"/>
+                <constraint firstItem="G1M-IV-PIC" firstAttribute="bottom" secondItem="1VA-zX-Waz" secondAttribute="bottom" id="lSo-cg-dVK"/>
+                <constraint firstItem="G1M-IV-PIC" firstAttribute="top" secondItem="1VA-zX-Waz" secondAttribute="top" id="pmG-TA-90g"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="orderNumBtn" destination="G1M-IV-PIC" id="kCB-l3-29u"/>
                 <outlet property="orderNumLab" destination="1VA-zX-Waz" id="4Za-bK-ekM"/>
                 <outlet property="orderTimeLab" destination="Edf-nF-IAH" id="6w2-OI-99f"/>
             </connections>

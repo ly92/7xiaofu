@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,18 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="109" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5wm-ai-Wex">
-                        <rect key="frame" x="8" y="8" width="93" height="27.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5wm-ai-Wex">
+                        <rect key="frame" x="0.0" y="0.0" width="109" height="42.5"/>
+                        <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="5wm-ai-Wex" secondAttribute="bottom" id="PcC-tV-XK8"/>
-                    <constraint firstItem="5wm-ai-Wex" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="VXp-LW-FGx"/>
-                    <constraint firstItem="5wm-ai-Wex" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bNg-Sf-L8d"/>
-                    <constraint firstItem="5wm-ai-Wex" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kFU-2e-HMt"/>
+                    <constraint firstItem="5wm-ai-Wex" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7BR-2M-H5i"/>
+                    <constraint firstItem="5wm-ai-Wex" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="asm-7G-qgD"/>
+                    <constraint firstAttribute="trailing" secondItem="5wm-ai-Wex" secondAttribute="trailing" id="ghR-gb-imu"/>
+                    <constraint firstAttribute="bottom" secondItem="5wm-ai-Wex" secondAttribute="bottom" constant="1" id="nJl-sO-pPq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

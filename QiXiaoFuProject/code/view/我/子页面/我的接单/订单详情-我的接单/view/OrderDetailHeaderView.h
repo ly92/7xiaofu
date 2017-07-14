@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *orderNumLab;
 @property (weak, nonatomic) IBOutlet UILabel *orderTimeLab;
+@property (weak, nonatomic) IBOutlet UIButton *orderNumBtn;
 
 
 + (OrderDetailHeaderView *)orderDetailHeaderView;

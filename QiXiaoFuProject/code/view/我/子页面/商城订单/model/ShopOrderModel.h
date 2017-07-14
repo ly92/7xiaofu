@@ -37,6 +37,8 @@
 
 @property (nonatomic, copy) NSString *distribution_info;
 
+@property (nonatomic, copy) NSString *total_goods_num;//订单中剩余商品总数量
+
 @end
 
 @interface Order_List : NSObject

@@ -11,6 +11,8 @@
 @class Goodss_List,Payments_List,Goods_Sn_Type;
 @interface OrderDetaileModel : NSObject
 
+@property (nonatomic, copy) NSString *total_goods_num;//订单中剩余商品总数量
+
 @property (nonatomic, copy) NSString *distribution_info;//配送方式描述
 
 @property (nonatomic, copy) NSString *pay_sn;//订单支付号

@@ -177,7 +177,6 @@
     // 取消订单
     shopOrderFooterView.shopOrderCellCancleBlock = ^(NSString * order_id,NSIndexPath * cellIndexPath){
         
-        
         BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"你确定要取消此订单吗" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
             
             if(buttonIndex == 1){
@@ -195,7 +194,6 @@
                     [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];//移除tableView中的section
                     
                     [self loadShopOrderListWithPage:1 hud:YES];
-
                     
                 } fail:^(NSString *error) {
                     [self showErrorText:error];
@@ -203,7 +201,6 @@
             }
         } otherButtonTitles:@"确认"];
         [alert show];
-        
         
     };
     // 支付

@@ -152,7 +152,7 @@
             self.bottomViewH.constant = 0;
         }else{
             self.bottomView.hidden = NO;
-            self.bottomViewH.constant = 50;
+            self.bottomViewH.constant = 100;
         }
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewShopCar withScrollView:_tableView];

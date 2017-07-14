@@ -15,6 +15,14 @@
     return item;
 }
 
+- (IBAction)orderNumBtnAction {
+    NSString *str = self.orderNumBtn.titleLabel.text;
+    NSString *orderNum = [str stringByReplacingOccurrencesOfString:@"订单序号 " withString:@""];
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = orderNum;
+    [self showSuccessText:[NSString stringWithFormat:@"已复制订单号：%@",orderNum]];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

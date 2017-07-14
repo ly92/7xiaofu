@@ -156,7 +156,8 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
 //            _chatBtn.selected = NO;
 //        }
 
-        _orderDetailHeaderView.orderNumLab.text = [NSString stringWithFormat:@"订单序号 %@",_orderDetaileProModel.bill_sn];
+//        _orderDetailHeaderView.orderNumLab.text = [NSString stringWithFormat:@"订单序号 %@",_orderDetaileProModel.bill_sn];
+        [_orderDetailHeaderView.orderNumBtn setTitle:[NSString stringWithFormat:@"订单序号 %@",_orderDetaileProModel.bill_sn] forState:UIControlStateNormal];
         _orderDetailHeaderView.orderTimeLab.text = [NSString stringWithFormat:@"创建时间 %@",[Utool comment_timeStamp2TimeFormatter:_orderDetaileProModel.inputtime]];
         
         // 订单没有图片
