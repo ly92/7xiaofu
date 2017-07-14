@@ -23,20 +23,16 @@
 #import "EngineerDetaileViewController.h"
 #import "EngineerListViewController.h"
 #import "ShopPaySuccViewController.h"
-#import <AMapLocationKit/AMapLocationKit.h>
 
 #import "MatchingEngineerListVC.h"
 
-@interface OrderViewController ()<YLSwitchDelegate,AMapLocationManagerDelegate>
+@interface OrderViewController ()<YLSwitchDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic ,strong) EngineerCollectionView * engineerCollectionView;
 @property (nonatomic ,strong) CustomersCollectionView * customersCollectionView;
 @property (nonatomic ,strong) YLSwitch * switchSegment;
 @property (nonatomic, strong) OrderMainModel * orderMainModel;
-
-@property (nonatomic, strong) AMapLocationManager *locationManager;
-
 
 @end
 
@@ -129,42 +125,12 @@
     [Utool verifyLogin:self LogonBlock:^{
         
     }];
-
     
     if (_orderMainModel == nil) {
         [self loadMainData];
     }
-
-    [self mapLocation];
 }
 
-
-- (void)mapLocation{
-    
-    self.locationManager = [[AMapLocationManager alloc] init];
-    
-    [self.locationManager setDelegate:self];
-    
-    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
-    
-//    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
-
-    [self.locationManager startUpdatingLocation];
-}
-
-
-
-
-- (void)jsPatchCode{
-    
-    
-    
-    kTipAlert(@"这是 JSpatch 测试用例");
-    
-    
-    
-    
-}
 
 
 - (void)loadMainData{

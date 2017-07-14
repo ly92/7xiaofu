@@ -4,7 +4,7 @@
 //
 //  Created by mac on 16/9/26.
 //  Copyright © 2016年 fhj. All rights reserved.
-//
+// 商城页面 轮播图数据  左侧二级列表数据gc_id =0   右侧三级列表数据
 
 #import <Foundation/Foundation.h>
 
