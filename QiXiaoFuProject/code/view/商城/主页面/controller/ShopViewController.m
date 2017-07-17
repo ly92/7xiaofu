@@ -39,7 +39,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *suspendTableView;
 
 @property (nonatomic ,strong) NSArray * class1_listArray; //左侧列表数组
-
+@property (nonatomic ,strong) NSMutableArray *class2_listArray;//悬浮列表数据
 @property (nonatomic ,strong) NSMutableArray *class_listArray;//右侧列表数据
 
 @property (nonatomic ,assign) NSInteger page;
@@ -66,9 +66,19 @@
     }
     return _class_listArray;
 }
+- (NSMutableArray *)class2_listArray{
+    if(!_class2_listArray){
+        _class2_listArray = [NSMutableArray array];
+    }
+    return _class2_listArray;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     _page = 1;
     _isAllGoods = YES;
     
@@ -175,11 +185,11 @@
 
 }
 
-#pragma mark - 获取右侧列表数据
+#pragma mark - 获取悬浮列表数据
 
 - (void)loadShopListWithGc_id:(NSString *)gc_id{
     
-    [_class_listArray removeAllObjects];
+    [self.class2_listArray removeAllObjects];
     
     
     NSMutableDictionary * params = [NSMutableDictionary new];
@@ -194,7 +204,7 @@
         _isAllGoods = NO;
         
         ShopMainModel * shopMainModel = [ShopMainModel mj_objectWithKeyValues:requestDic];
-        [_class_listArray setArray:shopMainModel.class_list];
+        [_class2_listArray setArray:shopMainModel.class_list];
         
         if (shopMainModel.class_list.count == 0){
             [self hideSuspendTable];
@@ -333,7 +343,7 @@
     if (tableView == self.categoryTableView){
         return _class1_listArray.count + 1;
     }else{
-        return _class_listArray.count;
+        return _class2_listArray.count;
     }
 }
 
@@ -349,7 +359,7 @@
         }
         
     }else{
-        Class_List * class_list =_class_listArray[indexPath.row];
+        Class_List * class_list =_class2_listArray[indexPath.row];
         cell.tableview_textLabel.text = class_list.gc_name;
         cell.tableview_textLabel.backgroundColor = [UIColor whiteColor];
     }
@@ -369,8 +379,8 @@
         
         LeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         cell.tableview_textLabel.backgroundColor = [UIColor whiteColor];
-        if (indexPath.row  > 3){
-            [self.scrollview setContentOffset:CGPointMake(0, indexPath.row * self.tableRowH - 70) animated:YES];
+        if (indexPath.row  > 3 && kScreenWidth == 320){
+            [self.scrollview setContentOffset:CGPointMake(0, indexPath.row * self.tableRowH - self.tableRowH) animated:YES];
         }
         [UIView animateWithDuration:0.25 animations:^{
             self.suspendTableTopDis.constant = indexPath.row * self.tableRowH;
@@ -378,23 +388,22 @@
         
 //        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         if(indexPath.row ==0){
-            [_class_listArray removeAllObjects];
             _gc_id = @"0";
             self.page = 1;
             [self loadAllShopList];
             [self hideSuspendTable];
         }else{
-            [_class_listArray removeAllObjects];
             Class_List * class_list =_class1_listArray[indexPath.row-1];
             [self loadShopListWithGc_id:class_list.gc_id];
         }
     }else{
         [self hideSuspendTable];
         
-        Class_List * class_list =_class_listArray[indexPath.row];
+        Class_List * class_list =_class2_listArray[indexPath.row];
         [_class_listArray removeAllObjects];
         _gc_id = class_list.gc_id;
         self.page = 1;
+        [_rightCollectionView setContentOffset:CGPointZero];
         [self loadAllShopList];
     }
 
@@ -422,6 +431,11 @@
                 [cell.iconImgV setImageWithUrl:goodlist.goods_image_url placeholder:kDefaultImage_Z];
                 cell.nameLbl.text =goodlist.goods_name;
                 cell.priceLbl.text = [NSString stringWithFormat:@"¥：%@",goodlist.goods_price];
+                if (showPrice){
+                    cell.priceLbl.hidden = NO;
+                }else{
+                    cell.priceLbl.hidden = YES;
+                }
                 cell.inventoryLbl.text = [NSString stringWithFormat:@"商城库存：%@",goodlist.goods_storage];
                 cell.areaLbl.text = goodlist.area_name;
             }else{

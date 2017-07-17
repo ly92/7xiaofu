@@ -30,57 +30,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xda-1I-tNx">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                     <subviews>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sb5-rp-01E">
-                            <rect key="frame" x="18" y="20" width="339" height="36"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchbox" translatesAutoresizingMaskIntoConstraints="NO" id="Vqf-Bs-9Vy">
-                                    <rect key="frame" x="0.0" y="0.0" width="339" height="36"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXl-PD-D5z">
-                                    <rect key="frame" x="0.0" y="0.0" width="339" height="36"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <state key="normal" title="输入商品品牌、名称、类别进行搜索" image="icon_search">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="Vqf-Bs-9Vy" secondAttribute="bottom" id="5rR-Jc-QtG"/>
-                                <constraint firstAttribute="trailing" secondItem="Vqf-Bs-9Vy" secondAttribute="trailing" id="Tse-7K-jX7"/>
-                                <constraint firstAttribute="bottom" secondItem="jXl-PD-D5z" secondAttribute="bottom" id="Va1-7j-T2v"/>
-                                <constraint firstAttribute="height" constant="36" id="Vk8-pe-jSu"/>
-                                <constraint firstItem="Vqf-Bs-9Vy" firstAttribute="top" secondItem="Sb5-rp-01E" secondAttribute="top" id="bsm-fQ-xFf"/>
-                                <constraint firstItem="Vqf-Bs-9Vy" firstAttribute="leading" secondItem="Sb5-rp-01E" secondAttribute="leading" id="jEO-op-Bak"/>
-                                <constraint firstItem="jXl-PD-D5z" firstAttribute="leading" secondItem="Sb5-rp-01E" secondAttribute="leading" id="mS8-tg-ZT3"/>
-                                <constraint firstItem="jXl-PD-D5z" firstAttribute="top" secondItem="Sb5-rp-01E" secondAttribute="top" id="vfG-ud-CyW"/>
-                                <constraint firstAttribute="trailing" secondItem="jXl-PD-D5z" secondAttribute="trailing" id="zg2-B4-4q7"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N90-FQ-8bp">
-                            <rect key="frame" x="0.0" y="64" width="375" height="160"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="0.32578125000000002" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="234" id="AfU-Bt-pCm"/>
-                        <constraint firstAttribute="trailing" secondItem="Sb5-rp-01E" secondAttribute="trailing" constant="18" id="CNX-Jw-p3q"/>
-                        <constraint firstItem="Sb5-rp-01E" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="top" constant="20" id="DXY-XR-qYg"/>
-                        <constraint firstItem="Sb5-rp-01E" firstAttribute="leading" secondItem="xda-1I-tNx" secondAttribute="leading" constant="18" id="Vch-Ul-d4F"/>
+                        <constraint firstAttribute="height" constant="170" id="AfU-Bt-pCm"/>
                         <constraint firstAttribute="trailing" secondItem="N90-FQ-8bp" secondAttribute="trailing" id="W1z-0d-cPq"/>
                         <constraint firstItem="N90-FQ-8bp" firstAttribute="leading" secondItem="xda-1I-tNx" secondAttribute="leading" id="Zt3-Fc-GcS"/>
+                        <constraint firstItem="N90-FQ-8bp" firstAttribute="top" secondItem="xda-1I-tNx" secondAttribute="top" id="jse-aZ-hmZ"/>
                         <constraint firstAttribute="bottom" secondItem="N90-FQ-8bp" secondAttribute="bottom" constant="10" id="mwk-w2-ONz"/>
-                        <constraint firstItem="N90-FQ-8bp" firstAttribute="top" secondItem="Sb5-rp-01E" secondAttribute="bottom" constant="8" id="x18-Rb-FR6"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-qk-EMA">
-                    <rect key="frame" x="0.0" y="234" width="375" height="433"/>
+                    <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yH8-rS-8LQ">
-                            <rect key="frame" x="90" y="8" width="285" height="425"/>
+                            <rect key="frame" x="90" y="1" width="285" height="496"/>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dla-Qd-oM0">
                                 <size key="itemSize" width="50" height="50"/>
@@ -94,7 +63,7 @@
                             </connections>
                         </collectionView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrC-fA-yrt">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="388"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK9-nd-c2S">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
@@ -159,10 +128,10 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="yH8-rS-8LQ" secondAttribute="bottom" id="7pq-Ca-g7x"/>
                         <constraint firstAttribute="trailing" secondItem="yH8-rS-8LQ" secondAttribute="trailing" id="I8P-bG-McL"/>
-                        <constraint firstAttribute="bottom" secondItem="DrC-fA-yrt" secondAttribute="bottom" constant="45" id="K2R-Yf-BkT"/>
+                        <constraint firstAttribute="bottom" secondItem="DrC-fA-yrt" secondAttribute="bottom" id="K2R-Yf-BkT"/>
                         <constraint firstItem="yH8-rS-8LQ" firstAttribute="leading" secondItem="Kgo-qk-EMA" secondAttribute="leading" constant="90" id="MWR-bK-Z67"/>
                         <constraint firstItem="DrC-fA-yrt" firstAttribute="leading" secondItem="Kgo-qk-EMA" secondAttribute="leading" id="dgC-HN-oD6"/>
-                        <constraint firstItem="yH8-rS-8LQ" firstAttribute="top" secondItem="Kgo-qk-EMA" secondAttribute="top" constant="8" id="mI8-Nv-YqP"/>
+                        <constraint firstItem="yH8-rS-8LQ" firstAttribute="top" secondItem="Kgo-qk-EMA" secondAttribute="top" constant="1" id="mI8-Nv-YqP"/>
                         <constraint firstAttribute="trailing" secondItem="DrC-fA-yrt" secondAttribute="trailing" id="mm5-s9-cOF"/>
                         <constraint firstItem="DrC-fA-yrt" firstAttribute="top" secondItem="Kgo-qk-EMA" secondAttribute="top" id="wF9-Xg-Umk"/>
                     </constraints>
@@ -181,8 +150,4 @@
             <point key="canvasLocation" x="-2.5" y="79.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="icon_search" width="21" height="21"/>
-        <image name="searchbox" width="35" height="36"/>
-    </resources>
 </document>

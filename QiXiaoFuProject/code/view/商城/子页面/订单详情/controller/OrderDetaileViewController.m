@@ -181,7 +181,7 @@
         return UITableViewAutomaticDimension;
     }
     if (indexPath.section == 5) {
-        return 60;
+        return 35;
     }
     return 84;
 }
