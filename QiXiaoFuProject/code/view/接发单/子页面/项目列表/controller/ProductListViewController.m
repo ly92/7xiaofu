@@ -8,6 +8,7 @@
 
 #import "ProductListViewController.h"
 #import "ProductCell.h"
+#import "ProductCell2.h"
 #import "ProductDetaileViewController.h"
 #import "FilterView.h"
 #import "ProductModel.h"
@@ -79,7 +80,8 @@
     
     
     [_tableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
-    
+    [_tableView registerNib:[UINib nibWithNibName:@"ProductCell2" bundle:nil] forCellReuseIdentifier:@"ProductCell2"];
+
     _tableView.tableFooterView = [UIView new];
     
     
@@ -320,10 +322,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
     ProductModel * productModel = _dataArray[indexPath.section];
-    cell.productModel = productModel;
-    return cell;
+    
+    if ([productModel.bill_statu intValue] == 1) {
+        ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
+        cell.productModel = productModel;
+        return cell;
+    }else{
+        ProductCell2 *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell2"];
+        cell.productModel = productModel;
+        return cell;
+    }
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  180;

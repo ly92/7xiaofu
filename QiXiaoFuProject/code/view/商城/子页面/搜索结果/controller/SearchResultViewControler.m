@@ -101,7 +101,7 @@
     }
 
     if (_area_ListArray.count != 0) {
-        NSString *area_id = [_area_ListArray componentsJoinedByString:@","];
+        NSString *area_id = [_area_ListArray componentsJoinedByString:@"_"];
         params[@"area_id"] = area_id;
 //        params[@"area_id"] = [_area_ListArray JSONString_Ext];//筛选条件子ID数组
     }

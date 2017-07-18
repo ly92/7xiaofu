@@ -1,17 +1,17 @@
 //
-//  ProductCell.m
+//  ProductCell2.m
 //  QiXiaoFuProject
 //
-//  Created by mac on 16/8/27.
-//  Copyright © 2016年 fhj. All rights reserved.
+//  Created by ly on 2017/7/18.
+//  Copyright © 2017年 fhj. All rights reserved.
 //
 
-#import "ProductCell.h"
+#import "ProductCell2.h"
 
 #define TagVale 100
 
 
-@interface ProductCell()
+@interface ProductCell2()
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -31,7 +31,7 @@
 
 
 
-@implementation ProductCell
+@implementation ProductCell2
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -43,7 +43,7 @@
     
     _iconImageView.layer.cornerRadius=14;
     _iconImageView.clipsToBounds = YES;
-
+    
     // 这三句代码可以代替- (void)setSelected:(BOOL)selected animated:(BOOL)animated
     UIView *view = [[UIView alloc] initWithFrame:self.multipleSelectionBackgroundView.bounds];
     view.backgroundColor = [UIColor whiteColor];
@@ -55,7 +55,7 @@
 
 
 - (void)setProductModel:(ProductModel *)productModel{
-
+    
     
     [_iconImageView setImageWithUrl:productModel.bill_user_avatar placeholder:kDefaultImage_header];
     
@@ -73,11 +73,11 @@
     _severPriceLab.text = [NSString stringWithFormat:@"¥ %@",productModel.service_price];
     _severAdressLab.text =productModel.service_city;
     
-        
+    
 }
 
 
- 
+
 
 
 
@@ -85,7 +85,7 @@
     [super setSelected:selected animated:animated];
     
     if (self.editing) {
-         
+        
         for (UIControl *control in self.subviews){
             if ([control isMemberOfClass:NSClassFromString(@"UITableViewCellEditControl")]){
                 for (UIView *v in control.subviews)
@@ -146,14 +146,6 @@
     }
     
 }
-
-
-
-
-
-
-
-
 
 
 

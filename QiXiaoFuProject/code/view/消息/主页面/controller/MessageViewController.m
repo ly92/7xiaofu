@@ -112,7 +112,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         MessageCell *cell =[tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
-        cell.iconImageView.image = [UIImage imageNamed:@"img_systemnesw"];
+        if (indexPath.row == 0){
+            cell.iconImageView.image = [UIImage imageNamed:@"img_systemnesw"];
+        }else if (indexPath.row == 1){
+            cell.iconImageView.image = [UIImage imageNamed:@"wallet_message"];
+        }else{
+            cell.iconImageView.image = [UIImage imageNamed:@"task_message"];
+        }
         if ([_message_count integerValue] ==0) {
             cell.countLab.hidden = YES;
         }else{

@@ -787,6 +787,8 @@
 		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
 		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
 		08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DC31EE129E6004AF3B2 /* CreditsModel.m */; };
+		082116F51F1E0B7D00B831E0 /* ProductCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 082116F31F1E0B7D00B831E0 /* ProductCell2.m */; };
+		082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082116F41F1E0B7D00B831E0 /* ProductCell2.xib */; };
 		083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */; };
 		083E0DC81F050DA50066ED39 /* PurchaseShopStype2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
@@ -2307,6 +2309,9 @@
 		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
 		08052DC21EE129E6004AF3B2 /* CreditsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsModel.h; sourceTree = "<group>"; };
 		08052DC31EE129E6004AF3B2 /* CreditsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsModel.m; sourceTree = "<group>"; };
+		082116F21F1E0B7D00B831E0 /* ProductCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell2.h; sourceTree = "<group>"; };
+		082116F31F1E0B7D00B831E0 /* ProductCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell2.m; sourceTree = "<group>"; };
+		082116F41F1E0B7D00B831E0 /* ProductCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell2.xib; sourceTree = "<group>"; };
 		083E0DC41F050DA50066ED39 /* PurchaseShopStype2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseShopStype2ViewController.h; sourceTree = "<group>"; };
 		083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseShopStype2ViewController.m; sourceTree = "<group>"; };
 		083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseShopStype2ViewController.xib; sourceTree = "<group>"; };
@@ -3652,6 +3657,9 @@
 		048FF0D01D718B8400268A78 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				082116F21F1E0B7D00B831E0 /* ProductCell2.h */,
+				082116F31F1E0B7D00B831E0 /* ProductCell2.m */,
+				082116F41F1E0B7D00B831E0 /* ProductCell2.xib */,
 				048FF0E71D71A80300268A78 /* ProductCell.h */,
 				048FF0E81D71A80300268A78 /* ProductCell.m */,
 				048FF0E91D71A80300268A78 /* ProductCell.xib */,
@@ -7961,6 +7969,7 @@
 				04DAC3D81DB622A9002235A7 /* ChongSendOrderVC1.xib in Resources */,
 				048FF2481D756D6000268A78 /* PayHeaderViewCell.xib in Resources */,
 				041B31EF1D7D9A6B00A8EBA2 /* CertificationCell.xib in Resources */,
+				082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */,
 				044602FD1D7A933B00CC787C /* ShopPayViewController.xib in Resources */,
 				0439B10F1DD9906B00135F90 /* EBMute.mp3 in Resources */,
 				04796AE31D96CA8600A22456 /* CommentViewController.xib in Resources */,
@@ -8715,6 +8724,7 @@
 				04A258AC1D9A4D610064C0CB /* ShopCarClearingModel.m in Sources */,
 				04A587D81D8E1B8100FA3E46 /* ShopCarCell.m in Sources */,
 				040D5DB61DE3DE5700F810CE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				082116F51F1E0B7D00B831E0 /* ProductCell2.m in Sources */,
 				04DAC53F1DB8BC5A002235A7 /* EMSDWebImageCompat.m in Sources */,
 				0479E8F01D994F5C00C2C207 /* HttpRequestMe.m in Sources */,
 				042C9B671D967DBE0045FAE6 /* ChooseSNNumViewController.m in Sources */,
