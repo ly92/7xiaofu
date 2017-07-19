@@ -27,7 +27,7 @@
 #import "LoginViewController.h"
 #import "BaseNavigationController.h"
 #import "SendOrder1ViewController.h"
-
+#import "AdressListController.h"
 
 
 static NSString * kCecheKey = @"清除缓存";
@@ -61,14 +61,14 @@ static NSString * kPushState = @"是否接收推送消息";
     if (kUserId.length == 0) {
         sections0Array =@[kCecheKey,kShareKey];
     }else{
-        sections0Array =@[_state==1?kChengePayPassWordKey:kSettingPayPassWordKey,kChengePassWordKey,kCecheKey,kShareKey/*,kPushState*/];
+        sections0Array =@[_state==1?kChengePayPassWordKey:kSettingPayPassWordKey,kChengePassWordKey,@"收货地址",kCecheKey,kShareKey/*,kPushState*/];
     }
 //    NSArray * sections1Array =@[@"软件版本",@"关于我们",@"给我五星评价"];
 //    NSArray * sections1Array =@[@"关于我们",@"给我五星评价"];
     NSArray * sections1Array =@[@"关于我们",@"版本",@"给我五星评价"];
 //    NSArray * sections2Array =@[@"意见反馈",@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
 //    NSArray * sections2Array =@[@"联系客服",@"加入我们",@"用户协议",@"操作手册"];
-    NSArray * sections2Array =@[@"用户协议",@"操作手册",@"意见反馈",@"帮助中心"];
+    NSArray * sections2Array =@[@"用户协议",@"工程师手册",@"意见反馈",@"帮助中心"];
 
     _titles = @[sections0Array,sections1Array,sections2Array];
 
@@ -162,7 +162,7 @@ static NSString * kPushState = @"是否接收推送消息";
         cell.hidden = YES;
     }
     
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 3) {
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
         cell.detailTextLabel.textColor = kThemeColor;
         NSString * cacheSize = [MCCacheTool cacheSize];
@@ -278,6 +278,11 @@ static NSString * kPushState = @"是否接收推送消息";
                 }];
             
             }else if (indexPath.row == 2){
+                AdressListController * vc = [[AdressListController alloc]initWithNibName:@"AdressListController" bundle:nil];
+                vc.type = 1;
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }else if (indexPath.row == 3){
                 UITableViewCell * cell  = [tableView cellForRowAtIndexPath:indexPath];
                 
                 [self showText:@"清除缓存中"];
@@ -287,7 +292,7 @@ static NSString * kPushState = @"是否接收推送消息";
                     NSString * cacheSize = [MCCacheTool cacheSize];
                     cell.detailTextLabel.text = cacheSize;
                 }];
-            }else if (indexPath.row == 3){
+            }else if (indexPath.row == 4){
                 [self shareWithUMengWithVC:self withImage:nil withID:nil
                                  withTitle:@"七小服"
                                   withDesc:@"7x24小时技能服务平台" withShareUrl:[NSString stringWithFormat:@"%@%@",HttpCommonURL,HttpShare] withType:1];

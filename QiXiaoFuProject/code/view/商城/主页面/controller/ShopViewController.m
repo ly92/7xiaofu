@@ -249,10 +249,10 @@
         
         [_banner reloadData];
         
-        if ((self.tableRowH * self.class1_listArray.count + 220) > kScreenHeight - 170 - 45){
+        if ((self.tableRowH * self.class1_listArray.count + 220) > kScreenHeight - 160 - 45){
             self.bottomViewH.constant = self.tableRowH * self.class1_listArray.count + 220;
         }else{
-            self.bottomViewH.constant = kScreenHeight - 170 - 45;
+            self.bottomViewH.constant = kScreenHeight - 160 - 45;
         }
         
         
