@@ -123,9 +123,9 @@
         __weak RegisterCell *cell =[tableView dequeueReusableCellWithIdentifier:@"RegisterCell"];
         cell.registerCellBlock = ^(NSString * verify ,BOOL pass){
             
-            if ([_account isMobelphone]) {
-                [cell.verifyBtn runVerifyButtonSecondTime];
-            }
+//            if ([_account isMobelphone]) {
+//                [cell.verifyBtn runVerifyButtonSecondTime];
+//            }
             _verifyCode = verify;
         };
         cell.registerCodeCellBlock= ^(){
