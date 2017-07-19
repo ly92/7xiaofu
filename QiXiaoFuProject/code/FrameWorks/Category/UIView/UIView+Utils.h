@@ -98,4 +98,6 @@
 - (UIViewController *)viewController:(UIView*)view;
 - (UIViewController *)viewController;
 
+-(void)addTapAction:(SEL)action forTarget:(id) aTarget;
+
 @end

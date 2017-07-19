@@ -24,6 +24,7 @@
 
 #import "tool.h"
 #import "const.h"
+#import "UIView+Utils.h"
 
 #endif
 // Include any system framework and library headers here that should be included in all compilation units.

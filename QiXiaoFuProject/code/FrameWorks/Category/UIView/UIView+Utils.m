@@ -539,7 +539,15 @@ static char kDTActionHandlerLongPressGestureKey;
 
 }
 
-
+-(void)addTapAction:(SEL)action forTarget:(id) aTarget
+{
+    self.userInteractionEnabled=YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:aTarget action:action];
+    
+    [self addGestureRecognizer:tap];
+    
+}
 
 
 

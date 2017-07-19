@@ -36,6 +36,7 @@
 @property (nonatomic, copy) NSString *member_id;//工程师ID
 
 @property (nonatomic, copy) NSString *member_level;// 级别
+@property (nonatomic, copy) NSString *count_integral;//
 
 
 @end

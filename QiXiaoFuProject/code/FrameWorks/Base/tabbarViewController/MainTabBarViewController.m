@@ -16,7 +16,7 @@
 #import "CrowdfundingViewController.h"
 //#import "MessageViewController.h"
 #import "ConversationListController.h"
-
+#import "PersonalViewController.h"
 #import "MeViewController.h"
 
 #import "TabBar.h"
@@ -134,7 +134,9 @@ static NSString * const kItem5SelectedImageName = @"pub_icon_me_s";
     _chatListVC = messageViewController;
     
     // 5. 我的
-    MeViewController *mineVC = [[MeViewController alloc]initWithNibName:@"MeViewController" bundle:nil];
+//    MeViewController *mineVC = [[MeViewController alloc]initWithNibName:@"MeViewController" bundle:nil];
+//    [self addOneChlildVc:mineVC title:kTabbarTitle5 imageName:kItem5ImageName selectedImageName:kItem5SelectedImageName];
+    PersonalViewController *mineVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PersonalViewController"];
     [self addOneChlildVc:mineVC title:kTabbarTitle5 imageName:kItem5ImageName selectedImageName:kItem5SelectedImageName];
 }
 

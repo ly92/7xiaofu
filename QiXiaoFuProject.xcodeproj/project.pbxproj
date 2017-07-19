@@ -787,6 +787,7 @@
 		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
 		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
 		08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DC31EE129E6004AF3B2 /* CreditsModel.m */; };
+		081B23D61F1F279F00616E6D /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 081B23D51F1F279F00616E6D /* PersonalViewController.m */; };
 		082116F51F1E0B7D00B831E0 /* ProductCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 082116F31F1E0B7D00B831E0 /* ProductCell2.m */; };
 		082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082116F41F1E0B7D00B831E0 /* ProductCell2.xib */; };
 		083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */; };
@@ -2309,6 +2310,8 @@
 		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
 		08052DC21EE129E6004AF3B2 /* CreditsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsModel.h; sourceTree = "<group>"; };
 		08052DC31EE129E6004AF3B2 /* CreditsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsModel.m; sourceTree = "<group>"; };
+		081B23D41F1F279F00616E6D /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		081B23D51F1F279F00616E6D /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		082116F21F1E0B7D00B831E0 /* ProductCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell2.h; sourceTree = "<group>"; };
 		082116F31F1E0B7D00B831E0 /* ProductCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell2.m; sourceTree = "<group>"; };
 		082116F41F1E0B7D00B831E0 /* ProductCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell2.xib; sourceTree = "<group>"; };
@@ -4857,6 +4860,8 @@
 				048FF0AB1D702A8400268A78 /* MeViewController.h */,
 				048FF0AC1D702A8400268A78 /* MeViewController.m */,
 				048FF0AD1D702A8400268A78 /* MeViewController.xib */,
+				081B23D41F1F279F00616E6D /* PersonalViewController.h */,
+				081B23D51F1F279F00616E6D /* PersonalViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -8546,6 +8551,7 @@
 				04DAC56A1DB8BC5B002235A7 /* EaseEmotionEscape.m in Sources */,
 				044602F31D7A90F900CC787C /* SubjectNumberView.m in Sources */,
 				04DAC5201DB8BC5A002235A7 /* MBProgressHUD+Add.m in Sources */,
+				081B23D61F1F279F00616E6D /* PersonalViewController.m in Sources */,
 				041B31CD1D7D865F00A8EBA2 /* RegisterFooterView.m in Sources */,
 				08052DB41EDFF045004AF3B2 /* SignInViewController.m in Sources */,
 				0498E43C1DB6373100262A9C /* ChongSendOrderVC2.m in Sources */,
