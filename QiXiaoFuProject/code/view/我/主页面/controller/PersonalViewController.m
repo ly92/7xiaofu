@@ -188,12 +188,12 @@
     }
     self.invoteLbl.text = [NSString stringWithFormat:@"邀请码:%@",self.userInfoModel1.iv_code];
     
-    self.signLbl.text = @"0";
-    self.creditsLbl.text = @"0";
+    self.signLbl.text = self.userInfoModel1.sign_day;
+    self.creditsLbl.text = self.userInfoModel1.jifen;
     self.couponLbl.text = @"0";
-    self.walletLbl.text = [NSString stringWithFormat:@"%@元",@"0"];
-    self.billLbl.text = [NSString stringWithFormat:@"%@单",@"0"];
-    self.orderLbl.text = [NSString stringWithFormat:@"%@单",@"0"];
+    self.walletLbl.text = [NSString stringWithFormat:@"%@元",self.userInfoModel1.balance];
+    self.billLbl.text = [NSString stringWithFormat:@"%@单",self.userInfoModel1.send_count_bill];
+    self.orderLbl.text = [NSString stringWithFormat:@"%@单",self.userInfoModel1.take_count_bill];
 }
 
 

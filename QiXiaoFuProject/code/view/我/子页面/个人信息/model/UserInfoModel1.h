@@ -38,6 +38,11 @@
 @property (nonatomic, copy) NSString *member_level;// 级别
 @property (nonatomic, copy) NSString *count_integral;//
 
+@property (nonatomic, copy) NSString *sign_day;          //签到天数
+@property (nonatomic, copy) NSString *jifen;                  //总积分
+@property (nonatomic, copy) NSString *balance;           //余额
+@property (nonatomic, copy) NSString *take_count_bill;            //接单总数
+@property (nonatomic, copy) NSString *send_count_bill;         //发单总数
 
 @end
 
