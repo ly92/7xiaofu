@@ -563,16 +563,18 @@
         
         [self.class_listArray addObjectsFromArray:shopListModel.goods_list];
         
+        self.page==1?[_rightCollectionView headerEndRefresh]:[_rightCollectionView footerEndRefresh];
+        self.page ++;
         
         [_rightCollectionView reloadData];
         
         if (shopListModel.goods_list.count < 10) {
             [_rightCollectionView hidenFooter];
         }
+        
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.class_listArray empty:EmptyDataTableViewDefault withScrollView:_rightCollectionView];
         
-        self.page==1?[_rightCollectionView headerEndRefresh]:[_rightCollectionView footerEndRefresh];
-        self.page ++;
+       
     } fail:^(NSString *error) {
         [PDHud dismiss];
         

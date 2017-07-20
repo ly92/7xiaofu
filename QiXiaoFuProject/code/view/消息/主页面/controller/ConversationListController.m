@@ -60,12 +60,13 @@
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
-    
+
     //系统消息 资金消息 接发单消息
     UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 3*80)];
     //系统消息
     _messageHeaderView1 = [MessageHeaderView messageHeaderView];
     _messageHeaderView1.frame = CGRectMake(0, 0, kScreenWidth, 80);
+    _messageHeaderView1.iconImageView.image = [UIImage imageNamed:@"img_systemnesw"];
     [topView addSubview:_messageHeaderView1];
     [_messageHeaderView1.clickBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
@@ -77,6 +78,7 @@
     //资金消息
     _messageHeaderView2 = [MessageHeaderView messageHeaderView];
     _messageHeaderView2.frame = CGRectMake(0, 80, kScreenWidth, 80);
+    _messageHeaderView2.iconImageView.image = [UIImage imageNamed:@"wallet_message"];
     _messageHeaderView2.titleLab.text=@"资金消息";
     [topView addSubview:_messageHeaderView2];
     [_messageHeaderView2.clickBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
@@ -90,6 +92,7 @@
     //接发单消息
     _messageHeaderView3 = [MessageHeaderView messageHeaderView];
     _messageHeaderView3.frame = CGRectMake(0, 160, kScreenWidth, 80);
+    _messageHeaderView3.iconImageView.image = [UIImage imageNamed:@"task_message"];
     _messageHeaderView3.titleLab.text=@"接发单消息";
     [topView addSubview:_messageHeaderView3];
     [_messageHeaderView3.clickBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {

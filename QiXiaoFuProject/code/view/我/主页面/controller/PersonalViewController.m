@@ -190,7 +190,7 @@
     
     self.signLbl.text = self.userInfoModel1.sign_day;
     self.creditsLbl.text = self.userInfoModel1.jifen;
-    self.couponLbl.text = @"0";
+    self.couponLbl.text = self.userInfoModel1.ticket;
     self.walletLbl.text = [NSString stringWithFormat:@"%@元",self.userInfoModel1.balance];
     self.billLbl.text = [NSString stringWithFormat:@"%@单",self.userInfoModel1.send_count_bill];
     self.orderLbl.text = [NSString stringWithFormat:@"%@单",self.userInfoModel1.take_count_bill];

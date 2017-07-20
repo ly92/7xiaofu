@@ -43,6 +43,7 @@
 @property (nonatomic, copy) NSString *balance;           //余额
 @property (nonatomic, copy) NSString *take_count_bill;            //接单总数
 @property (nonatomic, copy) NSString *send_count_bill;         //发单总数
+@property (nonatomic, copy) NSString *ticket;    //券
 
 @end
 

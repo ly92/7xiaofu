@@ -157,6 +157,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="7H3-tc-17W" secondAttribute="bottom" id="8Qi-GI-9dY"/>
                     <constraint firstAttribute="trailing" secondItem="7H3-tc-17W" secondAttribute="trailing" constant="10" id="IBb-6v-XSh"/>
@@ -164,6 +165,7 @@
                     <constraint firstItem="7H3-tc-17W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xnD-9i-cyk"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="bgView" destination="7H3-tc-17W" id="iP2-Md-Y1v"/>
                 <outlet property="iconImageView" destination="7QM-Mr-k4B" id="SNN-dp-g8s"/>

@@ -12,6 +12,9 @@
 #import "ProductModel.h"
 #import "ProductDetaileViewController.h"
 
+#import "ProductCell.h"
+#import "ProductCell2.h"
+
 @interface ReceivingOrderListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -36,6 +39,8 @@
     _page =1;
     
     [_tableView registerNib:[UINib nibWithNibName:@"ReceivingOrderCell" bundle:nil] forCellReuseIdentifier:@"ReceivingOrderCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"ProductCell2" bundle:nil] forCellReuseIdentifier:@"ProductCell2"];
     _tableView.tableFooterView = [UIView new];
     
     
@@ -163,13 +168,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ReceivingOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ReceivingOrderCell"];
+//    ReceivingOrderCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ReceivingOrderCell"];
+//    ProductModel * productModel = _dataArray[indexPath.section];
+//    cell.productModel = productModel;
+//    return cell;
+    
     ProductModel * productModel = _dataArray[indexPath.section];
-    cell.productModel = productModel;
-    return cell;
+    
+    if ([productModel.bill_statu intValue] == 1) {
+        ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
+        cell.productModel = productModel;
+        return cell;
+    }else{
+        ProductCell2 *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell2"];
+        cell.productModel = productModel;
+        return cell;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  170;
+    return  180;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
