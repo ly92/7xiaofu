@@ -58,7 +58,7 @@
         }];
         
         LCNewFeatureVC * newFeatureVC = [LCNewFeatureVC initWithImageName:@"new_feature"
-                                imageCount:2
+                                imageCount:4
                            showPageControl:NO
                                enterButton:btn
                                finishBlock:^(NSInteger tag){
