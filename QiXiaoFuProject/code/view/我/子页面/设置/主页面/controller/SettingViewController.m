@@ -61,7 +61,7 @@ static NSString * kPushState = @"是否接收推送消息";
     if (kUserId.length == 0) {
         sections0Array =@[kCecheKey,kShareKey];
     }else{
-        sections0Array =@[_state==1?kChengePayPassWordKey:kSettingPayPassWordKey,kChengePassWordKey,@"收货地址",kCecheKey,kShareKey/*,kPushState*/];
+        sections0Array =@[_state==1?kChengePayPassWordKey:kSettingPayPassWordKey,kChengePassWordKey,@"设置收货地址",kCecheKey,kShareKey/*,kPushState*/];
     }
 //    NSArray * sections1Array =@[@"软件版本",@"关于我们",@"给我五星评价"];
 //    NSArray * sections1Array =@[@"关于我们",@"给我五星评价"];
@@ -169,7 +169,7 @@ static NSString * kPushState = @"是否接收推送消息";
         cell.detailTextLabel.text = cacheSize;
     }
     
-    if(indexPath.section == 0 && indexPath.row == 4){
+    if(indexPath.section == 0 && indexPath.row == 5){
         cell.accessoryType= UITableViewCellAccessoryNone;
 
         UISwitch * swi = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
