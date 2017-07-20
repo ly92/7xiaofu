@@ -65,13 +65,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
     self.iconImgV.layer.cornerRadius = 32.5;
     [self.signView addTapAction:@selector(signAction) forTarget:self];
     [self.creditsView addTapAction:@selector(creditsAction) forTarget:self];
     [self.couponView addTapAction:@selector(couponAction) forTarget:self];
     [self.iconImgV addTapAction:@selector(iconClickAction) forTarget:self];
+    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
