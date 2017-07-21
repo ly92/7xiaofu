@@ -558,24 +558,24 @@
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if(section ==2){
-        SendOrderZhidingSenctionFootView * sendOrderZhidingSenctionFootView = [SendOrderZhidingSenctionFootView sendOrderZhidingSenctionFootView];
-        sendOrderZhidingSenctionFootView.contentLab.text =[NSString stringWithFormat:@"%@",_showaddbillModel.reference];
-        
-        //        @"参考价格,初级¥500-1000人/天;中级¥1000-1500人/天;高级¥1500-2000人/天;";
-        sendOrderZhidingSenctionFootView.timeLab.hidden = YES;
-        sendOrderZhidingSenctionFootView.priceLab.hidden = YES;
-        
-        return sendOrderZhidingSenctionFootView;
-    }
-    return nil;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    if(section ==2){
+//        SendOrderZhidingSenctionFootView * sendOrderZhidingSenctionFootView = [SendOrderZhidingSenctionFootView sendOrderZhidingSenctionFootView];
+//        sendOrderZhidingSenctionFootView.contentLab.text =[NSString stringWithFormat:@"%@",_showaddbillModel.reference];
+//        
+//        //        @"参考价格,初级¥500-1000人/天;中级¥1000-1500人/天;高级¥1500-2000人/天;";
+//        sendOrderZhidingSenctionFootView.timeLab.hidden = YES;
+//        sendOrderZhidingSenctionFootView.priceLab.hidden = YES;
+//        
+//        return sendOrderZhidingSenctionFootView;
+//    }
+//    return nil;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if(section ==2){
-        return 50;
-    }
+//    if(section ==2){
+//        return 50;
+//    }
     return 0.001f;
 }
 

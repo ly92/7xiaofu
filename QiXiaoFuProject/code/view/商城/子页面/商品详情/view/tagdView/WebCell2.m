@@ -6,12 +6,12 @@
 //  Copyright © 2016年 bianguo. All rights reserved.
 //
 
-#import "WebCell.h"
+#import "WebCell2.h"
 #import "YWWebScrollView.h"
 #import "Html5Utils.h"
 
 
-@interface WebCell ()<UIWebViewDelegate>{
+@interface WebCell2 ()<UIWebViewDelegate>{
 
     NSMutableArray *_imageArray; //用于保存图片链接
 
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation WebCell
+@implementation WebCell2
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -62,9 +62,7 @@
                        "table tr th,"
                        "table tr td {"
                        "border: 1px solid #c1c1c1;"
-                       "height:100px;"
-                       "padding:20px 10px 20px 10px;"
-                       "}"
+                       "height:70px;}"
                        "table {"
                         "text-align: left;"
                        "font-size:35px;"
@@ -112,8 +110,8 @@
     self.webView.frame = CGRectMake(8, 0, kScreenWidth - 16, fittingSize.height);
     
     
-    if (_webCellReturnHeightBlock) {
-        _webCellReturnHeightBlock(self,fittingSize.height + 10);
+    if (_webCell2ReturnHeightBlock) {
+        _webCell2ReturnHeightBlock(self,fittingSize.height + 10);
     }
     
     [self webViewShowImagePhotoBrowerWithWebView:webView];

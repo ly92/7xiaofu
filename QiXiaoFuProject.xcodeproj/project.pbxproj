@@ -787,6 +787,7 @@
 		08052DBA1EE03196004AF3B2 /* CreditsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DB81EE03196004AF3B2 /* CreditsTableViewCell.m */; };
 		08052DBB1EE03196004AF3B2 /* CreditsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */; };
 		08052DC41EE129E6004AF3B2 /* CreditsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08052DC31EE129E6004AF3B2 /* CreditsModel.m */; };
+		080CA8AC1F21A9880036E812 /* WebCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CA8AB1F21A9880036E812 /* WebCell2.m */; };
 		081B23D61F1F279F00616E6D /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 081B23D51F1F279F00616E6D /* PersonalViewController.m */; };
 		082116F51F1E0B7D00B831E0 /* ProductCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 082116F31F1E0B7D00B831E0 /* ProductCell2.m */; };
 		082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082116F41F1E0B7D00B831E0 /* ProductCell2.xib */; };
@@ -2310,6 +2311,8 @@
 		08052DB91EE03196004AF3B2 /* CreditsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsTableViewCell.xib; sourceTree = "<group>"; };
 		08052DC21EE129E6004AF3B2 /* CreditsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsModel.h; sourceTree = "<group>"; };
 		08052DC31EE129E6004AF3B2 /* CreditsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsModel.m; sourceTree = "<group>"; };
+		080CA8AA1F21A9880036E812 /* WebCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebCell2.h; path = tagdView/WebCell2.h; sourceTree = "<group>"; };
+		080CA8AB1F21A9880036E812 /* WebCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebCell2.m; path = tagdView/WebCell2.m; sourceTree = "<group>"; };
 		081B23D41F1F279F00616E6D /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		081B23D51F1F279F00616E6D /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		082116F21F1E0B7D00B831E0 /* ProductCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell2.h; sourceTree = "<group>"; };
@@ -5699,6 +5702,8 @@
 				04A258951D9A1CA20064C0CB /* tagdView */,
 				04A258791D9A0D7E0064C0CB /* WebCell.h */,
 				04A2587A1D9A0D7E0064C0CB /* WebCell.m */,
+				080CA8AA1F21A9880036E812 /* WebCell2.h */,
+				080CA8AB1F21A9880036E812 /* WebCell2.m */,
 				044602CA1D7A805D00CC787C /* ShopDetaileWordCell.h */,
 				044602CB1D7A805D00CC787C /* ShopDetaileWordCell.m */,
 				044602CC1D7A805D00CC787C /* ShopDetaileWordCell.xib */,
@@ -8175,6 +8180,7 @@
 			files = (
 				04DAC5361DB8BC5A002235A7 /* MWGridCell.m in Sources */,
 				04BBB60A1DAC978B00C9B2D3 /* User.m in Sources */,
+				080CA8AC1F21A9880036E812 /* WebCell2.m in Sources */,
 				04DAC55C1DB8BC5A002235A7 /* EaseSDKHelper.m in Sources */,
 				041B31F21D7D9D5000A8EBA2 /* CertificationFooterView.m in Sources */,
 				04A587D31D8D4BCA00FA3E46 /* ShopCarViewController.m in Sources */,

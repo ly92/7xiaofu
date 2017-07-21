@@ -38,13 +38,20 @@ static NSString *ADID = @"adCell";
         UIView * vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 60)];
         [self addSubview:vi];
 
+        UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
+        lbl.textColor = kThemeColor;
+        lbl.textAlignment = NSTextAlignmentCenter;
+        lbl.font = [UIFont boldSystemFontOfSize:20];
+        lbl.text = @"小七推荐";
+        [vi addSubview:lbl];
+        
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
         
         UIImage * image = [UIImage imageNamed:@"img_xiao7"];
         imgView.image = image;
 //        imgView.contentMode = UIViewContentModeScaleAspectFill;
 //        imgView.clipsToBounds = YES;
-        [vi addSubview:imgView];
+//        [vi addSubview:imgView];
         [imgView sizeToFit];
         imgView.center = CGPointMake(50, 30);
         

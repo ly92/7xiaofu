@@ -19,16 +19,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koj-GD-B54">
-                        <rect key="frame" x="20" y="0.0" width="280" height="43.5"/>
+                        <rect key="frame" x="10" y="0.0" width="290" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpY-Z4-kGR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="04F-9v-a0f"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dpY-Z4-kGR" secondAttribute="trailing" id="4Yb-6b-pj7"/>
+                    <constraint firstItem="dpY-Z4-kGR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9vz-Pa-1dE"/>
                     <constraint firstAttribute="trailing" secondItem="Koj-GD-B54" secondAttribute="trailing" constant="20" id="PdW-ux-FQt"/>
-                    <constraint firstItem="Koj-GD-B54" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Vn7-q3-8hB"/>
+                    <constraint firstItem="Koj-GD-B54" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Vn7-q3-8hB"/>
                     <constraint firstItem="Koj-GD-B54" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ksK-fo-4DC"/>
+                    <constraint firstItem="dpY-Z4-kGR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="x8e-0V-cNM"/>
                     <constraint firstAttribute="bottom" secondItem="Koj-GD-B54" secondAttribute="bottom" id="zG0-iN-6Ro"/>
                 </constraints>
             </tableViewCellContentView>

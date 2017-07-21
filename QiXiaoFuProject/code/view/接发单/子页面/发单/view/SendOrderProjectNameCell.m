@@ -41,7 +41,7 @@
     self.projectNameTextField=[[UITextField alloc] init];
     self.projectNameTextField.delegate=self;
     self.projectNameTextField.font = [UIFont systemFontOfSize:14.0];
-    self.projectNameTextField.placeholder=@"比如 UNIX服务器硬盘故障";
+    self.projectNameTextField.placeholder=@"如：IBM P595故障处理";
     self.projectNameTextField.borderStyle=UITextBorderStyleNone;
     self.projectNameTextField.keyboardType=UIKeyboardTypeDefault;
     self.projectNameTextField.textAlignment = NSTextAlignmentRight;

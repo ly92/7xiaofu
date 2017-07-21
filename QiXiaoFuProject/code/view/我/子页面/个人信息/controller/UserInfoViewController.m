@@ -25,6 +25,8 @@
 #import "BlockUIAlertView.h"
 #import "LocalData.h"
 #import "NSString+Utils.h"
+#import "UILabel+ContentSize.h"
+
 
 @interface UserInfoViewController ()
 {
@@ -48,6 +50,12 @@
 @property (nonatomic, strong) UserInfoModel1 *userInfoModel1;
 
 @property (weak, nonatomic) IBOutlet UIView *reminderView;
+@property (weak, nonatomic) IBOutlet UIView *remindSubView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remindSubViewH;
+@property (weak, nonatomic) IBOutlet UILabel *remindLbl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *remindLblH;
+
+
 @property (nonatomic, strong) NSArray *classArray;
 
 @end
@@ -59,13 +67,24 @@
     self.navigationItem.title = @"个人信息";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"reminder_icon" highImage:@"reminder_icon" target:self action:@selector(reminderAction)];
     
-    _titles = @[@"头像",@"昵称",@"实名认证",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"查看评论"];
+    _titles = @[@"头像",@"昵称",@"实名认证",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"个人邀请码",@"评论列表"];
 
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"SettingCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"MineInfoCell" bundle:nil] forCellReuseIdentifier:@"MineInfoCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"UserInfoUpImageCell" bundle:nil] forCellReuseIdentifier:@"UserInfoUpImageCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"MineInfoNickCell" bundle:nil] forCellReuseIdentifier:@"MineInfoNickCell"];
 
+    self.remindSubView.layer.cornerRadius = 5;
+    [self.remindLbl caculatedSize];
+    
+    if (kScreenWidth == 320){
+        self.remindLblH.constant = 220;
+    }else if (kScreenWidth == 375){
+        self.remindLblH.constant = 190;
+    }else{
+        self.remindLblH.constant = 170;
+    }
+    self.remindSubViewH.constant = self.remindLblH.constant + 30 + 21 + 60;
     
     
     _tableView.tableFooterView = [UIView new];
@@ -86,13 +105,13 @@
     if (self.reminderView.hidden){
         self.reminderView.hidden = NO;
         self.reminderView.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1);
-        [UIView animateWithDuration:0.7f animations:^{
+        [UIView animateWithDuration:0.3f animations:^{
             self.reminderView.layer.transform = CATransform3DMakeScale(1, 1, 1);
             self.reminderView.alpha = 1;
         } completion:^(BOOL finished) {
         }];
     }else{
-        [UIView animateWithDuration:0.7f animations:^{
+        [UIView animateWithDuration:0.3f animations:^{
             self.reminderView.layer.transform = CATransform3DMakeScale(2, 2, 2);
             self.reminderView.alpha = 0;
         } completion:^(BOOL finished) {
@@ -250,8 +269,12 @@
     }else if (indexPath.row == 2) {
         MineInfoNickCell *   cell =[tableView dequeueReusableCellWithIdentifier:@"MineInfoNickCell"];
         cell.titleLab.text =_titles[indexPath.row ];
+        if ([_userInfoModel1.is_real intValue] == 1){
+            cell.textFiled.text = @"已认证";
+        }else{
+            cell.textFiled.text = @"未认证";
+        }
         cell.textFiled.enabled = NO;
-        cell.textFiled.placeholder = @"";
         return cell;
         
     }else if (indexPath.row == 3) {
@@ -357,10 +380,10 @@
     }
     if(indexPath.row == 2){
         [Utool verifyLoginAndCertification:self LogonBlock:^{
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n已实名认证\n" cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
-                
-                            } otherButtonTitles:nil];
-            [alert show];
+//            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n已实名认证\n" cancelButtonTitle:@"确定" clickButton:^(NSInteger buttonIndex) {
+//                
+//                            } otherButtonTitles:nil];
+//            [alert show];
             
         } CertificationBlock:^{
             CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];

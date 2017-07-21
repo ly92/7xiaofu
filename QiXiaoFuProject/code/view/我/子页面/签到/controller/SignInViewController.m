@@ -126,7 +126,7 @@
         }else{
             self.signinBtn.enabled = NO;
             [self.signinBtn setTitle:@"已签到" forState:UIControlStateNormal];
-            [self showSuccessText:@"已签到"];
+            [self showSuccessText:@"已签到！"];
         }
         
         if (sign_day > 0 && sign_day < 8){
