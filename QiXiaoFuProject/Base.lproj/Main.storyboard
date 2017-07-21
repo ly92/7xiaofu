@@ -100,7 +100,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5v-EG-p3T">
                                                             <rect key="frame" x="0.0" y="155" width="375" height="67"/>
                                                             <subviews>
-                                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgW-Q9-YpO">
+                                                                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgW-Q9-YpO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
                                                                     <color key="backgroundColor" red="1" green="0.85098039219999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>

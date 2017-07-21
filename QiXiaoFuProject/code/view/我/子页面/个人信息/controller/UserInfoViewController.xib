@@ -27,7 +27,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bLI-3D-TMz" customClass="TPKeyboardAvoidingTableView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="0uf-a5-rrh"/>
                         <outlet property="delegate" destination="-1" id="e8R-tH-vMu"/>
@@ -36,6 +36,10 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIE-Y7-xn2">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
+                        <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha4-qg-QKU">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </button>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-HB-COW">
                             <rect key="frame" x="10" y="167.66666666666663" width="394" height="400"/>
                             <subviews>
@@ -92,21 +96,26 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYD-F9-irR">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="reminderAction" destination="-1" eventType="touchUpInside" id="3ro-IG-nvA"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ha4-qg-QKU" secondAttribute="trailing" id="BtV-4U-k2U"/>
                         <constraint firstItem="CFg-HB-COW" firstAttribute="centerX" secondItem="eIE-Y7-xn2" secondAttribute="centerX" id="C61-8M-SnP"/>
                         <constraint firstItem="SYD-F9-irR" firstAttribute="leading" secondItem="eIE-Y7-xn2" secondAttribute="leading" id="E7D-tr-7mh"/>
                         <constraint firstItem="SYD-F9-irR" firstAttribute="top" secondItem="eIE-Y7-xn2" secondAttribute="top" id="Gi1-hK-LS6"/>
                         <constraint firstItem="CFg-HB-COW" firstAttribute="leading" secondItem="eIE-Y7-xn2" secondAttribute="leading" constant="10" id="JKb-wh-V9y"/>
+                        <constraint firstAttribute="bottom" secondItem="ha4-qg-QKU" secondAttribute="bottom" id="PGH-z6-9ay"/>
                         <constraint firstAttribute="bottom" secondItem="SYD-F9-irR" secondAttribute="bottom" id="U1w-Qu-mHT"/>
                         <constraint firstAttribute="trailing" secondItem="SYD-F9-irR" secondAttribute="trailing" id="bBE-pa-4RZ"/>
                         <constraint firstItem="CFg-HB-COW" firstAttribute="centerY" secondItem="eIE-Y7-xn2" secondAttribute="centerY" id="dVF-K5-6AA"/>
+                        <constraint firstItem="ha4-qg-QKU" firstAttribute="leading" secondItem="eIE-Y7-xn2" secondAttribute="leading" id="rno-LZ-5un"/>
                         <constraint firstAttribute="trailing" secondItem="CFg-HB-COW" secondAttribute="trailing" constant="10" id="wtJ-Yo-OL9"/>
+                        <constraint firstItem="ha4-qg-QKU" firstAttribute="top" secondItem="eIE-Y7-xn2" secondAttribute="top" id="z5c-uw-G4s"/>
                     </constraints>
                 </view>
             </subviews>

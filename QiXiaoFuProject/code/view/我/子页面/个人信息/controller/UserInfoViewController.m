@@ -271,8 +271,10 @@
         cell.titleLab.text =_titles[indexPath.row ];
         if ([_userInfoModel1.is_real intValue] == 1){
             cell.textFiled.text = @"已认证";
+            cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage new]];
         }else{
             cell.textFiled.text = @"未认证";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         cell.textFiled.enabled = NO;
         return cell;

@@ -41,7 +41,7 @@ static NSString *ADID = @"adCell";
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 60)];
         lbl.textColor = kThemeColor;
         lbl.textAlignment = NSTextAlignmentCenter;
-        lbl.font = [UIFont boldSystemFontOfSize:20];
+        lbl.font = [UIFont boldSystemFontOfSize:15];
         lbl.text = @"小七推荐";
         [vi addSubview:lbl];
         
