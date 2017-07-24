@@ -88,7 +88,7 @@
     UITableViewCell * cell= [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SettingCell"];
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.textColor = [UIColor darkGrayColor];
-    cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
+    
     cell.detailTextLabel.font = [UIFont systemFontOfSize:15];
 
     if (indexPath.section == 0) {
@@ -105,8 +105,12 @@
     
     if (indexPath.section == 0) {
         cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage new]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }else{
         cell.detailTextLabel.textColor = kThemeColor;
+        cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     }
     return cell;
 }

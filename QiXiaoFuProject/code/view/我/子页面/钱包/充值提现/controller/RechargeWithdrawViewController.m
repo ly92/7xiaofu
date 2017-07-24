@@ -117,12 +117,13 @@
 - (void)rechargeRequest{
 
     
-    if(_money.length == 0){
+    if(_money.length == 0 || [_money doubleValue] <= 0){
     
-        [self showErrorText:@"请输入金额"];
+        [self showErrorText:@"请输入不小于0的充值金额"];
         return;
     
     };
+    
     
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
@@ -400,8 +401,8 @@
 
     
     
-    if(_money.length == 0){
-        [self showErrorText:@"请输入金额"];
+    if(_money.length == 0 || [_money doubleValue] <= 0){
+        [self showErrorText:@"请输入不小于0的提现金额"];
         return;
     };
     
@@ -533,9 +534,9 @@
     
     
     
-    if(_money.length == 0){
+    if(_money.length == 0 || [_money doubleValue] <= 0){
         
-        [self showErrorText:@"请输入金额"];
+        [self showErrorText:@"请输入不小于0的金额"];
         return;
         
     };
