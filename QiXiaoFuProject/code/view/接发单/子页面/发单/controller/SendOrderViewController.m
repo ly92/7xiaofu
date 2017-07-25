@@ -138,11 +138,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"sendTaskNotificationname" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        if (_requestParams.allKeys.count > 1){
-            [LocalData saveSendTaskData:_requestParams];
-        }
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSendTask) name:@"sendTaskNotificationname" object:nil];
+}
+
+- (void)saveSendTask{
+    if (_requestParams.allKeys.count > 1){
+        [LocalData saveSendTaskData:_requestParams];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
