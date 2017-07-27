@@ -13,7 +13,7 @@
 
 @interface CreditsViewController2 ()
 
-
+@property (weak, nonatomic) IBOutlet UIImageView *topImgV;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *reditsLbl;
 @property (weak, nonatomic) IBOutlet UIView *ruleView;
@@ -50,6 +50,7 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [self.topImgV stopAnimating];
 }
 
 
@@ -57,6 +58,15 @@
     [super viewDidLoad];
     
     self.subRuleView.layer.cornerRadius = 5;
+    
+    NSMutableArray *imgsArray = [NSMutableArray array];
+    for (int i = 10; i > 0; i --) {
+        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"Integral_background_%d",i]];
+        [imgsArray addObject:img];
+    }
+    self.topImgV.animationImages = imgsArray;
+    self.topImgV.animationDuration = 1;
+    [self.topImgV startAnimating];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
 
