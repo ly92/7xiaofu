@@ -793,6 +793,8 @@
 		082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082116F41F1E0B7D00B831E0 /* ProductCell2.xib */; };
 		083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */; };
 		083E0DC81F050DA50066ED39 /* PurchaseShopStype2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */; };
+		084404171F29C64B0082A60F /* SignInViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 084404161F29C64B0082A60F /* SignInViewController2.m */; };
+		0844041A1F29DA100082A60F /* CreditsViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 084404191F29DA100082A60F /* CreditsViewController2.m */; };
 		0853FF131ED5C2EA005D0E94 /* WalletDetailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */; };
 		0853FF141ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */; };
 		0853FF1C1ED67B81005D0E94 /* SpaceTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0853FF1A1ED67B81005D0E94 /* SpaceTimeViewController.m */; };
@@ -2321,6 +2323,10 @@
 		083E0DC41F050DA50066ED39 /* PurchaseShopStype2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseShopStype2ViewController.h; sourceTree = "<group>"; };
 		083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseShopStype2ViewController.m; sourceTree = "<group>"; };
 		083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseShopStype2ViewController.xib; sourceTree = "<group>"; };
+		084404151F29C64B0082A60F /* SignInViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController2.h; sourceTree = "<group>"; };
+		084404161F29C64B0082A60F /* SignInViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController2.m; sourceTree = "<group>"; };
+		084404181F29DA100082A60F /* CreditsViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController2.h; sourceTree = "<group>"; };
+		084404191F29DA100082A60F /* CreditsViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController2.m; sourceTree = "<group>"; };
 		0853FF101ED5C2EA005D0E94 /* WalletDetailCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletDetailCollectionCell.h; sourceTree = "<group>"; };
 		0853FF111ED5C2EA005D0E94 /* WalletDetailCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletDetailCollectionCell.m; sourceTree = "<group>"; };
 		0853FF121ED5C2EA005D0E94 /* WalletDetailCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletDetailCollectionCell.xib; sourceTree = "<group>"; };
@@ -7615,6 +7621,8 @@
 				08052DB11EDFF045004AF3B2 /* SignInViewController.h */,
 				08052DB21EDFF045004AF3B2 /* SignInViewController.m */,
 				08052DB31EDFF045004AF3B2 /* SignInViewController.xib */,
+				084404151F29C64B0082A60F /* SignInViewController2.h */,
+				084404161F29C64B0082A60F /* SignInViewController2.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -7635,6 +7643,8 @@
 				08052DAC1EDFF037004AF3B2 /* CreditsViewController.h */,
 				08052DAD1EDFF037004AF3B2 /* CreditsViewController.m */,
 				08052DAE1EDFF037004AF3B2 /* CreditsViewController.xib */,
+				084404181F29DA100082A60F /* CreditsViewController2.h */,
+				084404191F29DA100082A60F /* CreditsViewController2.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -8687,11 +8697,13 @@
 				04DAC57F1DB8BC5B002235A7 /* EaseBubbleView.m in Sources */,
 				04891A371DD5CF8C0099E24F /* QXFUITapGestureRecognizer.m in Sources */,
 				048FF0D41D718B9E00268A78 /* ProductListViewController.m in Sources */,
+				084404171F29C64B0082A60F /* SignInViewController2.m in Sources */,
 				04A587BB1D8D3D7500FA3E46 /* RechargeWithdrawCell.m in Sources */,
 				048FF0EA1D71A80300268A78 /* ProductCell.m in Sources */,
 				04C6A0591E24FEC000770545 /* OrderDetailSnCell.m in Sources */,
 				049266A91D5EE3C90098A3A6 /* FOREmptyAssistantConfiger.m in Sources */,
 				04891A311DD5CF8C0099E24F /* MyReceivingOrderCell.m in Sources */,
+				0844041A1F29DA100082A60F /* CreditsViewController2.m in Sources */,
 				04DAC5A21DB8BD84002235A7 /* EMRotbotChatViewCell.m in Sources */,
 				04DAC5371DB8BC5A002235A7 /* MWGridViewController.m in Sources */,
 				08052DAA1EDFF029004AF3B2 /* CouponViewController.m in Sources */,

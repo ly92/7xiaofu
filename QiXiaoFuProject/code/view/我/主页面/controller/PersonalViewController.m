@@ -36,9 +36,11 @@
 #import "SpaceTimeViewController.h"
 #import "AssociationViewControllerA.h"
 
+#import "SignInViewController2.h"
 #import "SignInViewController.h"
 #import "CouponViewController.h"
 #import "CreditsViewController.h"
+#import "CreditsViewController2.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 
 @interface PersonalViewController ()
@@ -80,6 +82,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     if (kUserId.length != 0) {
         [self loadMineDataInfo];
     }
@@ -88,6 +91,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,12 +115,20 @@
 }
 
 - (void)signAction{
-    SignInViewController *signinVC = [[SignInViewController alloc] init];
+    
+    SignInViewController2 *signinVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SignInViewController2"];
     [self.navigationController pushViewController:signinVC animated:YES];
+    
+//    SignInViewController *signinVC = [[SignInViewController alloc] init];
+//    [self.navigationController pushViewController:signinVC animated:YES];
 }
 - (void)creditsAction{
-    CreditsViewController *creditsVC = [[CreditsViewController alloc] init];
+    
+    CreditsViewController2 *creditsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CreditsViewController2"];
     [self.navigationController pushViewController:creditsVC animated:YES];
+    
+//    CreditsViewController *creditsVC = [[CreditsViewController alloc] init];
+//    [self.navigationController pushViewController:creditsVC animated:YES];
 }
 - (void)couponAction{
     CouponViewController *couponVC = [[CouponViewController alloc] init];
