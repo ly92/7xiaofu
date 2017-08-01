@@ -120,7 +120,7 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-
+[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //
     [Utool verifyLogin:self LogonBlock:^{
         

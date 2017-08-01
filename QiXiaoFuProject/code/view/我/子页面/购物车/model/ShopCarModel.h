@@ -40,7 +40,7 @@
 
 @property(assign,nonatomic) BOOL selectState;//是否选中状态
 
-
+@property (nonatomic, copy) NSString *sum;
 @end
 
 //            参数名	类型	说明

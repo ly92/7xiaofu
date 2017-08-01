@@ -38,6 +38,9 @@
     WEAKSELF
     _numberButton.numberBlock = ^(NSString *num){
         DeLog(@"%@",num);
+        if (num.intValue > self.cart_List.sum.intValue){
+            return ;
+        }
         [weakSelf editShopCarGoodsCount:num];
     };
     

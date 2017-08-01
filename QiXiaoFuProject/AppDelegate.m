@@ -30,7 +30,6 @@
     
     application.applicationIconBadgeNumber = 0;
     
-    
     _connectionState = EMConnectionConnected;
 
     
