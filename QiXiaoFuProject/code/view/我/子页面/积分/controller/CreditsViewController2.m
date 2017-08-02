@@ -71,7 +71,11 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];
 
     [self.tableView headerAddMJRefresh:^{
-        [self loadReditsListPage:1 hud:NO];
+        if (self.allBtn.isSelected){
+            [self loadReditsListPage:1 hud:NO];
+        }else{
+            [self.tableView headerEndRefresh];
+        }
     }];
     [self.tableView footerAddMJRefresh:^{
         [self loadReditsListPage:_page hud:NO];

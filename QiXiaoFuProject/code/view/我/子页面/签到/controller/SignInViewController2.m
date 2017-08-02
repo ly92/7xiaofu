@@ -58,8 +58,8 @@
         
         NSInteger is_sign = [[requestDic objectForKey:@"is_sign"] integerValue];
         NSInteger sign_day = [[requestDic objectForKey:@"sign_day"] integerValue];
-        self.creditsLbl.text = [NSString stringWithFormat:@"总积分：%ld积分",[[requestDic objectForKey:@"integral"] integerValue]];
-        self.signDayLbl.text = [NSString stringWithFormat:@"连续%ld天",[[requestDic objectForKey:@"total_sign_day"] integerValue]];
+        self.creditsLbl.text = [NSString stringWithFormat:@"总积分：%ld积分",[[requestDic objectForKey:@"jifen"] integerValue]];
+        self.signDayLbl.text = [NSString stringWithFormat:@"连续%ld天",[[requestDic objectForKey:@"continuous_sign_day"] integerValue]];
         if (is_sign == 0){
             self.signBtn.enabled = YES;
             self.signLbl.text = @"签到";
@@ -123,8 +123,8 @@
         
         NSInteger is_sign = [[requestDic objectForKey:@"is_sign"] integerValue];
         NSInteger sign_day = [[requestDic objectForKey:@"sign_day"] integerValue];
-        self.creditsLbl.text = [NSString stringWithFormat:@"总积分：%ld积分",[[requestDic objectForKey:@"integral"] integerValue]];
-        self.signDayLbl.text = [NSString stringWithFormat:@"连续%ld天",[[requestDic objectForKey:@"total_sign_day"] integerValue]];
+        self.creditsLbl.text = [NSString stringWithFormat:@"总积分：%ld积分",[[requestDic objectForKey:@"jifen"] integerValue]];
+        self.signDayLbl.text = [NSString stringWithFormat:@"连续%ld天",[[requestDic objectForKey:@"continuous_sign_day"] integerValue]];
         if (is_sign == 0){
             self.signLbl.text = @"签到";
             self.signBtn.enabled = YES;

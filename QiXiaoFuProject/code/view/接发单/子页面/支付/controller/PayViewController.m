@@ -25,6 +25,8 @@
 #import "ForgetPayPassViewController.h"
 #import "BlockUIAlertView.h"
 #import "LocalData.h"
+#import "SCNavTabBarController.h"
+
 
 @interface PayViewController (){
 
@@ -523,7 +525,24 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }else if (buttonIndex == 0){
                 [self.view endEditing:YES];
-                [self.navigationController popToRootViewControllerAnimated:YES];
+                
+                NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+                SCNavTabBarController *viewContrller = nil;
+                for (id viewController in viewControllers)
+                {
+                    if ([viewController isKindOfClass:[SCNavTabBarController class]])
+                    {
+                        viewContrller = viewController;
+                        break;
+                    }
+                }
+                if (viewContrller == nil){
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }else{
+                    [self.navigationController popToViewController:viewContrller animated:YES];
+                }
+                
+                
             }
             
         } otherButtonTitles:@"匹配工程师"];

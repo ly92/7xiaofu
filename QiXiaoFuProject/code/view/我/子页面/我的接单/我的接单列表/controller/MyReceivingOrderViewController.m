@@ -57,6 +57,12 @@
     [self myBillListDataPage:1 hud:YES];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self myBillListDataPage:1 hud:YES];
+
+}
+
 - (void)addRefreshView{
     
     
