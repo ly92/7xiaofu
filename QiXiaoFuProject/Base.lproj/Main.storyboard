@@ -1425,7 +1425,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yP-4w-Qo4">
-                                <rect key="frame" x="0.0" y="230" width="375" height="387"/>
+                                <rect key="frame" x="0.0" y="230" width="375" height="382"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ecW-bb-n6j" id="DME-kG-n0A"/>
@@ -1433,7 +1433,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRM-NZ-bza">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分规则" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boe-aL-h7K">
                                         <rect key="frame" x="8" y="0.0" width="359" height="21"/>
@@ -1445,7 +1445,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Z-hO-57n">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="5" width="375" height="50"/>
                                         <state key="normal" image="Integral_rule"/>
                                         <connections>
                                             <action selector="showRuleAction" destination="ecW-bb-n6j" eventType="touchDown" id="QdJ-9E-GJ3"/>
@@ -1455,9 +1455,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="boe-aL-h7K" firstAttribute="leading" secondItem="hRM-NZ-bza" secondAttribute="leading" constant="8" id="1rj-nv-Sqj"/>
-                                    <constraint firstItem="L5Z-hO-57n" firstAttribute="top" secondItem="hRM-NZ-bza" secondAttribute="top" id="5Xw-Wc-fOi"/>
+                                    <constraint firstItem="L5Z-hO-57n" firstAttribute="top" secondItem="hRM-NZ-bza" secondAttribute="top" constant="5" id="5Xw-Wc-fOi"/>
                                     <constraint firstAttribute="bottom" secondItem="L5Z-hO-57n" secondAttribute="bottom" id="S5H-Tw-0aj"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZFQ-0e-OeD"/>
+                                    <constraint firstAttribute="height" constant="55" id="ZFQ-0e-OeD"/>
                                     <constraint firstItem="L5Z-hO-57n" firstAttribute="leading" secondItem="hRM-NZ-bza" secondAttribute="leading" id="oqo-r6-jQZ"/>
                                     <constraint firstItem="boe-aL-h7K" firstAttribute="top" secondItem="hRM-NZ-bza" secondAttribute="top" id="teX-eN-HDG"/>
                                     <constraint firstAttribute="trailing" secondItem="boe-aL-h7K" secondAttribute="trailing" constant="8" id="xWj-ei-W3s"/>

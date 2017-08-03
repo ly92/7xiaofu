@@ -47,7 +47,7 @@
     Order_List * order_List =shopOrderModel.order_list[_indexPath.row];
     [_iconImageView setImageWithUrl:order_List.goods_image placeholder:kDefaultImage_Z];
     _titleLab.text = order_List.goods_name;
-    _numLab.text = [NSString stringWithFormat:@"数量 %@",order_List.goods_num];
+    _numLab.text = [NSString stringWithFormat:@"x%@",order_List.goods_num];
     _pricelab.text = [NSString stringWithFormat:@"¥ %@",order_List.goods_price];
     
 }
@@ -59,7 +59,7 @@
     Goodss_List * goodss_List =orderDetaileModel.goods_list[_indexPath.row];
     [_iconImageView setImageWithUrl:goodss_List.goods_img placeholder:kDefaultImage_Z];
     _titleLab.text = goodss_List.goods_name;
-    _numLab.text = [NSString stringWithFormat:@"数量 %@",goodss_List.goods_num];
+    _numLab.text = [NSString stringWithFormat:@"x%@",goodss_List.goods_num];
     _pricelab.text = [NSString stringWithFormat:@"¥ %@",goodss_List.goods_pay_price];
 
     

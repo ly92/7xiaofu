@@ -12,6 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rightBtn;
+@property (weak, nonatomic) IBOutlet UILabel *leftLbl;
+@property (weak, nonatomic) IBOutlet UILabel *rightLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *topArrowImgV;
 
 @end
 
@@ -29,7 +32,10 @@
 
 - (void)setShopOrderModel:(ShopOrderModel *)shopOrderModel{
     _shopOrderModel = shopOrderModel;
-    
+
+    self.topArrowImgV.hidden = YES;
+    self.leftLbl.text = [NSString stringWithFormat:@"共%@件商品",shopOrderModel.total_goods_num];
+    self.rightLbl.text = [NSString stringWithFormat:@"订单金额：%@",shopOrderModel.order_amount];
     
     //   state_type;//订单状态 【空字符串 所有订单】【1，待付款】【2，已支付】【3，待收货】【4，待评价】【5，已完成】
     [self orderStateWithState_type:shopOrderModel.state_type withTime:shopOrderModel.order_end_time order_id:shopOrderModel.order_id pay_sn:shopOrderModel.pay_sn order_price: shopOrderModel.order_amount order_sn:shopOrderModel.order_sn return_step_state:shopOrderModel.return_step_state refund_type:shopOrderModel.refund_type totalNum:shopOrderModel.total_goods_num];
@@ -38,6 +44,10 @@
 
 - (void)setOrderDetaileModel:(OrderDetaileModel *)orderDetaileModel{
     _orderDetaileModel = orderDetaileModel;
+    
+    self.rightLbl.textColor = kThemeColor;
+    self.leftLbl.text = @"订单金额：";
+    self.rightLbl.text = [NSString stringWithFormat:@"¥%@",orderDetaileModel.order_price];
     
     [self orderStateWithState_type:orderDetaileModel.state_type withTime:orderDetaileModel.order_end_time order_id:_order_id pay_sn:orderDetaileModel.pay_sn order_price:orderDetaileModel.order_price order_sn:orderDetaileModel.order_sn return_step_state:orderDetaileModel.return_step_state refund_type:orderDetaileModel.refund_type totalNum:orderDetaileModel.total_goods_num] ;
 }
