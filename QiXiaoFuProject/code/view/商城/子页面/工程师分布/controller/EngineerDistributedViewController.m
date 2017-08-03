@@ -59,8 +59,7 @@
 }
 
 - (void)mapItemAction:(UIBarButtonItem *)item{
-    
-    
+
     EngineerDistributedMapViewController * vc= [[EngineerDistributedMapViewController alloc] initWithNibName:@"EngineerDistributedMapViewController" bundle:nil];
     
     vc.mapItemArray = _dataArray;

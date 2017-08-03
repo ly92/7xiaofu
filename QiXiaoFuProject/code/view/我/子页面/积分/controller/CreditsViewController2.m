@@ -60,12 +60,12 @@
     self.subRuleView.layer.cornerRadius = 5;
     
     NSMutableArray *imgsArray = [NSMutableArray array];
-    for (int i = 10; i > 0; i --) {
+    for (int i = 3; i < 11; i ++) {
         UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"Integral_background_%d",i]];
         [imgsArray addObject:img];
     }
     self.topImgV.animationImages = imgsArray;
-    self.topImgV.animationDuration = 1;
+    self.topImgV.animationDuration = 2;
     [self.topImgV startAnimating];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CreditsTableViewCell" bundle:nil] forCellReuseIdentifier:@"CreditsTableViewCell"];

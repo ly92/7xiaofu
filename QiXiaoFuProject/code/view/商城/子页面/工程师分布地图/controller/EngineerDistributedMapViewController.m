@@ -87,30 +87,17 @@
 - (void)setMapItemArray:(NSArray *)mapItemArray{
     _mapItemArray = mapItemArray;
     
-
-//    NSMutableArray * da = [NSMutableArray new];
-//    
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    [da addObjectsFromArray:_mapItemArray];
-//    
-//    _mapItemArray = [NSArray arrayWithArray:da];
-
+    NSMutableArray *array  = [NSMutableArray array];
     for (NSInteger i = 0; i < _mapItemArray.count; i ++) {
         EngineerDistributedModel * bdModel = _mapItemArray[i];
         CLLocationDegrees latitude= [bdModel.lat doubleValue];
         CLLocationDegrees longitude= [bdModel.lng doubleValue];
         BasicMapAnnotation *  annotation=[[BasicMapAnnotation alloc] initWithLatitude:latitude andLongitude:longitude];
         annotation.tag = i;
+        [array addObject:annotation];
         [_mapView addAnnotation:annotation];
     }
+    [_mapView showAnnotations:array animated:YES];
 }
 
 - (void)setGoods_id:(NSString *)goods_id{
@@ -127,14 +114,18 @@
         
         _mapItemArray = [EngineerDistributedModel mj_objectArrayWithKeyValuesArray:requestDic];
 
+        NSMutableArray *array  = [NSMutableArray array];
         for (NSInteger i = 0; i < _mapItemArray.count; i ++) {
             EngineerDistributedModel * bdModel = _mapItemArray[i];
             CLLocationDegrees latitude= [bdModel.lat doubleValue];
             CLLocationDegrees longitude= [bdModel.lng doubleValue];
             BasicMapAnnotation *  annotation=[[BasicMapAnnotation alloc] initWithLatitude:latitude andLongitude:longitude];
             annotation.tag = i;
+            [array addObject:annotation];
             [_mapView addAnnotation:annotation];
         }
+        
+        [_mapView showAnnotations:array animated:YES];
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
@@ -146,9 +137,9 @@
 #pragma mark - MAMapViewDelegate
 - (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation{
     // 首次定位
-    if (updatingLocation) {
-        [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude)];
-    }
+//    if (updatingLocation) {
+//        [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude)];
+//    }
 }
 
 
@@ -227,11 +218,6 @@
         return annotationView;
     }
     return nil;
-}
-//减少内存占用
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    [_mapView removeFromSuperview];
-    [mapbgView addSubview:mapView];
 }
 
 - (void)toNavigationMapwithModel:(EngineerDistributedModel *)engineerDistributedModel{
