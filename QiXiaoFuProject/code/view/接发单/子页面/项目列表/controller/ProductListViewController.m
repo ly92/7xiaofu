@@ -66,7 +66,7 @@
     
     UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
     UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
-    self.navigationItem.rightBarButtonItems= @[filtItem,item,secrchItem];
+//    self.navigationItem.rightBarButtonItems= @[filtItem,item,secrchItem];
     
     
     _classifys = @[@"服务时间",@"服务金额"];

@@ -498,7 +498,12 @@
 
 
 - (void)dealMessageNetWithOPType:(NSString *)op{
-    
+    /**
+     message_type = 1 为系统消息
+     message_type = 2 为资金消息
+     message_type = 3 为接罚单消息
+     message_type = 5 为大家帮消息
+     */
     if (self.selectedArray.count == 0){
         [self showErrorText:@"请至少选择一条"];
         return;
@@ -516,6 +521,16 @@
     params[@"op"] = op;
     params[@"act"] = @"member_index";
     params[@"message_id"] = message_ids;
+    if (self.isSelectedAll){
+        params[@"operate_all"] = @"1";
+    }
+    if (self.systemMessageType == SystemMessageTypeMoney){
+        params[@"message_type"] = @"2";
+    }else if (self.systemMessageType == SystemMessageTypeSendReceiveMoney){
+        params[@"message_type"] = @"3";
+    }else{
+        params[@"message_type"] = @"1";
+    }
     
     [MCNetTool postWithUrl:HttpApi params:params success:^(NSDictionary *requestDic, NSString *msg) {
             [self showSuccessText:@"处理成功！"];
