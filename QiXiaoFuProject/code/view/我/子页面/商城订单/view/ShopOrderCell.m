@@ -47,8 +47,10 @@
     Order_List * order_List =shopOrderModel.order_list[_indexPath.row];
     [_iconImageView setImageWithUrl:order_List.goods_image placeholder:kDefaultImage_Z];
     _titleLab.text = order_List.goods_name;
-    _numLab.text = [NSString stringWithFormat:@"x%@",order_List.goods_num];
-    _pricelab.text = [NSString stringWithFormat:@"¥ %@",order_List.goods_price];
+//    _numLab.text = [NSString stringWithFormat:@"x%@",order_List.goods_num];
+//    _pricelab.text = [NSString stringWithFormat:@"¥ %@",order_List.goods_price];
+    _numLab.hidden = YES;
+    _pricelab.hidden = YES;
     
 }
 

@@ -8,6 +8,7 @@
 
 #import "ShopOrderViewController.h"
 #import "ShopOrderCell.h"
+#import "ShopOrderCell2.h"
 #import "OrderDetaileViewController.h"
 #import "PurchaseShopViewController.h"
 #import "ShopOrderModel.h"
@@ -40,6 +41,7 @@
     _dataArray = [NSMutableArray new];
     
     [_tableView registerNib:[UINib nibWithNibName:@"ShopOrderCell" bundle:nil] forCellReuseIdentifier:@"ShopOrderCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"ShopOrderCell2" bundle:nil] forCellReuseIdentifier:@"ShopOrderCell2"];
     _tableView.tableFooterView = [UIView new];
     
     
@@ -138,18 +140,26 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ShopOrderModel * shopOrderModel =_dataArray[section];
-    return shopOrderModel.order_list.count;
+//    ShopOrderModel * shopOrderModel =_dataArray[section];
+//    return shopOrderModel.order_list.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ShopOrderCell * cell =[tableView dequeueReusableCellWithIdentifier:@"ShopOrderCell"];
-    cell.indexPath = indexPath;
     ShopOrderModel * shopOrderModel =_dataArray[indexPath.section];
-    cell.shopOrderModel =shopOrderModel;
-
-    return cell;
+    if (shopOrderModel.order_list.count > 1){
+        ShopOrderCell2 * cell =[tableView dequeueReusableCellWithIdentifier:@"ShopOrderCell2"];
+        ShopOrderModel * shopOrderModel =_dataArray[indexPath.section];
+        cell.iconArray = shopOrderModel.order_list;
+        return cell;
+    }else{
+        ShopOrderCell * cell =[tableView dequeueReusableCellWithIdentifier:@"ShopOrderCell"];
+        cell.indexPath = indexPath;
+        ShopOrderModel * shopOrderModel =_dataArray[indexPath.section];
+        cell.shopOrderModel =shopOrderModel;
+        return cell;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  81;

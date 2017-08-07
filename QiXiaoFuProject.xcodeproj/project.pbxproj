@@ -791,6 +791,10 @@
 		081B23D61F1F279F00616E6D /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 081B23D51F1F279F00616E6D /* PersonalViewController.m */; };
 		082116F51F1E0B7D00B831E0 /* ProductCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 082116F31F1E0B7D00B831E0 /* ProductCell2.m */; };
 		082116F61F1E0B7D00B831E0 /* ProductCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082116F41F1E0B7D00B831E0 /* ProductCell2.xib */; };
+		0837CC271F38580F00CDC332 /* ShopOrderCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0837CC251F38580F00CDC332 /* ShopOrderCell2.m */; };
+		0837CC281F38580F00CDC332 /* ShopOrderCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0837CC261F38580F00CDC332 /* ShopOrderCell2.xib */; };
+		0837CC2C1F3859F000CDC332 /* ShopOrderCell2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0837CC2A1F3859F000CDC332 /* ShopOrderCell2Cell.m */; };
+		0837CC2D1F3859F000CDC332 /* ShopOrderCell2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0837CC2B1F3859F000CDC332 /* ShopOrderCell2Cell.xib */; };
 		083E0DC71F050DA50066ED39 /* PurchaseShopStype2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */; };
 		083E0DC81F050DA50066ED39 /* PurchaseShopStype2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */; };
 		084404171F29C64B0082A60F /* SignInViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 084404161F29C64B0082A60F /* SignInViewController2.m */; };
@@ -2320,6 +2324,12 @@
 		082116F21F1E0B7D00B831E0 /* ProductCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell2.h; sourceTree = "<group>"; };
 		082116F31F1E0B7D00B831E0 /* ProductCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell2.m; sourceTree = "<group>"; };
 		082116F41F1E0B7D00B831E0 /* ProductCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell2.xib; sourceTree = "<group>"; };
+		0837CC241F38580F00CDC332 /* ShopOrderCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopOrderCell2.h; sourceTree = "<group>"; };
+		0837CC251F38580F00CDC332 /* ShopOrderCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopOrderCell2.m; sourceTree = "<group>"; };
+		0837CC261F38580F00CDC332 /* ShopOrderCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopOrderCell2.xib; sourceTree = "<group>"; };
+		0837CC291F3859F000CDC332 /* ShopOrderCell2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopOrderCell2Cell.h; sourceTree = "<group>"; };
+		0837CC2A1F3859F000CDC332 /* ShopOrderCell2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopOrderCell2Cell.m; sourceTree = "<group>"; };
+		0837CC2B1F3859F000CDC332 /* ShopOrderCell2Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopOrderCell2Cell.xib; sourceTree = "<group>"; };
 		083E0DC41F050DA50066ED39 /* PurchaseShopStype2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseShopStype2ViewController.h; sourceTree = "<group>"; };
 		083E0DC51F050DA50066ED39 /* PurchaseShopStype2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseShopStype2ViewController.m; sourceTree = "<group>"; };
 		083E0DC61F050DA50066ED39 /* PurchaseShopStype2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseShopStype2ViewController.xib; sourceTree = "<group>"; };
@@ -3858,6 +3868,12 @@
 				048FF19F1D7435C400268A78 /* ShopOrderCell.h */,
 				048FF1A01D7435C400268A78 /* ShopOrderCell.m */,
 				048FF1A11D7435C400268A78 /* ShopOrderCell.xib */,
+				0837CC241F38580F00CDC332 /* ShopOrderCell2.h */,
+				0837CC251F38580F00CDC332 /* ShopOrderCell2.m */,
+				0837CC261F38580F00CDC332 /* ShopOrderCell2.xib */,
+				0837CC291F3859F000CDC332 /* ShopOrderCell2Cell.h */,
+				0837CC2A1F3859F000CDC332 /* ShopOrderCell2Cell.m */,
+				0837CC2B1F3859F000CDC332 /* ShopOrderCell2Cell.xib */,
 				0422C5BF1DC44590002F7B11 /* ShopOrderStateCell.h */,
 				0422C5C01DC44590002F7B11 /* ShopOrderStateCell.m */,
 				0422C5C11DC44590002F7B11 /* ShopOrderStateCell.xib */,
@@ -7922,6 +7938,7 @@
 				041B31CA1D7D319300A8EBA2 /* RegisterViewController.xib in Resources */,
 				041B31EA1D7D9A2800A8EBA2 /* CertificationViewController.xib in Resources */,
 				0416E9F01D9B693300D59A0A /* read_me.txt in Resources */,
+				0837CC2D1F3859F000CDC332 /* ShopOrderCell2Cell.xib in Resources */,
 				048FF1E91D75105800268A78 /* AdressListController.xib in Resources */,
 				04C45E031DFD2727001D9415 /* ShouyiJiluViewController.xib in Resources */,
 				04A258A21D9A1CA20064C0CB /* TagCell.xib in Resources */,
@@ -8000,6 +8017,7 @@
 				04DAC63E1DB8C937002235A7 /* MessageHeaderView.xib in Resources */,
 				041B33471D7EF63C00A8EBA2 /* EditAdressFooterView.xib in Resources */,
 				048FF23A1D75650C00268A78 /* CommentCell.xib in Resources */,
+				0837CC281F38580F00CDC332 /* ShopOrderCell2.xib in Resources */,
 				042C9B5A1D9675140045FAE6 /* EngineerTureOrderFinishViewController.xib in Resources */,
 				048FF2271D755D4B00268A78 /* EngineerDetaileHeaderCell.xib in Resources */,
 				0498E50C1E13B2A400BEF6DA /* MyStockChangeZreaViewController.xib in Resources */,
@@ -8433,6 +8451,7 @@
 				04DAC5431DB8BC5A002235A7 /* EMSDWebImageManager.m in Sources */,
 				04DAC5E41DB8BE1E002235A7 /* GroupSubjectChangingViewController.m in Sources */,
 				0422A6001D93C0EF001ADE98 /* NSCalendar+ST.m in Sources */,
+				0837CC2C1F3859F000CDC332 /* ShopOrderCell2Cell.m in Sources */,
 				044602D21D7A827700CC787C /* ShopDetaileAdressCell.m in Sources */,
 				048FF2771D75B2DE00268A78 /* ReceivingOrderEditFooterView.m in Sources */,
 				04DAC6391DB8BF5E002235A7 /* UIViewController+HUD.m in Sources */,
@@ -8559,6 +8578,7 @@
 				0479E8ED1D994D9700C2C207 /* AdressModel.m in Sources */,
 				04CE13DC1E09217100792B7F /* MessagePhotoView.m in Sources */,
 				049A5BDA1E55AD00003B4B57 /* MKMapView+MapViewUtil.m in Sources */,
+				0837CC271F38580F00CDC332 /* ShopOrderCell2.m in Sources */,
 				0498E4451DB644FE00262A9C /* JieFanDanZaiCiPayViewController.m in Sources */,
 				04C45E021DFD2727001D9415 /* ShouyiJiluViewController.m in Sources */,
 				048619441D84FFC1008D8BDB /* PDHud.m in Sources */,
