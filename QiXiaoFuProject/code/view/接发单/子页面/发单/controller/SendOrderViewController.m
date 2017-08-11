@@ -273,7 +273,8 @@
         return;
     }
     
-    _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_service_sectorTitle,_requestParams[@"service_brand"]];//标题【服务领域 - 服务品牌 - 服务型号】
+//    _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_service_sectorTitle,_requestParams[@"service_brand"]];//标题【服务领域 - 服务品牌 - 服务型号】
+    _requestParams[@"title"] = _service_sectorTitle;
     
 //    _requestParams[@"title"] = [NSString stringWithFormat:@"%@-%@",_service_sectorTitle,_service_formTitle];//标题【服务领域 - 服务品牌 - 服务型号】
 

@@ -180,7 +180,6 @@
     ShopOrderFooterView * shopOrderFooterView = [ShopOrderFooterView shopOrderFooterView];
     shopOrderFooterView.frame = CGRectMake(0, 0, kScreenWidth, 40.4);
     [footerView addSubview:shopOrderFooterView];
-    footerView.backgroundColor = [UIColor redColor];
     ShopOrderModel * shopOrderModel =_dataArray[section];
     shopOrderFooterView.shopOrderModel =shopOrderModel;
 

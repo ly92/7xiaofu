@@ -15,15 +15,18 @@
 #pragma mark  数组转字符串
 -(NSString *)string{
     
-    if(self==nil || self.count==0) return @"";
-    
-    NSMutableString *str=[NSMutableString string];
-    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [str appendFormat:@"%@,",obj];
-    }];
+//    if(self==nil || self.count==0) return @" ";
+//    
+//    NSMutableString *str=[NSMutableString string];
+//    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [str appendFormat:@"%@,",obj];
+//    }];
     
     //删除最后一个','
-    NSString *strForRight = [str substringWithRange:NSMakeRange(0, str.length-1)];
+//    NSString *strForRight = [str substringWithRange:NSMakeRange(0, str.length-1)];
+    
+    NSString *strForRight = [self componentsJoinedByString:@","];
+    
     
     return strForRight;
 }
