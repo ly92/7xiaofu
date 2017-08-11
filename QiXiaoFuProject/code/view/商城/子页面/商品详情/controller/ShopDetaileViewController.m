@@ -235,6 +235,16 @@
             ShopDetaileAdressCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ShopDetaileAdressCell"];
             cell.shopNumLab.text = _goodsDetaileModel.goods_info.goods_storage;
             cell.engineerNumLab.text = _goodsDetaileModel.goods_info.engineer_storage;
+        //如果库存为0则联系客服
+        if ([_goodsDetaileModel.goods_info.goods_storage intValue] == 0){
+            self.chatBuyBtn.hidden = NO;
+        }else{
+            if (showPrice){
+                self.chatBuyBtn.hidden = YES;
+            }else{
+                self.chatBuyBtn.hidden = NO;
+            }
+        }
         if (self.showShopTable){
             cell.hidden = YES;
         }else{

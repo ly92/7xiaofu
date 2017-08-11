@@ -136,12 +136,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row ==0) {
-    
+        
         SendOrder1Cell *cell =[tableView dequeueReusableCellWithIdentifier:@"SendOrder1Cell"];
         if (self.isFeedBack){
-        cell.textView.placeholder = @"请输入反馈内容";
+            cell.textView.placeholder = @"请输入反馈内容";
+            cell.titleLbl.text = @"反馈内容";
         }else{
-        cell.textView.placeholder = @"请输入备注内容";
+            cell.titleLbl.text = @"交付要求";
+            cell.textView.placeholder = @"请输入交付要求";
         }
         
         cell.textView.completionBlock =^(NSString * text){

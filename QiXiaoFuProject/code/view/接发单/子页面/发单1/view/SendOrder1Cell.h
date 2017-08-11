@@ -10,6 +10,7 @@
 #import "MCTextView.h"
 
 @interface SendOrder1Cell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 
 @property (weak, nonatomic) IBOutlet MCTextView *textView;
 @end
