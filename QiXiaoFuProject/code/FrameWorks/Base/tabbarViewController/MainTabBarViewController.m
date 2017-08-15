@@ -31,7 +31,7 @@
 #import "ConversationListController.h"
 #import "ContactListViewController.h"
 #import "EMCDDeviceManager.h"
-
+#import "KnowledgeViewController.h"
 
 //两次提示的默认间隔
 static const CGFloat kDefaultPlaySoundInterval = 3.0;
@@ -52,8 +52,8 @@ static NSString * const kItem2SelectedImageName = @"pub_icon_shop_s";
 static NSString * const kItem3imageName = @"pub_icon_toghelp";
 static NSString * const kItem3SelectedImageName = @"pub_icon_toghelp_s";
 
-static NSString * const kItem4imageName = @"pub_icon_infro_n";
-static NSString * const kItem4SelectedImageName = @"pub_icon_information_s";
+static NSString * const kItem4imageName = @"knowledge_icon";
+static NSString * const kItem4SelectedImageName = @"knowledge_passing_icon";
 
 static NSString * const kItem5ImageName = @"pub_icon_me_n";
 static NSString * const kItem5SelectedImageName = @"pub_icon_me_s";
@@ -127,11 +127,11 @@ static NSString * const kItem5SelectedImageName = @"pub_icon_me_s";
 //    CrowdfundingViewController *crowdfundingViewController = [[CrowdfundingViewController alloc] initWithNibName:@"CrowdfundingViewController" bundle:nil];
 //    [self addOneChlildVc:crowdfundingViewController title:kTabbarTitle3 imageName:kItem3imageName selectedImageName:kItem3SelectedImageName];
     // 4.消息
-//    MessageViewController *messageViewController = [[MessageViewController alloc]initWithNibName:@"MessageViewController" bundle:nil];
-//    [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];
-    ConversationListController *messageViewController = [[ConversationListController alloc]init];
+    KnowledgeViewController *messageViewController = [[KnowledgeViewController alloc] init];
     [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];
-    _chatListVC = messageViewController;
+//    ConversationListController *messageViewController = [[ConversationListController alloc]init];
+//    [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];
+//    _chatListVC = messageViewController;
     
     // 5. 我的
 //    MeViewController *mineVC = [[MeViewController alloc]initWithNibName:@"MeViewController" bundle:nil];

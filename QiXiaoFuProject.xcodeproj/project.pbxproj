@@ -811,6 +811,7 @@
 		0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */; };
 		088BB21F1EEE7EA4003A1D80 /* TransferOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */; };
 		088BB2201EEE7EA4003A1D80 /* TransferOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */; };
+		08A1D2F51F42CAC800EECF39 /* KnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2356,6 +2357,8 @@
 		088BB21C1EEE7EA4003A1D80 /* TransferOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferOrderViewController.h; sourceTree = "<group>"; };
 		088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferOrderViewController.m; sourceTree = "<group>"; };
 		088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferOrderViewController.xib; sourceTree = "<group>"; };
+		08A1D2F31F42CAC800EECF39 /* KnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeViewController.h; sourceTree = "<group>"; };
+		08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeViewController.m; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -7448,6 +7451,7 @@
 		04E8BD3D1D587ED6003E4550 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				08A1D2F21F42CA8C00EECF39 /* knowledge */,
 				041B31A01D7D186D00A8EBA2 /* 基础页面 */,
 				049266D11D5EE8100098A3A6 /* 接发单 */,
 				049266D71D5EE8100098A3A6 /* 商城 */,
@@ -7731,6 +7735,15 @@
 				088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */,
 			);
 			path = transferOrder;
+			sourceTree = "<group>";
+		};
+		08A1D2F21F42CA8C00EECF39 /* knowledge */ = {
+			isa = PBXGroup;
+			children = (
+				08A1D2F31F42CAC800EECF39 /* KnowledgeViewController.h */,
+				08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */,
+			);
+			path = knowledge;
 			sourceTree = "<group>";
 		};
 		099A94241EC2AAA8004EDD66 /* category */ = {
@@ -8527,6 +8540,7 @@
 				04DAC5E21DB8BE1E002235A7 /* GroupListViewController.m in Sources */,
 				044602CD1D7A805D00CC787C /* ShopDetaileWordCell.m in Sources */,
 				04891A401DD5CF8C0099E24F /* OrderDetaileTiaoJiaImageCell.m in Sources */,
+				08A1D2F51F42CAC800EECF39 /* KnowledgeViewController.m in Sources */,
 				04DAC5C31DB8BDC4002235A7 /* RealtimeSearchUtil.m in Sources */,
 				049266A71D5EE3C90098A3A6 /* UIScrollView+EmptyDataSet.m in Sources */,
 				044602FC1D7A933B00CC787C /* ShopPayViewController.m in Sources */,

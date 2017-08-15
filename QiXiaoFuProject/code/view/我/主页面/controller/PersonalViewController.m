@@ -42,6 +42,7 @@
 #import "CreditsViewController.h"
 #import "CreditsViewController2.h"
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import "ConversationListController.h"
 
 @interface PersonalViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgV;
@@ -100,13 +101,10 @@
 }
 
 #pragma mark - 点击事件
-//设置
+//消息
 - (IBAction)settingAction {
-    SettingViewController * vc = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
-    vc.state = _userInfoModel1.is_paypwd;
-    vc.is_real =_userInfoModel1.is_real;
-    vc.userHeader = _userInfoModel1.member_avatar;
-    [self.navigationController pushViewController:vc animated:YES];
+    ConversationListController *messageViewController = [[ConversationListController alloc]init];
+    [self.navigationController pushViewController:messageViewController animated:YES];
 }
 //个人信息
 - (IBAction)personalDetailAction {
@@ -311,6 +309,15 @@
         }
             break;
 
+        case 12:{
+            //设置
+            SettingViewController * vc = [[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
+            vc.state = _userInfoModel1.is_paypwd;
+            vc.is_real =_userInfoModel1.is_real;
+            vc.userHeader = _userInfoModel1.member_avatar;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
             
         default:
             break;

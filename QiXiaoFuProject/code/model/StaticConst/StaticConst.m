@@ -17,5 +17,5 @@ const CGFloat kMar = 10.0;  // 间距
 NSString *const kTabbarTitle1 = @"收发单";
 NSString *const kTabbarTitle2 = @"商城";
 NSString *const kTabbarTitle3 = @"大家帮";
-NSString *const kTabbarTitle4 = @"消息";
+NSString *const kTabbarTitle4 = @"知识库";
 NSString *const kTabbarTitle5 = @"我";

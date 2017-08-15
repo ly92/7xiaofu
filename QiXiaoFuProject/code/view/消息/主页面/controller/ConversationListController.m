@@ -56,6 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"消息";
     // Do any additional setup after loading the view.
     self.showRefreshHeader = YES;
     self.delegate = self;
