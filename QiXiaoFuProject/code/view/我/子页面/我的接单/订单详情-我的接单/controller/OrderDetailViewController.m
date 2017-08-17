@@ -11,7 +11,6 @@
 #import "ProductDetaileHeaderCell.h"
 #import "ProductDetaileCell.h"
 #import "ProductDetail1TableViewCell.h"
-#import "ProductDetaileFooterView.h"
 #import "OrderDetailImageCell.h"
 #import "OrderDetaileCancleCell.h"
 #import "OrderDetaileTiaoJiaImageCell.h"
@@ -248,7 +247,7 @@ static NSString * const kSeverTiaoJia = @"调价没有图片123";
         if (_orderDetaileProModel.bill_statu ==0) {
             [cell.stateBtn setTitle:@"撤销" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==1) {
-            [cell.stateBtn setTitle:@"待接单" forState:UIControlStateNormal];
+            [cell.stateBtn setTitle:@"已报名" forState:UIControlStateNormal];
         }else if (_orderDetaileProModel.bill_statu ==2) {
 //            if ([_orderDetaileProModel.is_change_price intValue] == 1){
 //                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];

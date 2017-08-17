@@ -51,6 +51,22 @@ NSString  * const HttpMainEngDetail =@"tp.php/Home/Index/engDetail";
 /* 接单请求*/
 NSString  * const HttpMainTakeBill = @"tp.php/Home/Member/takeBill/";
 
+/* 报名请求*/
+NSString  * const HttpMainEnrollBill = @"tp.php/Home/Member/enrollBill/";
+
+/* 查看报名列表*/
+NSString  * const HttpMainEnrollEngineerList = @"tp.php/Home/Member/enrollList";
+
+/*我的接单-查看报名栏数据*/
+NSString  * const HttpMainEnrollBillList = @"tp.php/Home/Member/enrolltype";
+
+/* 我的发单-查看报名栏数据*/
+NSString  * const HttpMainMySendEnrollBillList = @"tp.php/Home/Member/enrollsendtype";
+
+/* 发单人选择指定接单人*/
+NSString  * const HttpMainMakeSureReceiver = @"tp.php/Home/Member/makeBill";
+
+
 /* 我要接单保存请求*/
 NSString  * const HttpMainTackDataSave = @"tp.php/Home/Member/tackDataSave/";
 

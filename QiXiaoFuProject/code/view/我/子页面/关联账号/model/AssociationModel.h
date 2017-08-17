@@ -31,7 +31,6 @@
 
 @property (nonatomic, copy) NSString *jibie;
 
-
 @end
 
 
@@ -56,6 +55,17 @@
 @property (nonatomic, copy) NSString *level3_id;
 
 
+
+@end
+
+//报名工程师
+@interface EnrollEnigeer : NSObject
+
+@property (nonatomic, copy) NSString *ot_user_name;
+
+@property (nonatomic, copy) NSString *ot_user_id;
+
+@property (nonatomic, copy) NSString *ot_user_avatar;
 
 @end
 

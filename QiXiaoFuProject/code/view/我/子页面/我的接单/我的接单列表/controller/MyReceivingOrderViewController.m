@@ -80,44 +80,65 @@
 
 - (void)myBillListDataPage:(NSInteger )page hud:(BOOL )hud{
     
-    NSMutableDictionary * params = [NSMutableDictionary new];
-    params[@"userid"] = kUserId;
-    params[@"curpage"] = @(page);
-    //params[@"pay_statu"] = _bill_statu;// 支付状态【0 待支付】【1 已支付】
-    params[@"bill_statu"] = @(self.receiveOrderStatus ? :ReceiveOrderStausReceived);//发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
-    
-    [MCNetTool postWithUrl:HttpMeMyOtList params:params success:^(NSDictionary *requestDic, NSString *msg) {
-        
-        _page = page;
-        _page ++;
-        NSArray * array = [MySendOrderModel mj_objectArrayWithKeyValuesArray:requestDic];
-        
-        page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
-        
-     
-        [_tableView reloadData];
-        
-        if (array.count < 10) {
-            [_tableView hidenFooter];
-        }
-        
-        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-        
-        
-    } fail:^(NSString *error) {
-        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
-
-        hud?[self dismissLoading]:@"";
-
-//        [self showErrorText:error];
-//        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-        
-        [YWNoNetworkView showNoNetworkInView:self.view reloadBlock:^{
-            [self myBillListDataPage:_page hud: _page > 1 ? NO :YES ];
+    if (self.receiveOrderStatus == ReceiveOrderStausEnroll){
+        NSMutableDictionary * params = [NSMutableDictionary new];
+        params[@"userid"] = kUserId;
+        [MCNetTool postWithUrl:HttpMainEnrollBillList params:params success:^(NSDictionary *requestDic, NSString *msg) {
+            NSArray * array = [MySendOrderModel mj_objectArrayWithKeyValuesArray:requestDic];
+            [_dataArray setArray:array];
+            [_tableView reloadData];
+                [_tableView hidenFooter];
+            [_tableView headerEndRefresh];
+            [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+        } fail:^(NSString *error) {
+            [_tableView headerEndRefresh];
+            hud?[self dismissLoading]:@"";
+            [YWNoNetworkView showNoNetworkInView:self.view reloadBlock:^{
+                [self myBillListDataPage:_page hud: _page > 1 ? NO :YES ];
+            }];
         }];
+    }else{
+        NSMutableDictionary * params = [NSMutableDictionary new];
+        params[@"userid"] = kUserId;
+        params[@"curpage"] = @(page);
+        //params[@"pay_statu"] = _bill_statu;// 支付状态【0 待支付】【1 已支付】
+        params[@"bill_statu"] = @(self.receiveOrderStatus ? :ReceiveOrderStausReceived);//发单状态【0 撤销】【1 待接单】【2 已接单】【3 已完成】【4 已过期 or 已失效】【5 已取消】【6 调价中】【7 补单】
         
-    }];
+        [MCNetTool postWithUrl:HttpMeMyOtList params:params success:^(NSDictionary *requestDic, NSString *msg) {
+            
+            _page = page;
+            _page ++;
+            NSArray * array = [MySendOrderModel mj_objectArrayWithKeyValuesArray:requestDic];
+            
+            page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
+            
+            
+            [_tableView reloadData];
+            
+            if (array.count < 10) {
+                [_tableView hidenFooter];
+            }
+            
+            page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+            [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+            
+            
+        } fail:^(NSString *error) {
+            page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+            
+            hud?[self dismissLoading]:@"";
+            
+            //        [self showErrorText:error];
+            //        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+            
+            [YWNoNetworkView showNoNetworkInView:self.view reloadBlock:^{
+                [self myBillListDataPage:_page hud: _page > 1 ? NO :YES ];
+            }];
+            
+        }];
+    }
+    
+    
     
 }
 

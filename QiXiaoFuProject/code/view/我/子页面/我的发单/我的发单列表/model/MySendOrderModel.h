@@ -64,6 +64,9 @@
 @property (nonatomic, copy) NSString *bill_belong;//1别人转给我的 2我转移给别人的
 @property (nonatomic, copy) NSString *is_user_eval;//工程师对客户评价 0代表未评，1代表已评
 
+//报名
+@property (nonatomic, copy) NSString *bill_enroll_statu;//报名状态：1报名中
+
 @end
 
 

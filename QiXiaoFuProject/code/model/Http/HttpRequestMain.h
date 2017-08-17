@@ -51,6 +51,21 @@ UIKIT_EXTERN NSString  * const HttpMainEngDetail;
 /* 接单请求*/
 UIKIT_EXTERN NSString  * const HttpMainTakeBill;
 
+/* 报名请求*/
+UIKIT_EXTERN NSString  * const HttpMainEnrollBill;
+
+/* 查看报名列表*/
+UIKIT_EXTERN NSString  * const HttpMainEnrollEngineerList;
+
+/*我的接单-查看报名栏数据*/
+UIKIT_EXTERN NSString  * const HttpMainEnrollBillList;
+
+/* 我的发单-查看报名栏数据*/
+UIKIT_EXTERN NSString  * const HttpMainMySendEnrollBillList;
+
+/* 发单人选择指定接单人*/
+UIKIT_EXTERN NSString  * const HttpMainMakeSureReceiver;
+
 /* 我要接单保存请求*/
 UIKIT_EXTERN NSString  * const HttpMainTackDataSave;
 

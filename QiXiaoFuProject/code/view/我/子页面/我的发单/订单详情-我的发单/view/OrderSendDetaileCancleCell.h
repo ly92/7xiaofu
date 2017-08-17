@@ -42,7 +42,7 @@
 @property(nonatomic, copy) void (^orderSendDetaileCancle_WeiWanCheng)();// 未完成
 @property(nonatomic, copy) void (^orderSendDetaileUsedGoods_Btn)();//
 
-
+@property(nonatomic, copy) void (^orderSendDetaileMakeSureReceiver)();//
 
 
 @end

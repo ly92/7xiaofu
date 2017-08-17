@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, SendOrderStatus)
     SendOrderStatusExpire               = 4,  //已过期 or 已失效
     SendOrderStatusCancel               = 5,  //已取消(显示)
     SendOrderStatusChangePrice          = 6,  //调价中(展示)
-    
+    SendOrderStatusEnroll               = 111  //报名中(展示)
     
 };
 @interface MySendOrderViewController : BaseViewController

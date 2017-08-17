@@ -128,7 +128,9 @@ static NSString * const kSeverPrice = @"服务价格";
 
 #pragma mark - 加载项目详情
 - (void)loadOrderDetaile{
-
+    
+    
+#warning TODO:添加已报名字段
 
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
@@ -177,6 +179,32 @@ static NSString * const kSeverPrice = @"服务价格";
 #pragma mark - 接单请求
 - (void)receivingOrderRequest{
 
+    //询问是否确定报名
+    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n确定报名\n" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+        
+        if(buttonIndex == 1){
+            NSMutableDictionary * params = [NSMutableDictionary new];
+            params[@"userid"] = kUserId;
+            params[@"bill_id"] = _p_id;
+            params[@"bill_user_id"] = _productDetaileModel.bill_user_id;
+            params[@"enroll_mobile"] = kPhone;
+            
+            [MCNetTool postWithUrl:HttpMainEnrollBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                [self showSuccessText:@"报名成功！"];
+                //刷新数据
+                [self loadOrderDetaile];
+            } fail:^(NSString *error) {
+                [self showErrorText:error];
+            }];
+        }
+    } otherButtonTitles:@"确定"];
+    [alert show];
+    
+    /*
+     *
+     *接单-暂时隐藏该功能
+     *
+     *
     //询问是否确定接单
     BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"\n确定接单\n" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
         
@@ -223,9 +251,8 @@ static NSString * const kSeverPrice = @"服务价格";
     } otherButtonTitles:@"确定"];
     [alert show];
     
-    
-    
-    
+    */
+
 
 }
 

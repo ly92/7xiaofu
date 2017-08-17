@@ -811,6 +811,9 @@
 		0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */; };
 		088BB21F1EEE7EA4003A1D80 /* TransferOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */; };
 		088BB2201EEE7EA4003A1D80 /* TransferOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */; };
+		089C24581F45429F00ECF8C7 /* EnrollEngineerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C24561F45429F00ECF8C7 /* EnrollEngineerListViewController.m */; };
+		089C245D1F45430700ECF8C7 /* EnrollEngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C245B1F45430700ECF8C7 /* EnrollEngineerCell.m */; };
+		089C245E1F45430700ECF8C7 /* EnrollEngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */; };
 		08A1D2F51F42CAC800EECF39 /* KnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
@@ -2357,6 +2360,11 @@
 		088BB21C1EEE7EA4003A1D80 /* TransferOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferOrderViewController.h; sourceTree = "<group>"; };
 		088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferOrderViewController.m; sourceTree = "<group>"; };
 		088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferOrderViewController.xib; sourceTree = "<group>"; };
+		089C24551F45429F00ECF8C7 /* EnrollEngineerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollEngineerListViewController.h; sourceTree = "<group>"; };
+		089C24561F45429F00ECF8C7 /* EnrollEngineerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollEngineerListViewController.m; sourceTree = "<group>"; };
+		089C245A1F45430700ECF8C7 /* EnrollEngineerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollEngineerCell.h; sourceTree = "<group>"; };
+		089C245B1F45430700ECF8C7 /* EnrollEngineerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollEngineerCell.m; sourceTree = "<group>"; };
+		089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollEngineerCell.xib; sourceTree = "<group>"; };
 		08A1D2F31F42CAC800EECF39 /* KnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeViewController.h; sourceTree = "<group>"; };
 		08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeViewController.m; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
@@ -3609,6 +3617,8 @@
 				04891A481DD5DF570099E24F /* MySendOrderDetaileViewController.h */,
 				04891A491DD5DF570099E24F /* MySendOrderDetaileViewController.m */,
 				04891A4A1DD5DF570099E24F /* MySendOrderDetaileViewController.xib */,
+				089C24551F45429F00ECF8C7 /* EnrollEngineerListViewController.h */,
+				089C24561F45429F00ECF8C7 /* EnrollEngineerListViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -3632,6 +3642,9 @@
 				04891A591DD5E3B00099E24F /* OrderDetaileKeHuContentCell.h */,
 				04891A5A1DD5E3B00099E24F /* OrderDetaileKeHuContentCell.m */,
 				04891A5B1DD5E3B00099E24F /* OrderDetaileKeHuContentCell.xib */,
+				089C245A1F45430700ECF8C7 /* EnrollEngineerCell.h */,
+				089C245B1F45430700ECF8C7 /* EnrollEngineerCell.m */,
+				089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -7955,6 +7968,7 @@
 				048FF1E91D75105800268A78 /* AdressListController.xib in Resources */,
 				04C45E031DFD2727001D9415 /* ShouyiJiluViewController.xib in Resources */,
 				04A258A21D9A1CA20064C0CB /* TagCell.xib in Resources */,
+				089C245E1F45430700ECF8C7 /* EnrollEngineerCell.xib in Resources */,
 				048FF0C81D70453600268A78 /* MeHeadReusableView.xib in Resources */,
 				048FF0AF1D702A8400268A78 /* MeViewController.xib in Resources */,
 				0416E9C21D9B5C7500D59A0A /* AlipaySDK.bundle in Resources */,
@@ -8615,6 +8629,7 @@
 				044602AE1D79641500CC787C /* MapPoiTableView.m in Sources */,
 				049267101D5EED8C0098A3A6 /* BaseNavigationController.m in Sources */,
 				04DAC5C01DB8BDC4002235A7 /* AddFriendViewController.m in Sources */,
+				089C24581F45429F00ECF8C7 /* EnrollEngineerListViewController.m in Sources */,
 				049266BC1D5EE3C90098A3A6 /* UIActionSheet+XY.m in Sources */,
 				04B36A9C1D6851F600D86C11 /* ACPwdInputView.m in Sources */,
 				04DAC7641DBA1B4C002235A7 /* WalletDetaileModel.m in Sources */,
@@ -8670,6 +8685,7 @@
 				04DAC5701DB8BC5B002235A7 /* EaseRefreshTableViewController.m in Sources */,
 				04E8BD4D1D588006003E4550 /* Utool.m in Sources */,
 				049EE4B11D8F99FA004F5AA8 /* MLSearchBar.m in Sources */,
+				089C245D1F45430700ECF8C7 /* EnrollEngineerCell.m in Sources */,
 				04BBB5FB1DAC82DC00C9B2D3 /* SYPhotoView.m in Sources */,
 				04DAC5A11DB8BD84002235A7 /* EMRobotChatTextBubbleView.m in Sources */,
 				04C45DFA1DFD22B3001D9415 /* MatchingEngineerMapView.m in Sources */,

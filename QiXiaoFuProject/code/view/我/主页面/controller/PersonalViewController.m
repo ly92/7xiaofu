@@ -233,19 +233,19 @@
             break;
         case 4:{
             //我的发单
-            SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"待接单",@"已接单",@"已完成",@"已取消",@"已失效"]  andClass:[MySendOrderViewController class]];
+            SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"报名中",@"已接单",@"已完成",@"已取消",@"已失效"]  andClass:[MySendOrderViewController class]];
             vc.navigationItem.title = @"我的发单";
             //设置数据的key
-            [vc setRequestDataKeyArr:@[@1,@2,@3,@5,@4]];
+            [vc setRequestDataKeyArr:@[@111,@2,@3,@5,@4]];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 5:{
             //我的接单
-            SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"已接单",@"已完成",@"已取消",@"调价中",@"补单"]  andClass:[MyReceivingOrderViewController class]];
+            SCNavTabBarController * vc = [[SCNavTabBarController alloc]initWithTitleArr:@[@"报名中",@"已接单",@"已完成",@"已取消",@"调价中",@"补单"]  andClass:[MyReceivingOrderViewController class]];
             vc.navigationItem.title = @"我的接单";
             //设置数据的key
-            [vc setRequestDataKeyArr:@[@2,@3,@5,@6,@7]];
+            [vc setRequestDataKeyArr:@[@111,@2,@3,@5,@6,@7]];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

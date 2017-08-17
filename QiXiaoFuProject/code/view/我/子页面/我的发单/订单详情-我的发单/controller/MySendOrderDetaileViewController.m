@@ -11,7 +11,6 @@
 #import "ProductDetaileHeaderCell.h"
 #import "ProductDetaileCell.h"
 #import "ProductDetail1TableViewCell.h"
-#import "ProductDetaileFooterView.h"
 #import "OrderDetailImageCell.h"
 #import "OrderSendDetaileCancleCell.h"
 
@@ -27,6 +26,8 @@
 #import "ChongSendOrderVC1.h"
 #import "CommentListViewController.h"
 #import "ChooseSNNumViewController.h"
+#import "EnrollEngineerListViewController.h"
+
 
 static NSString * const kSeverName = @"项目名称";
 static NSString * const kSeverLY = @"服务领域";
@@ -352,23 +353,25 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                     
                 }else{
                     
-                    [self showLoading];
-
-                    NSMutableDictionary * params = [NSMutableDictionary new];
-                    params[@"userid"] = kUserId;
-                    params[@"id"] = _pro_id;
-                    [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                        [self showSuccessText:msg];
+                    BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"取消订单将扣除服务费用的10%,\n你确定要取消订单吗?" cancelButtonTitle:@"放弃取消" clickButton:^(NSInteger buttonIndex) {
+                        if(buttonIndex == 1){
+                            [self showLoading];
+                            NSMutableDictionary * params = [NSMutableDictionary new];
+                            params[@"userid"] = kUserId;
+                            params[@"id"] = _pro_id;
+                            [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                                [self showSuccessText:msg];
+                                
+                                [self myBillDetailRequest];
+                                
+                            } fail:^(NSString *error) {
+                                [self showErrorText:error];
+                            }];
+                        }
                         
-                        [self myBillDetailRequest];
-                        
-                    } fail:^(NSString *error) {
-                        [self showErrorText:error];
-                    }];
-                    
-
+                    } otherButtonTitles:@"确定取消"];
+                    [alert show];
                 }                
-                
             };
             
             // 删除订单
@@ -594,6 +597,14 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
                 
                 
             };
+            
+            //指定接单人
+            cell.orderSendDetaileMakeSureReceiver = ^{
+                EnrollEngineerListViewController *vc = [[EnrollEngineerListViewController alloc] init];
+                vc.billId = _orderDetaileProModel.id;
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            
              return cell;
          }
         else if([title isEqualToString:kSeverKehuContent]){

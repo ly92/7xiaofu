@@ -137,7 +137,7 @@
         {
             _rightBtn.hidden = YES;
             _leftBtn.hidden = YES;
-            
+            [self topViewLabShowType:NO whihContent:@"  已报名  "];
             
             //  【1 待接单】   我的接单不会出现这种状态
             

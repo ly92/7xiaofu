@@ -128,51 +128,48 @@
                 break;
             case 1:
             {
-                //   【1 待接单】
-                _chatBtn.hidden = YES;
-                [self deleateChatlistWithUserPhone:nil];
-
-                if (mySendOrderModel.pay_statu == 0) {// 未支付
+                [self topViewLabShowType:NO whihContent:@"报名中"];
+//                if ([mySendOrderModel.bill_enroll_statu intValue] != 1){
+                    //   【1 待接单】
+                    _chatBtn.hidden = YES;
+                    [self deleateChatlistWithUserPhone:nil];
                     
-                    [self topViewLabShowType:YES whihContent:@"待支付"];
-                    _leftBtn.hidden = NO;
-                    _rightBtn.hidden = NO;
-
-                    [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                    [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
-                        if (_mySendOrderCellWithBtnState_cancle) {
-                            _mySendOrderCellWithBtnState_cancle(mySendOrderModel);
-                        }
-                    }];
-                    
-                    [_rightBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                    if (mySendOrderModel.pay_statu == 0) {// 未支付
                         
-                        if (_mySendOrderCellWithBtnState_GoPay) {
-                            _mySendOrderCellWithBtnState_GoPay(mySendOrderModel);
-                        }
-                    }];
-                                   
-                }else{
-                    
-                // 已支付
-                    
-                    [self topViewLabShowType:NO whihContent:@"待接单"];
-                    
-                    //  取消订单
-                    
-                    _leftBtn.hidden = YES;
-                    _rightBtn.hidden = NO;
-                    [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-                    
-                    [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                        [self topViewLabShowType:YES whihContent:@"待支付"];
+                        _leftBtn.hidden = NO;
+                        _rightBtn.hidden = NO;
+                        [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+                        [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                            if (_mySendOrderCellWithBtnState_cancle) {
+                                _mySendOrderCellWithBtnState_cancle(mySendOrderModel);
+                            }
+                        }];
+                        [_rightBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
+                        [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                            if (_mySendOrderCellWithBtnState_GoPay) {
+                                _mySendOrderCellWithBtnState_GoPay(mySendOrderModel);
+                            }
+                        }];
+                    }else{
+                        // 已支付
+//                        [self topViewLabShowType:NO whihContent:@"待接单"];
                         
-                        if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
-                            _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
-                        }
-                    }];
-                    
-                }
+                        //  取消订单
+                        
+                        _leftBtn.hidden = YES;
+                        _rightBtn.hidden = NO;
+                        [_rightBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+                        
+                        [_rightBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                            
+                            if (_mySendOrderCellWithBtnState_QuXiaoDingDan) {
+                                _mySendOrderCellWithBtnState_QuXiaoDingDan(mySendOrderModel);
+                            }
+                        }];
+                    }
+//                }
+                
                 /*
                 //调价状态
                 if([mySendOrderModel.is_change_price intValue] == 1){

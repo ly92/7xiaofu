@@ -86,7 +86,8 @@
             break;
         case 1:
         {
-            
+            _leftBtn.hidden = YES;
+            _cancleBtn.hidden = YES;
             //  【1 待接单】   我的接单不会出现这种状态
             
         }

@@ -18,8 +18,8 @@ typedef NS_ENUM(NSInteger, ReceiveOrderStaus)
     ReceiveOrderStatusExpire              = 4,  //已过期 or 已失效
     ReceiveOrderStausCancel               = 5,  //已取消(展示)
     ReceiveOrderStausChangePrice          = 6,  //调价中(展示)
-    ReceiveOrderStausReplenishment        = 7   //补单
-    
+    ReceiveOrderStausReplenishment        = 7,   //补单
+    ReceiveOrderStausEnroll               = 111,   //报名中
     
 };
 @interface MyReceivingOrderViewController : BaseViewController
