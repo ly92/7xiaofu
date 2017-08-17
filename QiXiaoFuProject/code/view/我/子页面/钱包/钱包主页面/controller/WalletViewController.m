@@ -84,12 +84,13 @@
     [MCNetTool postWithUrl:HttpMeShowBalance params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         // 钱包
-        if (requestDic.allKeys.count > 0){
+        if ([requestDic.allKeys containsObject:@"available_predeposit"] && [requestDic.allKeys containsObject:@"zuidiedu"]){
             _available_predeposit = [requestDic objectForKey:@"available_predeposit"];
             _zuidiedu =[requestDic objectForKey:@"zuidiedu"];
             
         }else{
             _available_predeposit = @"0";
+            _zuidiedu = @"0";
         }
         _walletHeaderView.moneyLab.text =[NSString stringWithFormat:@"¥%@",_available_predeposit];
         
