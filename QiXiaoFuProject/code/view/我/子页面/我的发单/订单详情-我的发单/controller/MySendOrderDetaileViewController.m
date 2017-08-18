@@ -207,7 +207,7 @@ static NSString * const kSeverKehuContent = @"客户调价内容";
             if(_orderDetaileProModel.pay_statu == 0){
                 [cell.stateBtn setTitle:@"待支付" forState:UIControlStateNormal];
             }else{
-                [cell.stateBtn setTitle:@"待接单" forState:UIControlStateNormal];
+                [cell.stateBtn setTitle:@"报名中" forState:UIControlStateNormal];
             }
 //            if ([_orderDetaileProModel.is_change_price intValue] == 1){
 //                [cell.stateBtn setTitle:@"调价中" forState:UIControlStateNormal];

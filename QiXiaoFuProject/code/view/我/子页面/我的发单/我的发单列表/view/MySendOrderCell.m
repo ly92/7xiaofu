@@ -128,7 +128,7 @@
                 break;
             case 1:
             {
-                [self topViewLabShowType:NO whihContent:@"报名中"];
+                [self topViewLabShowType:NO whihContent:[NSString stringWithFormat:@"报名中/%@人",mySendOrderModel.num]];
 //                if ([mySendOrderModel.bill_enroll_statu intValue] != 1){
                     //   【1 待接单】
                     _chatBtn.hidden = YES;

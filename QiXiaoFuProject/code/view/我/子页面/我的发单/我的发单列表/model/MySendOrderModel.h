@@ -66,6 +66,8 @@
 
 //报名
 @property (nonatomic, copy) NSString *bill_enroll_statu;//报名状态：1报名中
+//报名人数
+@property (nonatomic, copy) NSString *num;
 
 @end
 
