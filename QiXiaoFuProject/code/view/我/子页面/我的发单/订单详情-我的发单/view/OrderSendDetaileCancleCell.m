@@ -51,15 +51,15 @@
             _cancleBtn.hidden = NO;
             _leftLeftBtn.hidden = NO;
             
-            [_leftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
-            [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            [_leftLeftBtn setTitle:@"  取消订单  " forState:UIControlStateNormal];
+            [_leftLeftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                 if (_orderSendDetaileCancle_cancle) {
                     _orderSendDetaileCancle_cancle();
                 }
             }];
             
-            [_leftLeftBtn setTitle:@"  指定接单人  " forState:UIControlStateNormal];
-            [_leftLeftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+            [_cancleBtn setTitle:@"  指定接单人  " forState:UIControlStateNormal];
+            [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                 if (_orderSendDetaileMakeSureReceiver) {
                     _orderSendDetaileMakeSureReceiver();
                 }
@@ -68,16 +68,16 @@
             
             if (orderDetaileProModel.pay_statu == 0) {
                 // 未支付
-                [_cancleBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
-                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                [_leftBtn setTitle:@"  去支付  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     if (_orderSendDetaileCancle_GoPay) {
                         _orderSendDetaileCancle_GoPay();
                     }
                 }];
             }else{
                 // 已支付
-                [_cancleBtn setTitle:@"  调价  " forState:UIControlStateNormal];
-                [_cancleBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
+                [_leftBtn setTitle:@"  调价  " forState:UIControlStateNormal];
+                [_leftBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
                     if (_orderSendDetaileCancle_Tiaojia) {
                         _orderSendDetaileCancle_Tiaojia(btn);
                     }

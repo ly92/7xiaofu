@@ -76,7 +76,7 @@
         cell.nameLbl.text = model.ot_user_name;
         
         cell.selectedEngineerBlock = ^{
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:@"确定将指定此工程师接单" cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"指定工程师:%@ 接单？",model.ot_user_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
                 if(buttonIndex == 1){
                     [self showLoading];
                     NSMutableDictionary * params = [NSMutableDictionary new];

@@ -54,6 +54,15 @@
 }
 
 
+/*
+ *  时间戳
+ */
++(NSString *)timestamp{
+    NSTimeInterval timeInterval = [[NSDate new] timeIntervalSince1970];
+    NSString *timeString = [NSString stringWithFormat:@"%.0f",timeInterval];
+    return [timeString copy];
+}
+
 
 
 + (NSDate *)dateWithYear:(NSInteger)year

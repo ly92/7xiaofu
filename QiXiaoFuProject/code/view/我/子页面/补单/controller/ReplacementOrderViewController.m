@@ -212,6 +212,10 @@
         [self showErrorText:@"服务结束时间不能早于服务开始时间"];
         return;
     }
+    if ([service_etime integerValue] > [[NSDate timestamp]integerValue]){
+        [self showErrorText:@"服务结束时间不能早于当前时间"];
+        return;
+    }
     
     
     if ([_requestParams[@"service_sector"] length] == 0) {
@@ -316,8 +320,13 @@
             }
             if (indexPath.row ==5) {// 预约结束时间
                 if ([localDict.allKeys containsObject:@"service_etime"]){
-                    cell.descLab.text = [Utool timeStamp3TimeFormatter:[localDict objectForKey:@"service_etime"]];
+                    if ([[localDict objectForKey:@"service_etime"] doubleValue] <= [[NSDate timestamp] doubleValue]){
+                        cell.descLab.text = @"";
+                    }else{
+                        cell.descLab.text = [Utool timeStamp3TimeFormatter:[localDict objectForKey:@"service_etime"]];
+                    }
                 }
+                
             }
             
             return cell;
@@ -470,8 +479,15 @@
             
             STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:4];
             pickerDate.pickerDate5Block = ^(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSInteger minute,NSString * time){
-                cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld时",year,month,day,hour];
-                _requestParams[@"service_etime"] = [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];//服务预约结束时间【时间戳】
+                
+                NSString *timestamp = [Utool timestampForDateFromString:time withFormat:@"yyyy.MM.dd HH:mm"];//服务预约结束时间【时间戳】
+                if ([timestamp doubleValue] <= [[NSDate timestamp] doubleValue]){
+                    [self showErrorText:@"结束时间不得早于当前时间"];
+                }else{
+                    cell.descLab.text =[NSString stringWithFormat:@"%ld年%ld月%ld日 %ld时",year,month,day,hour];
+                    _requestParams[@"service_etime"] = timestamp;
+                }
+
             };
             [pickerDate show];
             

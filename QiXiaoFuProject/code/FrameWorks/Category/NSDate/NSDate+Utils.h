@@ -27,6 +27,10 @@
  */
 -(NSString *)timestamp;
 
+/*
+ *  时间戳
+ */
++(NSString *)timestamp;
 
 + (NSDate *)dateWithYear:(NSInteger)year
                    month:(NSInteger)month
