@@ -13,11 +13,8 @@
 
 @interface WalletViewController (){
 
-
     NSString * _available_predeposit;// 钱包余额
     
-    NSString * _zuidiedu;  // 资金沉淀金额
-
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) WalletHeaderView *walletHeaderView;
@@ -84,13 +81,11 @@
     [MCNetTool postWithUrl:HttpMeShowBalance params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         // 钱包
-        if ([requestDic.allKeys containsObject:@"available_predeposit"] && [requestDic.allKeys containsObject:@"zuidiedu"]){
+        if ([requestDic.allKeys containsObject:@"available_predeposit"]){
             _available_predeposit = [requestDic objectForKey:@"available_predeposit"];
-            _zuidiedu =[requestDic objectForKey:@"zuidiedu"];
             
         }else{
             _available_predeposit = @"0";
-            _zuidiedu = @"0";
         }
         _walletHeaderView.moneyLab.text =[NSString stringWithFormat:@"¥%@",_available_predeposit];
         

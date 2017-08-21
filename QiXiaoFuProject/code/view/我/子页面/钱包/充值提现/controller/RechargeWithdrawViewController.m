@@ -72,7 +72,7 @@
     [_tabelVeiw registerNib:[UINib nibWithNibName:@"RechargeWithdrawCell" bundle:nil] forCellReuseIdentifier:@"RechargeWithdrawCell"];
     [_tabelVeiw registerNib:[UINib nibWithNibName:@"PayTypeCell" bundle:nil] forCellReuseIdentifier:@"PayTypeCell"];
 
-    sectionTitle= _vcType==1?@"选择充值金额":@"选择提现金额";
+    sectionTitle= _vcType==1?@"选择充值方式":@"选择提现方式";
     
     
     
@@ -344,7 +344,7 @@
     if (section == 0 && _vcType==2) {
         UILabel * titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
         titleLab.font = [UIFont systemFontOfSize:13];
-        titleLab.text = [NSString stringWithFormat:@"   可提现金额: ¥%@",_available_predeposit];
+        titleLab.text = [NSString stringWithFormat:@"   可提现金额: ¥%@",_keTixianMoney];
         titleLab.textColor = [UIColor darkGrayColor];
         return titleLab;
     }
@@ -379,7 +379,8 @@
         _payPassState = [requestDic[@"statu"] integerValue];
         _zuidiedu = requestDic[@"zuidiedu"];
         
-        _keTixianMoney = [NSString stringWithFormat:@"%@",@([_available_predeposit floatValue] - [_zuidiedu floatValue])];
+//        _keTixianMoney = [NSString stringWithFormat:@"%@",@([_available_predeposit floatValue] - [_zuidiedu floatValue])];
+        _keTixianMoney = requestDic[@"cash_available"];
         
         _tixianPlas = [_keTixianMoney floatValue]< 0?@"您的提现金额不足":_keTixianMoney;
 
