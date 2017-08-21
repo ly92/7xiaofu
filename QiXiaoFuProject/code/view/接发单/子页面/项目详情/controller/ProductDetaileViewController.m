@@ -96,9 +96,8 @@ static NSString * const kSeverPrice = @"服务价格";
     }];
     
     _tableView.tableFooterView = footView;
-    
-    
-    [self loadOrderDetaile];
+    //检查是否已报名
+    [self checkEnroll];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -108,7 +107,6 @@ static NSString * const kSeverPrice = @"服务价格";
 
     [super viewWillAppear:animated];
     
-
     if (_p_id.length == 0) {
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -126,12 +124,28 @@ static NSString * const kSeverPrice = @"服务价格";
 }
 
 
+//查看是否已报名
+- (void)checkEnroll{
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"bill_id"] = _p_id;
+    
+    [MCNetTool postWithCacheUrl:@"tp.php/Home/Member/isenroll" params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        if ([requestDic[@"state"] integerValue] == 1) {
+            _footerView.hidden = YES;
+        }else{
+            _footerView.hidden = NO;
+        }
+        
+        [self loadOrderDetaile];
+    } fail:^(NSString *error) {
+    }];
+
+}
+
 #pragma mark - 加载项目详情
 - (void)loadOrderDetaile{
     
-    
-#warning TODO:添加已报名字段
-
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"id"] = _p_id;
@@ -154,13 +168,13 @@ static NSString * const kSeverPrice = @"服务价格";
         }];
         
         
-        if (_productDetaileModel.button_type == 0) {
-//            _footerView.recevingOrderBtn.enabled = NO;
-            _footerView.hidden = YES;
-        }else{
-//            _footerView.recevingOrderBtn.enabled = YES;
-            _footerView.hidden = NO;
-        }
+//        if (_productDetaileModel.button_type == 0) {
+////            _footerView.recevingOrderBtn.enabled = NO;
+//            _footerView.hidden = YES;
+//        }else{
+////            _footerView.recevingOrderBtn.enabled = YES;
+//            _footerView.hidden = NO;
+//        }
         
         [self dismissLoading];
         [_tableView reloadData];
@@ -192,7 +206,8 @@ static NSString * const kSeverPrice = @"服务价格";
             [MCNetTool postWithUrl:HttpMainEnrollBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
                 [self showSuccessText:@"报名成功！"];
                 //刷新数据
-                [self loadOrderDetaile];
+                //检查是否已报名
+                [self checkEnroll];
             } fail:^(NSString *error) {
                 [self showErrorText:error];
             }];
@@ -350,7 +365,11 @@ static NSString * const kSeverPrice = @"服务价格";
         if (_productDetaileModel.bill_statu ==0) {
             [cell.stateBtn setTitle:@"撤销" forState:UIControlStateNormal];
         }else if (_productDetaileModel.bill_statu ==1) {
-            [cell.stateBtn setTitle:@"待接单" forState:UIControlStateNormal];
+            if (_footerView.hidden){
+                [cell.stateBtn setTitle:@"已报名" forState:UIControlStateNormal];
+            }else{
+                [cell.stateBtn setTitle:@"报名中" forState:UIControlStateNormal];
+            }
         }else if (_productDetaileModel.bill_statu ==2) {
             [cell.stateBtn setTitle:@"已接单" forState:UIControlStateNormal];
         }else if (_productDetaileModel.bill_statu ==3) {
