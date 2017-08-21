@@ -83,9 +83,9 @@
                     params[@"userid"] = kUserId;
                     params[@"bill_id"] = self.billId;
                     params[@"ot_user_id"] = model.ot_user_id;
-                    [MCNetTool postWithUrl:HttpMeOffBill params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                        [self showSuccessText:msg];
-                        [self loaddata];
+                    [MCNetTool postWithUrl:@"tp.php/Home/Member/makeBill?" params:params success:^(NSDictionary *requestDic, NSString *msg) {
+                        [self showSuccessText:@"操作成功！"];
+                        [self.navigationController popViewControllerAnimated:YES];
                     } fail:^(NSString *error) {
                         [self showErrorText:error];
                     }];
