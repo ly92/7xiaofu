@@ -24,7 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.iconImgV.layer.cornerRadius = 20;
+    [self setUpUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,18 +46,17 @@
 
 }
 
-- (void)setDict:(NSDictionary *)dict{
-    _dict = dict;
+- (void)setUpUI{
     
-    [self.iconImgV setImageWithUrl:[dict objectForKey:@"user_avatar"] placeholder:kDefaultImage_header];
-    self.nameLbl.text = [dict objectForKey:@"nik_name"];
-    self.titleLbl.text = [dict objectForKey:@"post_title"];
-    NSString *content = [dict objectForKey:@"post_content"];
+    [self.iconImgV setImageWithUrl:[self.dict objectForKey:@"user_avatar"] placeholder:kDefaultImage_header];
+    self.nameLbl.text = [self.dict objectForKey:@"nik_name"];
+    self.titleLbl.text = [self.dict objectForKey:@"post_title"];
+    NSString *content = [self.dict objectForKey:@"post_content"];
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:14.0] maxSize:CGSizeMake(kScreenWidth-16, MAXFLOAT)];
     self.contentLbl.text = content;
     
-    self.scrollContentVH.constant = size.height + 160;
-    NSDate *time = [NSDate dateFromString:[dict objectForKey:@"input_time"]];
+    self.scrollContentVH.constant = size.height + 180;
+    NSDate *time = [NSDate dateFromString:[self.dict objectForKey:@"input_time"]];
     if ([time isToday]){
         if ([time hoursBeforeDate:[NSDate date]] > 0){
             self.timeLbl.text = [NSString stringWithFormat:@"%ld小时前",(long)[time hoursBeforeDate:[NSDate date]]];
@@ -66,9 +66,9 @@
             self.timeLbl.text = @"刚刚";
         }
     }else if ([time isYesterday]){
-        self.timeLbl.text =  [NSString stringWithFormat:@"昨天 %@",[Utool messageIndex_timeStamp2TimeFormatter:[dict objectForKey:@"input_time"]]];
+        self.timeLbl.text =  [NSString stringWithFormat:@"昨天 %@",[Utool messageIndex_timeStamp2TimeFormatter:[self.dict objectForKey:@"input_time"]]];
     }else{
-        self.timeLbl.text = [Utool timeStampPointTimeFormatter:[dict objectForKey:@"input_time"]];
+        self.timeLbl.text = [Utool timeStampPointTimeFormatter:[self.dict objectForKey:@"input_time"]];
     }
 
 }
