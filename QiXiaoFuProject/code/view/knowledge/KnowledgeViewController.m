@@ -290,7 +290,7 @@
         if (self.dataArray.count > indexPath.row){
             NSDictionary *dict = self.dataArray[indexPath.row];
             KnowledgeDetailViewController *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"KnowledgeDetailViewController"];
-            VC.dict = dict;
+            VC.postId = [dict objectForKey:@"post_id"];
             [self.navigationController pushViewController:VC animated:true];
         }
     }

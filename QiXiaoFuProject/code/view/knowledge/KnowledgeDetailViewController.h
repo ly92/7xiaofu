@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface KnowledgeDetailViewController : BaseViewController
-@property (nonatomic, strong) NSDictionary *dict;
+@property (nonatomic, copy) NSString *postId;
 @end
