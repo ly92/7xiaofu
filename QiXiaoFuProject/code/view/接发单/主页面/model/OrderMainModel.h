@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Bill_List,Class_List12,Member_list;
+@class Bill_List,Class_List12,Class_List22,Member_list;
 @interface OrderMainModel : NSObject
 
 @property (nonatomic, strong) NSArray<Bill_List *> *bill_list;
@@ -32,7 +32,7 @@
 
 @end
 
-@interface Class_List12 : NSObject
+@interface Class_List22 : NSObject
 
 @property (nonatomic, copy) NSString *gc_id;
 
@@ -41,6 +41,20 @@
 @property (nonatomic, copy) NSString *gc_image;
 
 @end
+
+@interface Class_List12 : NSObject
+
+@property (nonatomic, copy) NSString *gc_id;
+
+@property (nonatomic, copy) NSString *gc_name;
+
+@property (nonatomic, copy) NSString *gc_image;
+
+@property (nonatomic, strong) NSArray<Class_List22 *> *list;
+
+@end
+
+
 
 @interface Member_list : NSObject
 

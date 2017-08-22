@@ -62,10 +62,11 @@
     
     WEAKSELF
     // 工程师
-    _engineerCollectionView.didselectItemsEngineerCollectionViewBlock = ^(NSString * title,NSString * gc_id){
+    _engineerCollectionView.didselectItemsEngineerCollectionViewBlock = ^(NSString * title,NSString * gc_id,NSArray *sortArray){
         ProductListViewController * vc= [[ProductListViewController alloc]initWithNibName:@"ProductListViewController" bundle:nil];
         vc.navigationItem.title = title;
         vc.gc_id = gc_id;
+        vc.sortArray = sortArray;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     };
     _engineerCollectionView.didselectItemsEngineerCollectionViewHeader_t_id_Block = ^(NSString * t_id){

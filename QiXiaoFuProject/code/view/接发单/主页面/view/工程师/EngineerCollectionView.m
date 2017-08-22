@@ -156,7 +156,7 @@ static NSString *identifier = @"EngineerCell";
     Class_List12 * class_List12 = _dataArray[indexPath.row];
 
     if (_didselectItemsEngineerCollectionViewBlock) {
-        _didselectItemsEngineerCollectionViewBlock(class_List12.gc_name,class_List12.gc_id);
+        _didselectItemsEngineerCollectionViewBlock(class_List12.gc_name,class_List12.gc_id,class_List12.list);
     }
 }
 

@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSArray *imageArray;
 @property (nonatomic, strong) OrderMainModel *orderMainModel;
 
-@property(nonatomic,copy)void (^didselectItemsEngineerCollectionViewBlock)(NSString * title,NSString * gc_id);
+@property(nonatomic,copy)void (^didselectItemsEngineerCollectionViewBlock)(NSString * title,NSString * gc_id,NSArray *sortArray);
 
 @property(nonatomic,copy)void (^didselectItemsEngineerCollectionViewHeader_t_id_Block)(NSString * t_id);
 

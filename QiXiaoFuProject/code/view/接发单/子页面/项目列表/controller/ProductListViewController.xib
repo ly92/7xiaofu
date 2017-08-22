@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductListViewController">
             <connections>
+                <outlet property="sortTableH" destination="mqO-te-YyD" id="0lM-E2-mb0"/>
+                <outlet property="sortTableView" destination="2tp-EX-Wke" id="vSc-2g-yHt"/>
+                <outlet property="sortView" destination="YF0-EO-fZR" id="I2p-q3-B49"/>
                 <outlet property="tableView" destination="XGF-Bi-1eX" id="G31-N3-nhg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,15 +31,71 @@
                         <outlet property="delegate" destination="-1" id="bUe-77-iSY"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-EO-fZR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czK-81-kuv">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <connections>
+                                <action selector="hideSortView" destination="-1" eventType="touchUpInside" id="R5d-Jc-GWJ"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPp-Ca-45Z">
+                            <rect key="frame" x="247" y="0.0" width="120" height="200"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Classification_background" translatesAutoresizingMaskIntoConstraints="NO" id="lhV-o6-fyg">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                </imageView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tp-EX-Wke">
+                                    <rect key="frame" x="0.0" y="10" width="120" height="190"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="gci-ys-Ehc"/>
+                                        <outlet property="delegate" destination="-1" id="3U7-Ch-dJ1"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="lhV-o6-fyg" firstAttribute="leading" secondItem="ZPp-Ca-45Z" secondAttribute="leading" id="06D-ZS-Fhm"/>
+                                <constraint firstItem="lhV-o6-fyg" firstAttribute="top" secondItem="ZPp-Ca-45Z" secondAttribute="top" id="6OL-78-I3O"/>
+                                <constraint firstAttribute="width" constant="120" id="7jc-o4-fKC"/>
+                                <constraint firstAttribute="bottom" secondItem="lhV-o6-fyg" secondAttribute="bottom" id="Ffm-BE-EQK"/>
+                                <constraint firstAttribute="trailing" secondItem="2tp-EX-Wke" secondAttribute="trailing" id="Ysr-4d-ADC"/>
+                                <constraint firstAttribute="trailing" secondItem="lhV-o6-fyg" secondAttribute="trailing" id="aWb-Wt-Y6a"/>
+                                <constraint firstItem="2tp-EX-Wke" firstAttribute="leading" secondItem="ZPp-Ca-45Z" secondAttribute="leading" id="hP5-TJ-Yr8"/>
+                                <constraint firstAttribute="height" constant="200" id="mqO-te-YyD"/>
+                                <constraint firstItem="2tp-EX-Wke" firstAttribute="top" secondItem="ZPp-Ca-45Z" secondAttribute="top" constant="10" id="pRl-aJ-Rkp"/>
+                                <constraint firstAttribute="bottom" secondItem="2tp-EX-Wke" secondAttribute="bottom" id="qaK-hU-F67"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="czK-81-kuv" firstAttribute="leading" secondItem="YF0-EO-fZR" secondAttribute="leading" id="7nJ-Ov-AjJ"/>
+                        <constraint firstItem="czK-81-kuv" firstAttribute="top" secondItem="YF0-EO-fZR" secondAttribute="top" id="GRH-ck-Bfm"/>
+                        <constraint firstItem="ZPp-Ca-45Z" firstAttribute="top" secondItem="YF0-EO-fZR" secondAttribute="top" id="Lgy-4E-voF"/>
+                        <constraint firstAttribute="bottom" secondItem="czK-81-kuv" secondAttribute="bottom" id="LpV-og-SHR"/>
+                        <constraint firstAttribute="trailing" secondItem="czK-81-kuv" secondAttribute="trailing" id="REj-Lt-7V4"/>
+                        <constraint firstAttribute="trailing" secondItem="ZPp-Ca-45Z" secondAttribute="trailing" constant="8" id="s7m-7T-2du"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XGF-Bi-1eX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1ci-N9-Wxl"/>
+                <constraint firstItem="YF0-EO-fZR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7i7-3t-W4M"/>
+                <constraint firstAttribute="bottom" secondItem="YF0-EO-fZR" secondAttribute="bottom" id="8yK-PK-IwR"/>
                 <constraint firstAttribute="bottom" secondItem="XGF-Bi-1eX" secondAttribute="bottom" id="BD6-q8-0be"/>
+                <constraint firstAttribute="trailing" secondItem="YF0-EO-fZR" secondAttribute="trailing" id="CDG-Lj-zbx"/>
                 <constraint firstAttribute="trailing" secondItem="XGF-Bi-1eX" secondAttribute="trailing" id="RS2-av-7e1"/>
                 <constraint firstItem="XGF-Bi-1eX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sA9-bL-e0t"/>
+                <constraint firstItem="YF0-EO-fZR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcj-fZ-C2y"/>
             </constraints>
-            <point key="canvasLocation" x="446" y="348"/>
+            <point key="canvasLocation" x="466" y="348"/>
         </view>
     </objects>
+    <resources>
+        <image name="Classification_background" width="86" height="157"/>
+    </resources>
 </document>

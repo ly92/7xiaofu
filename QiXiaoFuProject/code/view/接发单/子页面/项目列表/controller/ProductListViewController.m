@@ -16,9 +16,15 @@
 #import "SearchViewControler.h"
 #import "BaseNavigationController.h"
 #import "NSDate+Utils.h"
+#import "KnowledgeChooseCell.h"
+#import "OrderMainModel.h"
+
 
 @interface ProductListViewController ()<FilterViewDelegate,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *sortView;
+@property (weak, nonatomic) IBOutlet UITableView *sortTableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sortTableH;
 
 @property (strong, nonatomic) FilterView * filterView;
 
@@ -53,7 +59,7 @@
     _dataArray = [NSMutableArray new];
     _page = 1;
     
-    UIBarButtonItem * secrchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search" target:self action:@selector(secrchItemAction:)];
+//    UIBarButtonItem * secrchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search" target:self action:@selector(secrchItemAction:)];
     
     UIButton *filtButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [filtButton setBackgroundImage:[UIImage imageNamed:@"icon_select_n"] forState:UIControlStateNormal];
@@ -64,10 +70,11 @@
     
     _filtButton = filtButton;
     
-    UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
-    UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
+//    UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
+//    UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
 //    self.navigationItem.rightBarButtonItems= @[filtItem,item,secrchItem];
     
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
     
     _classifys = @[@"服务时间",@"服务金额"];
     _serviceTime = @[@"服务时间",@"默认",@"由远到近",@"由近到远"];
@@ -81,6 +88,7 @@
     
     [_tableView registerNib:[UINib nibWithNibName:@"ProductCell" bundle:nil] forCellReuseIdentifier:@"ProductCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"ProductCell2" bundle:nil] forCellReuseIdentifier:@"ProductCell2"];
+    [self.sortTableView registerNib:[UINib nibWithNibName:@"KnowledgeChooseCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeChooseCell"];
 
     _tableView.tableFooterView = [UIView new];
     
@@ -90,8 +98,43 @@
     
     [self addRefreshView];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    
+    self.sortTableH.constant = self.sortArray.count > 5?200:self.sortArray.count * 44 + 10;
+    if (self.sortTableH.constant < 100){
+        self.sortTableH.constant = 100;
+    }
 }
 
+
+//
+- (void)loadSortData{
+//    NSMutableDictionary * params = [NSMutableDictionary new];
+//    params[@"userid"] = kUserId;
+//    
+//    [MCNetTool postWithUrl:@"tp.php/Home/Index/index" params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//        NSLog(@"%@",requestDic);
+//    } fail:^(NSString *error) {
+//        [self showErrorText:error];
+//    }];
+}
+
+//
+- (void)rightItemAction{
+    
+    self.sortView.hidden = !self.sortView.hidden;
+    
+    if (!self.sortTableView.hidden){
+        [self.sortTableView reloadData];
+    }
+}
+- (IBAction)hideSortView {
+    self.sortView.hidden = !self.sortView.hidden;
+    if (!self.sortTableView.hidden){
+        [self.sortTableView reloadData];
+    }
+}
 
 - (void)loadProductModelDataWithPage:(NSInteger)page hud:(BOOL)hud{
     
@@ -99,23 +142,24 @@
     hud?[self showLoading]:nil;
     
     NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);//页数
     params[@"gc_id"] = _gc_id;//	分类ID
-    if (_keywords) {
-        params[@"keywords"] = _keywords;//发单名称 【模糊搜索】
-    }
-    if (_service_sprice) {
-        params[@"service_sprice"] = _service_sprice;//起始价格
-    }
-    if (_service_eprice) {
-        params[@"service_eprice"] = _service_eprice;//结束价格
-    }
-    if (_service_stime) {
-        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
-    }
-    if (_service_etime) {
-        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
-    }
+//    if (_keywords) {
+//        params[@"keywords"] = _keywords;//发单名称 【模糊搜索】
+//    }
+//    if (_service_sprice) {
+//        params[@"service_sprice"] = _service_sprice;//起始价格
+//    }
+//    if (_service_eprice) {
+//        params[@"service_eprice"] = _service_eprice;//结束价格
+//    }
+//    if (_service_stime) {
+//        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
+//    }
+//    if (_service_etime) {
+//        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
+//    }
     
     
     [MCNetTool postWithCacheUrl:HttpMainProductList params:params success:^(NSDictionary *requestDic, NSString *msg) {
@@ -292,10 +336,6 @@
 }
 
 - (void)contactsPickerViewControllerdismis:(FilterView *)controller{
-    
-    
-    
-    
     [self dismisFilterView];
 }
 - (void)dismisFilterView{
@@ -313,48 +353,83 @@
 
 #pragma mark - UITableViewDelegate UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _dataArray.count;
+    if (tableView == self.tableView){
+        return _dataArray.count;
+    }else{
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (tableView == self.tableView){
+        return 1;
+    }else{
+        return self.sortArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ProductModel * productModel = _dataArray[indexPath.section];
-    
-    if ([productModel.bill_statu intValue] == 1) {
-        ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
-        cell.productModel = productModel;
-        return cell;
+    if (tableView == self.tableView){
+        ProductModel * productModel = _dataArray[indexPath.section];
+        if ([productModel.bill_statu intValue] == 1) {
+            ProductCell *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
+            cell.productModel = productModel;
+            return cell;
+        }else{
+            ProductCell2 *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell2"];
+            cell.productModel = productModel;
+            return cell;
+        }
     }else{
-        ProductCell2 *cell =[tableView dequeueReusableCellWithIdentifier:@"ProductCell2"];
-        cell.productModel = productModel;
+        KnowledgeChooseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KnowledgeChooseCell" forIndexPath:indexPath];
+        cell.titleLbl.textColor = [UIColor whiteColor];
+        
+        if (self.sortArray.count > indexPath.row){
+            Class_List22 *model = self.sortArray[indexPath.row];
+            cell.titleLbl.text = model.gc_name;
+        }
         return cell;
     }
-    
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return  180;
     
-    //    return UITableViewAutomaticDimension;
-    
+    if (tableView == self.tableView){
+        return  180;
+    }else{
+        return 44;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ProductDetaileViewController * vc  = [[ProductDetaileViewController alloc]initWithNibName:@"ProductDetaileViewController" bundle:nil];
-    ProductModel * productModel = _dataArray[indexPath.section];
-    vc.p_id =productModel.id;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (tableView == self.tableView){
+        ProductDetaileViewController * vc  = [[ProductDetaileViewController alloc]initWithNibName:@"ProductDetaileViewController" bundle:nil];
+        ProductModel * productModel = _dataArray[indexPath.section];
+        vc.p_id =productModel.id;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        if (self.sortArray.count > indexPath.row){
+            Class_List22 *model = self.sortArray[indexPath.row];
+            self.gc_id = model.gc_id;
+            [self loadProductModelDataWithPage:1 hud:YES];
+            [self hideSortView];
+        }
+    }
+    
+    
     
 }
 
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10.0;
+    if (tableView == self.tableView){
+         return 10.0;
+    }else{
+         return 0.001;
+    }
+   
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001f;

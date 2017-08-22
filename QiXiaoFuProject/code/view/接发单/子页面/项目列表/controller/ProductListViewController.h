@@ -10,5 +10,5 @@
 
 @interface ProductListViewController : BaseViewController
 @property(nonatomic, copy) NSString * gc_id;//分类ID
-
+@property (nonatomic, strong) NSArray *sortArray;//
 @end

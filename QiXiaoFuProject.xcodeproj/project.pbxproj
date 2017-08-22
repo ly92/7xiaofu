@@ -818,6 +818,8 @@
 		08A28ADA1F4BF7640003DC44 /* KnowledgeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A28AD81F4BF7640003DC44 /* KnowledgeListCell.m */; };
 		08A28ADB1F4BF7640003DC44 /* KnowledgeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */; };
 		08A28ADE1F4C07880003DC44 /* KnowledgeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */; };
+		08A28AE21F4C2C750003DC44 /* KnowledgeChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A28AE01F4C2C750003DC44 /* KnowledgeChooseCell.m */; };
+		08A28AE31F4C2C750003DC44 /* KnowledgeChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A28AE11F4C2C750003DC44 /* KnowledgeChooseCell.xib */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2375,6 +2377,9 @@
 		08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KnowledgeListCell.xib; sourceTree = "<group>"; };
 		08A28ADC1F4C07880003DC44 /* KnowledgeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeDetailViewController.h; sourceTree = "<group>"; };
 		08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeDetailViewController.m; sourceTree = "<group>"; };
+		08A28ADF1F4C2C750003DC44 /* KnowledgeChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeChooseCell.h; sourceTree = "<group>"; };
+		08A28AE01F4C2C750003DC44 /* KnowledgeChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeChooseCell.m; sourceTree = "<group>"; };
+		08A28AE11F4C2C750003DC44 /* KnowledgeChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KnowledgeChooseCell.xib; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -7768,6 +7773,9 @@
 				08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */,
 				08A28ADC1F4C07880003DC44 /* KnowledgeDetailViewController.h */,
 				08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */,
+				08A28ADF1F4C2C750003DC44 /* KnowledgeChooseCell.h */,
+				08A28AE01F4C2C750003DC44 /* KnowledgeChooseCell.m */,
+				08A28AE11F4C2C750003DC44 /* KnowledgeChooseCell.xib */,
 			);
 			path = knowledge;
 			sourceTree = "<group>";
@@ -8037,6 +8045,7 @@
 				04891A301DD5CF8C0099E24F /* MyReceivingOrderViewController.xib in Resources */,
 				044603071D7A9E9100CC787C /* ShopPayInfoCell.xib in Resources */,
 				048FF2221D755AB000268A78 /* EngineerDetaileViewController.xib in Resources */,
+				08A28AE31F4C2C750003DC44 /* KnowledgeChooseCell.xib in Resources */,
 				048FF2AE1D769D8C00268A78 /* SendOrderMarkCell.xib in Resources */,
 				044603021D7A94CA00CC787C /* ShopPayAdressCell.xib in Resources */,
 				048FF1E41D750D3E00268A78 /* WalletDetaileViewController.xib in Resources */,
@@ -8705,6 +8714,7 @@
 				04BBB5FB1DAC82DC00C9B2D3 /* SYPhotoView.m in Sources */,
 				04DAC5A11DB8BD84002235A7 /* EMRobotChatTextBubbleView.m in Sources */,
 				04C45DFA1DFD22B3001D9415 /* MatchingEngineerMapView.m in Sources */,
+				08A28AE21F4C2C750003DC44 /* KnowledgeChooseCell.m in Sources */,
 				04DAC6091DB8BEC3002235A7 /* EMSearchBar.m in Sources */,
 				049266B21D5EE3C90098A3A6 /* UITableView+MJRefresh.m in Sources */,
 				049266B81D5EE3C90098A3A6 /* NSString+FileSize.m in Sources */,

@@ -11,7 +11,7 @@
 #import "KnowledgeListCell.h"
 #import "NSString+Extension.h"
 #import "KnowledgeDetailViewController.h"
-
+#import "KnowledgeChooseCell.h"
 
 @interface KnowledgeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
@@ -74,6 +74,7 @@
     self.sortid = @"0";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"KnowledgeListCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeListCell"];
+    [self.topTableView registerNib:[UINib nibWithNibName:@"KnowledgeChooseCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeChooseCell"];
     
     [self loadSortData];
     [self loadData];
@@ -208,17 +209,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView == self.topTableView){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"topTableViewCell"];
-        if (!cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"topTableViewCell"];
-        }
-        cell.textLabel.contentMode = NSTextAlignmentCenter;
-        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-        cell.textLabel.textColor = [UIColor colorWithHexColorString:@"737373"];
+        KnowledgeChooseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KnowledgeChooseCell" forIndexPath:indexPath];
+        cell.titleLbl.textColor = [UIColor colorWithHexColorString:@"737373"];
+        cell.titleLbl.backgroundColor = [UIColor whiteColor];
         
         if (self.topArray.count > indexPath.row){
             NSDictionary *dict = self.topArray[indexPath.row];
-            cell.textLabel.text = [dict objectForKey:@"name"];
+            cell.titleLbl.text = [dict objectForKey:@"name"];
         }
         return cell;
     }else{

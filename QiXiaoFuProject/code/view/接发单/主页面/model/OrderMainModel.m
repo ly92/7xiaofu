@@ -23,9 +23,14 @@
 
 
 @implementation Class_List12
-
++ (NSDictionary *)objectClassInArray{
+    return @{@"list" : [Class_List22 class]};
+}
 @end
 
+@implementation Class_List22
+
+@end
 
 @implementation Member_list
 
