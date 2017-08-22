@@ -127,7 +127,7 @@ static NSString * const kItem5SelectedImageName = @"pub_icon_me_s";
 //    CrowdfundingViewController *crowdfundingViewController = [[CrowdfundingViewController alloc] initWithNibName:@"CrowdfundingViewController" bundle:nil];
 //    [self addOneChlildVc:crowdfundingViewController title:kTabbarTitle3 imageName:kItem3imageName selectedImageName:kItem3SelectedImageName];
     // 4.消息
-    KnowledgeViewController *messageViewController = [[KnowledgeViewController alloc] init];
+    KnowledgeViewController *messageViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"KnowledgeViewController"];
     [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];
 //    ConversationListController *messageViewController = [[ConversationListController alloc]init];
 //    [self addOneChlildVc:messageViewController title:kTabbarTitle4 imageName:kItem4imageName selectedImageName:kItem4SelectedImageName];

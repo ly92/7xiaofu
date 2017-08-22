@@ -10,4 +10,5 @@
 
 @interface UILabel (ContentSize)
 -(CGSize)caculatedSize;
+-(CGFloat)caculatedWith;
 @end

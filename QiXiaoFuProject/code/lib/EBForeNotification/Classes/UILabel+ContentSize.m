@@ -19,6 +19,21 @@
     return rect.size;
 }
 
+-(CGFloat)caculatedWith{
+    
+    
+    
+    CGSize size = CGSizeMake(MAXFLOAT, self.frame.size.height);
+    
+    return [self sizeThatFits:size].width;
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:self.font.pointSize] forKey:NSFontAttributeName];
+    
+    CGRect rect = [self.text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
+    
+    return rect.size.width;
+
+}
 //+(CGFloat)getLabelHeightWithSizeOfFont:(CGFloat)fontSize width:(CGFloat)width content:(NSString*)content{
 //    CGSize size = CGSizeMake(width,MAXFLOAT);
 //

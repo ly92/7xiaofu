@@ -815,6 +815,9 @@
 		089C245D1F45430700ECF8C7 /* EnrollEngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C245B1F45430700ECF8C7 /* EnrollEngineerCell.m */; };
 		089C245E1F45430700ECF8C7 /* EnrollEngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */; };
 		08A1D2F51F42CAC800EECF39 /* KnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */; };
+		08A28ADA1F4BF7640003DC44 /* KnowledgeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A28AD81F4BF7640003DC44 /* KnowledgeListCell.m */; };
+		08A28ADB1F4BF7640003DC44 /* KnowledgeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */; };
+		08A28ADE1F4C07880003DC44 /* KnowledgeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */; };
 		09266CD21EC4772A00EBB399 /* UIApplication+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 09266CD11EC4772A00EBB399 /* UIApplication+category.m */; };
 		099A942E1EC33256004EDD66 /* SendOrderProjectNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 099A942D1EC33255004EDD66 /* SendOrderProjectNameCell.m */; };
 		09BCE3F51ECA9E7A003489C5 /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BCE3F31ECA9E7A003489C5 /* ConversationListController.m */; };
@@ -2367,6 +2370,11 @@
 		089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollEngineerCell.xib; sourceTree = "<group>"; };
 		08A1D2F31F42CAC800EECF39 /* KnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeViewController.h; sourceTree = "<group>"; };
 		08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeViewController.m; sourceTree = "<group>"; };
+		08A28AD71F4BF7640003DC44 /* KnowledgeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeListCell.h; sourceTree = "<group>"; };
+		08A28AD81F4BF7640003DC44 /* KnowledgeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeListCell.m; sourceTree = "<group>"; };
+		08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KnowledgeListCell.xib; sourceTree = "<group>"; };
+		08A28ADC1F4C07880003DC44 /* KnowledgeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowledgeDetailViewController.h; sourceTree = "<group>"; };
+		08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowledgeDetailViewController.m; sourceTree = "<group>"; };
 		09266CD01EC4772A00EBB399 /* UIApplication+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+category.h"; sourceTree = "<group>"; };
 		09266CD11EC4772A00EBB399 /* UIApplication+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+category.m"; sourceTree = "<group>"; };
 		099A942C1EC33255004EDD66 /* SendOrderProjectNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendOrderProjectNameCell.h; sourceTree = "<group>"; };
@@ -7755,6 +7763,11 @@
 			children = (
 				08A1D2F31F42CAC800EECF39 /* KnowledgeViewController.h */,
 				08A1D2F41F42CAC800EECF39 /* KnowledgeViewController.m */,
+				08A28AD71F4BF7640003DC44 /* KnowledgeListCell.h */,
+				08A28AD81F4BF7640003DC44 /* KnowledgeListCell.m */,
+				08A28AD91F4BF7640003DC44 /* KnowledgeListCell.xib */,
+				08A28ADC1F4C07880003DC44 /* KnowledgeDetailViewController.h */,
+				08A28ADD1F4C07880003DC44 /* KnowledgeDetailViewController.m */,
 			);
 			path = knowledge;
 			sourceTree = "<group>";
@@ -7950,6 +7963,7 @@
 				048619411D84FFA5008D8BDB /* PDHud.bundle in Resources */,
 				04BBB6041DAC895900C9B2D3 /* MatchingEngineerListVC.xib in Resources */,
 				04C6A05A1E24FEC000770545 /* OrderDetailSnCell.xib in Resources */,
+				08A28ADB1F4BF7640003DC44 /* KnowledgeListCell.xib in Resources */,
 				048FF1411D72E7EA00268A78 /* ProductDetaileHeaderCell.xib in Resources */,
 				04A587BC1D8D3D7500FA3E46 /* RechargeWithdrawCell.xib in Resources */,
 				044602E11D7A88A700CC787C /* ShopPositionViewController.xib in Resources */,
@@ -8455,6 +8469,7 @@
 				048FF24C1D75722400268A78 /* PayPriceViewCell.m in Sources */,
 				04DAC62D1DB8BF2D002235A7 /* SRSlimeView.m in Sources */,
 				049266C91D5EE3C90098A3A6 /* AttributedTool.m in Sources */,
+				08A28ADA1F4BF7640003DC44 /* KnowledgeListCell.m in Sources */,
 				04DAC3DB1DB624B1002235A7 /* ChongSendOrderModel.m in Sources */,
 				04F3FBF31D8EBB96000487C4 /* CollectCell.m in Sources */,
 				041B333C1D7EF39200A8EBA2 /* EditAdressCell.m in Sources */,
@@ -8682,6 +8697,7 @@
 				04DAC57C1DB8BC5B002235A7 /* EaseBubbleView+Text.m in Sources */,
 				049266B91D5EE3C90098A3A6 /* NSString+FolderPath.m in Sources */,
 				04B36A0F1D6817BB00D86C11 /* EngineerCell.m in Sources */,
+				08A28ADE1F4C07880003DC44 /* KnowledgeDetailViewController.m in Sources */,
 				04DAC5701DB8BC5B002235A7 /* EaseRefreshTableViewController.m in Sources */,
 				04E8BD4D1D588006003E4550 /* Utool.m in Sources */,
 				049EE4B11D8F99FA004F5AA8 /* MLSearchBar.m in Sources */,
