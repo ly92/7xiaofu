@@ -102,9 +102,7 @@
     
     
     self.sortTableH.constant = self.sortArray.count > 5?200:self.sortArray.count * 44 + 10;
-    if (self.sortTableH.constant < 100){
-        self.sortTableH.constant = 100;
-    }
+    
 }
 
 
@@ -122,12 +120,13 @@
 
 //
 - (void)rightItemAction{
-    
-    self.sortView.hidden = !self.sortView.hidden;
-    
-    if (!self.sortTableView.hidden){
-        [self.sortTableView reloadData];
+    if (self.sortArray.count > 0){
+        self.sortView.hidden = !self.sortView.hidden;
+        if (!self.sortTableView.hidden){
+            [self.sortTableView reloadData];
+        }
     }
+    
 }
 - (IBAction)hideSortView {
     self.sortView.hidden = !self.sortView.hidden;

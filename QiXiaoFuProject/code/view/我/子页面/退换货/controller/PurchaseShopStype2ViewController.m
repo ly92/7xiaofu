@@ -40,7 +40,7 @@
         return;
     }
     [self showLoading ];
-    NSMutableDictionary * params = [NSMutableDictionary new];
+    NSMutableDictionary *params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"store_id"] = @"1";
     params[@"order_id"] = _order_id;
