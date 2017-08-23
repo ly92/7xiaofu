@@ -502,28 +502,44 @@
             
             // 选择服务领域
             ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
-            vc.allowsMultipleSelection = YES;
             vc.domains =_showaddbillModel.service_sector;
             
-            vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
+//            vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
             
             vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
                 
+
                 SendOrderCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-                LxDBAnyVar(somains);
-                _selectedDomainsIds =somains;
+
                 
-                NSMutableArray * titles = [NSMutableArray new];
-                NSMutableArray * ids = [NSMutableArray new];
-                
-                [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-                    [titles addObject:user.gc_name];
-                    [ids addObject:user.gc_id];
-                }];
-                NSString * titleStr = [titles string];
+                NSMutableArray * titles = [NSMutableArray array];
+                NSMutableArray * ids = [NSMutableArray array];
+                for (NSDictionary *dict in somains) {
+                    NSMutableArray * subTitles = [NSMutableArray array];
+                    if ([dict.allKeys containsObject:@"model"]){
+                        Service_Sector12 *sector12 = [dict objectForKey:@"model"];
+                        [ids addObject:sector12.gc_id];
+                        
+                        if ([dict.allKeys containsObject:@"list"]){
+                            NSArray *array = [dict objectForKey:@"list"];
+                            for (Service_Sector22 *sector22 in array) {
+                                [ids addObject:sector22.gc_id];
+                                [subTitles addObject:sector22.gc_name];
+                            }
+                        }
+                        if (subTitles.count > 0){
+                            NSString *str = [NSString stringWithFormat:@"%@(%@)",sector12.gc_name,[subTitles componentsJoinedByString:@","]];
+                            [titles addObject:str];
+                        }else{
+                            [titles addObject:sector12.gc_name];
+                        }
+                        
+                    }
+                }
+                NSString * titleStr = [titles componentsJoinedByString:@","];
                 cell.descLab.text = titleStr;
                 
-                _requestParams[@"service_sector"] = [ids string] ;//服务领域ID
+                _requestParams[@"service_sector"] = [ids componentsJoinedByString:@","] ;//服务领域ID
                 _service_sectorTitle =titleStr;
             };
             [self.navigationController pushViewController:vc animated:YES];

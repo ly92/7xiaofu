@@ -25,8 +25,14 @@
 
 @implementation Service_Sector12
 
-@end
++ (NSDictionary *)objectClassInArray{
+    return @{ @"list" : [Service_Sector22 class]};
+}
 
+@end
+@implementation Service_Sector22
+
+@end
 
 @implementation Service_Form
 

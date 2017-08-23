@@ -10,11 +10,7 @@
 #import "ShowaddbillModel.h"
 
 @interface ChooseSeviceDomainCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
-
-
-@property (nonatomic, strong) Service_Sector12* user;
-@property (nonatomic) BOOL disabled;
-
+@property (weak, nonatomic) IBOutlet UIImageView *iconImgV;
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 
 @end

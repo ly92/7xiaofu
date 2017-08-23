@@ -230,6 +230,7 @@
         //记录技术领域
         [LocalData setUpService_sector:_service_sector];
         
+        [self loadMineDataInfo];
         
         [self.view endEditing:YES];
         
@@ -412,24 +413,35 @@
         
         ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
         vc.domains = _classArray;
-        vc.allowsMultipleSelection = YES;
-        vc.selectedContactIds = [self contactIdsForContacts:_userInfoModel1.service_sector];
+        vc.isFromPersonalInfo = YES;
+//        vc.selectedContactIds = [self contactIdsForContacts:_userInfoModel1.service_sector];
         vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
-//            UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-//            LxDBAnyVar(somains);
-            _selectedDomainsIds =somains;
+            NSMutableArray * titles = [NSMutableArray array];
+            NSMutableArray * ids = [NSMutableArray array];
+            for (NSDictionary *dict in somains) {
+                NSMutableArray * subTitles = [NSMutableArray array];
+                if ([dict.allKeys containsObject:@"model"]){
+                    Service_Sector12 *sector12 = [dict objectForKey:@"model"];
+                    [ids addObject:sector12.gc_id];
+                    
+                    if ([dict.allKeys containsObject:@"list"]){
+                        NSArray *array = [dict objectForKey:@"list"];
+                        for (Service_Sector22 *sector22 in array) {
+                            [ids addObject:sector22.gc_id];
+                            [subTitles addObject:sector22.gc_name];
+                        }
+                    }
+                    if (subTitles.count > 0){
+                        NSString *str = [NSString stringWithFormat:@"%@(%@)",sector12.gc_name,[subTitles componentsJoinedByString:@","]];
+                        [titles addObject:str];
+                    }else{
+                        [titles addObject:sector12.gc_name];
+                    }
+                }
+            }
             
-            NSMutableArray * titles = [NSMutableArray new];
-            NSMutableArray * ids = [NSMutableArray new];
-            
-            [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-                [titles addObject:user.gc_name];
-                [ids addObject:user.gc_id];
-            }];
-//            NSString * titleStr = [titles string];
-//            cell.detailTextLabel.text = titleStr;
-            _service_sector = [ids string];
-
+            _service_sector = [ids componentsJoinedByString:@","];
+//
             [self changeUserInfo];
 
         };

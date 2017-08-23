@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Service_Type,Service_Sector12,Service_Form,Payment_List1;
+@class Service_Type,Service_Sector12,Service_Sector12,Service_Form,Payment_List1;
 @interface ShowaddbillModel : NSObject
 
 @property (nonatomic, strong) NSArray<Service_Form *> *service_form;//【服务形式】
@@ -35,7 +35,7 @@
 
 @end
 
-@interface Service_Sector12 : NSObject
+@interface Service_Sector22 : NSObject
 
 @property (nonatomic, copy) NSString *gc_id;//	分类ID
 
@@ -43,6 +43,16 @@
 
 @property (nonatomic, copy) NSString *gc_image;
 
+@end
+
+@interface Service_Sector12 : NSObject
+
+@property (nonatomic, copy) NSString *gc_id;//	分类ID
+
+@property (nonatomic, copy) NSString *gc_name;//	分类名称
+
+@property (nonatomic, copy) NSString *gc_image;
+@property (nonatomic, strong) NSArray<Service_Sector22 *> *list;//【服务类型】
 @end
 
 @interface Service_Form : NSObject

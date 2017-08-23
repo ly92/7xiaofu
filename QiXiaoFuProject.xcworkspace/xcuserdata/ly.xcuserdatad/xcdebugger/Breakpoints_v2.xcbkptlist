@@ -13,53 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QiXiaoFuProject/code/view/&#x6211;/&#x5b50;&#x9875;&#x9762;/&#x4e2a;&#x4eba;&#x4fe1;&#x606f;/controller/UserInfoViewController.m"
-            timestampString = "525080247.129169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "-getClass"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UserInfoViewController getClass]"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/controller/UserInfoViewController.m"
-                  timestampString = "525086681.265647"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "55">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__34-[UserInfoViewController getClass]_block_invoke"
-                  moduleName = "QiXiaoFuProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E6%88%91/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/controller/UserInfoViewController.m"
-                  timestampString = "525086681.267923"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -12,7 +12,6 @@
 #import "SendOrderDuoCell.h"
 #import "SendOrderSwitchCell.h"
 #import "SendOrderNumberCell.h"
-#import "ChooseSeviceDomainViewController.h"
 #import "ChooseMapViewController.h"
 #import "User.h"
 #import "NSArray+Utils.h"
@@ -349,82 +348,7 @@
         }
         
     }
-//    if (indexPath.section == 1) {
-//        
-//        if (indexPath.row == 0) {
-//            // 选择服务领域
-//            ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
-//            vc.allowsMultipleSelection = YES;
-//            vc.domains =_showaddbillModel.service_sector;
-//            
-//            vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
-//            
-//            vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
-//                
-//                SendOrderCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-//                LxDBAnyVar(somains);
-//                _selectedDomainsIds =somains;
-//                
-//                NSMutableArray * titles = [NSMutableArray new];
-//                NSMutableArray * ids = [NSMutableArray new];
-//                
-//                [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-//                    [titles addObject:user.gc_name];
-//                    [ids addObject:user.gc_id];
-//                }];
-//                NSString * titleStr = [titles string];
-//                cell.descLab.text = titleStr;
-//                
-//                _requestParams[@"service_sector"] = [ids string] ;//服务领域ID
-//                
-//            };
-//            [self.navigationController pushViewController:vc animated:YES];
-//            
-//        }else if (indexPath.row == 1){
-//            
-//            
-//            ChooseBrandViewController * vc = [[ChooseBrandViewController alloc]initWithNibName:@"ChooseBrandViewController" bundle:nil];
-//            vc.chooseBrandViewBlock = ^(NSString * text){
-//                SendOrderCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-//                cell.descLab.text = text;
-//                
-//                _requestParams[@"service_brand"] = text;//服务品牌ID
-//                
-//            };
-//            [self.navigationController pushViewController:vc animated:YES];
-//            
-//        }
-//        
-//    }
-//    if (indexPath.section == 2) {
-//        
-//        //其他服务领域(选填)
-//        ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
-//        vc.allowsMultipleSelection = YES;
-//        vc.domains =_showaddbillModel.service_sector;
-//        
-//        vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
-//        
-//        vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
-//            
-//            SendOrderDuoCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-//            LxDBAnyVar(somains);
-//            _selectedDomainsIds =somains;
-//            
-//            NSMutableArray * titles = [NSMutableArray new];
-//            NSMutableArray * ids = [NSMutableArray new];
-//            
-//            [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-//                [titles addObject:user.gc_name];
-//                [ids addObject:user.gc_id];
-//            }];
-//            NSString * titleStr = [titles string];
-//            cell.descLab.text = titleStr;
-//            _requestParams[@"other_service_sector"] = [ids string];//	其他服务领域ID
-//            
-//        };
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+
 }
 
 

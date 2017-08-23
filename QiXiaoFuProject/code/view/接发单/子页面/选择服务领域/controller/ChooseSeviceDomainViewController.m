@@ -7,65 +7,66 @@
 //
 
 #import "ChooseSeviceDomainViewController.h"
-#import "PDCollectionViewFlowLayout.h"
+//#import "PDCollectionViewFlowLayout.h"
 //#import "User.h"
 #import "ChooseSeviceDomainCell.h"
 
-@interface ChooseSeviceDomainViewController ()<PDCollectionViewFlowLayoutDelegate>
+@interface ChooseSeviceDomainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic, strong) NSMutableArray *secTwoArray;
 
-@property (weak, nonatomic) IBOutlet UIButton *toggleSelectionBtn;
-//@property (weak, nonatomic) IBOutlet UIButton *doneBtn;
+@property (nonatomic, strong) NSMutableArray *resultArray;//
 
+@property (nonatomic, strong) NSMutableArray *selectedIds;//选中的
 
+@property (nonatomic, copy) NSString *selectId;//当前选中的section1中元素的ID
 
-@property (nonatomic, strong) NSMutableIndexSet* selectedIndexSet;
 @end
 
 @implementation ChooseSeviceDomainViewController
 
+- (NSMutableArray *)secTwoArray{
+    if(!_secTwoArray){
+        _secTwoArray = [NSMutableArray array];
+    }
+    return _secTwoArray;
+}
+
+- (NSMutableArray *)resultArray{
+    if(!_resultArray){
+        _resultArray = [NSMutableArray array];
+    }
+    return _resultArray;
+}
+- (NSMutableArray *)selectedIds{
+    if(!_selectedIds){
+        _selectedIds = [NSMutableArray array];
+    }
+    return _selectedIds;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"选择服务领域";
     self.navigationItem.rightBarButtonItem= [UIBarButtonItem itemWithTitle:@"确定" target:self action:@selector(rightTrueAction:)];
+
     
-    
-    self.selectedIndexSet = [NSMutableIndexSet indexSet];
-    
-    PDCollectionViewFlowLayout * layout = [[PDCollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10;
     layout.minimumInteritemSpacing = 10;
-    layout.sectionInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-    layout.columnCount = 3;
-    _collectionView.collectionViewLayout = layout;
-    _collectionView.scrollEnabled  =YES;
-    [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ChooseSeviceDomainCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([ChooseSeviceDomainCell class])];
-    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:CZCollectionElementKindSectionHeader withReuseIdentifier:@"hear"];
-    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:CZCollectionElementKindSectionFooter withReuseIdentifier:@"EngineerFooterReusableView"];
-    self.collectionView.allowsMultipleSelection = _allowsMultipleSelection;
-        // Do any additional setup after loading the view from its nib.
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.itemSize = CGSizeMake((kScreenWidth - 60)/3.0, 35);
+    self.collectionView.collectionViewLayout = layout;
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ChooseSeviceDomainCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([ChooseSeviceDomainCell class])];
 }
 
 #pragma mark - 确认选中的领域
 - (void)rightTrueAction:(UIBarButtonItem *)item{
     
-    
-    NSArray * selectArray = [self selectedContacts];
-    
-    if(selectArray.count == 0){
-        [self showErrorText:@"请选择技能领域"];
-        return;
+    if (self.domainsChooseSeviceDomainViewBlock != nil){
+        self.domainsChooseSeviceDomainViewBlock(self.resultArray);
     }
-    
-    
-    
-     if (_domainsChooseSeviceDomainViewBlock) {
-        _domainsChooseSeviceDomainViewBlock([self selectedContacts]);
-    }
-     LxDBAnyVar(@"你选的区域是：");
-    LxDBAnyVar([self selectedContacts]);
      
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -73,191 +74,159 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self updateSelections];
 }
-
-
-- (void)updateViews {
-    [self updateToggleSelectionButton];
- 
-
-}
-
-- (void)updateSelections {
-    if (!self.selectedContactIds || ![self.selectedContactIds count]) {
-        return;
-    }
-    NSIndexSet *selectedContactsIndexSet = [self.domains indexesOfObjectsWithOptions:NSEnumerationConcurrent passingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        Service_Sector12 *contact = obj;
-        return [self.selectedContactIds containsObject:contact.gc_id];
-    }];
-    
-    [selectedContactsIndexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
-        [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-        [self.selectedIndexSet addIndex:indexPath.item];
-    }];
-    
-    [self updateToggleSelectionButton];
-}
-
-- (void)updateToggleSelectionButton {
-    BOOL allEnabledContactsSelected = [self allEnabledContactsSelected];
-    NSString *title = !allEnabledContactsSelected ? @"全选" : @"全不选";
-    [self.toggleSelectionBtn setTitle:title forState:UIControlStateNormal];
-}
-
-- (NSIndexSet *)enabledContactsIndexSetForContancts:(NSArray *)contacts {
-    NSIndexSet *enabledContactsIndexSet = nil;
-    if ([self.disabledContactIds count]) {
-        enabledContactsIndexSet = [contacts indexesOfObjectsWithOptions:NSEnumerationConcurrent passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-            Service_Sector12* contact = obj;
-            return ![self.disabledContactIds containsObject:contact.gc_id];
-        }];
-    } else {
-        enabledContactsIndexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [contacts count])];
-    }
-    
-    return enabledContactsIndexSet;
-}
-
-- (BOOL)allEnabledContactsSelected {
-    NSIndexSet* enabledIndexSet = [self enabledContactsIndexSetForContancts:self.domains];
-    BOOL allEnabledContactsSelected = [self.selectedIndexSet containsIndexes:enabledIndexSet];
-    return allEnabledContactsSelected;
-}
-
-- (NSArray *)selectedContacts {
-    return [self.domains objectsAtIndexes:self.selectedIndexSet];
-}
-
-#pragma mark PickerViewDataSource
-
-
-#pragma mark PickerViewDelegate
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.disabledContactIds count]) {
-        NSInteger item = indexPath.item;
-        Service_Sector12 *contact = _domains[item];
-        return ![self.disabledContactIds containsObject:contact.gc_id];
-    }
-    return YES;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.disabledContactIds count]) {
-        NSInteger item = indexPath.item;
-        Service_Sector12 *contact = _domains[item];
-        return ![self.disabledContactIds containsObject:contact.gc_id];
-    }
-    return YES;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.selectedIndexSet addIndex:indexPath.item];
-    [self updateToggleSelectionButton];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.selectedIndexSet removeIndex:indexPath.item];
-    [self updateToggleSelectionButton];
-}
-
-#pragma mark actions
-
-- (IBAction)handleToggleSelectionBtn:(id)sender {
-    NSUInteger count = [self.domains count];
-    BOOL allEnabledContactsSelected = [self allEnabledContactsSelected];
-    if (!allEnabledContactsSelected) {
-        [self.collectionView performBatchUpdates:^{
-            for (NSUInteger index = 0; index < count; ++index) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-                
-                if ([self collectionView:self.collectionView shouldSelectItemAtIndexPath:indexPath]) {
-                    [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-                    [self.selectedIndexSet addIndex:indexPath.item];
-                }
-            }
-        } completion:^(BOOL finished) {
-            [self updateToggleSelectionButton];
-        }];
-    } else {
-        [self.collectionView performBatchUpdates:^{
-            [self.selectedIndexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL * _Nonnull stop) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-                
-                if ([self collectionView:self.collectionView shouldDeselectItemAtIndexPath:indexPath]) {
-                    [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
-                    [self.selectedIndexSet removeIndex:indexPath.item];
-                }
-            }];
-        } completion:^(BOOL finished) {
-            [self updateToggleSelectionButton];
-        }];
-    }
-}
-
-
 
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
 #pragma mark - MUCollectionViewFlowLayoutDelegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    if (self.isFromPersonalInfo){
+        return 1;
+    }
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_domains count];
-}
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return 35;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    return CGSizeMake(collectionView.frame.size.width,0);
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
-    return CGSizeMake(kScreenWidth, 0);
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    if ([kind isEqualToString:CZCollectionElementKindSectionHeader])
-    {
-        UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:CZCollectionElementKindSectionHeader withReuseIdentifier:@"hear" forIndexPath:indexPath];
-        view.backgroundColor = [UIColor yellowColor];
-        return view;
+    if (section == 0){
+        return [_domains count];
+    }else{
+        return self.secTwoArray.count;
     }
-    else if ([kind isEqualToString:CZCollectionElementKindSectionFooter])
-    {
-        UICollectionReusableView * engineerFooterReusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"EngineerFooterReusableView" forIndexPath:indexPath];
-        engineerFooterReusableView.backgroundColor = [UIColor whiteColor];
-        return engineerFooterReusableView;
-    }
-    return nil;
 }
-
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ChooseSeviceDomainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ChooseSeviceDomainCell" forIndexPath:indexPath];
-    Service_Sector12 *contact = _domains[ indexPath.item];
-    cell.user = contact;
-    cell.disabled = [self.disabledContactIds containsObject:contact.gc_id];
+    if (indexPath.section == 0){
+        Service_Sector12 *contact = _domains[ indexPath.row];
+        cell.titleLbl.text = contact.gc_name;
+        if ([self.selectedIds containsObject:contact.gc_id]){
+            cell.iconImgV.image = [UIImage imageNamed:@"img_bg_content_s"];
+            cell.titleLbl.textColor = kThemeColor;
+        }else{
+            cell.iconImgV.image = [UIImage imageNamed:@"img_bg_content_n"];
+            cell.titleLbl.textColor = [UIColor darkGrayColor];
+        }
+    }else{
+        Service_Sector22 *contact = self.secTwoArray[ indexPath.row];
+        cell.titleLbl.text = contact.gc_name;
+        if ([self.selectedIds containsObject:contact.gc_id]){
+            cell.iconImgV.image = [UIImage imageNamed:@"img_bg_content_s"];
+            cell.titleLbl.textColor = kThemeColor;
+        }else{
+            cell.iconImgV.image = [UIImage imageNamed:@"img_bg_content_n"];
+            cell.titleLbl.textColor = [UIColor darkGrayColor];
+        }
+    }
+    
     return cell;
 }
 
 
-
-
-
-
-
-
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0){
+        Service_Sector12 *contact = _domains[ indexPath.row];
+        [self.secTwoArray removeAllObjects];
+        if ([self.selectedIds containsObject:contact.gc_id]){
+            [self.selectedIds removeObject:contact.gc_id];
+            self.selectId = @"";
+            //删除子类
+            for (Service_Sector22 *contact2 in contact.list) {
+                if ([self.selectedIds containsObject:contact2.gc_id]){
+                    [self.selectedIds removeObject:contact2.gc_id];
+                }
+            }
+            //删除
+            NSArray *array = [NSArray arrayWithArray:self.resultArray];
+            for (NSDictionary *dict in array) {
+                //有则删除
+                if ([dict.allKeys containsObject:@"model"]){
+                    Service_Sector12 *contact11 = [dict objectForKey:@"model"];
+                    if (contact11.gc_id == contact.gc_id){
+                        [self.resultArray removeObject:dict];
+                    }
+                }
+            }
+        }else{
+            [self.selectedIds addObject:contact.gc_id];
+            [self.secTwoArray addObjectsFromArray:contact.list];
+            self.selectId = contact.gc_id;
+            //记录选中
+            NSArray *array = [NSArray arrayWithArray:self.resultArray];
+            for (NSDictionary *dict in array) {
+                //有则删除
+                if ([dict.allKeys containsObject:@"model"]){
+                    Service_Sector12 *contact11 = [dict objectForKey:@"model"];
+                    if (contact11.gc_id == contact.gc_id){
+                        [self.resultArray removeObject:dict];
+                    }
+                }
+            }
+            //添加
+            NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+            dictM[@"model"] = contact;
+            [self.resultArray addObject:dictM];
+        }
+    }else{
+        Service_Sector22 *contact = self.secTwoArray[ indexPath.row];
+        //记录选中
+        BOOL haveKey = false;
+        NSInteger index = 0;
+        for (int i = 0; i < self.resultArray.count; i ++) {
+            NSMutableDictionary *dict = self.resultArray[i];
+            if ([dict.allKeys containsObject:@"model"]){
+                Service_Sector12 *contact11 = [dict objectForKey:@"model"];
+                if (contact11.gc_id == self.selectId){
+                    haveKey = true;
+                    index = i;
+                }
+            }
+        }
+        
+        if ([self.selectedIds containsObject:contact.gc_id]){
+            [self.selectedIds removeObject:contact.gc_id];
+            if (haveKey){
+                NSMutableDictionary *dictM = self.resultArray[index];
+                if ([dictM.allKeys containsObject:@"list"]){
+                    NSMutableArray *array = [dictM objectForKey:@"list"];
+                    NSMutableArray *array2 = [NSMutableArray arrayWithArray:array];
+                    for (Service_Sector22 *contact22 in array2) {
+                        if (contact22.gc_id == contact.gc_id){
+                            [array removeObject:contact22];
+                        }
+                    }
+                    dictM[@"list"] = array;
+                }
+                
+                [self.resultArray removeObjectAtIndex:index];
+                [self.resultArray addObject:dictM];
+            }
+        }else{
+            [self.selectedIds addObject:contact.gc_id];
+            if (haveKey){
+                NSMutableDictionary *dictM = self.resultArray[index];
+                if ([dictM.allKeys containsObject:@"list"]){
+                    NSMutableArray *array = [dictM objectForKey:@"list"];
+                    NSMutableArray *array2 = [NSMutableArray arrayWithArray:array];
+                    for (Service_Sector22 *contact22 in array2) {
+                        if (contact22.gc_id == contact.gc_id){
+                            [array removeObject:contact22];
+                        }
+                    }
+                    [array addObject:contact];
+                    dictM[@"list"] = array;
+                }else{
+                    NSMutableArray *arrayM = [NSMutableArray array];
+                    [arrayM addObject:contact];
+                    dictM[@"list"] = arrayM;
+                }
+                
+                [self.resultArray removeObjectAtIndex:index];
+                [self.resultArray addObject:dictM];
+            }
+        }
+    }
+    [self.collectionView reloadData];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -265,14 +234,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,37 +18,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fH-uB-Gdu">
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <state key="normal" title="Button" backgroundImage="img_bg_content_n">
-                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <state key="selected" backgroundImage="img_bg_content_s">
-                            <color key="titleColor" red="0.80392156859999997" green="0.21960784310000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="us4-D7-OjE">
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZJM-2b-4wL">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgB-ll-qCb">
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="9fH-uB-Gdu" secondAttribute="bottom" id="2HW-oP-yDT"/>
-                <constraint firstItem="9fH-uB-Gdu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="A2g-MS-Szx"/>
-                <constraint firstAttribute="trailing" secondItem="9fH-uB-Gdu" secondAttribute="trailing" id="Ex2-5d-8Fn"/>
-                <constraint firstItem="us4-D7-OjE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IZr-XC-jGA"/>
-                <constraint firstItem="9fH-uB-Gdu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c2d-td-IQq"/>
-                <constraint firstAttribute="trailing" secondItem="us4-D7-OjE" secondAttribute="trailing" id="n1H-PG-d9I"/>
-                <constraint firstAttribute="bottom" secondItem="us4-D7-OjE" secondAttribute="bottom" id="nSD-tU-fQf"/>
-                <constraint firstItem="us4-D7-OjE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wKp-iV-mHl"/>
+                <constraint firstAttribute="trailing" secondItem="tgB-ll-qCb" secondAttribute="trailing" id="5FG-CC-5vD"/>
+                <constraint firstAttribute="bottom" secondItem="tgB-ll-qCb" secondAttribute="bottom" id="6LH-vH-wbb"/>
+                <constraint firstAttribute="trailing" secondItem="ZJM-2b-4wL" secondAttribute="trailing" id="WG9-NB-vXm"/>
+                <constraint firstItem="tgB-ll-qCb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XGr-6S-AML"/>
+                <constraint firstItem="ZJM-2b-4wL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XNQ-h7-h8c"/>
+                <constraint firstAttribute="bottom" secondItem="ZJM-2b-4wL" secondAttribute="bottom" id="eQV-2g-OgI"/>
+                <constraint firstItem="tgB-ll-qCb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="iXd-30-cRh"/>
+                <constraint firstItem="ZJM-2b-4wL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kmj-DP-gxH"/>
             </constraints>
             <connections>
-                <outlet property="chooseBtn" destination="9fH-uB-Gdu" id="9PD-tP-Rdn"/>
+                <outlet property="iconImgV" destination="ZJM-2b-4wL" id="Aas-ga-5MG"/>
+                <outlet property="titleLbl" destination="tgB-ll-qCb" id="nRk-Cm-aSR"/>
             </connections>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="img_bg_content_n" width="90" height="30"/>
-        <image name="img_bg_content_s" width="90" height="30"/>
-    </resources>
 </document>

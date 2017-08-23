@@ -275,37 +275,7 @@
          [self.navigationController pushViewController:vc animated:YES];
         
     }
-    /*
-    if(indexPath.section == 1){
-        // 选择服务领域
-        ChooseSeviceDomainViewController * vc = [[ChooseSeviceDomainViewController alloc]initWithNibName:@"ChooseSeviceDomainViewController" bundle:nil];
-        vc.domains = _showaddbillModel.service_sector;
-        vc.allowsMultipleSelection = YES;
-        vc.selectedContactIds = [self contactIdsForContacts:_selectedDomainsIds];
-
-        vc.domainsChooseSeviceDomainViewBlock = ^(NSArray * somains){
-            UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-            LxDBAnyVar(somains);
-            _selectedDomainsIds =somains;
-
-            NSMutableArray * titles = [NSMutableArray new];
-            NSMutableArray * ids = [NSMutableArray new];
-
-            [somains enumerateObjectsUsingBlock:^( Service_Sector12 *  user , NSUInteger idx, BOOL * _Nonnull stop) {
-                 [titles addObject:user.gc_name];
-                [ids addObject:user.gc_id];
-
-            }];
-            NSString * titleStr = [titles string];
-             cell.detailTextLabel.text = titleStr;
-            
-            _service_sectorStr = [ids string];
-            
-        };
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    */
+   
     if(indexPath.section == 1){
         STPickerDate *pickerDate = [[STPickerDate alloc]initWithRow:5];
         pickerDate.pickerDate3Block = ^(NSInteger year,NSInteger month,NSInteger day,NSString * time){
