@@ -175,14 +175,14 @@
         NSArray *array = (NSArray *)requestDic;
         [self.dataArray addObjectsFromArray:array];
 
-        self.page==1?[self.tableView headerEndRefresh]:[self.tableView footerEndRefresh];
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:self.tableView];
-        
         if (array.count < 10){
             [self.tableView hidenFooter];
         }
         
         [self.tableView reloadData];
+        
+        self.page==1?[self.tableView headerEndRefresh]:[self.tableView footerEndRefresh];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:self.tableView];
     } fail:^(NSString *error) {
         [self showErrorText:error];
         self.page==1?[self.tableView headerEndRefresh]:[self.tableView footerEndRefresh];
