@@ -78,7 +78,7 @@
     [self.couponView addTapAction:@selector(couponAction) forTarget:self];
     [self.iconImgV addTapAction:@selector(iconClickAction) forTarget:self];
     
-    self.messageLbl.layer.cornerRadius = 8;
+    self.messageLbl.layer.cornerRadius = 9;
 }
 
 
