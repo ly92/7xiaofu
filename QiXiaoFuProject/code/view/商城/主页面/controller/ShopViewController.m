@@ -96,7 +96,7 @@
     
     self.page = 1;
     _gc_id = @"0";
-    [self loadAllShopList];// 加载左侧全部商品对应的右侧列表数据
+    
     
     [self addRefsh];// 刷新控件
     
@@ -117,6 +117,8 @@
     
     [super viewWillAppear:animated];
     self.scrollviewRightDis.constant = kScreenWidth - 90;
+    
+    [self loadAllShopList];// 加载左侧全部商品对应的右侧列表数据
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
