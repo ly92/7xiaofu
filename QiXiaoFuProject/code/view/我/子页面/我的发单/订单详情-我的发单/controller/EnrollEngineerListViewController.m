@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSMutableArray *engineerArray;
 
+@property (nonatomic, copy) NSString *selectedId;
 @end
 
 @implementation EnrollEngineerListViewController
@@ -29,7 +30,29 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EnrollEngineerCell" bundle:nil] forCellReuseIdentifier:@"EnrollEngineerCell"];
     
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTitle:@"确定" target:self action:@selector(sureAction)];
+    self.selectedId = @"0";
+    
     [self loaddata];
+}
+
+- (void)sureAction{
+    
+    if ([self.selectedId isEqualToString:@"0"]){
+        [self showErrorText:@"请选择工程师！"];
+        return;
+    }
+    [self showLoading];
+    NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
+    params[@"bill_id"] = self.billId;
+    params[@"ot_user_id"] = self.selectedId;
+    [MCNetTool postWithUrl:@"tp.php/Home/Member/makeBill?" params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        [self showSuccessText:@"操作成功！"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } fail:^(NSString *error) {
+        [self showErrorText:error];
+    }];
 }
 
 - (NSMutableArray *)engineerArray{
@@ -75,28 +98,24 @@
         [cell.iconImgV setImageWithUrl:model.ot_user_avatar placeholder:kDefaultImage_header];
         cell.nameLbl.text = model.ot_user_name;
         
+        if ([model.ot_user_id isEqualToString:self.selectedId]){
+            cell.selectBtn.selected = YES;
+        }else{
+            cell.selectBtn.selected = NO;
+        }
+        
         cell.selectedEngineerBlock = ^{
-            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"指定工程师:%@ 接单？",model.ot_user_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
-                if(buttonIndex == 1){
-                    [self showLoading];
-                    NSMutableDictionary * params = [NSMutableDictionary new];
-                    params[@"userid"] = kUserId;
-                    params[@"bill_id"] = self.billId;
-                    params[@"ot_user_id"] = model.ot_user_id;
-                    [MCNetTool postWithUrl:@"tp.php/Home/Member/makeBill?" params:params success:^(NSDictionary *requestDic, NSString *msg) {
-                        [self showSuccessText:@"操作成功！"];
-                        [self.navigationController popViewControllerAnimated:YES];
-                    } fail:^(NSString *error) {
-                        [self showErrorText:error];
-                    }];
-                }
-            } otherButtonTitles:@"确定"];
-            [alert show];
+            
+            self.selectedId = model.ot_user_id;
+            [self.tableView reloadData];
+            
+//            BlockUIAlertView * alert = [[BlockUIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"指定工程师:%@ 接单？",model.ot_user_name] cancelButtonTitle:@"取消" clickButton:^(NSInteger buttonIndex) {
+//                if(buttonIndex == 1){
+//                                    }
+//            } otherButtonTitles:@"确定"];
+//            [alert show];
         };
     }
-    
-    
-    
     return cell;
 }
 

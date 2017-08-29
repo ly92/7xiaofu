@@ -91,7 +91,7 @@
 
 - (void)receiveOrder{
      UserInfoModel * user = [UserManager readModel];
-    if ([user.member_level isEqualToString:@"A"]){
+    if ([user.member_level isEqualToString:@"A"] || [user.member_level isEqualToString:@"DA"]){
         [self showErrorText:@"当前用户为A用户，不可补单！"];
         return;
     }

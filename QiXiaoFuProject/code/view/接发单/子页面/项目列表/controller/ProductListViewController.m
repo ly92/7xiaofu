@@ -168,7 +168,7 @@
         
         hud?[self dismissLoading]:nil;
         
-        NSArray * array = [ProductModel mj_objectArrayWithKeyValuesArray:requestDic];
+        NSArray * array = [ProductModel mj_objectArrayWithKeyValuesArray:[requestDic objectForKey:@"billList"]];
         
         page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
         

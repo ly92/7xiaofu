@@ -199,7 +199,14 @@
     }else{
         self.nameLbl.text = @"请设置昵称";
     }
-    self.invoteLbl.text = [NSString stringWithFormat:@"邀请码:%@",self.userInfoModel1.iv_code];
+    
+    if ([self.userInfoModel1.member_level isEqualToString:@"DA"]){
+        self.invoteLbl.hidden = YES;
+    }else{
+        self.invoteLbl.hidden = NO;
+        self.invoteLbl.text = [NSString stringWithFormat:@"邀请码:%@",self.userInfoModel1.iv_code];
+    }
+    
     
     self.signLbl.text = self.userInfoModel1.sign_day;
     self.creditsLbl.text = self.userInfoModel1.jifen;
@@ -273,7 +280,7 @@
         case 8:{
             //我要补单
             UserInfoModel * user = [UserManager readModel];
-            if ([user.member_level isEqualToString:@"A"]){
+            if ([user.member_level isEqualToString:@"A"] || [user.member_level isEqualToString:@"DA"]){
                 [self showErrorText:@"当前用户为A用户，不可补单！"];
                 return;
             }

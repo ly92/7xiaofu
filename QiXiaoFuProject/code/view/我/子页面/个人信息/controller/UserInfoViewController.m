@@ -163,6 +163,11 @@
         
         _userInfoModel1 = [UserInfoModel1 mj_objectWithKeyValues:requestDic];
         
+        
+        if ([_userInfoModel1.member_level isEqualToString:@"DA"]){
+            _titles = @[@"头像",@"昵称",@"实名认证",@"从业时间",@"职业资格证书",@"技术领域",@"擅长品牌",@"评论列表"];
+        }
+        
         [_tableView reloadData];
         
     } fail:^(NSString *error) {
@@ -348,7 +353,7 @@
         cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text =_titles[indexPath.row ];
         
-        if(indexPath.row == 7){
+        if(indexPath.row == 7 && self.titles.count == 9){
             cell.detailTextLabel.text = _userInfoModel1.iv_code;
         }else{
             cell.detailTextLabel.text = @"";
@@ -463,7 +468,7 @@
 
     }
     
-    if(indexPath.row == 8){
+    if(indexPath.row == 8 || (self.titles.count == 8 && indexPath.row == 7)){
         CommentListViewController * vc   =[[CommentListViewController alloc]initWithNibName:@"CommentListViewController" bundle:nil];
         vc.member_id = _userInfoModel1.member_id;
         vc.type = 2;
