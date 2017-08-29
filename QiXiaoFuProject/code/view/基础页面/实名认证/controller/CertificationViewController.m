@@ -71,22 +71,14 @@
         
         [self showCanEdit:YES photo:^(UIImage *photo,NSData * imageData) {
             
- 
-            [footerView.frontBtn setBackgroundImage:photo forState:UIControlStateNormal];
-            
-            
-            [self uploadImageData:imageData isFan:NO];
-            
+            [self uploadImageData:imageData image:photo isFan:NO];
         }];
         
     }];
     [footerView.tailBtn tapControlEventTouchUpInsideWithBlock:^(UIButton *btn) {
         
         [self showCanEdit:YES photo:^(UIImage *photo,NSData * imageData) {
-            
-            [footerView.tailBtn setBackgroundImage:photo forState:UIControlStateNormal];
-            [self uploadImageData:imageData isFan:YES];
-
+            [self uploadImageData:imageData image:photo isFan:YES];
         }];
         
     }];
@@ -176,7 +168,7 @@
 
 }
 #pragma mark - 上传图片
-- (void)uploadImageData:(NSData *)imageData isFan:(BOOL )isfan{
+- (void)uploadImageData:(NSData *)imageData image:(UIImage *)photo isFan:(BOOL )isfan{
 
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
@@ -190,8 +182,11 @@
         [self dismissLoading];
         
         if (isfan) {
+            [self.footerView.tailBtn setBackgroundImage:photo forState:UIControlStateNormal];
+            
             _real_img2 =requestDic[@"img"];
         }else{
+            [self.footerView.frontBtn setBackgroundImage:photo forState:UIControlStateNormal];
             _real_img1 =requestDic[@"img"];
         }
         
