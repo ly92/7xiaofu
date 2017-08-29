@@ -246,12 +246,25 @@
                                                                         <action selector="settingAction" destination="gWP-uB-Txz" eventType="touchUpInside" id="dc9-6B-vq2"/>
                                                                     </connections>
                                                                 </button>
+                                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jWI-Ya-JEb">
+                                                                    <rect key="frame" x="344" y="19.5" width="16" height="16"/>
+                                                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="16" id="1ci-NM-IvF"/>
+                                                                        <constraint firstAttribute="width" constant="16" id="3Ng-ay-WvG"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="6yD-0a-0M4" firstAttribute="centerX" secondItem="cEW-wc-0hD" secondAttribute="centerX" id="HnW-Lg-Fry"/>
+                                                                <constraint firstItem="jWI-Ya-JEb" firstAttribute="top" secondItem="LkN-wl-X6d" secondAttribute="top" id="cDj-qI-DLe"/>
                                                                 <constraint firstItem="6yD-0a-0M4" firstAttribute="centerY" secondItem="cEW-wc-0hD" secondAttribute="centerY" constant="10" id="hlI-Bd-WQM"/>
                                                                 <constraint firstItem="LkN-wl-X6d" firstAttribute="centerY" secondItem="cEW-wc-0hD" secondAttribute="centerY" constant="10" id="kKN-qK-aMv"/>
+                                                                <constraint firstItem="jWI-Ya-JEb" firstAttribute="trailing" secondItem="LkN-wl-X6d" secondAttribute="trailing" id="kYe-bg-H68"/>
                                                                 <constraint firstAttribute="trailing" secondItem="LkN-wl-X6d" secondAttribute="trailing" constant="15" id="liO-Gq-NAS"/>
                                                                 <constraint firstAttribute="height" constant="64" id="zTp-sP-tCZ"/>
                                                             </constraints>
@@ -1101,6 +1114,7 @@
                         <outlet property="creditsView" destination="in4-ja-JSi" id="1wj-Pr-LGl"/>
                         <outlet property="iconImgV" destination="Fxl-sb-1oe" id="WN4-ZW-JGf"/>
                         <outlet property="invoteLbl" destination="NHb-Uq-5Ff" id="r0h-Vt-7wa"/>
+                        <outlet property="messageLbl" destination="jWI-Ya-JEb" id="Y4z-v3-k6r"/>
                         <outlet property="nameLbl" destination="jKL-su-2nV" id="p59-IM-HKl"/>
                         <outlet property="orderLbl" destination="BMu-xK-PHC" id="cgC-Pe-hHu"/>
                         <outlet property="signLbl" destination="70J-qM-r2F" id="gHA-lc-HYr"/>

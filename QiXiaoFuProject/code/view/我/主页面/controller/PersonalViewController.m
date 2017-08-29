@@ -58,6 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIView *creditsView;
 @property (weak, nonatomic) IBOutlet UIView *signView;
 @property (weak, nonatomic) IBOutlet UIView *couponView;
+@property (weak, nonatomic) IBOutlet UILabel *messageLbl;
 
 
 @property (nonatomic, strong) UserInfoModel1 *userInfoModel1;
@@ -77,6 +78,7 @@
     [self.couponView addTapAction:@selector(couponAction) forTarget:self];
     [self.iconImgV addTapAction:@selector(iconClickAction) forTarget:self];
     
+    self.messageLbl.layer.cornerRadius = 8;
 }
 
 
@@ -86,6 +88,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     if (kUserId.length != 0) {
         [self loadMineDataInfo];
+        [self loadSystemMessageData];
     }
 }
 
@@ -322,6 +325,44 @@
         default:
             break;
     }
+
 }
+
+
+#pragma mark - 获取系统消息数据
+-(void)loadSystemMessageData{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    params[@"userid"] = kUserId;
+    params[@"op"] = @"message_list";
+    params[@"act"] = @"member_index";
+    params[@"store_id"] = @"1";
+    [MCNetTool postWithUrl:HttpApi params:params success:^(NSDictionary *requestDic, NSString *msg) {
+        NSArray *listArr =(NSArray *)requestDic;
+        
+        if (listArr.count > 0) {
+            NSDictionary *systemMessageDict = listArr[0];
+            NSArray *array = [systemMessageDict objectForKey:@"countnum_all_count"];
+            if (array.count > 0){
+                for (NSDictionary *dict in array) {
+                    if ([[dict objectForKey:@"msg_type"] intValue] == 0){
+                        if ([[dict objectForKey:@"countnum"] intValue] > 0){
+                            self.messageLbl.text = [NSString stringWithFormat:@"%@",[dict objectForKey:@"countnum"]];
+                            self.messageLbl.hidden = NO;
+                        }else{
+                            self.messageLbl.hidden = YES;
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+    } fail:^(NSString *error) {
+        
+        [PDHud showErrorWithStatus:error];
+    }];
+}
+
+
 
 @end
