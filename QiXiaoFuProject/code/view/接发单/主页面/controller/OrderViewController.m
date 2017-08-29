@@ -159,8 +159,8 @@
     if (!_switchSegment) {
         _switchSegment = [[YLSwitch alloc] initWithFrame:CGRectMake(0, 0, 111, 30)];
         _switchSegment.delegate = self;
-        _switchSegment.leftTitle = @"工程师";
-        _switchSegment.rightTitle = @"客户";
+        _switchSegment.leftTitle = @"接单";
+        _switchSegment.rightTitle = @"发单";
          _switchSegment.bgColor = RGB(223, 81, 50);
         _switchSegment.thumbColor = [UIColor whiteColor];
         self.navigationItem.titleView  = _switchSegment;
