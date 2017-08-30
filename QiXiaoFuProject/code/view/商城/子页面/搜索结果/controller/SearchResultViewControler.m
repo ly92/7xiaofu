@@ -91,10 +91,11 @@
     
     
     NSMutableDictionary * params = [NSMutableDictionary new];
+    params[@"userid"] = kUserId;
     params[@"store_id"] = @"1";//店铺ID
-    params[@"gc_id"] = gc_id;//商品分类ID
-    params[@"key"] = @"4";// 排序类型【1:销量】【2:人气（访问量）】【3:价格】【4:新品】
-    params[@"order"] = @"2";//排序方式【1:升序】【2:降序】
+//    params[@"gc_id"] = gc_id;//商品分类ID
+    params[@"key"] = @"1";// 排序类型【1:销量】【2:人气（访问量）】【3:价格】【4:新品】
+    params[@"order"] = @"1";//排序方式【1:升序】【2:降序】
     params[@"curpage"] = @(page);//页数
     if (_keyword) {
         params[@"keyword"] = _keyword;//搜索商品名称
@@ -107,7 +108,7 @@
     }
     
     
-    [MCNetTool postWithCachePageUrl:HttpShopList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
+    [MCNetTool postWithCachePageUrl:HttpShopSearchList params:params success:^(NSDictionary *requestDic, NSString *msg, BOOL hasmore, NSInteger page_total) {
         
         _page = page;
         _page ++;

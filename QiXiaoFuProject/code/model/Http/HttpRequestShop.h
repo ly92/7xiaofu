@@ -7,6 +7,9 @@ UIKIT_EXTERN NSString  * const HttpShopClass;
 /** 商品列表 */
 UIKIT_EXTERN NSString  * const HttpShopList;
 
+/** 搜索商品列表 */
+UIKIT_EXTERN NSString  * const HttpShopSearchList;
+
 /** 商品详情 */
 UIKIT_EXTERN NSString  * const HttpShopDetaile;
 

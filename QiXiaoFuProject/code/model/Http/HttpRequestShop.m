@@ -7,6 +7,9 @@ NSString  * const HttpShopClass = @"api/index.php?act=goods_class";
 /** 商品列表 */
 NSString  * const HttpShopList = @"api/index.php?act=goods&op=goods_list";
 
+/** 搜索商品列表 */
+NSString  * const HttpShopSearchList = @"tp.php/Home/RepositoryType/seachgoods?op=goods_list&act=goods";
+
 /** 商品详情 */
 NSString  * const HttpShopDetaile = @"api/index.php?act=goods&op=goods_detail";
 
