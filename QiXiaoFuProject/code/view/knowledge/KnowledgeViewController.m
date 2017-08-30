@@ -182,13 +182,16 @@
         NSArray *array = (NSArray *)requestDic;
         [self.dataArray addObjectsFromArray:array];
 
-        if (array.count < 10){
-            [_tableView hidenFooter];
-        }
+        
         
         [_tableView reloadData];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+        
+        if (array.count < 10){
+            [_tableView hidenFooter];
+        }
+        
     } fail:^(NSString *error) {
         [self showErrorText:error];
         self.page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
