@@ -11,7 +11,7 @@
 
 @protocol ShopFilterViewCellDelegate <NSObject>
 
-- (void)selectedValueChangeBlock:(NSInteger)section key:(NSInteger)index value:(NSString *)value;
+- (void)shopFilterSelectedValueChangeBlock:(NSInteger)section key:(NSInteger)index value:(NSString *)value;
 
 @end
 
@@ -20,7 +20,11 @@
 
 @property (strong, nonatomic) NSMutableArray *attributeArr;
 
+@property (strong, nonatomic) NSArray *attributeArr2;
+@property (nonatomic, strong) NSArray *selectedArr2;
+
 @property (strong, nonatomic) NSMutableArray *selectedArr;
+
 
 @property (assign, nonatomic) CGFloat height;
 

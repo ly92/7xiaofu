@@ -111,7 +111,7 @@
 
 #pragma mark - AF_BrandCellDelegate
 /** 取得选中选项的值，改变选项状态，刷新列表 */
-- (void)selectedValueChangeBlock:(NSInteger)section key:(NSInteger)index value:(NSString *)value{
+- (void)shopFilterSelectedValueChangeBlock:(NSInteger)section key:(NSInteger)index value:(NSString *)value{
 
     NSString *sectionStr = [NSString stringWithFormat:@"%ld", (long)section];
     NSMutableArray *arr = self.selectedDict[sectionStr];
@@ -162,8 +162,9 @@
     cell.tag = indexPath.section;
     cell.delegate = self;
     NSString *sectionStr = [NSString stringWithFormat:@"%ld", (long)indexPath.section];
-    cell.selectedArr = _selectedDict[sectionStr];
     cell.attributeArr = _dataArr;
+    cell.selectedArr = _selectedDict[sectionStr];
+    
     return cell;
    
 }

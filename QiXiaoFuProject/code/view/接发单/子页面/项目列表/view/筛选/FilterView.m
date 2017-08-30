@@ -13,10 +13,11 @@
 #import "STPickerDate.h"
 #import "ShopListModel.h"
 #import "NSDate+Utils.h"
+#import "ShopFilterViewCell.h"
 
 #define offset [UIScreen mainScreen].bounds.size.width/3*2
 
-@interface FilterView()<UITableViewDataSource, UITableViewDelegate, FilterViewCellDelegate>
+@interface FilterView()<UITableViewDataSource, UITableViewDelegate, FilterViewCellDelegate,ShopFilterViewCellDelegate>
 {
 //    AXPriceRangeCell *priceRangeCell;
 }
@@ -34,13 +35,23 @@
 /** 是否选中状态字典 */
 @property (strong, nonatomic) NSMutableDictionary *selectedDict;
 
+//选中的地址
+@property (nonatomic, strong) NSMutableArray *selectedArea;
+
+
+@property (nonatomic, strong) NSArray *areaList;
 
 @end
 
 
 @implementation FilterView
 
-
+- (NSMutableArray *)selectedArea{
+    if(!_selectedArea){
+        _selectedArea = [NSMutableArray array];
+    }
+    return _selectedArea;
+}
 
 - (FilterView *)filterView{
     FilterView *item = [[[NSBundle mainBundle] loadNibNamed:@"FilterView" owner:self options:nil] lastObject];
@@ -73,7 +84,9 @@
     self.headerTitArr = [NSMutableArray arrayWithObjects:@"预约"
                          ,@"自定义日期"
                          ,@"服务金额"
-                         ,@"自定义价格",nil];
+                         ,@"自定义价格"
+                         ,@"服务区域"
+                         ,nil];
     
     NSArray * yuyueArray = @[@"全部",@"7天以内",@"15天以内",@"15天以上"];
     NSArray * yuyueArray1=@[];
@@ -83,6 +96,11 @@
     [self.dataArr addObject:yuyueArray1];
     [self.dataArr addObject:priceArray];
     [self.dataArr addObject:priceArray1];
+    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"];
+    self.areaList = [[NSArray alloc]initWithContentsOfFile:plistPath];
+    
+    
      [self.tableV reloadData];
 
 
@@ -93,13 +111,19 @@
 
 #pragma mark - 重置
 - (IBAction)resetBtnAction:(id)sender {
-     [self.selectedDict removeAllObjects];
+    [self.selectedDict removeAllObjects];
+    [self.selectedArea removeAllObjects];
     for (int i = 0; i < self.headerTitArr.count; i++) {
-         NSMutableArray *selectedArr = [NSMutableArray array];
+        NSMutableArray *selectedArr = [NSMutableArray array];
         for (int i = 0; i < self.dataArr.count; i++) {
             [selectedArr addObject:@"NO"];
         }
-        [self.selectedDict setObject:selectedArr forKey:[NSString stringWithFormat:@"%d", i]];
+        if (i == 4){
+            [self.selectedDict setObject:[NSMutableArray array] forKey:[NSString stringWithFormat:@"%d", i]];
+        }else{
+            [self.selectedDict setObject:selectedArr forKey:[NSString stringWithFormat:@"%d", i]];
+        }
+        
     }
     [self.tableV reloadData];
 
@@ -147,6 +171,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
     return 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -172,6 +197,10 @@
 
     }else  if (indexPath.section == 3) {
         return 44;
+    }else if (indexPath.section == 4) {
+        ShopFilterViewCell *cell = [[ShopFilterViewCell alloc]init];
+        cell.attributeArr2 = self.areaList;
+        return cell.height;
     }
     return 44;
 }
@@ -269,6 +298,16 @@
         
         return cell;
     }
+    else if (indexPath.section == 4) {
+        
+        // 服务区域
+        ShopFilterViewCell *cell = [ShopFilterViewCell cellWithTableView:tableView dataArray:[NSMutableArray arrayWithArray:self.areaList] indexPath:indexPath];
+        cell.tag = indexPath.section;
+        cell.delegate = self;
+        cell.attributeArr2 = self.areaList;
+        cell.selectedArr2 = self.selectedArea;
+        return cell;
+    }
     return nil;
 }
 
@@ -285,7 +324,8 @@
         _tableV.dataSource = self;
         
         [_tableV registerNib:[UINib nibWithNibName:@"FilterViewRangeCell" bundle:nil] forCellReuseIdentifier:@"FilterViewRangeCell"];
-
+ [_tableV registerNib:[UINib nibWithNibName:@"AXPriceRangeCell" bundle:nil] forCellReuseIdentifier:@"priceRangeCell"];
+        
         [_contentView addSubview:_tableV];
     }
     return _tableV;
@@ -325,5 +365,21 @@
     // Drawing code
 }
 */
+
+
+#pragma mark - AF_BrandCellDelegate
+/** 取得选中选项的值，改变选项状态，刷新列表 */
+- (void)shopFilterSelectedValueChangeBlock:(NSInteger)section key:(NSInteger)index value:(NSString *)value{
+    
+    if ([value isEqualToString:@"YES"]){
+        [self.selectedArea addObject:[self.areaList[index] objectForKey:@"areaName"]];
+    }else{
+        if ([self.selectedArea containsObject:[self.areaList[index] objectForKey:@"areaName"]]){
+            [self.selectedArea removeObject:[self.areaList[index] objectForKey:@"areaName"]];
+        }
+    }
+    
+    [self.selectedDict setObject:self.selectedArea forKey:[NSString stringWithFormat:@"%@",@(section)]];
+}
 
 @end

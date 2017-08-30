@@ -811,6 +811,7 @@
 		0853FF2D1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0853FF2B1ED7BBC4005D0E94 /* SearchEngGoodsViewController.xib */; };
 		088BB21F1EEE7EA4003A1D80 /* TransferOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */; };
 		088BB2201EEE7EA4003A1D80 /* TransferOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */; };
+		0899B88D1F564D3000BA35C3 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0899B88C1F564D3000BA35C3 /* area.plist */; };
 		089C24581F45429F00ECF8C7 /* EnrollEngineerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C24561F45429F00ECF8C7 /* EnrollEngineerListViewController.m */; };
 		089C245D1F45430700ECF8C7 /* EnrollEngineerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 089C245B1F45430700ECF8C7 /* EnrollEngineerCell.m */; };
 		089C245E1F45430700ECF8C7 /* EnrollEngineerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089C245C1F45430700ECF8C7 /* EnrollEngineerCell.xib */; };
@@ -2365,6 +2366,7 @@
 		088BB21C1EEE7EA4003A1D80 /* TransferOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransferOrderViewController.h; sourceTree = "<group>"; };
 		088BB21D1EEE7EA4003A1D80 /* TransferOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransferOrderViewController.m; sourceTree = "<group>"; };
 		088BB21E1EEE7EA4003A1D80 /* TransferOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransferOrderViewController.xib; sourceTree = "<group>"; };
+		0899B88C1F564D3000BA35C3 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		089C24551F45429F00ECF8C7 /* EnrollEngineerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollEngineerListViewController.h; sourceTree = "<group>"; };
 		089C24561F45429F00ECF8C7 /* EnrollEngineerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollEngineerListViewController.m; sourceTree = "<group>"; };
 		089C245A1F45430700ECF8C7 /* EnrollEngineerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollEngineerCell.h; sourceTree = "<group>"; };
@@ -7453,6 +7455,7 @@
 				04E8BD4A1D587FE7003E4550 /* tool.h */,
 				041B32021D7E8C6700A8EBA2 /* Http */,
 				04E8BD3F1D587F6C003E4550 /* StaticConst */,
+				0899B88C1F564D3000BA35C3 /* area.plist */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -8164,6 +8167,7 @@
 				04891A321DD5CF8C0099E24F /* MyReceivingOrderCell.xib in Resources */,
 				048FF0D51D718B9E00268A78 /* ProductListViewController.xib in Resources */,
 				04DAC78D1DBDBEFD002235A7 /* CommentReplyViewController.xib in Resources */,
+				0899B88D1F564D3000BA35C3 /* area.plist in Resources */,
 				04891A391DD5CF8C0099E24F /* OrderDetaileCancleCell.xib in Resources */,
 				048FF2051D7528CC00268A78 /* fuwuxingshi.plist in Resources */,
 				0416E9F11D9B693300D59A0A /* README.txt in Resources */,

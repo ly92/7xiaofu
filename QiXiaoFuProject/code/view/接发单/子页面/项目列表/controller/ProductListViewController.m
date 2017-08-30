@@ -44,6 +44,7 @@
 @property(nonatomic, copy) NSString * service_eprice;//结束价格
 @property(nonatomic, copy) NSString * service_stime;//起始预约时间【时间戳
 @property(nonatomic, copy) NSString * service_etime;//结束预约时间【时间戳】
+@property (nonatomic, copy) NSString *address;//服务区域
 
 
 @end
@@ -59,7 +60,7 @@
     _dataArray = [NSMutableArray new];
     _page = 1;
     
-//    UIBarButtonItem * secrchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search" target:self action:@selector(secrchItemAction:)];
+    UIBarButtonItem * secrchItem = [UIBarButtonItem itemWithImage:@"icon_search" highImage:@"icon_search" target:self action:@selector(secrchItemAction:)];
     
     UIButton *filtButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [filtButton setBackgroundImage:[UIImage imageNamed:@"icon_select_n"] forState:UIControlStateNormal];
@@ -70,11 +71,12 @@
     
     _filtButton = filtButton;
     
-//    UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
-//    UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
-//    self.navigationItem.rightBarButtonItems= @[filtItem,item,secrchItem];
+    UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
+    UIBarButtonItem * filtItem2 = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
+    UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
+    self.navigationItem.rightBarButtonItems= @[filtItem2,item,filtItem,item,secrchItem];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
     
     _classifys = @[@"服务时间",@"服务金额"];
     _serviceTime = @[@"服务时间",@"默认",@"由远到近",@"由近到远"];
@@ -144,21 +146,24 @@
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);//页数
     params[@"gc_id"] = _gc_id;//	分类ID
-//    if (_keywords) {
-//        params[@"keywords"] = _keywords;//发单名称 【模糊搜索】
-//    }
-//    if (_service_sprice) {
-//        params[@"service_sprice"] = _service_sprice;//起始价格
-//    }
-//    if (_service_eprice) {
-//        params[@"service_eprice"] = _service_eprice;//结束价格
-//    }
-//    if (_service_stime) {
-//        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
-//    }
-//    if (_service_etime) {
-//        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
-//    }
+    if (_keywords) {
+        params[@"keywords"] = _keywords;//发单名称 【模糊搜索】
+    }
+    if (_service_sprice) {
+        params[@"service_sprice"] = _service_sprice;//起始价格
+    }
+    if (_service_eprice) {
+        params[@"service_eprice"] = _service_eprice;//结束价格
+    }
+    if (_service_stime) {
+        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
+    }
+    if (_service_etime) {
+        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
+    }
+    if (self.address) {
+        params[@"address"] = self.address;//服务区域
+    }
     
     
     [MCNetTool postWithCacheUrl:HttpMainProductList params:params success:^(NSDictionary *requestDic, NSString *msg) {
@@ -168,7 +173,7 @@
         
         hud?[self dismissLoading]:nil;
         
-        NSArray * array = [ProductModel mj_objectArrayWithKeyValuesArray:[requestDic objectForKey:@"billList"]];
+        NSArray * array = [ProductModel mj_objectArrayWithKeyValuesArray:requestDic];
         
         page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
         
@@ -327,7 +332,12 @@
         
     }
     
+    NSArray *arrar = [dict objectForKey:@"4"];
+    self.address = [arrar componentsJoinedByString:@","];
+    
     [self loadProductModelDataWithPage:1 hud:YES];
+    
+    
     
     
     [self dismisFilterView];

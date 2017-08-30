@@ -65,18 +65,18 @@
         [button setBackgroundColor:[UIColor whiteColor]];
         button.layer.borderWidth = 0.5;
         button.layer.borderColor = [UIColor redColor].CGColor;
-        [self.delegate selectedValueChangeBlock:self.tag key:button.tag value:@"YES"];
+        [self.delegate shopFilterSelectedValueChangeBlock:self.tag key:button.tag value:@"YES"];
     }else {
         button.selected = NO;
         [button setBackgroundColor:buttonBackgroundColor];
         button.layer.borderWidth = 0.0;
-        [self.delegate selectedValueChangeBlock:self.tag key:button.tag value:@"NO"];
+        [self.delegate shopFilterSelectedValueChangeBlock:self.tag key:button.tag value:@"NO"];
     }
 }
 
 - (void)setSelectedArr:(NSMutableArray *)selectedArr
 {
-    for (int i = 0; i < selectedArr.count; i++) {
+    for (int i = 0; i < _attributeArr.count; i++) {
         UIButton *button = buttonArr[i];
         //是否为选中状态
         NSString *selectedStr = selectedArr[i];
@@ -93,8 +93,28 @@
     }
 }
 
+- (void)setSelectedArr2:(NSArray *)selectedArr
+{
+    for (int i = 0; i < _attributeArr2.count; i++) {
+        UIButton *button = buttonArr[i];
+        //是否为选中状态
+        if ([selectedArr containsObject:button.titleLabel.text]) {
+            button.selected = YES;
+            [button setBackgroundColor:[UIColor whiteColor]];
+            button.layer.borderWidth = 0.5;
+            button.layer.borderColor = [UIColor redColor].CGColor;
+        }else {
+            button.selected = NO;
+            [button setBackgroundColor:buttonBackgroundColor];
+            button.layer.borderWidth = 0.0;
+        }
+    }
+}
+
 - (void)setAttributeArr:(NSMutableArray *)attributeArr
 {
+    _attributeArr = attributeArr;
+    
     /** 九宫格布局算法 */
     CGFloat spacing = 5.0;//行、列 间距
     int totalloc = 2;//列数
@@ -118,6 +138,35 @@
     _height = (spacing + appviewh) * (row + 1) + spacing;
     
 }
+
+- (void)setAttributeArr2:(NSArray *)attributeArr
+{
+    _attributeArr2 = attributeArr;
+    
+    /** 九宫格布局算法 */
+    CGFloat spacing = 5.0;//行、列 间距
+    int totalloc = 2;//列数
+    CGFloat appvieww = (offset - spacing*4)/totalloc;
+    CGFloat appviewh = 30;
+    int row = 0 ;
+    for (int i=0; i< attributeArr.count; i++) {
+        row = i/totalloc;//行号
+        int loc = i%totalloc;//列号
+        
+        CGFloat appviewx = spacing + (spacing + appvieww) * loc;
+        CGFloat appviewy = spacing + (spacing + appviewh) * row;
+        
+        UIButton *button = buttonArr[i];
+        
+        button.frame = CGRectMake(appviewx, appviewy, appvieww, appviewh);
+        NSDictionary * dict = attributeArr[i];
+        [button setTitle:[dict objectForKey:@"areaName"] forState:UIControlStateNormal];
+        
+    }
+    _height = (spacing + appviewh) * (row + 1) + spacing;
+    
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
