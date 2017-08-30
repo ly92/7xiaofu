@@ -29,7 +29,7 @@
 //添加底部刷新
 -(void)footerAddMJRefresh:(MJRefreshComponentRefreshingBlock)block {
     self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:block];
-    self.mj_footer.automaticallyHidden = YES;
+//    self.mj_footer.automaticallyHidden = YES;
 }
 
 //调用底部刷新

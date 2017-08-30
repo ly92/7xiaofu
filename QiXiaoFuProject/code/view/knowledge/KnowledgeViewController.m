@@ -73,14 +73,14 @@
     self.typeid = @"0";
     self.sortid = @"0";
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"KnowledgeListCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeListCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"KnowledgeListCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeListCell"];
     [self.topTableView registerNib:[UINib nibWithNibName:@"KnowledgeChooseCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeChooseCell"];
     
     [self loadSortData];
-    [self loadData];
-    [self addRefsh];
     
-//    [self.tableView addTapAction:@selector(hideTopTable) forTarget:self];
+    [self addRefsh];
+    [self loadData];
+    
 }
 - (IBAction)hideTopTable {
     self.leftBtn.selected = NO;
@@ -92,12 +92,14 @@
 
 #pragma mark - 刷新
 - (void)addRefsh{
-    [self.tableView headerAddMJRefresh:^{
+     _tableView.tableFooterView = [UIView new];
+    
+    [_tableView headerAddMJRefresh:^{
         self.page = 1;
         [self loadData];
     }];
     
-    [self.tableView footerAddMJRefresh:^{
+    [_tableView footerAddMJRefresh:^{
         self.page += 1;
         [self loadData];
     }];
@@ -170,23 +172,27 @@
     
     [MCNetTool postWithUrl:@"tp.php/Home/RepositoryType/seachpost" params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
-        self.page==1?[self.dataArray removeAllObjects]:@"";
+        if (self.page == 1){
+            [self.dataArray removeAllObjects];
+            [_tableView headerEndRefresh];
+        }else{
+            [_tableView footerEndRefresh];
+        }
         
         NSArray *array = (NSArray *)requestDic;
         [self.dataArray addObjectsFromArray:array];
 
         if (array.count < 10){
-            [self.tableView hidenFooter];
+            [_tableView hidenFooter];
         }
         
-        [self.tableView reloadData];
+        [_tableView reloadData];
         
-        self.page==1?[self.tableView headerEndRefresh]:[self.tableView footerEndRefresh];
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:self.tableView];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
     } fail:^(NSString *error) {
         [self showErrorText:error];
-        self.page==1?[self.tableView headerEndRefresh]:[self.tableView footerEndRefresh];
-        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:self.tableView];
+        self.page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+        [EmptyViewFactory emptyDataAnalyseWithDataSouce:self.dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
     }];
 }
 
@@ -295,7 +301,6 @@
         }
     }
 }
-
 
 
 @end
