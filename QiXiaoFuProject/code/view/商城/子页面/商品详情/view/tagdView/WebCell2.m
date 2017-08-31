@@ -38,6 +38,7 @@
         self.webView.delegate = self;
         self.webView.paginationBreakingMode = UIWebPaginationBreakingModePage;
         self.webView.scalesPageToFit = YES;
+        self.webView.dataDetectorTypes = UIDataDetectorTypeNone;
         [self.contentView addSubview:self.webView];
         
         
@@ -53,6 +54,8 @@
 -(void)setContentStr:(NSString *)contentStr
 {
     _contentStr = contentStr;
+    _contentStr = [_contentStr stringByReplacingOccurrencesOfString:@"<span style=\"line-height:18px;\">" withString:@""];
+    _contentStr = [_contentStr stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
     NSString *htmls = [NSString stringWithFormat:@"<html> \n"
                        "<head> \n"
                        "<style type=\"text/css\"> \n"

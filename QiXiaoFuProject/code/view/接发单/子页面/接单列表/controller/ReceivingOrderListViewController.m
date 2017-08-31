@@ -31,6 +31,10 @@
 
 @property (strong, nonatomic) FilterView * filterView;
 @property(nonatomic, copy) NSString * keywords;//	发单名称 【模糊搜索】
+@property(nonatomic, copy) NSString * service_sprice;//起始价格
+@property(nonatomic, copy) NSString * service_eprice;//结束价格
+@property(nonatomic, copy) NSString * service_stime;//起始预约时间【时间戳
+@property(nonatomic, copy) NSString * service_etime;//结束预约时间【时间戳】
 @property (nonatomic, copy) NSString *address;//服务区域
 
 @end
@@ -95,24 +99,24 @@
     if (_keywords) {
         params[@"keywords"] = _keywords;//发单名称 【模糊搜索】
     }
-//    if (_service_sprice) {
-//        params[@"service_sprice"] = _service_sprice;//起始价格
-//    }
-//    if (_service_eprice) {
-//        params[@"service_eprice"] = _service_eprice;//结束价格
-//    }
-//    if (_service_stime) {
-//        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
-//    }
-//    if (_service_etime) {
-//        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
-//    }
+    if (_service_sprice) {
+        params[@"service_sprice"] = _service_sprice;//起始价格
+    }
+    if (_service_eprice) {
+        params[@"service_eprice"] = _service_eprice;//结束价格
+    }
+    if (_service_stime) {
+        params[@"service_stime"] = _service_stime;//起始预约时间【时间戳】
+    }
+    if (_service_etime) {
+        params[@"service_etime"] = _service_etime;//结束预约时间【时间戳】
+    }
     if (self.address) {
         params[@"address"] = self.address;//服务区域
     }
     
     
-    [MCNetTool postWithCacheUrl:HttpMainProductList params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    [MCNetTool postWithCacheUrl:@"tp.php/Home/Index/searchALLBill" params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _page = page;
         _page ++;
@@ -252,77 +256,77 @@
     
     checkNULL(dict[@"0"]);
     
-    //    NSArray * yuyueArray = @[@"全部",@"7天以内",@"15天以内",@"15天以上"];
-//    NSString * index0 = checkNULL(dict[@"0"]);
+        NSArray * yuyueArray = @[@"全部",@"7天以内",@"15天以内",@"15天以上"];
+    NSString * index0 = checkNULL(dict[@"0"]);
     
-//    if (index0.length != 0) {
-//        
-//        NSInteger times = [[[NSDate date] timestamp] integerValue];
-//        if ([index0 integerValue] ==0){
-//            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
-//            _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
-//            
-//        }else if ([index0 integerValue] ==1){
-//            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
-//            _service_etime =[NSString stringWithFormat:@"%@",@(times + 7*24*60*60)];
-//        }else if ([index0 integerValue] ==2){
-//            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
-//            _service_etime =[NSString stringWithFormat:@"%@",@(times + 15*24*60*60)];
-//        }else if ([index0 integerValue] ==3){
-//            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
-//            _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
-//        }
-//        
-//    }
-//    
+    if (index0.length != 0) {
+        
+        NSInteger times = [[[NSDate date] timestamp] integerValue];
+        if ([index0 integerValue] ==0){
+            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
+            _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
+            
+        }else if ([index0 integerValue] ==1){
+            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
+            _service_etime =[NSString stringWithFormat:@"%@",@(times + 7*24*60*60)];
+        }else if ([index0 integerValue] ==2){
+            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
+            _service_etime =[NSString stringWithFormat:@"%@",@(times + 15*24*60*60)];
+        }else if ([index0 integerValue] ==3){
+            _service_stime = [NSString stringWithFormat:@"%@",@(times)];
+            _service_etime =[NSString stringWithFormat:@"%@",@(times + 10*365*24*60*60)];
+        }
+        
+    }
     
     
-//    //    NSArray * priceArray = @[@"全部",@"4000",@"2000-5000",@"5000以上"];
-//    NSString * index2 = checkNULL(dict[@"2"]);
-//    
-//    if (index2.length != 0) {
-//        
-//        if ([index2 integerValue] ==0){
-//            
-//            _service_sprice = [NSString stringWithFormat:@"%@",@(0)];
-//            _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
-//            
-//        }else if ([index2 integerValue] ==1){
-//            
-//            _service_sprice = [NSString stringWithFormat:@"%@",@(0)];
-//            _service_eprice = [NSString stringWithFormat:@"%@",@(4000)];
-//        }else if ([index2 integerValue] ==2){
-//            
-//            _service_sprice = [NSString stringWithFormat:@"%@",@(2000)];
-//            _service_eprice = [NSString stringWithFormat:@"%@",@(4000)];
-//            
-//        }else if ([index2 integerValue] ==3){
-//            
-//            _service_sprice = [NSString stringWithFormat:@"%@",@(5000)];
-//            _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
-//        }
-//    }
-//    
-//    
-//    NSString *  service_sprice = dict[@"211"];// 起始价格
-//    NSString *  service_eprice = dict[@"212"];// 起始价格
-//    
-//    if(service_eprice.length != 0){
-//        _service_sprice =service_sprice;// 起始价格
-//        _service_eprice =service_eprice;// 结束价格
-//    }
-//    
-//    
-//    NSString *  service_stime = dict[@"111"];// 开始时间
-//    //NSString *  service_etime = dict[@"112"];// 结束时间
-//    
-//    if (service_stime.length != 0) {
-//        // 开始时间
-//        _service_stime = [Utool timestampForDateFromString:dict[@"111"] withFormat:@"yyyy.MM.dd HH:mm"]          ;
-//        // 结束时间
-//        _service_etime = [Utool timestampForDateFromString:dict[@"112"] withFormat:@"yyyy.MM.dd HH:mm"];
-//        
-//    }
+    
+    //    NSArray * priceArray = @[@"全部",@"4000",@"2000-5000",@"5000以上"];
+    NSString * index2 = checkNULL(dict[@"2"]);
+    
+    if (index2.length != 0) {
+        
+        if ([index2 integerValue] ==0){
+            
+            _service_sprice = [NSString stringWithFormat:@"%@",@(0)];
+            _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
+            
+        }else if ([index2 integerValue] ==1){
+            
+            _service_sprice = [NSString stringWithFormat:@"%@",@(0)];
+            _service_eprice = [NSString stringWithFormat:@"%@",@(4000)];
+        }else if ([index2 integerValue] ==2){
+            
+            _service_sprice = [NSString stringWithFormat:@"%@",@(2000)];
+            _service_eprice = [NSString stringWithFormat:@"%@",@(4000)];
+            
+        }else if ([index2 integerValue] ==3){
+            
+            _service_sprice = [NSString stringWithFormat:@"%@",@(5000)];
+            _service_eprice = [NSString stringWithFormat:@"%@",@(99999999999)];
+        }
+    }
+    
+    
+    NSString *  service_sprice = dict[@"211"];// 起始价格
+    NSString *  service_eprice = dict[@"212"];// 起始价格
+    
+    if(service_eprice.length != 0){
+        _service_sprice =service_sprice;// 起始价格
+        _service_eprice =service_eprice;// 结束价格
+    }
+    
+    
+    NSString *  service_stime = dict[@"111"];// 开始时间
+    //NSString *  service_etime = dict[@"112"];// 结束时间
+    
+    if (service_stime.length != 0) {
+        // 开始时间
+        _service_stime = [Utool timestampForDateFromString:dict[@"111"] withFormat:@"yyyy.MM.dd HH:mm"]          ;
+        // 结束时间
+        _service_etime = [Utool timestampForDateFromString:dict[@"112"] withFormat:@"yyyy.MM.dd HH:mm"];
+        
+    }
     
     NSArray *arrar = [dict objectForKey:@"4"];
     self.address = [arrar componentsJoinedByString:@","];
