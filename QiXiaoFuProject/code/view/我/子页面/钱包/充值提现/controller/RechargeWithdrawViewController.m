@@ -342,18 +342,48 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     if (section == 0 && _vcType==2) {
-        UILabel * titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+        
+        UILabel * titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, kScreenWidth-20, 17)];
         titleLab.font = [UIFont systemFontOfSize:13];
-        titleLab.text = [NSString stringWithFormat:@"   可提现金额: ¥%@",_keTixianMoney];
+        titleLab.text = [NSString stringWithFormat:@"可提现金额: ¥%@",_keTixianMoney];
         titleLab.textColor = [UIColor darkGrayColor];
-        return titleLab;
+        [view addSubview:titleLab];
+        
+        /**
+         大A：您的冻结金额为10000元，每增加一个A，增加500元；每增加一个B，增加300元；每增加一个C，增加200元。
+         A：您的冻结金额为5000元，每增加一个B，增加300元；每增加一个C，增加200元。
+         B：您的冻结金额为3000元，每增加一个C，增加200元。
+         C：您的冻结金额为2000元.
+         */
+        
+        UILabel * titleLab1 = [[UILabel alloc]initWithFrame:CGRectMake(10, 17, kScreenWidth - 20, 33)];
+        titleLab1.font = [UIFont systemFontOfSize:13];
+        titleLab1.numberOfLines = 0;
+        UserInfoModel * user = [UserManager readModel];
+        if ([user.member_level isEqualToString:@"DA"]){
+            titleLab1.text = @"您的冻结金额为10000元，每增加一个A，增加500元；每增加一个B，增加300元；每增加一个C，增加200元。";
+        }else if ([user.member_level isEqualToString:@"A"]){
+            titleLab1.text = @"您的冻结金额为5000元，每增加一个B，增加300元；每增加一个C，增加200元。";
+        }else if ([user.member_level isEqualToString:@"B"]){
+            titleLab1.text = @"您的冻结金额为3000元，每增加一个C，增加200元。";
+        }else{
+            titleLab1.text = @"您的冻结金额为2000元.";
+        }
+        
+        
+        titleLab1.textColor = [UIColor darkGrayColor];
+        [view addSubview:titleLab1];
+        
+        return view;
     }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        return _vcType==1?0.0001f:30.0f;
+        return _vcType==1?0.0001f:50.0f;
     }
     return 0.0001f;
 }
