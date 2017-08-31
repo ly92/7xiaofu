@@ -96,10 +96,8 @@ static NSString * const kSeverPrice = @"服务价格";
     }];
     
     _tableView.tableFooterView = footView;
-    //检查是否已报名
-    [self checkEnroll];
     
-    
+     [self loadOrderDetaile];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -136,8 +134,6 @@ static NSString * const kSeverPrice = @"服务价格";
         }else{
             _footerView.hidden = NO;
         }
-        
-        [self loadOrderDetaile];
     } fail:^(NSString *error) {
     }];
 
@@ -168,13 +164,12 @@ static NSString * const kSeverPrice = @"服务价格";
         }];
         
         
-//        if (_productDetaileModel.button_type == 0) {
-////            _footerView.recevingOrderBtn.enabled = NO;
-//            _footerView.hidden = YES;
-//        }else{
-////            _footerView.recevingOrderBtn.enabled = YES;
-//            _footerView.hidden = NO;
-//        }
+        if (_productDetaileModel.button_type == 0) {
+            _footerView.hidden = YES;
+        }else{
+            //检查是否已报名
+            [self checkEnroll];
+        }
         
         [self dismissLoading];
         [_tableView reloadData];

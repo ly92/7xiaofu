@@ -74,9 +74,12 @@
     UIBarButtonItem * filtItem = [[UIBarButtonItem alloc]initWithCustomView:filtButton];
     UIBarButtonItem * filtItem2 = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
     UIBarButtonItem * item =    [UIBarButtonItem itemWithImage:@"" highImage:@"" target:self action:nil];
-    self.navigationItem.rightBarButtonItems= @[filtItem2,item,filtItem,item,secrchItem];
+//    self.navigationItem.rightBarButtonItems= @[filtItem2,item,filtItem,item,secrchItem];
     
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
+    if (self.sortArray.count > 0){
+        self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"Classification" highImage:nil target:self action:@selector(rightItemAction)];
+    }
+    
     
     _classifys = @[@"服务时间",@"服务金额"];
     _serviceTime = @[@"服务时间",@"默认",@"由远到近",@"由近到远"];
