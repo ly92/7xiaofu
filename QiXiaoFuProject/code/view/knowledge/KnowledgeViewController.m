@@ -235,8 +235,8 @@
             cell.nameLbl.text = [dict objectForKey:@"nik_name"];
             cell.titleLbl.text = [dict objectForKey:@"post_title"];
             cell.contentLbl.text = [dict objectForKey:@"post_content"];
-            cell.agreeLbl.text = [NSString stringWithFormat:@"%@赞同",[dict objectForKey:@"upvote_num"]];
-            NSDate *time = [NSDate dateFromString:[dict objectForKey:@"input_time"]];
+            cell.agreeLbl.text = [NSString stringWithFormat:@"%@赞",[dict objectForKey:@"upvote_num"]];
+             NSDate *time = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"input_time"] doubleValue]];
             if ([time isToday]){
                 if ([time hoursBeforeDate:[NSDate date]] > 0){
                     cell.timeLbl.text = [NSString stringWithFormat:@"%ld小时前",(long)[time hoursBeforeDate:[NSDate date]]];

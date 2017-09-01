@@ -61,7 +61,7 @@
         self.contentLbl.text = content;
         
         self.scrollContentVH.constant = size.height + 180;
-        NSDate *time = [NSDate dateFromString:[requestDic objectForKey:@"input_time"]];
+        NSDate *time = [NSDate dateWithTimeIntervalSince1970:[[requestDic objectForKey:@"input_time"] doubleValue]];
         if ([time isToday]){
             if ([time hoursBeforeDate:[NSDate date]] > 0){
                 self.timeLbl.text = [NSString stringWithFormat:@"%ld小时前",(long)[time hoursBeforeDate:[NSDate date]]];
