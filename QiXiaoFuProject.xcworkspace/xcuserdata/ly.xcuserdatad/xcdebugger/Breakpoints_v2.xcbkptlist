@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiXiaoFuProject/code/view/&#x5546;&#x57ce;/&#x5b50;&#x9875;&#x9762;/&#x641c;&#x7d22;&#x7ed3;&#x679c;/controller/SearchResultViewControler.m"
+            timestampString = "525929554.964571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-loadShopListWithGc_id:page:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SearchResultViewControler loadShopListWithGc_id:page:]"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E5%95%86%E5%9F%8E/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C/controller/SearchResultViewControler.m"
+                  timestampString = "525938631.24541"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "2169">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56-[SearchResultViewControler loadShopListWithGc_id:page:]_block_invoke"
+                  moduleName = "QiXiaoFuProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ly/Desktop/7xiaofu/QiXiaoFuProject/code/view/%E5%95%86%E5%9F%8E/%E5%AD%90%E9%A1%B5%E9%9D%A2/%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C/controller/SearchResultViewControler.m"
+                  timestampString = "525938631.247512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

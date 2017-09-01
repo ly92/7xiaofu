@@ -54,7 +54,7 @@
 
 @property (strong, nonatomic) NSMutableArray *quaryArray;
 @property (nonatomic,copy)NSString * zuidiedu;//资金沉淀金额
-
+@property (nonatomic,copy)NSString * rechargeDescStr;//
 
 @end
 
@@ -364,16 +364,17 @@
         UILabel * titleLab1 = [[UILabel alloc]initWithFrame:CGRectMake(10, 17, kScreenWidth - 20, 33)];
         titleLab1.font = [UIFont systemFontOfSize:13];
         titleLab1.numberOfLines = 0;
-        UserInfoModel * user = [UserManager readModel];
-        if ([user.member_level isEqualToString:@"DA"]){
-            titleLab1.text = @"您的冻结金额为10000元，每增加一个A，增加500元；每增加一个B，增加300元；每增加一个C，增加200元。";
-        }else if ([user.member_level isEqualToString:@"A"]){
-            titleLab1.text = @"您的冻结金额为5000元，每增加一个B，增加300元；每增加一个C，增加200元。";
-        }else if ([user.member_level isEqualToString:@"B"]){
-            titleLab1.text = @"您的冻结金额为3000元，每增加一个C，增加200元。";
-        }else{
-            titleLab1.text = @"您的冻结金额为2000元.";
-        }
+        titleLab1.text = self.rechargeDescStr;
+//        UserInfoModel * user = [UserManager readModel];
+//        if ([user.member_level isEqualToString:@"DA"]){
+//            titleLab1.text = @"您的冻结金额为10000元，每增加一个A，增加500元；每增加一个B，增加300元；每增加一个C，增加200元。";
+//        }else if ([user.member_level isEqualToString:@"A"]){
+//            titleLab1.text = @"您的冻结金额为5000元，每增加一个B，增加300元；每增加一个C，增加200元。";
+//        }else if ([user.member_level isEqualToString:@"B"]){
+//            titleLab1.text = @"您的冻结金额为3000元，每增加一个C，增加200元。";
+//        }else{
+//            titleLab1.text = @"您的冻结金额为2000元.";
+//        }
         
         
         titleLab1.textColor = [UIColor darkGrayColor];
@@ -414,6 +415,7 @@
         
 //        _keTixianMoney = [NSString stringWithFormat:@"%@",@([_available_predeposit floatValue] - [_zuidiedu floatValue])];
         _keTixianMoney = requestDic[@"cash_available"];
+        self.rechargeDescStr = [requestDic objectForKey:@"explain"];
         
         _tixianPlas = [_keTixianMoney floatValue]< 0?@"您的提现金额不足":_keTixianMoney;
 

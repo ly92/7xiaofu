@@ -164,11 +164,11 @@ static NSString * const kSeverPrice = @"服务价格";
         }];
         
         
-        if (_productDetaileModel.button_type == 0) {
-            _footerView.hidden = YES;
-        }else{
+        if (_productDetaileModel.bill_statu == 1) {
             //检查是否已报名
             [self checkEnroll];
+        }else{
+            _footerView.hidden = YES;
         }
         
         [self dismissLoading];
