@@ -79,10 +79,22 @@
     [self.tableView registerClass:[WebCell class] forCellReuseIdentifier:@"webCell"];
     [self.tableView registerClass:[WebCell2 class] forCellReuseIdentifier:@"webCell2"];
     
+    
+
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self loadDetail];
+}
+
+- (void)loadDetail{
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"goods_id"] = _goods_id;
     params[@"userid"] = kUserId;
-
+    
     [MCNetTool postWithCacheUrl:HttpShopDetaile params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _goodsDetaileModel = [GoodsDetaileModel mj_objectWithKeyValues:requestDic];
@@ -91,13 +103,13 @@
         [UIImage loadImageWithUrl:_goodsDetaileModel.share_img_url returnImage:^(UIImage *image) {
             _shareImage = image;
         }];
-         if(_goodsDetaileModel.is_fav == 1){
+        if(_goodsDetaileModel.is_fav == 1){
             _colloctBtn.selected = YES;
-         }else{
+        }else{
             _colloctBtn.selected = NO;
-         }
-         [_bannerArray setArray:_goodsDetaileModel.goods_image];
-         [_banner reloadData];
+        }
+        [_bannerArray setArray:_goodsDetaileModel.goods_image];
+        [_banner reloadData];
         [_tableView reloadData];
         
     } fail:^(NSString *error) {
@@ -105,10 +117,9 @@
         
         
     }];
-    
 
-    // Do any additional setup after loading the view from its nib.
 }
+
 #pragma mark - 收藏
 - (void)collectItemAction:(UIButton *)btn{
     

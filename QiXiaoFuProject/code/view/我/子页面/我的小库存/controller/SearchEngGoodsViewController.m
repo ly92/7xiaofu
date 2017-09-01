@@ -53,7 +53,7 @@
     [searchBtn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(filtAction) forControlEvents:UIControlEventTouchUpInside];
     
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(60, 0, kScreenWidth - 130, 30)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 130, 30)];
     searchBar.delegate = self;
     [searchBar setImage:[UIImage imageNamed:@"icon_search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [searchBar setBackgroundImage:[UIImage imageNamed:@"btn_btnbox_gray"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
@@ -61,7 +61,7 @@
     self.searchBar = searchBar;
     [self.searchBar becomeFirstResponder];
     
-    [navView addSubview:searchBtn];
+//    [navView addSubview:searchBtn];
     [navView addSubview:searchBar];
     
     self.navigationItem.titleView = navView;
@@ -89,7 +89,7 @@
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);
-    params[@"search_type"] = self.search_type;
+    params[@"search_type"] = @"1";
     params[@"search_key"] = self.search_key;
     
     

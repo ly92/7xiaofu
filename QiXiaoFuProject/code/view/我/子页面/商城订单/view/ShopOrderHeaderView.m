@@ -98,7 +98,7 @@
     
     
     if (type == 0) {
-         _state1Lab.text = @"已退货";
+         _state1Lab.text = @"已取消";
         _state1Lab.hidden = NO;
         _stateLab.hidden = YES;
         _timeLab.hidden = YES;
@@ -184,7 +184,7 @@
                 case 5:{
                     //5代表等待用户确认第二部
                     if ([refund_type intValue] == 1){
-                        _state1Lab.text = @"退货完成";
+                        _state1Lab.text = @"已完成";
                     }else{
                         _state1Lab.text = @"换货待收货";
                     }
@@ -193,9 +193,9 @@
                 case 6:{
                     //6。表示后台交易完成
                     if ([refund_type intValue] == 1){
-                        _state1Lab.text = @"退货完成";
+                        _state1Lab.text = @"已完成";
                     }else{
-                        _state1Lab.text = @"换货已收货";
+                        _state1Lab.text = @"已完成";
                     }
                 }
                 break;
@@ -222,7 +222,7 @@
 -(void)timerLabel:(WB_Stopwatch*)timerlabel
        countingTo:(NSTimeInterval)time
         timertype:(WB_StopwatchLabelType)timerType {
-    NSLog(@"time:%f",time);
+//    NSLog(@"time:%f",time);
     
 }
 

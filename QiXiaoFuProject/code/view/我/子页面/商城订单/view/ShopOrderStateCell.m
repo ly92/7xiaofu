@@ -83,7 +83,7 @@
 
     if (type == 0) {
     
-        _state1Lab.text = @"已退货";
+        _state1Lab.text = @"已取消";
         _state1Lab.hidden = NO;
         _stateLab.hidden = YES;
         _timeLab.hidden = YES;
@@ -218,7 +218,7 @@
 -(void)timerLabel:(WB_Stopwatch*)timerlabel
        countingTo:(NSTimeInterval)time
         timertype:(WB_StopwatchLabelType)timerType {
-    NSLog(@"time:%f",time);
+//    NSLog(@"time:%f",time);
     
 }
 

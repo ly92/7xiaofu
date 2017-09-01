@@ -447,8 +447,12 @@
 }
 
 - (IBAction)payBtnAction:(UIButton *)sender {
-    
-    
+    self.payBtn.enabled = NO;
+    self.payBtn.backgroundColor = [UIColor lightGrayColor];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.payBtn.enabled = YES;
+        self.payBtn.backgroundColor = kThemeColor;
+    });
     if (_useWallet) {
         
         // 使用钱包   ---去输入平台支付密码
@@ -518,12 +522,10 @@
                 
                 [self showErrorText:@"支付密码不正确"];
                 [weekPayPassword removeAllNumbers];
-                
             }
             
             
         } fail:^(NSString *error) {
-            
             [self showErrorText:error];
             
         }];
@@ -540,7 +542,6 @@
 
         ForgetPayPassViewController * vc = [[ForgetPayPassViewController alloc]initWithNibName:@"ForgetPayPassViewController" bundle:nil];
         [self.navigationController pushViewController:vc animated:YES];
-
      }];
     
 }

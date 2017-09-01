@@ -22,7 +22,7 @@
 #import "NSString+Utils.h"
 #import "ForgetPayPassViewController.h"
 #import "BlockUIAlertView.h"
-
+#import "CertificationViewController.h"
 
 @interface RechargeWithdrawViewController ()<UITableViewDelegate,UITableViewDataSource>{
 
@@ -101,9 +101,12 @@
             [self rechargeRequest];// 充值
         }else{
         
-        
-            [self reCrash];//  提现
-            
+            [Utool verifyLoginAndCertification:self LogonBlock:^{
+                [self reCrash];//  提现
+            } CertificationBlock:^{
+                CertificationViewController * vc = [[CertificationViewController alloc]initWithNibName:@"CertificationViewController" bundle:nil];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
         }
         
     }];

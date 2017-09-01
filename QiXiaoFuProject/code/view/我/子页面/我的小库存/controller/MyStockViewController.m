@@ -67,8 +67,11 @@
     NSMutableDictionary * params = [NSMutableDictionary new];
     params[@"userid"] = kUserId;
     params[@"curpage"] = @(page);
- 
-    [MCNetTool postWithCacheUrl:HttpMeGetEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
+    params[@"search_type"] = @"1";
+    params[@"search_key"] = @"";
+    
+    
+    [MCNetTool postWithCacheUrl:HttpMeSearchEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
         
         _page = page;
         _page ++;
@@ -85,7 +88,7 @@
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-
+        
         
     } fail:^(NSString *error) {
         [self showErrorText:error];
@@ -93,9 +96,45 @@
         page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
         
         [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
-
-
+        
+        
     }];
+
+    
+    
+    
+//    NSMutableDictionary * params = [NSMutableDictionary new];
+//    params[@"userid"] = kUserId;
+//    params[@"curpage"] = @(page);
+// 
+//    [MCNetTool postWithCacheUrl:HttpMeGetEngGoodsSn params:params success:^(NSDictionary *requestDic, NSString *msg) {
+//        
+//        _page = page;
+//        _page ++;
+//        
+//        NSArray * array = [MyStockModel mj_objectArrayWithKeyValuesArray:requestDic];
+//        
+//        page==1?[_dataArray setArray:array]:[_dataArray addObjectsFromArray:array];
+//        
+//        [_tableView reloadData];
+//        
+//        if (array.count < 10) {
+//            [_tableView hidenFooter];
+//        }
+//        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+//        
+//        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+//
+//        
+//    } fail:^(NSString *error) {
+//        [self showErrorText:error];
+//        
+//        page==1?[_tableView headerEndRefresh]:[_tableView footerEndRefresh];
+//        
+//        [EmptyViewFactory emptyDataAnalyseWithDataSouce:_dataArray empty:EmptyDataTableViewDefault withScrollView:_tableView];
+//
+//
+//    }];
 
 }
 
