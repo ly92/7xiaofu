@@ -67,7 +67,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.sortArray = @[@{@"id":@"1",@"name":@"按发布时间"},@{@"id":@"2",@"name":@"按点赞数量"}];
+    self.sortArray = @[@{@"id":@"0",@"name":@"默认排序"},@{@"id":@"1",@"name":@"按发布时间"},@{@"id":@"2",@"name":@"按点赞数量"}];
     self.leftIndex = 0;
     self.page = 1;
     self.typeid = @"0";
@@ -76,12 +76,20 @@
     [_tableView registerNib:[UINib nibWithNibName:@"KnowledgeListCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeListCell"];
     [self.topTableView registerNib:[UINib nibWithNibName:@"KnowledgeChooseCell" bundle:nil] forCellReuseIdentifier:@"KnowledgeChooseCell"];
     
-    [self loadSortData];
+    
     
     [self addRefsh];
     [self loadData];
     
 }
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadSortData];
+    
+}
+
 - (IBAction)hideTopTable {
     self.leftBtn.selected = NO;
     self.centerBtn.selected = NO;
@@ -155,6 +163,8 @@
     
     [MCNetTool postWithUrl:@"tp.php/Home/RepositoryType/index" params:params success:^(NSDictionary *requestDic, NSString *msg) {
         [self.leftArray removeAllObjects];
+        NSDictionary *dict = @{@"id":@"0",@"name":@"所有品牌",@"smallList" : @[@{@"id":@"0",@"name":@"所有系列"}]};
+        [self.leftArray addObject:dict];
         [self.leftArray addObjectsFromArray:(NSArray *)requestDic];
     } fail:^(NSString *error) {
         [self showErrorText:error];
@@ -282,7 +292,7 @@
             if (self.leftBtn.selected){
                 self.leftIndex = indexPath.row;
                 self.leftLbl.text = [dict objectForKey:@"name"];
-                self.centerLbl.text = @"所有品牌";
+                self.centerLbl.text = @"所有系列";
                 self.typeid = [dict objectForKey:@"id"];
             }else if (self.centerBtn.selected){
                 self.centerLbl.text = [dict objectForKey:@"name"];
